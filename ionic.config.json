@@ -1,0 +1,7 @@
+{
+  "name": "Ejercicio_Hotel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
