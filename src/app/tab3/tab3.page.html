@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Actividades
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,83 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Actividades</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<!-- <app-explore-container name="Tab 3 page"></app-explore-container> --> 
+
+  <h2>Aqui se muestran las actividades que puedes realziar en la laguna de Santa Maria del Oro, algunas recomendaciones
+     ademas de conocer un poco sobre la historia de la laguna y los numero de emergencia.
+  </h2>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Actividades</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Paseo en Lancha y Pesca deportiva.
+      </div>
+      <div class="ion-padding" slot="content">
+        Deportes Acuáticos : Windsurf , Kayak y WakeBoarding
+      </div>
+      <div class="ion-padding" slot="content">
+        Podras nadar, hacer Snorkel y Buceo en altitud.
+      </div>
+      <div class="ion-padding" slot="content">
+        Acampar, hacer Rappel y tirarte de una tirolesa.
+      </div>
+    </ion-accordion>
+
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Recomendaciones</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Visitar la laguna de Santa María del Oro.
+      </div>
+      <div class="ion-padding" slot="content">
+        Visitar la Cascada de la Silla.
+      </div>
+      <div class="ion-padding" slot="content">
+        Ir a ver el Templo del Señor de la Asención
+      </div>
+      <div class="ion-padding" slot="content">
+        Visitar las Ruinas de la Hacienda San José Mojarras
+      </div>
+    </ion-accordion>
+
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Un poco de Historia</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Una leyenda de desamor rodea este bello lugar. Se dice que el rey de Michiztlán, un poblado antiguo, 
+        tenía una hija hermosa. Ésta se enamoró de un hombre que formaba parte de un pueblo enemigo. 
+        El rey, al enterarse de esto, enfureció y mandó amarrar a ambos jóvenes a distintos postes cerca 
+        del cráter donde se encuentra la laguna. Al verse el uno al otro, pero sin poderse tocar, 
+        lloraron toda la noche hasta que sus lágrimas formaron la laguna.
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="fourth">
+      <ion-item slot="header" color="light">
+        <ion-label>Números de Emergencia</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        Bomberos: 213-16-07, 213-18-09
+      </div>
+      <div class="ion-padding" slot="content">
+        Emergencias: 066
+      </div>
+      <div class="ion-padding" slot="content">
+        Seguridad para el turista: 01-800-90392.
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+
 </ion-content>
