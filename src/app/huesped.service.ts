@@ -11,12 +11,12 @@ export class HuespedService {
   constructor() { 
     this.huespeds =[
       {
-        name: "",
-        phone: "",
-        dateAdmission: "",
-        departureDate:"",
-        room:"",
-        token:""
+        name: "Huesped1",
+        phone: "3111934812",
+        dateAdmission: "2022-11-20T09:46:26.329Z",
+        departureDate:"2022-11-25T09:46:26.329Z",
+        room:"A1",
+        token:"qhroiwqhklbkljfksa"
       }]
   }
 
@@ -40,5 +40,15 @@ export class HuespedService {
 
   public removeHuesped(pos:number):void{
     this.huespeds.splice(pos,1);
+  }
+
+  public studentLogin(tok: String): Huesped{
+    let item: Huesped;
+    item = this.huespeds.find(
+      (huesped)=> {
+        return huesped.token==tok;
+      }
+    );
+    return item;
   }
 }

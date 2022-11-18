@@ -65,6 +65,8 @@ export class NewHuespedPage implements OnInit {
 
   public newHuesped(data):void{
     //Construir el objeto
+    data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
+    console.log(data.token);
     this.huesped = data;
     this.huespedService.newHuesped(this.huesped);
     this.presentToast();

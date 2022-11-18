@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HuespedService } from '../huesped.service';
+import { Huesped } from '../models/huesped';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +10,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  public huesped:Huesped;
+
+  constructor(private huespedService:HuespedService, private aRoute:ActivatedRoute) {}
+
+  ngOnInit() {
+    this.aRoute.queryParams.subscribe(
+      (params)=>{
+        //console.log(params);
+        this.huesped = this.huespedService.getHuespedByToken(params['token']);
+      }
+    );
+  }
 
 }

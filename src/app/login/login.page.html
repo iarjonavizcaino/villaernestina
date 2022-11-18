@@ -6,14 +6,14 @@
 
 <ion-content>
   <div>
-  <form>
+  <form [formGroup]="myForm">
     <ion-item lines="full">
       <ion-label position="floating">Token</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" required formControlName="token" type="password"></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
+        <ion-button type="submit" color="danger" expand="block" (click)="login(myForm.value)">Sign In</ion-button>
       </ion-col>
     </ion-row>
   </form>

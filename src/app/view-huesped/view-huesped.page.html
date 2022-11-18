@@ -11,6 +11,7 @@
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
           <ion-item>
             <ion-label>{{item.name}}</ion-label>
+            <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank">Enviar token</a>
           </ion-item>
 
           <ion-item-options side="end" (ionSwipe)="removeHuesped(i)">
