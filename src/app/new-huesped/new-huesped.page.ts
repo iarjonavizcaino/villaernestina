@@ -16,9 +16,11 @@ export class NewHuespedPage implements OnInit {
   public myForm: FormGroup;
   public validatorMessages: Object;
   public today: any;
+  public rooms: String[];
   constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { }
 
   ngOnInit() {
+    this.rooms = ["A1", "A2", "B1", "B2", "C1", "C2"];
     this.getDate();
     this.myForm = this.fb.group({
       name:["",Validators.required],
@@ -66,7 +68,7 @@ export class NewHuespedPage implements OnInit {
     this.huesped = data;
     this.huespedService.newHuesped(this.huesped);
     this.presentToast();
-    this.router.navigate(['/new-huesped']);
+    this.router.navigate(['/view-huesped']);
   }
 
 }

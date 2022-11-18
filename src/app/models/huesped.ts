@@ -4,4 +4,5 @@ export class Huesped {
     dateAdmission: string;
     departureDate: string;
     room: string;
+    token: string;
 }

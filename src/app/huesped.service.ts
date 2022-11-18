@@ -15,7 +15,8 @@ export class HuespedService {
         phone: "",
         dateAdmission: "",
         departureDate:"",
-        room:""
+        room:"",
+        token:""
       }]
   }
 
@@ -23,7 +24,21 @@ export class HuespedService {
     return this.huespeds;
   }
 
+  public getHuespedByToken(tkn:string): Huesped{
+    let item : Huesped;
+    item = this.huespeds.find(
+      (huesped)=>{
+        return huesped.token==tkn;
+      }
+    );
+    return item;
+   }
+
   public newHuesped(huesped:Huesped):void{
     this.huespeds.push(huesped);
    }
+
+  public removeHuesped(pos:number):void{
+    this.huespeds.splice(pos,1);
+  }
 }

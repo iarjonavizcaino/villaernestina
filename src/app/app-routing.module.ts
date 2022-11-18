@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'view-huesped',
     loadChildren: () => import('./view-huesped/view-huesped.module').then( m => m.ViewHuespedPageModule)
+  },  {
+    path: 'info-huesped',
+    loadChildren: () => import('./info-huesped/info-huesped.module').then( m => m.InfoHuespedPageModule)
   }
+
 
 ];
 @NgModule({

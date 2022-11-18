@@ -32,7 +32,7 @@
             </ng-container>
           </div>
           <ion-item>
-            <ion-datetime [min]="today" formControlName="dateAdmission">
+            <ion-datetime [min]="today" presentation="date" formControlName="dateAdmission" [preferWheel]="true">
               <span slot="title">Selecciona la fecha a reservar</span>
             </ion-datetime>
           </ion-item>
@@ -45,7 +45,7 @@
           </div>
 
           <ion-item>
-            <ion-datetime [min]="today" formControlName="departureDate">
+            <ion-datetime [min]="today" presentation="date" formControlName="departureDate" [preferWheel]="true">
               <span slot="title">Selecciona la fecha de salida</span>
             </ion-datetime>
           </ion-item>
@@ -59,9 +59,9 @@
 
           <ion-item>
             <ion-select interface="popover" formControlName="room" placeholder="Selecciona la habitación">
-              <ion-select-option value="apples">Apples</ion-select-option>
-              <ion-select-option value="oranges">Oranges</ion-select-option>
-              <ion-select-option value="bananas">Bananas</ion-select-option>
+              <ng-container *ngFor="let r of rooms">
+              <ion-select-option [value]="r">{{r}}</ion-select-option>
+            </ng-container>
             </ion-select>
           </ion-item>
           <div>
