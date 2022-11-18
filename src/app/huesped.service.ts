@@ -34,6 +34,16 @@ export class HuespedService {
     return item;
    }
 
+   public getHuespedByDate(dt:string): Huesped{
+    let item : Huesped;
+    item = this.huespeds.find(
+      (huesped)=>{
+        return huesped.dateAdmission==dt;
+      }
+    );
+    return item;
+   }
+
   public newHuesped(huesped:Huesped):void{
     this.huespeds.push(huesped);
    }

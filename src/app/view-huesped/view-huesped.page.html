@@ -1,17 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewHuesped</ion-title>
+    <ion-title>Lista de huéspedes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-row>
     <ion-col>
-      <ion-list>
+      <ion-list no-border>
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
-          <ion-item>
-            <ion-label>{{item.name}}</ion-label>
-          </ion-item>
+          <ng-container *ngIf="item.name != ''">
+              <ion-item>
+                <ion-icon name='logo-whatsapp' item-start></ion-icon>
+                {{item.name}}
+                <ion-note item-end>
+                {{item.dateAdmission}}
+                </ion-note>
+              </ion-item>
+          </ng-container>
 
           <ion-item-options side="end" (ionSwipe)="removeHuesped(i)">
             <ion-item-option expandable color="danger">

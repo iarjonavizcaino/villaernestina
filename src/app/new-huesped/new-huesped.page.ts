@@ -16,6 +16,7 @@ export class NewHuespedPage implements OnInit {
   public myForm: FormGroup;
   public validatorMessages: Object;
   public today: any;
+  public dateSelected: any;
   public rooms: String[];
   constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { }
 
@@ -51,7 +52,7 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2); console.log(this.today); }
+  getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); console.log(this.today); }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -63,12 +64,38 @@ export class NewHuespedPage implements OnInit {
     await toast.present();
   }
 
+  async presentToastRoom() {
+    const toast = await this.toastController.create({
+      message: 'Habitación no disponible para las fechas que requiere',
+      duration: 1500,
+      position: 'bottom'
+    });
+
+    await toast.present();
+  }
+
   public newHuesped(data):void{
-    //Construir el objeto
-    this.huesped = data;
-    this.huespedService.newHuesped(this.huesped);
-    this.presentToast();
-    this.router.navigate(['/view-huesped']);
+    if(this.checkRoom(data['room'],data['dateAdmission'])){
+      //Construir el objeto
+      this.huesped = data;
+      this.huespedService.newHuesped(this.huesped);
+      this.presentToast();
+      this.router.navigate(['/view-huesped']);
+    }else{
+      this.presentToastRoom();
+    }
+  }
+
+  public checkRoom(room,dA){
+    if(this.huespedService.getHuespedByDate(room)){
+      if(this.huespedService.getHuespedByDate(room).departureDate >= dA){
+        return false;
+      }else{
+        return true;
+      }
+    }else{
+      return true;
+    }
   }
 
 }
