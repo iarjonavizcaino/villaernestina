@@ -77,6 +77,7 @@ export class NewHuespedPage implements OnInit {
   public newHuesped(data):void{
     if(this.checkRoom(data['room'],data['dateAdmission'])){
       //Construir el objeto
+      data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
       this.huesped = data;
       this.huespedService.newHuesped(this.huesped);
       this.presentToast();

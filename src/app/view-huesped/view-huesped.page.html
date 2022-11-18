@@ -9,6 +9,7 @@
     <ion-col>
       <ion-list no-border>
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
+<<<<<<< HEAD
           <ng-container *ngIf="item.name != ''">
               <ion-item>
                 <ion-icon name='logo-whatsapp' item-start></ion-icon>
@@ -18,6 +19,12 @@
                 </ion-note>
               </ion-item>
           </ng-container>
+=======
+          <ion-item>
+            <ion-label>{{item.name}}</ion-label>
+            <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank">Enviar token</a>
+          </ion-item>
+>>>>>>> 8bc8a37c5f9ca361384ca9c1888bbeea8ab872a3
 
           <ion-item-options side="end" (ionSwipe)="removeHuesped(i)">
             <ion-item-option expandable color="danger">

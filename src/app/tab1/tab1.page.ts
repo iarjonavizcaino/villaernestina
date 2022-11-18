@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  langs:string[] = [];
+
+  constructor(private translateService : TranslateService) {
+    this.langs = this.translateService.getLangs();
+  }
+
+  changeLang(event){
+    this.translateService.use(event.detail.value);
+    console.log(event.detail.value)
+  }
 
 }
