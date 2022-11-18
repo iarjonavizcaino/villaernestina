@@ -88,8 +88,9 @@ export class NewHuespedPage implements OnInit {
   }
 
   public checkRoom(room,dA){
-    if(this.huespedService.getHuespedByDate(room)){
-      if(this.huespedService.getHuespedByDate(room).departureDate >= dA){
+    console.log(this.huespedService.getHuespedByRoom(room));
+    if(this.huespedService.getHuespedByRoom(room)){
+      if(this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)){
         return false;
       }else{
         return true;

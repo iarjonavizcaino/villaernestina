@@ -34,11 +34,11 @@ export class HuespedService {
     return item;
    }
 
-   public getHuespedByDate(dt:string): Huesped{
+   public getHuespedByRoom(rm:string): Huesped{
     let item : Huesped;
     item = this.huespeds.find(
       (huesped)=>{
-        return huesped.dateAdmission==dt;
+        return huesped.room==rm;
       }
     );
     return item;
