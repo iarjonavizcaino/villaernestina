@@ -6,3 +6,9 @@ export class Huesped {
     room: string;
     token: string;
 }
+
+export class Habitacion{
+    hab: string;
+    code: string;
+    price: Number;
+}

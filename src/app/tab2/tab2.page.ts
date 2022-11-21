@@ -23,4 +23,12 @@ export class Tab2Page {
     );
   }
 
+  public getCodeByRoom(room:String):String{
+    return this.huespedService.getCodeByRoom(room);
+  }
+
+  public enFecha():Boolean{
+    return false;
+  }
+
 }
