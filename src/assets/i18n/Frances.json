@@ -33,5 +33,7 @@
     "NUMEROS":"Numéros d'urgence",
     "NUM1":"Pompiers: 213-16-07, 213-18-09",
     "NUM2":"Les urgences: 066",
-    "NUM3":"Sécurité pour le touriste: 01-800-90392."
+    "NUM3":"Sécurité pour le touriste: 01-800-90392.",
+    "INGRESOINCORRECTO":"CE N'EST PAS ENCORE VOTRE DATE D'ENTREE, REVENEZ PLUS TARD!",
+    "SALDOPAGAR":"En attente de paiement"
 }

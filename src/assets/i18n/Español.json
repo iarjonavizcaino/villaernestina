@@ -33,5 +33,7 @@
     "NUMEROS":"Números de Emergencia",
     "NUM1":" Bomberos: 213-16-07, 213-18-09",
     "NUM2":" Emergencias: 066",
-    "NUM3":"Seguridad para el turista: 01-800-90392."
+    "NUM3":"Seguridad para el turista: 01-800-90392.",
+    "INGRESOINCORRECTO":"AÚN NO ES TU FECHA DE INGRESO, REGRESA DESPUÉS!",
+    "SALDOPAGAR":"Falta por pagar"
 }

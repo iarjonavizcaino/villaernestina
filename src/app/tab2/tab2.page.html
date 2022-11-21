@@ -36,6 +36,11 @@
     <h2>{{"CODIGO" | translate}}</h2>
     <h4>{{getCodeByRoom(huesped.room)}}</h4>
   </div>
+
+  <div class = "FaltaPagar">
+    <h2>{{"SALDOPAGAR" | translate}}</h2>
+   
+  </div>
   
 </ion-content>
 <ion-content [fullscreen]="true" *ngIf="!enFecha()" >
@@ -45,6 +50,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <h1> AÚN NO ES TU FECHA DE INGRESO, REGRESA DESPUÉS! </h1>
+  <h1> {{"INGRESOINCORRECTO" | translate}} </h1>
   
 </ion-content>
