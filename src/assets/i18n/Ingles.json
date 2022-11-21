@@ -10,7 +10,7 @@
     "PROHIBICION2":"Carry weapons of any kind.",
     "PROHIBICION3":"Make annoying noises and/or provoke altercations.",
     "PROHIBICION4":"Cut trees, wash vehicles and make bonfires.",
-    "INGRESO":"entry",
+    "INGRESO":"Entry",
     "BIENVENIDA":"Welcome to the Grand Hotel",
     "UBICACION":"Location",
     "UBICACION1":"C. Juárez Sur 85, La Higuera, 63830 Santa María del Oro, Nay.",
@@ -33,5 +33,7 @@
     "NUMEROS":"Emergency numbers",
     "NUM1":" Firemen: 213-16-07, 213-18-09",
     "NUM2":" Emergencies: 066",
-    "NUM3":"Safety for the tourist: 01-800-90392."
+    "NUM3":"Safety for the tourist: 01-800-90392.",
+    "INGRESOINCORRECTO":"IT IS NOT YET YOUR ENTRY DATE, COME BACK LATER!",
+    "SALDOPAGAR":"Pending to pay"
 }
