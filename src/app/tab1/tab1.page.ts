@@ -10,13 +10,13 @@ export class Tab1Page {
 
   langs:string[] = [];
 
-  constructor(private translateService : TranslateService) {
-    this.langs = this.translateService.getLangs();
+  constructor(public translate : TranslateService) {
+   // this.langs = this.translateService.getLangs();
   }
 
-  changeLang(event){
+  /*changeLang(event){
     this.translateService.use(event.detail.value);
     console.log(event.detail.value)
-  }
+  }*/
 
 }

@@ -1,5 +1,6 @@
 {
     "REGLAS" : "Rules",
+    "IDIOMA": "Choose the language: ",
     "REGLA1": "The client must respect the check-in and check-out times stated in their reservation.",
     "REGLA2":"Each client is responsible for the damages and/or losses that they cause to themselves, other guests and/or hotel staff.",
     "REGLA3":"People other than those registered may not enter the hotel.",

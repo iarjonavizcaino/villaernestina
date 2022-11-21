@@ -11,8 +11,13 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import {registerLocaleData} from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs,'es');
+
 export function HttpLoaderFactory(httpClient: HttpClient){
-  return new TranslateHttpLoader(httpClient,"../assts/i18n/",".json");
+  return new TranslateHttpLoader(httpClient);
 }
 
 @NgModule({
@@ -23,11 +28,12 @@ export function HttpLoaderFactory(httpClient: HttpClient){
       loader:{
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps:[HttpClient]
+        deps:[HttpClient],
       }
     })
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  exports:[TranslateModule]
 })
 export class AppModule {}

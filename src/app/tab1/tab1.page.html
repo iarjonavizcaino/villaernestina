@@ -1,38 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{"REGLAS" | translate}}
+      {{'REGLAS' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-item class="select">
-    <ion-label>IDIOMA</ion-label>
-    <ion-select cancelText="Cancel" placeholder='Selecciona' (ionChange)="changeLang($event)">
-      <ion-select-option *ngFor="let lang of langs">{{lang}}</ion-select-option>
-    </ion-select>
-  </ion-item>
+<ion-content [fullscreen]="true"> 
+  
+ <div>
+  <label>
+    {{'IDIOMA'| translate}}
+    <select #langSelect (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == translate.currentLang">{{lang}}</option>
+    </select>
+  </label>
+ </div>
 
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large"> {{"REGLAS" | translate}}</ion-title>
+      <ion-title size="large"> {{'REGLAS' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
  <ol start = "1">
-  <li> {{"REGLA1" | translate}}</li>
-  <li> {{"REGLA2" | translate}}</li>
-  <li> {{"REGLA3" | translate}}</li>
-  <li> {{"REGLA4" | translate}}</li>
-  <li>{{"PROHIBICION" | translate}}
+  <li> {{'REGLA1' | translate}}</li>
+  <li> {{'REGLA2' | translate}}</li>
+  <li> {{'REGLA3' | translate}}</li>
+  <li> {{'REGLA4' | translate}}</li>
+  <li>{{'PROHIBICION' | translate}}
   	<ul type = "i">
-  		<li>{{"PROHIBICION1" | translate}}</li>
-  		<li>{{"PROHIBICION2" | translate}}</li>
-      <li>{{"PROHIBICION3" | translate}}</li>
-      <li>{{"PROHIBICION4" | translate}}</li>
+  		<li>{{'PROHIBICION1' | translate}}</li>
+  		<li>{{'PROHIBICION2' | translate}}</li>
+      <li>{{'PROHIBICION3' | translate}}</li>
+      <li>{{'PROHIBICION4' | translate}}</li>
   	</ul>
   </li>
 </ol>
