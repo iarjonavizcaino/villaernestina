@@ -14,11 +14,12 @@
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
           <ng-container *ngIf="item.name != ''">
               <ion-item>
-                <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank"><ion-icon name='logo-whatsapp' item-start></ion-icon></a>
-                {{item.name}}
-                <ion-note item-end>
-                {{item.dateAdmission.substring(0,10)}}
-                </ion-note>
+                <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
+                <ion-label class="name">
+                  {{item.name}}
+                </ion-label>
+                <ion-note slot="end">Fecha de ingreso:</ion-note>
+                <ion-note slot="end">{{item.dateAdmission.substring(0,10)}}</ion-note>
               </ion-item>
           </ng-container>
           <!--ion-item>

@@ -1,4 +1,4 @@
-import { Habitacion } from './models/huesped';
+import { Room } from './models/huesped';
 import { Injectable } from '@angular/core';
 import { Huesped } from "src/app/models/huesped";
 
@@ -8,7 +8,7 @@ import { Huesped } from "src/app/models/huesped";
 export class HuespedService {
 
   private huespeds: Huesped[];
-  private habitacion: Habitacion[];
+  private rooms: Room[];
 
   constructor() {
     this.huespeds = [
@@ -18,31 +18,32 @@ export class HuespedService {
         dateAdmission: "2022-11-20T09:46:26.329Z",
         departureDate: "2022-11-25T09:46:26.329Z",
         room: "A1",
+        advance:0.0,
         token: "qhroiwqhklbkljfksa"
       }];
-    this.habitacion = [
+    this.rooms = [
       {
-        hab: "A1",
+        room: "A1",
         code: "4578",
         price: 500
       },{
-        hab: "A2",
+        room: "A2",
         code: "7864",
         price: 5000
       },{
-        hab: "B1",
+        room: "B1",
         code: "9887",
         price: 100
       },{
-        hab: "B2",
+        room: "B2",
         code: "1278",
         price: 1000
       },{
-        hab: "C1",
+        room: "C1",
         code: "3633",
         price: 599
       },{
-        hab: "C2",
+        room: "C2",
         code: "5210",
         price: 1599
       }
@@ -53,11 +54,25 @@ export class HuespedService {
     return this.huespeds;
   }
 
-  public getCodeByRoom(room:String):String{
-    let item : Habitacion;
-    item = this.habitacion.find(
+  public getRooms(): Room[]{
+    return this.rooms;
+  }
+
+  public getPriceRoom(r:String): number{
+    let item : Room;
+    item = this.rooms.find(
       (habitacion)=>{
-        return habitacion.hab==room;
+        return habitacion.room==r;
+      }
+    );
+    return item.price;
+  }
+
+  public getCodeByRoom(room:String):String{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==room;
       }
     );
     return item.code;

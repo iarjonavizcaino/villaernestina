@@ -4,11 +4,12 @@ export class Huesped {
     dateAdmission: string;
     departureDate: string;
     room: string;
+    advance:number;
     token: string;
 }
 
-export class Habitacion{
-    hab: string;
+export class Room{
+    room: string;
     code: string;
-    price: Number;
+    price: number;
 }

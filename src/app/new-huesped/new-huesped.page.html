@@ -65,7 +65,7 @@
           <ion-item id="item">
             <ion-select interface="popover" formControlName="room" placeholder="Selecciona la habitación">
               <ng-container *ngFor="let r of rooms">
-              <ion-select-option [value]="r">{{r}}</ion-select-option>
+              <ion-select-option [value]="r.room">{{r.room}}</ion-select-option>
             </ng-container>
             </ion-select>
           </ion-item>
@@ -76,13 +76,26 @@
               </div>
             </ng-container>
           </div>
+          <ng-container *ngFor="let item of validatorMessages['room']">
+            <ion-item id="item" *ngIf="(myForm.get('room').dirty || myForm.get('room').touched) && !myForm.get('room').hasError(item.type)">
+              <ion-label position="floating">Anticipo</ion-label>
+              <ion-input formControlName="advance"></ion-input>
+            </ion-item>
+          </ng-container>
+          <div>
+            <ng-container *ngFor="let item of validatorMessages['advance']">
+              <div class="errormessages" *ngIf="(myForm.get('advance').dirty || myForm.get('advance').touched) && myForm.get('advance').hasError(item.type)">
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
         </ion-col>
       </ion-row>
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="myForm.valid">
-      <ion-fab-button (click)="newHuesped(myForm.value)">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
     </form>
   </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="myForm.valid">
+    <ion-fab-button (click)="newHuesped(myForm.value)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
