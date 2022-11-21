@@ -29,7 +29,6 @@ export class Tab2Page {
 
   public enFecha(llegada:String, salida:String):Boolean{
     let fecha = new Date;
-    console.log(fecha.toISOString());
     
     return (llegada <= fecha.toISOString() && salida >= fecha.toISOString());
   }
