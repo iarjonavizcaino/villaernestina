@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="enFecha()" >
+<ion-content [fullscreen]="true" *ngIf="enFecha(huesped.dateAdmission, huesped.departureDate)" >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large"> {{"INGRESO" | translate}}</ion-title>
@@ -39,11 +39,12 @@
 
   <div class = "FaltaPagar">
     <h2>{{"SALDOPAGAR" | translate}}</h2>
+    <h4>{{restante(huesped.room, huesped.advance)}}</h4>
    
   </div>
   
 </ion-content>
-<ion-content [fullscreen]="true" *ngIf="!enFecha()" >
+<ion-content [fullscreen]="true" *ngIf="!enFecha(huesped.dateAdmission, huesped.departureDate)" >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large"> {{"INGRESO" | translate}}</ion-title>

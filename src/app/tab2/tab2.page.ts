@@ -27,8 +27,15 @@ export class Tab2Page {
     return this.huespedService.getCodeByRoom(room);
   }
 
-  public enFecha():Boolean{
-    return false;
+  public enFecha(llegada:String, salida:String):Boolean{
+    let fecha = new Date;
+    console.log(fecha.toISOString());
+    
+    return (llegada <= fecha.toISOString() && salida >= fecha.toISOString());
+  }
+
+  public restante(room:String, ant:number): String{
+    return this.huespedService.restante(room, ant);
   }
 
 }

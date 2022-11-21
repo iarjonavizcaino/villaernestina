@@ -18,8 +18,8 @@ export class HuespedService {
         dateAdmission: "2022-11-20T09:46:26.329Z",
         departureDate: "2022-11-25T09:46:26.329Z",
         room: "A1",
-        advance:0.0,
-        token: "qhroiwqhklbkljfksa"
+        advance: 350.50,
+        token: "abcdefghijk"
       }];
     this.rooms = [
       {
@@ -68,16 +68,6 @@ export class HuespedService {
     return item.price;
   }
 
-  public getCodeByRoom(room:String):String{
-    let item : Room;
-    item = this.rooms.find(
-      (habitacion)=>{
-        return habitacion.room==room;
-      }
-    );
-    return item.code;
-  }
-
   public getHuespedByToken(tkn:string): Huesped{
     let item : Huesped;
     item = this.huespeds.find(
@@ -114,5 +104,29 @@ export class HuespedService {
       }
     );
     return item;
+  }
+
+  public getCodeByRoom(room:String):String{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==room;
+      }
+    );
+    return item.code;
+  }
+
+  public restante(room:String, ant:number): String{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==room;
+      }
+    );
+    if(item.price==ant){
+      return "Costo cubierto totalmente :D";
+    }else{
+      return "$" + (item.price - ant) + " MXN";
+    }
   }
 }
