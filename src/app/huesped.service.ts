@@ -116,17 +116,17 @@ export class HuespedService {
     return item.code;
   }
 
-  public restante(room:String, ant:number): String{
+  public restante(room:String, ant:number): number{
     let item : Room;
     item = this.rooms.find(
       (habitacion)=>{
         return habitacion.room==room;
       }
     );
-    if(item.price==ant){
-      return "Costo cubierto totalmente :D";
+    if(item.price<=ant){
+      return 0;//"Costo cubierto totalmente :D";
     }else{
-      return "$" + (item.price - ant) + " MXN";
+      return item.price - ant;//"$" + (item.price - ant) + " MXN";
     }
   }
 }

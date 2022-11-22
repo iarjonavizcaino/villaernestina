@@ -33,7 +33,7 @@ export class Tab2Page {
     return (llegada <= fecha.toISOString() && salida >= fecha.toISOString());
   }
 
-  public restante(room:String, ant:number): String{
+  public restante(room:String, ant:number): number{
     return this.huespedService.restante(room, ant);
   }
 
