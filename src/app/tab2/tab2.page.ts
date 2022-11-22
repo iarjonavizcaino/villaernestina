@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HuespedService } from '../huesped.service';
 import { Huesped } from '../models/huesped';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tab2',

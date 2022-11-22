@@ -15,8 +15,8 @@ export class AppComponent {
 
   constructor(public translate: TranslateService){
     translate.addLangs(['Español','Frances','Ingles']);
-    translate.setDefaultLang('Espanol');
-    translate.use('Espanol');
+    translate.setDefaultLang('Español');
+    translate.use('Español');
   }
 
 }

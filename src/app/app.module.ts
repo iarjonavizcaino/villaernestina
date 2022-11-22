@@ -14,7 +14,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {registerLocaleData} from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 
-registerLocaleData(localeEs,'es');
+registerLocaleData(localeEs,'Español');
 
 export function HttpLoaderFactory(httpClient: HttpClient){
   return new TranslateHttpLoader(httpClient);

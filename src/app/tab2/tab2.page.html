@@ -39,7 +39,7 @@
 
   <div class = "FaltaPagar">
     <h2>{{"SALDOPAGAR" | translate}}</h2>
-    <h4 *ngIf="restante(huesped.room, huesped.advance) == 0" >Costo cubierto totalmente :D</h4>
+    <h4 *ngIf="restante(huesped.room, huesped.advance) == 0" >{{"COSTOCUBIERTO" | translate}}</h4>
     <h4 *ngIf="restante(huesped.room, huesped.advance) != 0" >${{restante(huesped.room, huesped.advance)}} MXN</h4>
    
   </div>
