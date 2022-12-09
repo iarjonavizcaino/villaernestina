@@ -65,7 +65,7 @@
           <ion-item id="item">
             <ion-select interface="popover" formControlName="room" placeholder="Selecciona la habitación">
               <ng-container *ngFor="let r of rooms">
-              <ion-select-option [value]="r.room">{{r.room}}</ion-select-option>
+              <ion-select-option [value]="r.room">{{r.room +' - $'+r.price}}</ion-select-option>
             </ng-container>
             </ion-select>
           </ion-item>

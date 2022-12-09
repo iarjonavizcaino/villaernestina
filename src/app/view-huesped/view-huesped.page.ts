@@ -17,13 +17,17 @@ export class ViewHuespedPage implements OnInit {
   public huesped: Huesped;
 
   constructor(private huespedService: HuespedService,private alertController: AlertController,private router: Router) {
-    this.huespeds = huespedService.getHuespeds();
+    //this.huespeds = huespedService.getHuespeds();
+    this.huespedService.getHuespeds().subscribe(res =>{
+      this.huespeds = res;
+      console.log(this.huespeds);
+    })
    }
 
   ngOnInit() {
   }
 
-  async removeHuesped(pos:number) {
+  async removeHuesped(id:string) {
     const alert = await this.alertController.create({
       header: '¿Desea eliminar?',
       buttons: [
@@ -38,8 +42,7 @@ export class ViewHuespedPage implements OnInit {
           text: 'OK',
           role: 'confirm',
           handler: () => {
-            this.huespedService.removeHuesped(pos);
-            this.huespeds=this.huespedService.getHuespeds();
+            this.huespedService.removeHuesped(id);
             this.handlerMessage = 'Eliminado';
           },
         },

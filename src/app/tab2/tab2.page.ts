@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HuespedService } from '../huesped.service';
-import { Huesped } from '../models/huesped';
+import { Huesped, Room } from '../models/huesped';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -11,7 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class Tab2Page {
 
-  public huesped:Huesped;
+  public huespeds:Huesped[];
+  public rooms:Room[];
 
   constructor(private huespedService:HuespedService, private aRoute:ActivatedRoute) {}
 
@@ -19,13 +20,22 @@ export class Tab2Page {
     this.aRoute.queryParams.subscribe(
       (params)=>{
         //console.log(params);
-        this.huesped = this.huespedService.getHuespedByToken(params['token']);
+        //this.huesped = this.huespedService.getHuespedByToken(params['token']);
+        this.huespedService.getHuespedsByTokenToShow(params['token']).subscribe(res =>{
+          this.huespeds = res;
+          console.log(this.huespeds);
+        })
       }
     );
   }
 
   public getCodeByRoom(room:String):String{
-    return this.huespedService.getCodeByRoom(room);
+    //return this.huespedService.getCodeByRoom(room);
+    this.huespedService.getRooms().subscribe(res =>{
+      this.rooms = res;
+      console.log(this.huespeds);
+    })
+    return this.getCode(room);
   }
 
   public enFecha(llegada:String, salida:String):Boolean{
@@ -35,7 +45,31 @@ export class Tab2Page {
   }
 
   public restante(room:String, ant:number): number{
-    return this.huespedService.restante(room, ant);
+    return this.restanteAux(room, ant);
+  }
+
+  public getCode(room:String):String{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==room;
+      }
+    );
+    return item.code;
+  }
+
+  public restanteAux(room:String, ant:number): number{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==room;
+      }
+    );
+    if(item.price<=ant){
+      return 0;//"Costo cubierto totalmente :D";
+    }else{
+      return item.price - ant;//"$" + (item.price - ant) + " MXN";
+    }
   }
 
 }

@@ -12,24 +12,24 @@
     <ion-card-header>
       <ion-card-title>
         <ion-label>
-          {{huesped.name}}
+          {{huespeds[0].name}}
           <ion-chip color="primary" class="ion-float-right">
-            <ion-label>{{huesped.room}}</ion-label>
+            <ion-label>{{huespeds[0].room}}</ion-label>
           </ion-chip>
           
         </ion-label>
       </ion-card-title>
       <ion-card-subtitle>
-        <h2>{{huesped.phone}}</h2>
+        <h2>{{huespeds[0].phone}}</h2>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <h2>
-        Fecha entrada: {{huesped.dateAdmission.substring(0,10)}}
+        Fecha entrada: {{huespeds[0].dateAdmission.substring(0,10)}}
       </h2>
       <br>
       <h2>
-        Fecha salida: {{huesped.departureDate.substring(0,10)}}
+        Fecha salida: {{huespeds[0].departureDate.substring(0,10)}}
       </h2>
     </ion-card-content>
   </ion-card>

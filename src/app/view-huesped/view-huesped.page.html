@@ -27,7 +27,7 @@
             <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank">Enviar token</a>
           </ion-item-->
 
-          <ion-item-options side="end" (ionSwipe)="removeHuesped(i)">
+          <ion-item-options side="end" (ionSwipe)="removeHuesped(item.token)">
             <ion-item-option expandable color="danger">
                 <ion-icon name="trash-outline"></ion-icon>
             </ion-item-option>

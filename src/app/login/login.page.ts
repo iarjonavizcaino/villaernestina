@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     if(this.token == "admin12345"){
       this.presentToast('bottom','Acceso Correcto');
       this.router.navigate(['/view-huesped']);
-    }else if (this.huespedService.studentLogin(this.myForm.get('token').value)) {
+    }else if (this.huespedService.getHuespedByToken(this.myForm.get('token').value)) {
       this.presentToast('bottom','Ingreso correcto');
       this.getHuespedByToken(this.myForm.get('token').value);
     }else{

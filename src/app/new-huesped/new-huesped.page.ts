@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class NewHuespedPage implements OnInit {
 
   public huesped: Huesped;
+  public huespedsDates: Huesped[];
   public rooms: Room[];
   public myForm: FormGroup;
   public validatorMessages: Object;
@@ -22,7 +23,11 @@ export class NewHuespedPage implements OnInit {
 
   ngOnInit() {
     this.getDate();
-    this.rooms = this.huespedService.getRooms();
+    //this.rooms = this.huespedService.getRooms();
+    this.huespedService.getRooms().subscribe(res =>{
+      this.rooms = res;
+      console.log(this.rooms);
+    })
     this.myForm = this.fb.group({
       name:["",Validators.required],
       phone:["",Validators.compose([Validators.required,Validators.minLength(12),Validators.maxLength(13),Validators.pattern(/\+\d+/)])],
@@ -110,7 +115,11 @@ export class NewHuespedPage implements OnInit {
   public checkRoom(room,dA){
     console.log(this.huespedService.getHuespedByRoom(room));
     if(this.huespedService.getHuespedByRoom(room)){
-      if(this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)){
+      this.huespedService.getFechasByRoom(room).subscribe(res =>{
+        this.huespedsDates = res;
+        //console.log(this.rooms);
+      })
+      if(!this.checkDates(dA)/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
         return false;
       }else{
         return true;
@@ -120,15 +129,34 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
+  public checkDates(dA){
+    for (let hsp of Object.keys(this.huespedsDates)) {
+      if(this.huespedsDates[hsp].departureDate.substring(0,10) >= dA.substring(0,10)){
+        return false;
+      }
+    }
+    return true;
+  }
+
   public checkAdvance(room,ad){
     let adMin, adMax;
-    adMin = this.huespedService.getPriceRoom(room) * .30;
-    adMax = this.huespedService.getPriceRoom(room);
+    adMin = this.getPriceRoom(room) * .30;
+    adMax = this.getPriceRoom(room);
     if(ad<adMin || ad>adMax){
       return false;
     }else{
       return true;
     }
+  }
+
+  public getPriceRoom(r:String): number{
+    let item : Room;
+    item = this.rooms.find(
+      (habitacion)=>{
+        return habitacion.room==r;
+      }
+    );
+    return item.price;
   }
 
 }

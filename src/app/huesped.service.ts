@@ -1,6 +1,9 @@
 import { Room } from './models/huesped';
 import { Injectable } from '@angular/core';
 import { Huesped } from "src/app/models/huesped";
+import { map } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +13,11 @@ export class HuespedService {
   private huespeds: Huesped[];
   private rooms: Room[];
 
-  constructor() {
+  constructor(private firestore: AngularFirestore) {
     this.huespeds = [
       {
         name: "Huesped1",
-        phone: "3111934812",
+        phone: "+523111934812",
         dateAdmission: "2022-11-20T09:46:26.329Z",
         departureDate: "2022-11-25T09:46:26.329Z",
         room: "A1",
@@ -50,11 +53,95 @@ export class HuespedService {
     ]
   }
 
-  public getHuespeds(): Huesped[]{
-    return this.huespeds;
-  }
+  public getHuespeds(): Observable<Huesped[]>{
+    //return this.huespeds;
+    return this.firestore.collection('Huesped').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a =>{
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+      )
+    }
 
-  public getRooms(): Room[]{
+    public getHuespedsByTokenToShow(tkn:string): Observable<Huesped[]>{
+      //return this.huespeds;
+      return this.firestore.collection('Huesped', ref=>ref.where('token','==',tkn)).snapshotChanges().pipe(
+        map(actions => {
+          return actions.map(a =>{
+            const data = a.payload.doc.data() as Huesped;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        })
+        )
+      }
+    
+    public getRooms(): Observable<Room[]>{
+      //return this.huespeds;
+      return this.firestore.collection('Room').snapshotChanges().pipe(
+        map(actions => {
+          return actions.map(a =>{
+            const data = a.payload.doc.data() as Room;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        })
+        )
+      }
+
+    public getHuespedByToken(tkn:string){
+      /*let item : Huesped;
+      item = this.huespeds.find(
+        (huesped)=>{
+          return huesped.token==tkn;
+        }
+      );
+      return item;*/
+      let result = this.firestore.collection('Huesped').doc(tkn).valueChanges();
+      return result;
+     }
+
+     public getHuespedByRoom(rm:string){
+      /*let item : Huesped;
+      item = this.huespeds.find(
+        (huesped)=>{
+          return huesped.room==rm;
+        }
+      );
+      return item;*/
+      let result = this.firestore.collection('Huesped', ref=>ref.where('room','==',rm)).valueChanges();
+      return result;
+     }
+
+     public getFechasByRoom(rm:string): Observable<Huesped[]>{
+      //return this.huespeds;
+      return this.firestore.collection('Huesped', ref => ref.where('room','==',rm)).snapshotChanges().pipe(
+        map(actions => {
+          return actions.map(a =>{
+            const data = a.payload.doc.data() as Huesped;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        })
+        )
+      }
+    
+    public newHuesped(huesped:Huesped):void{
+      //this.huespeds.push(huesped);
+      this.firestore.collection('Huesped').doc(huesped.token).set(huesped);
+    }
+
+    public removeHuesped(id:string):void{
+      //this.huespeds.splice(pos,1);
+      this.firestore.collection('Huesped').doc(id).delete();
+    }
+
+
+
+  /*public getRooms(): Room[]{
     return this.rooms;
   }
 
@@ -68,15 +155,7 @@ export class HuespedService {
     return item.price;
   }
 
-  public getHuespedByToken(tkn:string): Huesped{
-    let item : Huesped;
-    item = this.huespeds.find(
-      (huesped)=>{
-        return huesped.token==tkn;
-      }
-    );
-    return item;
-   }
+  
 
    public getHuespedByRoom(rm:string): Huesped{
     let item : Huesped;
@@ -88,13 +167,6 @@ export class HuespedService {
     return item;
    }
 
-  public newHuesped(huesped:Huesped):void{
-    this.huespeds.push(huesped);
-   }
-
-  public removeHuesped(pos:number):void{
-    this.huespeds.splice(pos,1);
-  }
 
   public studentLogin(tok: String): Huesped{
     let item: Huesped;
@@ -106,15 +178,6 @@ export class HuespedService {
     return item;
   }
 
-  public getCodeByRoom(room:String):String{
-    let item : Room;
-    item = this.rooms.find(
-      (habitacion)=>{
-        return habitacion.room==room;
-      }
-    );
-    return item.code;
-  }
 
   public restante(room:String, ant:number): number{
     let item : Room;
@@ -128,5 +191,8 @@ export class HuespedService {
     }else{
       return item.price - ant;//"$" + (item.price - ant) + " MXN";
     }
-  }
+  }*/
+
+
+
 }
