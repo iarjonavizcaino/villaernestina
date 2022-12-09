@@ -115,6 +115,7 @@ export class NewHuespedPage implements OnInit {
   public checkRoom(room,dA){
     console.log(this.huespedService.getHuespedByRoom(room));
     if(this.huespedService.getHuespedByRoom(room)){
+      console.log('hola');
       this.huespedService.getFechasByRoom(room).subscribe(res =>{
         this.huespedsDates = res;
         //console.log(this.rooms);
@@ -130,12 +131,23 @@ export class NewHuespedPage implements OnInit {
   }
 
   public checkDates(dA){
-    for (let hsp of Object.keys(this.huespedsDates)) {
+    /*for (let hsp of Object.keys(this.huespedsDates)) {
       if(this.huespedsDates[hsp].departureDate.substring(0,10) >= dA.substring(0,10)){
         return false;
       }
     }
-    return true;
+    return true;*/
+    let item;
+    item = this.huespedsDates.forEach(
+      (huesped) => {
+        if(huesped.departureDate.substring(0,10) >= dA.substring(0,10)){
+          return false;
+        }else{
+          return true;
+        }
+      }
+    )
+    return item;
   }
 
   public checkAdvance(room,ad){
