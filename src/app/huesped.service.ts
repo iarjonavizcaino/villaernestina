@@ -29,23 +29,23 @@ export class HuespedService {
         room: "A1",
         code: "4578",
         price: 500
-      },{
+      }, {
         room: "A2",
         code: "7864",
         price: 5000
-      },{
+      }, {
         room: "B1",
         code: "9887",
         price: 100
-      },{
+      }, {
         room: "B2",
         code: "1278",
         price: 1000
-      },{
+      }, {
         room: "C1",
         code: "3633",
         price: 599
-      },{
+      }, {
         room: "C2",
         code: "5210",
         price: 1599
@@ -53,91 +53,91 @@ export class HuespedService {
     ]
   }
 
-  public getHuespeds(): Observable<Huesped[]>{
+  public getHuespeds(): Observable<Huesped[]> {
     //return this.huespeds;
     return this.firestore.collection('Huesped').snapshotChanges().pipe(
       map(actions => {
-        return actions.map(a =>{
+        return actions.map(a => {
           const data = a.payload.doc.data() as Huesped;
           const id = a.payload.doc.id;
           return { id, ...data };
         })
       })
-      )
-    }
+    )
+  }
 
-    public getHuespedsByTokenToShow(tkn:string): Observable<Huesped[]>{
-      //return this.huespeds;
-      return this.firestore.collection('Huesped', ref=>ref.where('token','==',tkn)).snapshotChanges().pipe(
-        map(actions => {
-          return actions.map(a =>{
-            const data = a.payload.doc.data() as Huesped;
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
+  public getHuespedsByTokenToShow(tkn: string): Observable<Huesped[]> {
+    //return this.huespeds;
+    return this.firestore.collection('Huesped', ref => ref.where('token', '==', tkn)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
         })
-        )
-      }
-    
-    public getRooms(): Observable<Room[]>{
-      //return this.huespeds;
-      return this.firestore.collection('Room').snapshotChanges().pipe(
-        map(actions => {
-          return actions.map(a =>{
-            const data = a.payload.doc.data() as Room;
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
+      })
+    )
+  }
+
+  public getRooms(): Observable<Room[]> {
+    //return this.huespeds;
+    return this.firestore.collection('Room').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Room;
+          const id = a.payload.doc.id;
+          return { id, ...data };
         })
-        )
+      })
+    )
+  }
+
+  public getHuespedByToken(tkn: string) {
+    /*let item : Huesped;
+    item = this.huespeds.find(
+      (huesped)=>{
+        return huesped.token==tkn;
       }
+    );
+    return item;*/
+    let result = this.firestore.collection('Huesped').doc(tkn).valueChanges();
+    return result;
+  }
 
-    public getHuespedByToken(tkn:string){
-      /*let item : Huesped;
-      item = this.huespeds.find(
-        (huesped)=>{
-          return huesped.token==tkn;
-        }
-      );
-      return item;*/
-      let result = this.firestore.collection('Huesped').doc(tkn).valueChanges();
-      return result;
-     }
+  public getHuespedByRoom(rm: string) {
+    /*let item : Huesped;
+    item = this.huespeds.find(
+      (huesped)=>{
+        return huesped.room==rm;
+      }
+    );
+    return item;*/
+    let result = this.firestore.collection('Huesped', ref => ref.where('room', '==', rm)).valueChanges();
+    return result;
+  }
 
-     public getHuespedByRoom(rm:string){
-      /*let item : Huesped;
-      item = this.huespeds.find(
-        (huesped)=>{
-          return huesped.room==rm;
-        }
-      );
-      return item;*/
-      let result = this.firestore.collection('Huesped', ref=>ref.where('room','==',rm)).valueChanges();
-      return result;
-     }
-
-     public getFechasByRoom(rm:string): Observable<Huesped[]>{
-      //return this.huespeds;
-      return this.firestore.collection('Huesped', ref => ref.where('room','==',rm)).snapshotChanges().pipe(
-        map(actions => {
-          return actions.map(a =>{
-            const data = a.payload.doc.data() as Huesped;
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
+  public getFechasByRoom(rm: string): Observable<Huesped[]> {
+    //return this.huespeds;
+    return this.firestore.collection('Huesped', ref => ref.where('room', '==', rm)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
         })
-        )
-      }
-    
-    public newHuesped(huesped:Huesped):void{
-      //this.huespeds.push(huesped);
-      this.firestore.collection('Huesped').doc(huesped.token).set(huesped);
-    }
+      })
+    )
+  }
 
-    public removeHuesped(id:string):void{
-      //this.huespeds.splice(pos,1);
-      this.firestore.collection('Huesped').doc(id).delete();
-    }
+  public newHuesped(huesped: Huesped): void {
+    //this.huespeds.push(huesped);
+    this.firestore.collection('Huesped').doc(huesped.token).set(huesped);
+  }
+
+  public removeHuesped(id: string): void {
+    //this.huespeds.splice(pos,1);
+    this.firestore.collection('Huesped').doc(id).delete();
+  }
 
 
 

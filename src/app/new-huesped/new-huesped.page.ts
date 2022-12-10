@@ -112,15 +112,18 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  public checkRoom(room,dA){
+  public async checkRoom(room,dA){
     console.log(this.huespedService.getHuespedByRoom(room));
     if(this.huespedService.getHuespedByRoom(room)){
       console.log('hola');
       this.huespedService.getFechasByRoom(room).subscribe(res =>{
         this.huespedsDates = res;
-        //console.log(this.rooms);
       })
-      if(!this.checkDates(dA)/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
+      await this.delay(500);
+      let bool = await this.checkDates(dA);
+      await this.delay(500);
+      //console.log("AKLSJASLKDF" + bool);
+      if(!bool/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
         return false;
       }else{
         return true;
@@ -130,23 +133,31 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  public checkDates(dA){
+  public delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  public async checkDates(dA){
     /*for (let hsp of Object.keys(this.huespedsDates)) {
       if(this.huespedsDates[hsp].departureDate.substring(0,10) >= dA.substring(0,10)){
         return false;
       }
     }
     return true;*/
-    let item;
-    item = this.huespedsDates.forEach(
+    let item = true;
+    // for (let i = 0; i < this.huespedsDates.length - 1; i++) {
+    //   if (this.huespedsDates[i].departureDate.substring(0, 10) >= dA.substring(0, 10)) {
+    //     item = false;
+    //   }
+    // }
+    this.huespedsDates.forEach(
       (huesped) => {
         if(huesped.departureDate.substring(0,10) >= dA.substring(0,10)){
-          return false;
-        }else{
-          return true;
+          item = false;
         }
       }
     )
+    await this.delay(100);
     return item;
   }
 
