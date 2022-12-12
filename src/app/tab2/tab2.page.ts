@@ -14,7 +14,17 @@ export class Tab2Page {
   public huespeds:Huesped[];
   public rooms:Room[];
 
-  constructor(private huespedService:HuespedService, private aRoute:ActivatedRoute) {}
+  constructor(private huespedService:HuespedService, private aRoute:ActivatedRoute) {
+    this.huespeds = [{
+      name: "",
+      phone: "",
+      dateAdmission: "",
+      departureDate: "",
+      room: "",
+      advance: 0,
+      token: "",
+    }]
+  }
 
   ngOnInit() {
     this.aRoute.queryParams.subscribe(

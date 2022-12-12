@@ -19,14 +19,24 @@ export class NewHuespedPage implements OnInit {
   public validatorMessages: Object;
   public today: any;
   public dateSelected: any;
-  constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { }
+  constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { 
+    this.huespedsDates = [{
+      name: "",
+      phone: "",
+      dateAdmission: "",
+      departureDate: "",
+      room: "",
+      advance: 0,
+      token: "",
+    }]
+  }
 
   ngOnInit() {
     this.getDate();
     //this.rooms = this.huespedService.getRooms();
     this.huespedService.getRooms().subscribe(res =>{
       this.rooms = res;
-      console.log(this.rooms);
+      //console.log(this.rooms);
     })
     this.myForm = this.fb.group({
       name:["",Validators.required],
@@ -62,7 +72,7 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); console.log(this.today); }
+getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); /*console.log(this.today);*/ }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -99,7 +109,7 @@ export class NewHuespedPage implements OnInit {
       if(this.checkAdvance(data['room'],data['advance'])){
         //Construir el objeto
         data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-        console.log(data);
+        //console.log(data);
         this.huesped = data;
         this.huespedService.newHuesped(this.huesped);
         this.presentToast();
@@ -112,18 +122,15 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  public async checkRoom(room,dA){
-    console.log(this.huespedService.getHuespedByRoom(room));
+  public checkRoom(room,dA){
+    //console.log(this.huespedService.getHuespedByRoom(room));
     if(this.huespedService.getHuespedByRoom(room)){
-      console.log('hola');
+      //console.log('hola');
       this.huespedService.getFechasByRoom(room).subscribe(res =>{
         this.huespedsDates = res;
+        //console.log(this.huespedsDates);
       })
-      await this.delay(500);
-      let bool = await this.checkDates(dA);
-      await this.delay(500);
-      //console.log("AKLSJASLKDF" + bool);
-      if(!bool/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
+      if(!this.checkDates(dA)/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
         return false;
       }else{
         return true;
@@ -133,31 +140,20 @@ export class NewHuespedPage implements OnInit {
     }
   }
 
-  public delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
 
-  public async checkDates(dA){
-    /*for (let hsp of Object.keys(this.huespedsDates)) {
-      if(this.huespedsDates[hsp].departureDate.substring(0,10) >= dA.substring(0,10)){
-        return false;
-      }
-    }
-    return true;*/
+  public  checkDates(dA){
     let item = true;
-    // for (let i = 0; i < this.huespedsDates.length - 1; i++) {
-    //   if (this.huespedsDates[i].departureDate.substring(0, 10) >= dA.substring(0, 10)) {
-    //     item = false;
-    //   }
-    // }
+    
     this.huespedsDates.forEach(
       (huesped) => {
         if(huesped.departureDate.substring(0,10) >= dA.substring(0,10)){
+          //console.log(huesped);
           item = false;
         }
       }
     )
-    await this.delay(100);
+    //await this.delay(100);
+    console.log(item);
     return item;
   }
 
