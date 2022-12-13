@@ -27,6 +27,7 @@ export class NewHuespedPage implements OnInit {
       departureDate: "",
       room: "",
       advance: 0,
+      photo:"",
       token: "",
     }]
   }
@@ -109,6 +110,7 @@ getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0
       if(this.checkAdvance(data['room'],data['advance'])){
         //Construir el objeto
         data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
+        data.photo = "";
         //console.log(data);
         this.huesped = data;
         this.huespedService.newHuesped(this.huesped);

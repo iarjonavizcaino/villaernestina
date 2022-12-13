@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TabsPage {
 
-  constructor(public translate : TranslateService) {}
+  constructor(public translate : TranslateService) {
+  }
+
 
 }

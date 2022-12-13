@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-button expand="block" (click)="takePicture()">Tomar Fotografia</ion-button>
-  <img [src] = "picture"/>
+  <img [src] = "selectedImage?.webPath"/>
+  <ion-button expand="block" (click)="takePicture()">Tomar Fotografía</ion-button>
+  <ion-button expand="block" (click)="uploadImage()">Guardar Fotografía</ion-button>
 </ion-content>

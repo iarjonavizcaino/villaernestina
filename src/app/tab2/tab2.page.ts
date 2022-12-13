@@ -11,8 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class Tab2Page {
 
+  
   public huespeds:Huesped[];
   public rooms:Room[];
+  public token:string;
 
   constructor(private huespedService:HuespedService, private aRoute:ActivatedRoute) {
     this.huespeds = [{
@@ -22,28 +24,30 @@ export class Tab2Page {
       departureDate: "",
       room: "",
       advance: 0,
+      photo:"",
       token: "",
-    }]
+    }];
+    
   }
 
   ngOnInit() {
     this.aRoute.queryParams.subscribe(
       (params)=>{
-        //console.log(params);
-        //this.huesped = this.huespedService.getHuespedByToken(params['token']);
+        this.token = params['token'];
         this.huespedService.getHuespedsByTokenToShow(params['token']).subscribe(res =>{
           this.huespeds = res;
-          console.log(this.huespeds);
         })
+
       }
     );
+
   }
 
   public getCodeByRoom(room:String):String{
     //return this.huespedService.getCodeByRoom(room);
     this.huespedService.getRooms().subscribe(res =>{
       this.rooms = res;
-      console.log(this.huespeds);
+      //console.log(this.huespeds);
     })
     return this.getCode(room);
   }
@@ -81,5 +85,6 @@ export class Tab2Page {
       return item.price - ant;//"$" + (item.price - ant) + " MXN";
     }
   }
+
 
 }

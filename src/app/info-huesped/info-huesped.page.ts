@@ -20,6 +20,7 @@ export class InfoHuespedPage implements OnInit {
       departureDate: '',
       room: '',
       advance: 0,
+      photo: "",
       token: '',
     }]
    }

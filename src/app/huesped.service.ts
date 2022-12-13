@@ -10,11 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class HuespedService {
 
+  private token: string;
   private huespeds: Huesped[];
   private rooms: Room[];
 
   constructor(private firestore: AngularFirestore) {
-    this.huespeds = [
+    /*this.huespeds = [
       {
         name: "Huesped1",
         phone: "+523111934812",
@@ -22,6 +23,7 @@ export class HuespedService {
         departureDate: "2022-11-25T09:46:26.329Z",
         room: "A1",
         advance: 350.50,
+        photo:"",
         token: "abcdefghijk"
       }];
     this.rooms = [
@@ -50,7 +52,11 @@ export class HuespedService {
         code: "5210",
         price: 1599
       }
-    ]
+    ]*/
+
+    this.getHuespeds().subscribe(res=>{
+      this.huespeds = res;
+    });
   }
 
   public getHuespeds(): Observable<Huesped[]> {
@@ -65,6 +71,7 @@ export class HuespedService {
       })
     )
   }
+
 
   public getHuespedsByTokenToShow(tkn: string): Observable<Huesped[]> {
     //return this.huespeds;
@@ -92,16 +99,11 @@ export class HuespedService {
     )
   }
 
-  public getHuespedByToken(tkn: string) {
-    /*let item : Huesped;
-    item = this.huespeds.find(
-      (huesped)=>{
-        return huesped.token==tkn;
+  public getHuespedByToken(tkn: string):Huesped{
+    return this.huespeds.find(huesped=>{
+        return huesped.token===tkn;
       }
     );
-    return item;*/
-    let result = this.firestore.collection('Huesped').doc(tkn).valueChanges();
-    return result;
   }
 
   public getHuespedByRoom(rm: string) {
@@ -137,6 +139,18 @@ export class HuespedService {
   public removeHuesped(id: string): void {
     //this.huespeds.splice(pos,1);
     this.firestore.collection('Huesped').doc(id).delete();
+  }
+
+  public updateHuesped(id:string,photo:string):void{
+    this.firestore.collection('Huesped').doc(id).update({'photo':photo});
+  }
+
+  public setToken(hues:string):void{
+    this.token = hues;
+  }
+
+  public getToken(): string{
+    return this.token;
   }
 
 

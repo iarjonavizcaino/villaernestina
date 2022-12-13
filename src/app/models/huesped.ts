@@ -5,6 +5,7 @@ export class Huesped {
     departureDate: string;
     room: string;
     advance:number;
+    photo:string;
     token: string;
 }
 

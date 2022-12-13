@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  public token:String;
+  public token:string;
   public myForm:FormGroup;
 
   constructor(private fb:FormBuilder, private toastController: ToastController, private router:Router, private huespedService:HuespedService) { }
@@ -28,9 +28,10 @@ export class LoginPage implements OnInit {
     if(this.token == "admin12345"){
       this.presentToast('bottom','Acceso Correcto');
       this.router.navigate(['/view-huesped']);
-    }else if (this.huespedService.getHuespedByToken(this.myForm.get('token').value)) {
+    }else if (this.huespedService.getHuespedByToken(this.token)) {
       this.presentToast('bottom','Ingreso correcto');
-      this.getHuespedByToken(this.myForm.get('token').value);
+      this.getHuespedByToken(this.token);
+      this.huespedService.setToken(this.token);
     }else{
       this.presentToast('bottom','Acceso Incorrecto');
     }
