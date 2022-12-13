@@ -22,10 +22,15 @@ const routes: Routes = [
   {
     path: 'view-huesped',
     loadChildren: () => import('./view-huesped/view-huesped.module').then( m => m.ViewHuespedPageModule)
-  },  {
+  },
+  {
     path: 'info-huesped',
     loadChildren: () => import('./info-huesped/info-huesped.module').then( m => m.InfoHuespedPageModule)
-  }
+  },
+  /*{
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  }*/
 
 
 ];
