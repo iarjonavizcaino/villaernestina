@@ -24,24 +24,38 @@
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
           <ng-container *ngIf="item.name != '' && myForm.value['filter'] !=''">
               <ion-item>
-                <ion-note slot="start">Fecha de ingreso:</ion-note>
-                <ion-note slot="start">{{item.dateAdmission.substring(0,10)}}</ion-note>
-                <ion-note slot="start">Fecha de salida:</ion-note>
-                <ion-note slot="start">{{item.departureDate.substring(0,10)}}</ion-note>
-                <a href="https://wa.me/{{item.phone}}?text={{message}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
-                <a href="https://wa.me/{{item.phone}}?text={{item.token}}" target="_blank"><ion-label class="name">Token</ion-label></a>
-                <ion-label class="name">
-                  {{item.name}}
-                </ion-label>
-
-                <ion-note slot="end">Habitación:</ion-note>
-                <ion-chip *ngIf="item.room == 'León'" slot="end" color="primary" class="ion-float-right">
-                  <ion-label>{{item.room}}</ion-label>
-                </ion-chip>
-
-                <ion-chip *ngIf="item.room == 'Elefante'" slot="end" color="warning" class="ion-float-right">
-                  <ion-label>{{item.room}}</ion-label>
-                </ion-chip>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-label>Fecha de ingreso:</ion-label>
+                      <ion-label>{{item.dateAdmission.substring(0,10)}}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label>Fecha de salida:</ion-label>
+                      <ion-label>{{item.departureDate.substring(0,10)}}</ion-label>
+                    </ion-col>
+                    <ion-col>
+                      <a href="https://wa.me/{{item.phone}}?text={{message}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
+                    </ion-col>
+                    <ion-col>
+                      <a href="https://wa.me/{{item.phone}}?text={{item.token}}" target="_blank"><ion-label class="name">Token</ion-label></a>
+                    </ion-col>
+                    <ion-col>
+                      <ion-label class="name">
+                        {{item.name}}
+                      </ion-label>
+                    </ion-col>
+                    <ion-col>
+                      <ion-note>Habitación:</ion-note>
+                      <ion-chip *ngIf="item.room == 'León'" color="primary" class="ion-float-right">
+                        <ion-label>{{item.room}}</ion-label>
+                      </ion-chip>
+                      <ion-chip *ngIf="item.room == 'Elefante'" color="warning" class="ion-float-right">
+                        <ion-label>{{item.room}}</ion-label>
+                      </ion-chip>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
               </ion-item>
           </ng-container>
           <!--ion-item>
