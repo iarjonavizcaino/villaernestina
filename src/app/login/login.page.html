@@ -9,7 +9,7 @@
   <form [formGroup]="myForm">
     <ion-item lines="full">
       <ion-label position="floating">Token</ion-label>
-      <ion-input type="text" required formControlName="token" type="password"></ion-input>
+      <ion-input type="text" required formControlName="token" type="password" (keyup.enter)="login(myForm.value)"></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>

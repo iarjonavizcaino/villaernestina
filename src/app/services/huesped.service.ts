@@ -115,13 +115,6 @@ export class HuespedService {
   }
 
   public getHuespedByRoom(rm: string) {
-    /*let item : Huesped;
-    item = this.huespeds.find(
-      (huesped)=>{
-        return huesped.room==rm;
-      }
-    );
-    return item;*/
     let result = this.firestore.collection('Huesped', ref => ref.where('room', '==', rm)).valueChanges();
     return result;
   }

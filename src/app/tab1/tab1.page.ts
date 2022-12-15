@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { HuespedService } from '../services/huesped.service';
+import { Huesped } from '../models/huesped';
 
 @Component({
   selector: 'app-tab1',
@@ -9,9 +11,13 @@ import { TranslateService } from '@ngx-translate/core';
 export class Tab1Page {
 
   langs:string[] = [];
+  huesped: Huesped;
+  public fecha: Date;
 
-  constructor(public translate : TranslateService) {
+  constructor(public translate : TranslateService, huespedService: HuespedService) {
    // this.langs = this.translateService.getLangs();
+   this.fecha = new Date;
+   this.huesped = huespedService.getHuespedByToken(huespedService.getToken());
   }
 
   /*changeLang(event){

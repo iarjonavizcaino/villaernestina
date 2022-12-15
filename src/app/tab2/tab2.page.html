@@ -1,54 +1,78 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{"INGRESO" | translate}}
+      {{"REGLAS" | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="enFecha(huespeds[0].dateAdmission, huespeds[0].departureDate)" >
+<ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large"> {{"INGRESO" | translate}}</ion-title>
+      <ion-title size="large"> {{"REGLAS" | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-<!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
-
-  <h1> {{"BIENVENIDA" | translate}}</h1>
-
-  <div class = "Ubi">
-    <h2>{{"UBICACION" | translate}}</h2>
-    <p>C. Juárez Sur 85, La Higuera, 63830 Santa María del Oro, Nay.</p>
-  </div>
-
-  <div class = "HoraEntrada">
-    <h2>{{"HORAENTRADA" | translate}}</h2>
-    <h4>03:00 pm</h4>
-  </div>
-
-  <div class = "HoraSalida">
-    <h2>{{"HORASALIDA" | translate}}</h2>
-    <h4>12:00 pm</h4>
-  </div>
-
-  <div class = "Codigo">
-    <h2>{{"CODIGO" | translate}}</h2>
-    <h4>{{getCodeByRoom(huespeds[0].room)}}</h4>
-  </div>
-
-  <div class = "FaltaPagar">
-    <h2>{{"SALDOPAGAR" | translate}}</h2>
-  </div>
-  
-</ion-content>
-<ion-content [fullscreen]="true" *ngIf="!enFecha(huespeds[0].dateAdmission, huespeds[0].departureDate)" >
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> {{"INGRESO" | translate}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <h1> {{"INGRESOINCORRECTO" | translate}} </h1>
+<ion-accordion-group>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ion-label>{{ 'REGLASG' | translate }}</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-slides>
+        <ion-slide>
+          <ion-img style="width: auto; height: 40vh;" src="http://justifyingplaybased.weebly.com/uploads/5/7/8/1/57810313/8708238_orig.jpg"></ion-img>
+          <ion-label>{{ 'REGLA1' | translate }}</ion-label>
+        </ion-slide>
+        <ion-slide>
+          <ion-img style="width: auto; height: 40vh;" src="https://www.corbettexterminating.com/sites/default/files/styles/primary__800x400_/public/hotel-1330850.jpg?itok=akDTF2lf"></ion-img>
+          <ion-label>{{ 'REGLA2' | translate }}</ion-label>
+        </ion-slide>
+        <ion-slide>
+          <ion-img style="width: auto; height: 40vh;" src="https://www.gdm.com.mx/hs-fs/hubfs/Transformacio%CC%81n%20digital%20en%20Recursos%20Humanos%20copia.png?width=544&name=Transformacio%CC%81n%20digital%20en%20Recursos%20Humanos%20copia.png"></ion-img>
+          <ion-label>{{ 'REGLA3' | translate }}</ion-label>
+        </ion-slide>
+        <ion-slide>
+          <ion-img style="width: auto; height: 40vh;" src="https://unveiledfacts.com/wp-content/uploads/2020/09/career-3536331_640-1-640x375@2x.jpg"></ion-img>
+          <ion-label>{{ 'REGLA4' | translate }}</ion-label>
+        </ion-slide>
+        <ion-slide>
+          <ion-img style="width: auto; height: 40vh;" src="https://oficinasostenibilidad.uca.es/wp-content/uploads/2021/05/senal-de-ruido.jpg"></ion-img>
+          <ion-label>{{ 'REGLA5' | translate }}<a href="https://dof.gob.mx/nota_detalle.php?codigo=4706988&fecha=22/06/1994#gsc.tab=0" target="_blank">NOM-081-ECOL-1994</a></ion-label>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="second">
+    <ion-item slot="header" color="light">
+      <ion-label>{{ 'REGLASPF' | translate }}</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-img style="width: auto; height: 40vh;" src="https://francescosgelato.com/wp-content/uploads/2022/03/significado-de-restaurantes-pet-friendly.jpg"></ion-img>
+      <ion-label>{{ 'REGLASPF1' | translate }}</ion-label>
+      <hr />
+      <ion-label>{{ 'REGLAPF1' | translate }}</ion-label>
+      <br />
+      <ion-label>{{ 'REGLAPF2' | translate }}</ion-label>
+      <br />
+      <ion-label>{{ 'REGLAPF3' | translate }}</ion-label>
+      <br />
+      <ion-label>{{ 'REGLAPF4' | translate }}</ion-label>
+      <br />
+      <ion-label>{{ 'REGLAPF5' | translate }}</ion-label>
+      <hr />
+      <ion-label>{{ 'REGLASPFNOTE' | translate }}</ion-label>
+    </div>
+  </ion-accordion>
+  <ion-accordion value="third">
+    <ion-item slot="header" color="light">
+      <ion-label>{{ 'PROHIBICION' | translate }}</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-img style="width: auto; height: 25vh; margin: auto; display: block;" src="https://www.gaceta.unam.mx/wp-content/uploads/2021/05/fumador001.jpg"></ion-img>
+      <ion-label>{{ 'PROHIBICION1' | translate }}</ion-label>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>
   
 </ion-content>

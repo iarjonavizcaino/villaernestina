@@ -1,42 +1,137 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{'REGLAS' | translate}}
+      {{'PANTALLABIENVENIDA' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true"> 
   
- <div>
-  <label>
-    {{'IDIOMA'| translate}}
-    <select #langSelect (change)="translate.use(langSelect.value)">
-      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == translate.currentLang">{{lang}}</option>
-    </select>
-  </label>
- </div>
+ <ion-row>
+  <ion-col text-center>
+    <label>
+      {{'IDIOMA'| translate}}
+      <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == translate.currentLang">{{lang}}</option>
+      </select>
+    </label>
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> {{'REGLAS' | translate}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large"> {{'REGLAS' | translate}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
- <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
- <ol start = "1">
-  <li> {{'REGLA1' | translate}}</li>
-  <li> {{'REGLA2' | translate}}</li>
-  <li> {{'REGLA3' | translate}}</li>
-  <li> {{'REGLA4' | translate}}</li>
-  <li>{{'PROHIBICION' | translate}}
-  	<ul type = "i">
-  		<li>{{'PROHIBICION1' | translate}}</li>
-  		<li>{{'PROHIBICION2' | translate}}</li>
-      <li>{{'PROHIBICION3' | translate}}</li>
-      <li>{{'PROHIBICION4' | translate}}</li>
-  	</ul>
-  </li>
-</ol>
+    <ion-img style="width: auto; height: 25vh; margin: auto; display: block;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/280805508_104205032295708_3380461089577804993_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGNFFskRaCJaWknR6tRX0LRxz-EqGPcxZbHP4SoY9zFlr82itL2GtiEJyaoxCh2xyIFZ568dza1VfQEvws55X42&_nc_ohc=e-KpocvZrh4AX_A6jVY&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfDIAG9pI2H0ded9Wr8Ee0jp_3RNYbq6lGDTCBgF7oN5mQ&oe=639F7108"></ion-img>
+    <ion-label>{{ 'BIENVENIDA' | translate }}{{ huesped.name }}</ion-label>
+    <br/>
+    <ion-label>{{ 'BIENVENIDA_P1' | translate }}{{ huesped.room }}</ion-label>
+    <ion-label>{{ 'BIENVENIDA_P11' | translate }} 
+      <ng-container *ngIf="fecha.toISOString() >= huesped.dateAdmission && huesped.departureDate >= fecha.toISOString()">
+        <a [routerLink]="['/tabs/tab4']">Mi Llegada</a>
+      </ng-container>
+      <ng-container *ngIf="huesped.dateAdmission > fecha.toISOString() || fecha.toISOString() > huesped.departureDate">
+        <a>Mi Llegada (No disponible por el momento)</a>
+      </ng-container>
+      {{ 'BIENVENIDA_P111' | translate }}</ion-label>
+    <br />
+    <ion-label>{{ 'BIENVENIDA_P2' | translate }}</ion-label>
+    <ion-label>{{ 'BIENVENIDA_P3' | translate }}</ion-label>
+    <hr />
+    <h4>{{ 'CHECKIN' | translate }}</h4>
+    <ion-label>{{ 'CHECKIN_P1' | translate }}{{ huesped.dateAdmission.substring(0,10) }}</ion-label>
+    <br />
+    <ion-label>{{ 'CHECKIN_P2' | translate }}<a href="https://wa.me/+523111032724?" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a></ion-label>
+    <hr />
+    <h4>{{ 'CHECKOUT' | translate }}</h4>
+    <ion-label>{{ 'CHECKOUT_P1' | translate }}{{ huesped.departureDate.substring(0,10) }}</ion-label>
+    <br />
+    <ion-label>{{ 'CHECKOUT_P2' | translate }}<a href="https://wa.me/+523111032724?" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a></ion-label>
+    <hr />
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label>{{ 'LANCHA' | translate }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-slides>
+            <ion-slide>
+              <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.18169-9/11081113_846347905427181_1103758381634362967_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ba80b0&_nc_eui2=AeFwHEAsLAB-jcmc3eTDUIYlGQnZRdzbgLAZCdlF3NuAsMrxuzN-7dmx_vq019vId8loFEkA9BIwpH23emKHKtre&_nc_ohc=xHQ-IDXfU5EAX_h09ON&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBxNSIxEsiQfKiHrkFYCmN8tFZHpJJCMrtKUn3Nkfh8FA&oe=63C21546"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.6435-9/121293397_3216423935142151_4157992477249226905_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH7PrDUVGTgHw2Q5Xvi1jjfqRHV5__PXb-pEdXn_89dvzxjevEeO-32WJPzDhB-A95s1B4Twly4gQ_s6qBF-kwB&_nc_ohc=mqIUN3dDYEoAX_4ZbT4&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfDOlP8f57GiQ-yrodBld8OUarIvdfLMy6lYAb-OY5SiGw&oe=63C217EC"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img style="width: auto; height: 40vh;" src="https://jalisco.quadratin.com.mx/www/wp-content/uploads/2018/09/e-1.jpg"></ion-img>
+            </ion-slide>
+          </ion-slides>
+          <br />
+          <ion-label>{{ 'LANCHA_P1' | translate }}<a href="tel:+523112661762">3112661762</a></ion-label>
+          <br />
+          <ion-label>{{ 'LANCHA_P2' | translate }}<a href="tel:+523112661762">3112661762</a></ion-label>
+          <br />
+          <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second">
+        <ion-item slot="header" color="light">
+          <ion-label>{{'MASAJESTEMAZ' | translate}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-slides>
+            <ion-slide>
+              <ion-img style="width: auto; height: 40vh;" src="https://images.locanto.com.mx/3763289336/MASAJES-ESPECIALES-Solo-para-damas_1.jpg"></ion-img>
+              <br />
+              <ion-label>{{ 'MASAJE' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
+            </ion-slide>
+            <ion-slide>
+              <ion-img style="width: auto; height: 40vh;" src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2019/02/shutterstock_1225715473.jpg"></ion-img>
+              <br />
+              <ion-label>{{ 'TEMAZCAL' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
+            </ion-slide>
+          </ion-slides>
+          <br />
+          <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="third">
+        <ion-item slot="header" color="light">
+          <ion-label>{{ 'CICLISMO' | translate }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://www.mountainbike.es/uploads/s1/94/27/58/2/ciclismo-y-senderismo-se-dan-la-mano-con-esta-firma.jpeg"></ion-img>
+          <ion-label>{{ 'CICLISMO_P1' | translate }}</ion-label>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="four">
+        <ion-item slot="header" color="light">
+          <ion-label>{{ 'KAYAK' | translate }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/305987630_125497706905688_657665189673724151_n.jpg?stp=cp6_dst-jpg&_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHZZpU7b9naeqvvHu4dQ9KrT9wcCPlVEglP3BwI-VUSCSfv5bh3uMPKyoNSPKnEUBr-OsaH1waRrRlSt0IAIRjD&_nc_ohc=mBK3jKAhtlgAX9VZTDk&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBls5QWlWheYD0K50j7eSGzXpwoYk0rPQh7IiW3rAvA1g&oe=639FB68F"></ion-img>
+          <ion-label>{{ 'KAYAK_P1' | translate }}</ion-label>
+          <br />
+          <ion-label>{{ 'KAYAK_P2' | translate }}</ion-label>
+          <br />
+          <ion-label>{{ 'KAYAK_P3' | translate }}</ion-label>
+          <br />
+          <ion-label>{{ 'KAYAK_P4' | translate }}</ion-label>
+          <br />
+          <ion-label>{{ 'KAYAK_P5' | translate }}</ion-label>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="five">
+        <ion-item slot="header" color="light">
+          <ion-label>{{ 'NATACION' | translate }}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://i.ytimg.com/vi/3fXHiaqDcJM/maxresdefault.jpg"></ion-img>
+          <ion-label>{{ 'NATACION_P1' | translate }}</ion-label>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-col>
+ </ion-row>
 
 </ion-content>

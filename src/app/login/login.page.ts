@@ -38,9 +38,7 @@ export class LoginPage implements OnInit {
   }
 
   public getHuespedByToken(token: string): void{
-    this.router.navigate(['/tabs/tab2'],{
-      queryParams: {token: token}
-    });
+    this.router.navigate(['/tabs/tab1']);
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', msj:string) {
