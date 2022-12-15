@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Huesped } from '../models/huesped';
-import { HuespedService } from '../huesped.service';
+import { HuespedService } from '../services/huesped.service';
 import { NavigationExtras, Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-view-huesped',
@@ -13,11 +14,13 @@ export class ViewHuespedPage implements OnInit {
 
   handlerMessage = '';
   roleMessage = '';
+  public myForm: FormGroup;
+  public message: string; 
   public huespeds: Huesped[];
   public huesped: Huesped;
 
-  constructor(private huespedService: HuespedService,private alertController: AlertController,private router: Router) {
-    //this.huespeds = huespedService.getHuespeds();
+  constructor(private huespedService: HuespedService,private alertController: AlertController,private router: Router, private fb:FormBuilder) {
+    this.message = 'Gracias por tu reservación, para ver más detalles ingresa a <<link>>. Tu token es:'
     this.huespedService.getHuespeds().subscribe(res =>{
       this.huespeds = res;
       console.log(this.huespeds);
@@ -25,6 +28,20 @@ export class ViewHuespedPage implements OnInit {
    }
 
   ngOnInit() {
+    this.myForm = this.fb.group({
+      filter:[""]
+    });
+
+    console.log(this.myForm.get('filter'));
+
+    this.myForm.get('filter').valueChanges.subscribe(selectedValue =>{
+      switch(selectedValue){
+        case 'all': this.filterByAll(); break;
+        case 'dateAdmission': this.filterByDateAdmission(); break;
+        case 'lion': this.filterByLionRoom(); break;
+        case 'elephant': this.filterByElephantRoom(); break;
+      }
+    });
   }
 
   async removeHuesped(id:string) {
@@ -59,10 +76,36 @@ export class ViewHuespedPage implements OnInit {
     this.router.navigate(['/new-huesped']);
   }
 
-  public getHuespedByToken(tkn:string): void{
-    this.router.navigate(['/info-huesped'],{
-      queryParams: {token:tkn}
-    });
+  public filterByAll():void{
+    this.huespedService.getHuespeds().subscribe(res =>{
+      this.huespeds = res;
+
+    })
+
+  }
+
+  public filterByDateAdmission():void{
+    this.huespedService.filterByDateAdmission().subscribe(res =>{
+      this.huespeds = res;
+      console.log(this.huespeds);
+    })
+
+  }
+
+  public filterByLionRoom():void{
+    this.huespedService.filterByLionRoom().subscribe(res =>{
+      this.huespeds = res;
+      
+    })
+
+  }
+
+  public filterByElephantRoom():void{
+    this.huespedService.filterByElephantRoom().subscribe(res =>{
+      this.huespeds = res;
+      
+    })
+
   }
 
 }

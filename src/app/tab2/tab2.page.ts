@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HuespedService } from '../huesped.service';
+import { HuespedService } from '../services/huesped.service';
 import { Huesped, Room } from '../models/huesped';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -24,7 +24,6 @@ export class Tab2Page {
       departureDate: "",
       room: "",
       advance: 0,
-      photo:"",
       token: "",
     }];
     
@@ -58,33 +57,16 @@ export class Tab2Page {
     return (llegada <= fecha.toISOString() && salida >= fecha.toISOString());
   }
 
-  public restante(room:String, ant:number): number{
-    return this.restanteAux(room, ant);
-  }
-
   public getCode(room:String):String{
     let item : Room;
     item = this.rooms.find(
       (habitacion)=>{
-        return habitacion.room==room;
+        return habitacion.name==room;
       }
     );
     return item.code;
   }
 
-  public restanteAux(room:String, ant:number): number{
-    let item : Room;
-    item = this.rooms.find(
-      (habitacion)=>{
-        return habitacion.room==room;
-      }
-    );
-    if(item.price<=ant){
-      return 0;//"Costo cubierto totalmente :D";
-    }else{
-      return item.price - ant;//"$" + (item.price - ant) + " MXN";
-    }
-  }
 
 
 }

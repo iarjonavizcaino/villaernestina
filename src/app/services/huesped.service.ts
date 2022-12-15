@@ -1,4 +1,4 @@
-import { Room } from './models/huesped';
+import { Room } from '../models/huesped';
 import { Injectable } from '@angular/core';
 import { Huesped } from "src/app/models/huesped";
 import { map } from 'rxjs/operators';
@@ -13,6 +13,7 @@ export class HuespedService {
   private token: string;
   private huespeds: Huesped[];
   private rooms: Room[];
+  private today: any;
 
   constructor(private firestore: AngularFirestore) {
     /*this.huespeds = [
@@ -54,10 +55,17 @@ export class HuespedService {
       }
     ]*/
 
+    this.getDate();
+
     this.getHuespeds().subscribe(res=>{
       this.huespeds = res;
     });
+
   }
+
+  getDate() { 
+     this.today = new Date(); 
+    this.today = this.today.toISOString();}
 
   public getHuespeds(): Observable<Huesped[]> {
     //return this.huespeds;
@@ -141,10 +149,6 @@ export class HuespedService {
     this.firestore.collection('Huesped').doc(id).delete();
   }
 
-  public updateHuesped(id:string,photo:string):void{
-    this.firestore.collection('Huesped').doc(id).update({'photo':photo});
-  }
-
   public setToken(hues:string):void{
     this.token = hues;
   }
@@ -154,6 +158,41 @@ export class HuespedService {
   }
 
 
+  public filterByDateAdmission():  Observable<Huesped[]> {
+    return this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '>=', this.today)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+    )
+  }
+
+  public filterByLionRoom(): Observable<Huesped[]> {
+    return this.firestore.collection('Huesped', ref => ref.where('room', '==', 'León')).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+    )
+  }
+
+  public filterByElephantRoom(): Observable<Huesped[]> {
+    return this.firestore.collection('Huesped', ref => ref.where('room', '==', 'Elefante')).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+    )
+  }
 
   /*public getRooms(): Room[]{
     return this.rooms;

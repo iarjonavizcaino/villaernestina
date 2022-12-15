@@ -11,15 +11,37 @@
   <ion-row>
     <ion-col>
       <ion-list no-border>
+        <form [formGroup]="myForm">
+          <ion-item>
+            <ion-select interface="popover" formControlName="filter" placeholder="Mostrar por:">
+              <ion-select-option value="all" (click)="filterByAll()">Todos</ion-select-option>
+              <ion-select-option value="dateAdmission">Fecha de ingreso</ion-select-option>
+              <ion-select-option value="lion">Habitación León</ion-select-option>
+              <ion-select-option value="elephant">Habitación Elefante</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </form>
         <ion-item-sliding *ngFor="let item of huespeds; let i = index">
-          <ng-container *ngIf="item.name != ''">
+          <ng-container *ngIf="item.name != '' && myForm.value['filter'] !=''">
               <ion-item>
-                <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
+                <ion-note slot="start">Fecha de ingreso:</ion-note>
+                <ion-note slot="start">{{item.dateAdmission.substring(0,10)}}</ion-note>
+                <ion-note slot="start">Fecha de salida:</ion-note>
+                <ion-note slot="start">{{item.departureDate.substring(0,10)}}</ion-note>
+                <a href="https://wa.me/{{item.phone}}?text={{message}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
+                <a href="https://wa.me/{{item.phone}}?text={{item.token}}" target="_blank"><ion-label class="name">Token</ion-label></a>
                 <ion-label class="name">
                   {{item.name}}
                 </ion-label>
-                <ion-note slot="end">Fecha de ingreso:</ion-note>
-                <ion-note slot="end">{{item.dateAdmission.substring(0,10)}}</ion-note>
+
+                <ion-note slot="end">Habitación:</ion-note>
+                <ion-chip *ngIf="item.room == 'León'" slot="end" color="primary" class="ion-float-right">
+                  <ion-label>{{item.room}}</ion-label>
+                </ion-chip>
+
+                <ion-chip *ngIf="item.room == 'Elefante'" slot="end" color="warning" class="ion-float-right">
+                  <ion-label>{{item.room}}</ion-label>
+                </ion-chip>
               </ion-item>
           </ng-container>
           <!--ion-item>
@@ -33,11 +55,6 @@
             </ion-item-option>
           </ion-item-options>
 
-          <ion-item-options side="start" (ionSwipe)="getHuespedByToken(item.token)">
-            <ion-item-option expandable color="warning">
-                <ion-icon name="eye-outline"></ion-icon>
-            </ion-item-option>
-          </ion-item-options>
         </ion-item-sliding>
         
       </ion-list>

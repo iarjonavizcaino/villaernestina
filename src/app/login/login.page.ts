@@ -1,4 +1,4 @@
-import { HuespedService } from './../huesped.service';
+import { HuespedService } from '../services/huesped.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { ToastController } from '@ionic/angular';

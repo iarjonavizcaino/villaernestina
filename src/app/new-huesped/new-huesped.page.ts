@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Huesped, Room } from 'src/app/models/huesped';
-import { HuespedService } from '../huesped.service';
+import { HuespedService } from '../services/huesped.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -18,6 +18,7 @@ export class NewHuespedPage implements OnInit {
   public myForm: FormGroup;
   public validatorMessages: Object;
   public today: any;
+  public dayDeparture: any;
   public dateSelected: any;
   constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { 
     this.huespedsDates = [{
@@ -27,25 +28,22 @@ export class NewHuespedPage implements OnInit {
       departureDate: "",
       room: "",
       advance: 0,
-      photo:"",
       token: "",
     }]
   }
 
   ngOnInit() {
     this.getDate();
-    //this.rooms = this.huespedService.getRooms();
     this.huespedService.getRooms().subscribe(res =>{
       this.rooms = res;
-      //console.log(this.rooms);
     })
+    
     this.myForm = this.fb.group({
       name:["",Validators.required],
       phone:["",Validators.compose([Validators.required,Validators.minLength(12),Validators.maxLength(13),Validators.pattern(/\+\d+/)])],
       dateAdmission:["",Validators.required],
       departureDate:["",Validators.required],
-      room:["",Validators.required],
-      advance:["",Validators.compose([Validators.required,Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')])]
+      room:["",Validators.required]
     });
     this.validatorMessages = {
       name: [
@@ -65,15 +63,20 @@ export class NewHuespedPage implements OnInit {
       ],
       room: [
         { type: 'required', message: "Cuarto obligatorio" }
-      ],
-      advance: [
-        { type: 'required', message: "Anticipo obligatorio" },
-        { type: 'pattern', message: "Entrada incorrecta, favor de escibir solo números enteros o decimales" }
       ]
     }
+
+    this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue =>{
+      let newDay = new Date(selectedValue);
+      newDay.setDate(newDay.getDate() + 1)
+      this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
+      console.log(this.dayDeparture);
+    });
   }
 
-getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); /*console.log(this.today);*/ }
+getDate() { 
+  const date = new Date(); 
+  this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); /*console.log(this.today);*/ }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -107,32 +110,37 @@ getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0
 
   public newHuesped(data):void{
     if(this.checkRoom(data['room'],data['dateAdmission'])){
-      if(this.checkAdvance(data['room'],data['advance'])){
         //Construir el objeto
         data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-        data.photo = "";
         //console.log(data);
         this.huesped = data;
         this.huespedService.newHuesped(this.huesped);
         this.presentToast();
         this.router.navigate(['/view-huesped']);
-      }else{
-        this.presentToastAdvance();
-      }
     }else{
       this.presentToastRoom();
     }
   }
 
   public checkRoom(room,dA){
-    //console.log(this.huespedService.getHuespedByRoom(room));
+    
     if(this.huespedService.getHuespedByRoom(room)){
-      //console.log('hola');
+      
       this.huespedService.getFechasByRoom(room).subscribe(res =>{
         this.huespedsDates = res;
-        //console.log(this.huespedsDates);
+        
       })
-      if(!this.checkDates(dA)/*this.huespedService.getHuespedByRoom(room).departureDate.substring(0,10) >= dA.substring(0,10)*/){
+      let item = true;
+    
+    this.huespedsDates.forEach(
+      (huesped) => {
+        if(huesped.departureDate.substring(0,10) >= dA.substring(0,10)){
+          
+          item = false;
+        }
+      });
+
+      if(!item){
         return false;
       }else{
         return true;
@@ -143,7 +151,7 @@ getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0
   }
 
 
-  public  checkDates(dA){
+  /*public  checkDates(dA){
     let item = true;
     
     this.huespedsDates.forEach(
@@ -157,27 +165,7 @@ getDate() { const date = new Date(); this.today = date.getFullYear() + '-' + ('0
     //await this.delay(100);
     console.log(item);
     return item;
-  }
+  }*/
 
-  public checkAdvance(room,ad){
-    let adMin, adMax;
-    adMin = this.getPriceRoom(room) * .30;
-    adMax = this.getPriceRoom(room);
-    if(ad<adMin || ad>adMax){
-      return false;
-    }else{
-      return true;
-    }
-  }
-
-  public getPriceRoom(r:String): number{
-    let item : Room;
-    item = this.rooms.find(
-      (habitacion)=>{
-        return habitacion.room==r;
-      }
-    );
-    return item.price;
-  }
 
 }

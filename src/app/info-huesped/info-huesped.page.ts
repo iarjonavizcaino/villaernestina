@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HuespedService } from '../huesped.service';
+import { HuespedService } from '../services/huesped.service';
 import { Huesped } from '../models/huesped';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,7 +20,6 @@ export class InfoHuespedPage implements OnInit {
       departureDate: '',
       room: '',
       advance: 0,
-      photo: "",
       token: '',
     }]
    }

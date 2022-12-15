@@ -5,12 +5,10 @@ export class Huesped {
     departureDate: string;
     room: string;
     advance:number;
-    photo:string;
     token: string;
 }
 
 export class Room{
-    room: string;
+    name: string;
     code: string;
-    price: number;
 }

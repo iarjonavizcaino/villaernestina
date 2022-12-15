@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>newHuesped</ion-title>
+    <ion-title>Nuevo Huesped</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -49,7 +49,7 @@
 
           <ng-container *ngFor="let item of validatorMessages['dateAdmission']">
           <ion-item id="item" *ngIf="(myForm.get('dateAdmission').dirty || myForm.get('dateAdmission').touched) && !myForm.get('dateAdmission').hasError(item.type)">
-            <ion-datetime class="calendar" presentation="date" [min]="myForm.value['dateAdmission']" formControlName="departureDate">
+            <ion-datetime class="calendar" presentation="date" [min]="dayDeparture" formControlName="departureDate">
               <span slot="title">Selecciona la fecha de salida</span>
             </ion-datetime>
           </ion-item>
@@ -65,26 +65,13 @@
           <ion-item id="item">
             <ion-select interface="popover" formControlName="room" placeholder="Selecciona la habitación">
               <ng-container *ngFor="let r of rooms">
-              <ion-select-option [value]="r.room">{{r.room +' - $'+r.price}}</ion-select-option>
+              <ion-select-option [value]="r.name">{{ r.name }}</ion-select-option>
             </ng-container>
             </ion-select>
           </ion-item>
           <div>
             <ng-container *ngFor="let item of validatorMessages['room']">
               <div class="errormessages" *ngIf="(myForm.get('room').dirty || myForm.get('room').touched) && myForm.get('room').hasError(item.type)">
-                {{item.message}}
-              </div>
-            </ng-container>
-          </div>
-          <ng-container *ngFor="let item of validatorMessages['room']">
-            <ion-item id="item" *ngIf="(myForm.get('room').dirty || myForm.get('room').touched) && !myForm.get('room').hasError(item.type)">
-              <ion-label position="floating">Anticipo</ion-label>
-              <ion-input formControlName="advance"></ion-input>
-            </ion-item>
-          </ng-container>
-          <div>
-            <ng-container *ngFor="let item of validatorMessages['advance']">
-              <div class="errormessages" *ngIf="(myForm.get('advance').dirty || myForm.get('advance').touched) && myForm.get('advance').hasError(item.type)">
                 {{item.message}}
               </div>
             </ng-container>
