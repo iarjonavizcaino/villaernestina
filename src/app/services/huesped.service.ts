@@ -61,6 +61,10 @@ export class HuespedService {
       this.huespeds = res;
     });
 
+    this.getRooms().subscribe(res=>{
+      this.rooms = res;
+    });
+
   }
 
   getDate() { 
@@ -110,6 +114,13 @@ export class HuespedService {
   public getHuespedByToken(tkn: string):Huesped{
     return this.huespeds.find(huesped=>{
         return huesped.token===tkn;
+      }
+    );
+  }
+
+  public getRoom(rm: string):Room{
+    return this.rooms.find(room=>{
+        return room.name===rm;
       }
     );
   }

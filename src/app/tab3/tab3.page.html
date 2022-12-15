@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      {{"ACTIVIDADES" | translate}}
+      {{"INTERES" | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,49 +9,73 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large"> {{"ACTIVIDADES" | translate}}</ion-title>
+      <ion-title size="large"> {{"INTERES" | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-<!-- <app-explore-container name="Tab 3 page"></app-explore-container> --> 
-
-  <h4> {{"DESCRIPCION" | translate}}</h4>
 
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>{{"ACTIVIDADES" | translate}}</ion-label>
+        <ion-label>{{"COMIDAS" | translate}}</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        {{"ACTIVIDAD1" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"ACTIVIDAD2" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"ACTIVIDAD3" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"ACTIVIDAD4" | translate}}
+        <ion-slides>
+          <ion-slide>
+            <ion-row>
+              <ion-col>
+                <ion-img style="width: auto; height: 40vh;" src="https://www.goya.com/media/3149/crunchy-peruvian-fish.jpg?quality=80"></ion-img>
+                <ion-label style="display: block;">{{ 'COMIDA1' | translate }}</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+          <ion-slide>
+            <ion-row>
+              <ion-col>
+                <ion-img style="width: auto; height: 40vh;" src="https://cdn1.matadornetwork.com/blogs/2/2019/12/Chilaquiles-Mexican-breakfast.jpg"></ion-img>
+                <ion-label>{{ 'COMIDA2' | translate }}</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+          <ion-slide>
+            <ion-row>
+              <ion-col>
+                <ion-img style="width: auto; height: 40vh;" src="https://www.cocinavital.mx/wp-content/uploads/2019/06/platanos-flameados-tequila.jpg"></ion-img>
+                <ion-label>{{ 'COMIDA3' | translate }}</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+          <ion-slide>
+            <ion-row>
+              <ion-col>
+                <ion-img style="width: auto; height: 40vh;" src="https://www.cocinavital.mx/wp-content/uploads/2019/03/capirotada-tradicional-con-piloncillo-mexicana-pasos.jpg"></ion-img>
+                <ion-label>{{ 'COMIDA4' | translate }}</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-slide>
+        </ion-slides>
       </div>
     </ion-accordion>
 
 
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
-        <ion-label>  {{"RECOMENDACIONES" | translate}}</ion-label>
+        <ion-label>  {{"LEYENDA" | translate}}</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        {{"RECOMENDACION1" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"RECOMENDACION2" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"RECOMENDACION3" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"RECOMENDACION4" | translate}}
+        <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.6435-9/65768646_2395295790523212_5042714548113506304_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeFzUosHImvj01BmNA42G4fDtMLHl8oxIRi0wseXyjEhGCs8wbFci1mnSIuZtlAL7kGvHXoOBI-_GT8uNyuZ7RFA&_nc_ohc=bq4IxjB-s1EAX8u2q3F&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfB4nG4WjK0SLkKtFhi_skecqvfco8mubbvRqEYHKoMqew&oe=63C24090"></ion-img>
+        <ion-label>{{ 'LEYENDA1' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA2' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA3' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA4' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA5' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA6' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LEYENDA7' | translate }}</ion-label>
       </div>
     </ion-accordion>
 
@@ -61,22 +85,97 @@
         <ion-label> {{"HISTORIA" | translate}}</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        {{"HISTORIACOMPLETA" | translate}}
+        <ion-img style="width: auto; height: 40vh;" src="https://brevehistoriahispanica.com/wp-content/uploads/2012/09/conquistadores-espac3b1oles.png"></ion-img>
+        <ion-label>{{ 'HISTORIA1' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'HISTORIA2' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'HISTORIA3' | translate }}</ion-label>
       </div>
     </ion-accordion>
 
     <ion-accordion value="fourth">
       <ion-item slot="header" color="light">
+        <ion-label>{{ 'LAGUNA' | translate }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-slides>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/291171172_130022519713959_248049478540679560_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEjS-hJ3nuYDGgdb6NfMNpCjjSIdR8g24eONIh1HyDbh2_IQ2qIb_uK-9suRdyMbA90MhFk3Iu_Ksh5gpaZEu7r&_nc_ohc=5NDk78AFbn8AX9txHcj&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfB_hTmfOzqNkOwA84ps_16ezM2nSWrfreI3ezUiod7NSA&oe=639F3B58"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlifmblh_6lN0eppE5oPVgE6UvWZxiAUA2Vw&usqp=CAU"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/290691941_128992559816955_3672095065837549650_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH90PnogWh7VRr4C3NGC4VGdMBXdvPFtql0wFd288W2qbSca4_uWaCic28eD1vDVLUeUc3yCghVewx1i5KJSTQZ&_nc_ohc=DzvViGcdx54AX9c3-LT&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBDt4EJqiwpx6kCiudNWVCxV_pZ6qwWpWcugd5qN71fAA&oe=639EFD39"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNgRCOXAXrpvHcMVBkEn6HWVPtkzsGaLPftA&usqp=CAU"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://mexicotravelchannel.com.mx/wp-content/uploads/2021/05/santa-maria-del-oro-mexico-travel-channel.jpg"></ion-img>
+          </ion-slide>
+        </ion-slides>
+        <ion-label>{{ 'LAGUNA1' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA2' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA3' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA4' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA5' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA6' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'LAGUNA7' | translate }}</ion-label>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="five">
+      <ion-item slot="header" color="light">
         <ion-label>{{"NUMEROS" | translate}}</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        {{"NUM1" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"NUM2" | translate}}
-      </div>
-      <div class="ion-padding" slot="content">
-        {{"NUM3" | translate}}
+          <ol>
+              <li>
+                  <h5>{{'TAXI' | translate}}</h5>
+                  <ul>
+                      <li><a href="tel:+523111221670">311 122 1670</a>{{" "}}(Mario)</li>
+                      <li><a href="tel:+523111227455 ">311 122 7455</a>{{" "}}(Baltazar)</li>
+                  </ul>
+              </li>
+              <li>
+                  <h5>{{'MANDADITOS' | translate}}</h5>
+                  <ul>
+                    <li><a href="tel:+523112037754">311 203 7754</a>{{" "}}(José Luis Soto Cendejas)</li>
+                  </ul>
+              </li>
+              <li>
+                  <h5>{{'VETERINARIO' | translate}}</h5>
+                  <ul>
+                      <li><a href="tel:+523111143398">311 114 3398</a>{{" "}}(Juan Francisco Abundis Meza)</li>
+                  </ul>
+              </li>
+              <li>
+                <h5>{{'DOCTOR' | translate}}</h5>
+                <ul>
+                    <li><a href="tel:+523111220123">311 122 0123</a>{{" "}}(José Alfredo Rodríguez)</li>
+                </ul>
+              </li>
+              <li>
+                <h5>{{'EMERGENCIAS' | translate}}</h5>
+                <ul>
+                    <li><a href="tel:911">911</a></li>
+                </ul>
+              </li>
+              <li>
+                <h5>{{'SEGURIDAD' | translate}}</h5>
+                <ul>
+                    <li><a href="tel:+523272440259">327 244 0259</a></li>
+                </ul>
+              </li>
+          </ol>
       </div>
     </ion-accordion>
 

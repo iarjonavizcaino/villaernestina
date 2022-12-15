@@ -1,9 +1,84 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Recomendaciones</ion-title>
+    <ion-title>
+      {{"LLEGADA" | translate}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> {{"LLEGADA" | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>  {{"LLEGADA" | translate}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-label>{{ 'UBICACION' | translate }}<a href="https://maps.app.goo.gl/FQipxag7ad34ughX6" target="_blank">https://maps.app.goo.gl/FQipxag7ad34ughX6</a></ion-label>
+        <hr />
+        <ion-label>{{ 'INSTRUCCIONES' | translate }}</ion-label>
+        <br />
+        <ion-label>{{ 'INSTRUCCION' | translate }}</ion-label>
+        <hr />
+        <iframe style="width: auto; height: 80vh; margin: auto; display: block;"
+                      src="/assets/videos/llegada.mp4">
+                </iframe>
+      </div>
+    </ion-accordion>
+
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ 'ACCESAR' | translate }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-label>{{ 'ACCESO1' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'ACCESO2' | translate }}{{ room.code }}</ion-label>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ 'WIFI' | translate }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-label>{{ 'RED' | translate }}</ion-label>
+        <br />
+        <ion-label>{{ 'CONTRA' | translate }}</ion-label>
+        <hr />
+        <ion-label>{{ 'REDALT' | translate }}</ion-label>
+        <br />
+        <ion-label>{{ 'CONTRA' | translate }}</ion-label>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="fourth">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ 'STREAM' | translate }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-slides>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/12/hbo-max-1-scaled.jpg?fit=2560%2C1732&quality=50&strip=all&ssl=1"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://static-assets.bamgrid.com/product/disneyplus/images/share-default.14fadd993578b9916f855cebafb71e62.png"></ion-img>
+          </ion-slide>
+          <ion-slide>
+            <ion-img style="width: auto; height: 40vh;" src="https://s1.eestatic.com/2022/03/24/actualidad/659694554_222967910_864x486.jpg"></ion-img>
+          </ion-slide>
+        </ion-slides>
+        <br />
+        <ion-label>{{ 'PERFIL' | translate }}{{ huesped.room }}</ion-label>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
   
 </ion-content>
