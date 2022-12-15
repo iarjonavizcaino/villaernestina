@@ -20,7 +20,7 @@ export class ViewHuespedPage implements OnInit {
   public huesped: Huesped;
 
   constructor(private huespedService: HuespedService,private alertController: AlertController,private router: Router, private fb:FormBuilder) {
-    this.message = 'Gracias por tu reservación, para ver más detalles ingresa a <<link>>. Tu token es:'
+    this.message = 'Gracias por tu reservación, para ver más detalles ingresa a https://dashboard.ionicframework.com/app/827e1e54/preview/8363092 - Tu token es:'
     this.huespedService.getHuespeds().subscribe(res =>{
       this.huespeds = res;
       console.log(this.huespeds);
