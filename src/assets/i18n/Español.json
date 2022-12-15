@@ -1,7 +1,9 @@
 {
+    "BIENVENIDATAB":"Bienvenida",
+    
     "REGLAS" : "Reglas",
     "PANTALLABIENVENIDA":"Bienvenido(a)!",
-    "IDIOMA":"Elige el idioma : ",
+    "IDIOMA":"Elige el idioma: ",
     "REGLASG":"Reglas Generales",
     "REGLA1":"1. Respetar la Naturaleza.",
     "REGLA2":"2. Cuidar las instalaciones.",
@@ -50,10 +52,6 @@
     "NATACION_P1":"🌟Cómo parte del servicio te prestamos chalecos salvavidas completamente gratis",
     "CODIGO":"Código de Acceso",
     "INTERES":"De Interés",
-    "ACTIVIDAD1":"Paseo en Lancha y Pesca deportiva.",
-    "ACTIVIDAD2":"Deportes Acuáticos : Windsurf , Kayak y WakeBoarding",
-    "ACTIVIDAD3":" Podras nadar, hacer Snorkel y Buceo en altitud.",
-    "ACTIVIDAD4":"Acampar, hacer Rappel y tirarse de una tirolesa.",
     "COMIDAS":"Comidas",
     "COMIDA1":"1. Restaurante Catalina: El mejor chicharrón y ceviche de pescado (comida tradicional de La Laguna).",
     "COMIDA2":"2. Desayunos: Taquitos La Aurora, Restaurante Lago Azul, Restaurante el desagüe",
