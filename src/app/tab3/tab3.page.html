@@ -1,184 +1,747 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      {{"INTERES" | translate}}
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            {{"INTERES" | translate}}
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large"> {{"INTERES" | translate}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large"> {{"INTERES" | translate}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-grid>
+        <ion-row>
+            <ion-card>
+                <img src="../../assets/img/VillaErnestinaCard.png" alt="" srcset="" class="card-img">
+                <ion-accordion-group [multiple]="false" [value]="'third'">
+                    <ion-accordion value="first">
+                        <ion-item slot="header" color="light">
+                            <ion-label> {{"ACTIVIDADES" | translate}}</ion-label>
+                        </ion-item>
+                        <div slot="content">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size="6">
+                                        <div class="kayak content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"KAYAK" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalkayak" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalkayak" #kayakmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"KAYAK" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(5)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Kayak.jpeg"></ion-img>
+                                                        <ion-card-subtitle>
+                                                            <ion-label class="txt-label"> {{"KAYAK_P1" | translate}}</ion-label>
+                                                        </ion-card-subtitle>
+                                                        <ion-card-content>
+                                                            <ol>
+                                                                <li>
+                                                                    {{ 'KAYAK_P2' | translate }}
+                                                                </li>
+                                                                <li>
+                                                                    {{ 'KAYAK_P3' | translate }}
+                                                                </li>
+                                                                <li>
+                                                                    {{ 'KAYAK_P4' | translate }}
+                                                                </li>
+                                                                <li>
+                                                                    {{ 'KAYAK_P5' | translate }}
+                                                                </li>
+                                                            </ol>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                    <ion-col size="6">
+                                        <div class="massage content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"MASAJESTEMAZ" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalmassage" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalmassage" #massagemodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"MASAJESTEMAZ" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(6)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Masaje.jpeg"></ion-img>
+                                                        <ion-card-title>
+                                                            <ion-label>{{ 'MASAJE' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
+                                                        </ion-card-title>
+                                                        <ion-card-content>
+                                                            <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col size="6">
+                                        <div class="temazcal content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"MASAJESTEMAZ2" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modaltemazcal" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modaltemazcal" #temazcalmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"MASAJESTEMAZ2" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(7)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Temazcal.jpeg"></ion-img>
+                                                        <ion-card-title>
+                                                            <ion-label>{{ 'TEMAZCAL' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
+                                                        </ion-card-title>
+                                                        <ion-card-content>
+                                                            <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                    <ion-col size="6">
+                                        <div class="ciclism content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"CICLISMO" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalciclism" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalciclism" #ciclismmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"CICLISMO" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(8)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Ciclismo.jpeg"></ion-img>
+                                                        <ion-card-subtitle>
+                                                            <ion-label>{{ 'CICLISMO_P1' | translate }}</ion-label>
+                                                        </ion-card-subtitle>
+                                                        <ion-card-content>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col size="6">
+                                        <div class="boat content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"LANCHA" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalboat" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalboat" #boatmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"LANCHA" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(9)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Lancha.jpeg"></ion-img>
+                                                        <ion-card-subtitle>
+                                                            <ol>
+                                                                <li>
+                                                                    {{ 'LANCHA_P1' | translate }}<a href="tel:+523112661762">3112661762</a>
+                                                                </li>
+                                                                <li>
+                                                                    {{ 'LANCHA_P2' | translate }}<a href="tel:+523112661762">3112661762</a>
+                                                                </li>
+                                                            </ol>
+                                                        </ion-card-subtitle>
+                                                        <ion-card-content>
+                                                            <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                    <ion-col size="6">
+                                        <div class="swim content-card">
+                                            <div class="carditem">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"NATACION" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalswim" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalswim" #swimmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"NATACION" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(10)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Natacion.jpeg"></ion-img>
+                                                        <ion-card-subtitle>
+                                                            <ion-label>{{ 'NATACION_P1' | translate }}</ion-label>
+                                                        </ion-card-subtitle>
+                                                        <ion-card-content>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </div>
+                    </ion-accordion>
+                    <ion-accordion value="second">
+                        <ion-item slot="header" color="light">
+                            <ion-label> {{"TRADICION" | translate}}</ion-label>
+                        </ion-item>
+                        <div slot="content">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col size="6" id="infkayak">
+                                        <div class="meal content-card">
+                                            <div class="mealimg">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label">{{"COMIDAS" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalfood" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalfood" #foodmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label">{{"COMIDAS" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(1)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
+                                                    <swiper [config]="config" #swiperSlideShow>
+                                                        <ng-template swiperSlide *ngFor="let meal of meals">
+                                                            <ion-card>
+                                                                <img alt="Comida" [src]="meal.img" />
+                                                                <ion-card-header>
+                                                                    <ion-card-title>
+                                                                        <ion-label>{{ meal.title| translate }}</ion-label>
+                                                                    </ion-card-title>
+                                                                    <ion-card-subtitle>
+                                                                        {{meal.subtitle}}
+                                                                    </ion-card-subtitle>
+                                                                    <ion-card-content>
+                                                                        <ion-button *ngIf="meal.map" expand="block" [href]="meal.map" target="_blank">Ver Mapa</ion-button>
+                                                                    </ion-card-content>
+                                                                </ion-card-header>
+                                                            </ion-card>
+                                                        </ng-template>
+                                                    </swiper>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                    <ion-col size="6">
+                                        <div class="legend content-card">
+                                            <div class="mealimg">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"LEYENDA" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modallegend" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modallegend" #legendmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"LEYENDA" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(2)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
 
-  <ion-accordion-group>
-    <ion-accordion value="first">
-      <ion-item slot="header" color="light">
-        <ion-label>{{"COMIDAS" | translate}}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-slides>
-          <ion-slide>
-            <ion-row>
-              <ion-col>
-                <ion-img style="width: auto; height: 40vh;" src="https://www.goya.com/media/3149/crunchy-peruvian-fish.jpg?quality=80"></ion-img>
-                <ion-label style="display: block;">{{ 'COMIDA1' | translate }}</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-slide>
-          <ion-slide>
-            <ion-row>
-              <ion-col>
-                <ion-img style="width: auto; height: 40vh;" src="https://cdn1.matadornetwork.com/blogs/2/2019/12/Chilaquiles-Mexican-breakfast.jpg"></ion-img>
-                <ion-label>{{ 'COMIDA2' | translate }}</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-slide>
-          <ion-slide>
-            <ion-row>
-              <ion-col>
-                <ion-img style="width: auto; height: 40vh;" src="https://www.cocinavital.mx/wp-content/uploads/2019/06/platanos-flameados-tequila.jpg"></ion-img>
-                <ion-label>{{ 'COMIDA3' | translate }}</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-slide>
-          <ion-slide>
-            <ion-row>
-              <ion-col>
-                <ion-img style="width: auto; height: 40vh;" src="https://www.cocinavital.mx/wp-content/uploads/2019/03/capirotada-tradicional-con-piloncillo-mexicana-pasos.jpg"></ion-img>
-                <ion-label>{{ 'COMIDA4' | translate }}</ion-label>
-              </ion-col>
-            </ion-row>
-          </ion-slide>
-        </ion-slides>
-      </div>
-    </ion-accordion>
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Leyenda1.webp"></ion-img>
+                                                        <ion-card-title>
+                                                            <ion-label class="txt-label"> {{"LEYENDA0" | translate}}</ion-label>
+                                                        </ion-card-title>
+                                                        <ion-card-content>
+                                                            <ion-label>{{ 'LEYENDA1' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LEYENDA2' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LEYENDA3' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LEYENDA4' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LEYENDA5' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LEYENDA6' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>
+                                                                <strong>
+                                                                    {{ 'LEYENDA7' | translate }}
+                                                                </strong>
+                                                            </ion-label>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                </ion-row>
+                                <ion-row>
+                                    <ion-col size="6">
+                                        <div class="history content-card">
+                                            <div class="mealimg">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"HISTORIA" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modalhistory" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modalhistory" #historymodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"HISTORIA" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(3)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
 
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/Historia1.jpeg"></ion-img>
+                                                        <ion-card-title>
+                                                            <ion-label class="txt-label"> {{"HISTORIA" | translate}}</ion-label>
+                                                        </ion-card-title>
+                                                        <ion-card-content>
+                                                            <ion-label>{{ 'HISTORIA1' | translate }}</ion-label>
+                                                            <br />
+                                                            <br>
+                                                            <ion-label>{{ 'HISTORIA2' | translate }}</ion-label>
+                                                            <br />
+                                                            <br>
+                                                            <ion-label>{{ 'HISTORIA3' | translate }}</ion-label>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                    <ion-col size="6">
+                                        <div class="lagoon content-card">
+                                            <div class="mealimg">
+                                                <div class="card-text">
+                                                    <ion-grid>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-label class="txt-label"> {{"LAGUNA" | translate}}</ion-label>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                        <ion-row>
+                                                            <ion-col size="12">
+                                                                <ion-button shape="round" size="small" color="success" class="card-btn" id="modallagoon" (click)="startAnimation()">
+                                                                    Ver más
+                                                                </ion-button>
+                                                            </ion-col>
+                                                        </ion-row>
+                                                    </ion-grid>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ion-modal trigger="modallagoon" #lagoonmodal>
+                                            <ng-template>
+                                                <ion-header>
+                                                    <ion-toolbar>
+                                                        <ion-title>
+                                                            <ion-label class="txt-label"> {{"LAGUNA" | translate}}</ion-label>
+                                                        </ion-title>
+                                                        <ion-buttons slot="end">
+                                                            <ion-button [strong]="true" (click)="cancel(4)">
+                                                                <ion-icon name="close"></ion-icon>
+                                                            </ion-button>
+                                                        </ion-buttons>
+                                                    </ion-toolbar>
+                                                </ion-header>
+                                                <ion-content class="ion-padding">
 
-    <ion-accordion value="second">
-      <ion-item slot="header" color="light">
-        <ion-label>  {{"LEYENDA" | translate}}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.6435-9/65768646_2395295790523212_5042714548113506304_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeFzUosHImvj01BmNA42G4fDtMLHl8oxIRi0wseXyjEhGCs8wbFci1mnSIuZtlAL7kGvHXoOBI-_GT8uNyuZ7RFA&_nc_ohc=bq4IxjB-s1EAX8u2q3F&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfB4nG4WjK0SLkKtFhi_skecqvfco8mubbvRqEYHKoMqew&oe=63C24090"></ion-img>
-        <ion-label>{{ 'LEYENDA1' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA2' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA3' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA4' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA5' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA6' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LEYENDA7' | translate }}</ion-label>
-      </div>
-    </ion-accordion>
+                                                    <ion-card class="legendcontent">
+                                                        <ion-img src="../../assets/img/VillaErnestina0.png"></ion-img>
+                                                        <ion-card-title>
+                                                            <!-- <ion-label class="txt-label"> {{"LAGUNA" | translate}}</ion-label> -->
+                                                        </ion-card-title>
+                                                        <ion-card-content>
+                                                            <ion-label>{{ 'LAGUNA1' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA2' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA3' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA4' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA5' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA6' | translate }}</ion-label>
+                                                            <br />
+                                                            <br />
+                                                            <ion-label>{{ 'LAGUNA7' | translate }}</ion-label>
+                                                        </ion-card-content>
+                                                    </ion-card>
+                                                </ion-content>
+                                            </ng-template>
+                                        </ion-modal>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </div>
+                    </ion-accordion>
+                    <ion-accordion value="third">
+                        <ion-item slot="header" color="light">
+                            <ion-label> {{"NUMEROS" | translate}}</ion-label>
+                        </ion-item>
+                        <div slot="content">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col>
+                                        <ion-list>
+                                            <ion-item-group>
+                                                <ion-item-divider>
+                                                    <ion-label>
+                                                        {{'ANFITRION' | translate}}
+                                                    </ion-label>
+                                                </ion-item-divider>
+                                                <ion-item>
+                                                    <a href="tel:+523111032724">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{"Mariela: "}}311 103 2724</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                            </ion-item-group>
+                                            <ion-item-group>
+                                                <ion-item-divider>
+                                                    <ion-label>
+                                                        {{'TAXI' | translate}}
+                                                    </ion-label>
+                                                </ion-item-divider>
+                                                <ion-item>
+                                                    <a href="tel:+523111221670">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{"Mario: "}} 311 122 1670</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                                <ion-item>
+                                                    <a href="tel:+523111227455">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{"Baltazar: "}}311 122 7455</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                            </ion-item-group>
+                                            <ion-item-group>
+                                                <ion-item-divider>
+                                                    <ion-label>
+                                                        {{'MANDADITOS' | translate}}
+                                                    </ion-label>
+                                                </ion-item-divider>
+                                                <ion-item>
+                                                    <a href="tel:+523112037754">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{"José Luis Soto: "}}311 203 7754</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                            </ion-item-group>
+                                            <ion-item-group>
+                                                <ion-item-divider>
+                                                    <ion-label>
+                                                        {{'VETERINARIO' | translate}}
+                                                    </ion-label>
+                                                </ion-item-divider>
+                                                <ion-item>
+                                                    <a href="tel:+523111143398">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{"Juan Francisco Abundis: "}}311 114 3398</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                            </ion-item-group>
+                                            <ion-item-group>
+                                                <ion-item-divider>
+                                                    <ion-label>
+                                                        {{'EMERGENCIAS' | translate}}
+                                                    </ion-label>
+                                                </ion-item-divider>
+                                                <ion-item>
+                                                    <a href="tel:911">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>911</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                                <ion-item>
+                                                    <a href="tel:+523272440259">
+                                                        <ion-chip>
+                                                            <ion-avatar>
+                                                                <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                                                            </ion-avatar>
+                                                            <ion-label>{{'SEGURIDAD' | translate}}{{": "}}327 244 0259</ion-label>
+                                                            <ion-icon name="call-outline"></ion-icon>
+                                                        </ion-chip>
+                                                    </a>
+                                                </ion-item>
+                                            </ion-item-group>
+                                        </ion-list>
+                                    </ion-col>
 
+                                </ion-row>
+                            </ion-grid>
+                        </div>
+                    </ion-accordion>
+                </ion-accordion-group>
+            </ion-card>
+        </ion-row>
 
-    <ion-accordion value="third">
-      <ion-item slot="header" color="light">
-        <ion-label> {{"HISTORIA" | translate}}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-img style="width: auto; height: 40vh;" src="https://brevehistoriahispanica.com/wp-content/uploads/2012/09/conquistadores-espac3b1oles.png"></ion-img>
-        <ion-label>{{ 'HISTORIA1' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'HISTORIA2' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'HISTORIA3' | translate }}</ion-label>
-      </div>
-    </ion-accordion>
-
-    <ion-accordion value="fourth">
-      <ion-item slot="header" color="light">
-        <ion-label>{{ 'LAGUNA' | translate }}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-slides>
-          <ion-slide>
-            <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/291171172_130022519713959_248049478540679560_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEjS-hJ3nuYDGgdb6NfMNpCjjSIdR8g24eONIh1HyDbh2_IQ2qIb_uK-9suRdyMbA90MhFk3Iu_Ksh5gpaZEu7r&_nc_ohc=5NDk78AFbn8AX9txHcj&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfB_hTmfOzqNkOwA84ps_16ezM2nSWrfreI3ezUiod7NSA&oe=639F3B58"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img style="width: auto; height: 40vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlifmblh_6lN0eppE5oPVgE6UvWZxiAUA2Vw&usqp=CAU"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/290691941_128992559816955_3672095065837549650_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH90PnogWh7VRr4C3NGC4VGdMBXdvPFtql0wFd288W2qbSca4_uWaCic28eD1vDVLUeUc3yCghVewx1i5KJSTQZ&_nc_ohc=DzvViGcdx54AX9c3-LT&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBDt4EJqiwpx6kCiudNWVCxV_pZ6qwWpWcugd5qN71fAA&oe=639EFD39"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img style="width: auto; height: 40vh;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNgRCOXAXrpvHcMVBkEn6HWVPtkzsGaLPftA&usqp=CAU"></ion-img>
-          </ion-slide>
-          <ion-slide>
-            <ion-img style="width: auto; height: 40vh;" src="https://mexicotravelchannel.com.mx/wp-content/uploads/2021/05/santa-maria-del-oro-mexico-travel-channel.jpg"></ion-img>
-          </ion-slide>
-        </ion-slides>
-        <ion-label>{{ 'LAGUNA1' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA2' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA3' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA4' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA5' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA6' | translate }}</ion-label>
-        <hr />
-        <ion-label>{{ 'LAGUNA7' | translate }}</ion-label>
-      </div>
-    </ion-accordion>
-
-    <ion-accordion value="five">
-      <ion-item slot="header" color="light">
-        <ion-label>{{"NUMEROS" | translate}}</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-          <ol>
-              <li>
-                  <h5>{{'TAXI' | translate}}</h5>
-                  <ul>
-                      <li><a href="tel:+523111221670">311 122 1670</a>{{" "}}(Mario)</li>
-                      <li><a href="tel:+523111227455 ">311 122 7455</a>{{" "}}(Baltazar)</li>
-                  </ul>
-              </li>
-              <li>
-                  <h5>{{'MANDADITOS' | translate}}</h5>
-                  <ul>
-                    <li><a href="tel:+523112037754">311 203 7754</a>{{" "}}(José Luis Soto Cendejas)</li>
-                  </ul>
-              </li>
-              <li>
-                  <h5>{{'VETERINARIO' | translate}}</h5>
-                  <ul>
-                      <li><a href="tel:+523111143398">311 114 3398</a>{{" "}}(Juan Francisco Abundis Meza)</li>
-                  </ul>
-              </li>
-              <li>
-                <h5>{{'DOCTOR' | translate}}</h5>
-                <ul>
-                    <li><a href="tel:+523111220123">311 122 0123</a>{{" "}}(José Alfredo Rodríguez)</li>
-                </ul>
-              </li>
-              <li>
-                <h5>{{'EMERGENCIAS' | translate}}</h5>
-                <ul>
-                    <li><a href="tel:911">911</a></li>
-                </ul>
-              </li>
-              <li>
-                <h5>{{'SEGURIDAD' | translate}}</h5>
-                <ul>
-                    <li><a href="tel:+523272440259">327 244 0259</a></li>
-                </ul>
-              </li>
-          </ol>
-      </div>
-    </ion-accordion>
-
-  </ion-accordion-group>
-
+    </ion-grid>
 </ion-content>

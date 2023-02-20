@@ -4,6 +4,8 @@ import { Huesped } from "src/app/models/huesped";
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { NonNullableFormBuilder } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -15,61 +17,24 @@ export class HuespedService {
   private rooms: Room[];
   private today: any;
 
-  constructor(private firestore: AngularFirestore) {
-    /*this.huespeds = [
-      {
-        name: "Huesped1",
-        phone: "+523111934812",
-        dateAdmission: "2022-11-20T09:46:26.329Z",
-        departureDate: "2022-11-25T09:46:26.329Z",
-        room: "A1",
-        advance: 350.50,
-        photo:"",
-        token: "abcdefghijk"
-      }];
-    this.rooms = [
-      {
-        room: "A1",
-        code: "4578",
-        price: 500
-      }, {
-        room: "A2",
-        code: "7864",
-        price: 5000
-      }, {
-        room: "B1",
-        code: "9887",
-        price: 100
-      }, {
-        room: "B2",
-        code: "1278",
-        price: 1000
-      }, {
-        room: "C1",
-        code: "3633",
-        price: 599
-      }, {
-        room: "C2",
-        code: "5210",
-        price: 1599
-      }
-    ]*/
+  constructor(private firestore: AngularFirestore, private router: Router) {
 
     this.getDate();
 
-    this.getHuespeds().subscribe(res=>{
+    this.getHuespeds().subscribe(res => {
       this.huespeds = res;
     });
 
-    this.getRooms().subscribe(res=>{
+    this.getRooms().subscribe(res => {
       this.rooms = res;
     });
 
   }
 
-  getDate() { 
-     this.today = new Date(); 
-    this.today = this.today.toISOString();}
+  getDate() {
+    this.today = new Date();
+    this.today = this.today.toISOString();
+  }
 
   public getHuespeds(): Observable<Huesped[]> {
     //return this.huespeds;
@@ -111,17 +76,23 @@ export class HuespedService {
     )
   }
 
-  public getHuespedByToken(tkn: string):Huesped{
-    return this.huespeds.find(huesped=>{
-        return huesped.token===tkn;
+  public getHuespedByToken(tkn: string): Huesped {
+    // console.log("Token enviado " + tkn);
+    if (tkn && tkn != undefined)
+      return this.huespeds.find(huesped => {
+        return huesped.token === tkn;
       }
-    );
+      ); else {
+      // console.log('Navegando...');
+      this.router.navigate(['']);
+      return null;
+    }
   }
 
-  public getRoom(rm: string):Room{
-    return this.rooms.find(room=>{
-        return room.name===rm;
-      }
+  public getRoom(rm: string): Room {
+    return this.rooms.find(room => {
+      return room.name === rm;
+    }
     );
   }
 
@@ -153,16 +124,16 @@ export class HuespedService {
     this.firestore.collection('Huesped').doc(id).delete();
   }
 
-  public setToken(hues:string):void{
+  public setToken(hues: string): void {
     this.token = hues;
   }
 
-  public getToken(): string{
+  public getToken(): string {
     return this.token;
   }
 
 
-  public filterByDateAdmission():  Observable<Huesped[]> {
+  public filterByDateAdmission(): Observable<Huesped[]> {
     return this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '>=', this.today)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {

@@ -1,5 +1,39 @@
-.ubi{
+.ubi {
     text-align: center;
     max-width: 50%;
     margin-left: 20%;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.petfriendly {
+    height: 200px;
+}
+
+.intro {
+    text-align: justify;
+}
+
+.text-resalt {
+    //line-height: 1;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.number-list {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px white;
+}
+
+.description {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
 }

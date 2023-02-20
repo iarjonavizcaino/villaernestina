@@ -6,6 +6,7 @@ export class Huesped {
     room: string;
     advance:number;
     token: string;
+    gender: string;
 }
 
 export class Room{

@@ -7,6 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { TranslateModule} from '@ngx-translate/core';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
+import { SwiperModule } from 'swiper/angular';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab2PageRoutingModule,
-    TranslateModule
+    TranslateModule,
+    SwiperModule
   ],
   declarations: [Tab2Page]
 })

@@ -1,0 +1,111 @@
+.card-activities {
+    border: solid 4px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: rgb(74, 205, 232);
+    color: white;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+}
+
+.content-card {
+    height: 150px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.meal {
+    background-image: url('../../assets/img/Comidas1.jpeg');
+}
+
+.legend {
+    background-image: url('../../assets/img/Leyenda1.webp');
+}
+
+.history {
+    background-image: url('../../assets/img/Historia1.jpeg');
+}
+
+.lagoon {
+    background-image: url('../../assets/img/VillaErnestina0.png');
+}
+
+.mealimg {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.mealimg:hover {
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+}
+
+.card-text {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    height: 150px;
+    font-size: x-large;
+}
+
+.txt-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-btn {
+    display: flex;
+}
+
+.legendcontent {
+    flex-direction: column;
+    text-align: justify;
+}
+
+.text-bold {
+    font-size: 20px;
+    font-weight: bolder;
+    background: #000000;
+    color: #fff;
+    height: 40px;
+    display: flex;
+    justify-items: center;
+    border-radius: 5px;
+}
+
+ion-item-divider {
+    //--background: #000000;
+    //--color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: solid 1px black;
+    color: black;
+}
+
+.telinterest {
+    border: solid 4px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: rgb(74, 205, 232);
+    // color: white;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    //font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+}
+
+.nopadding {
+    padding: 0px;
+}

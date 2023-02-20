@@ -20,6 +20,8 @@ export class NewHuespedPage implements OnInit {
   public today: any;
   public dayDeparture: any;
   public dateSelected: any;
+  
+
   constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { 
     this.huespedsDates = [{
       name: "",
@@ -29,6 +31,7 @@ export class NewHuespedPage implements OnInit {
       room: "",
       advance: 0,
       token: "",
+      gender: ""
     }]
   }
 
@@ -43,7 +46,8 @@ export class NewHuespedPage implements OnInit {
       phone:["",Validators.compose([Validators.required,Validators.minLength(12),Validators.maxLength(13),Validators.pattern(/\+\d+/)])],
       dateAdmission:["",Validators.required],
       departureDate:["",Validators.required],
-      room:["",Validators.required]
+      room:["",Validators.required],
+      gender:["woman",Validators.required]
     });
     this.validatorMessages = {
       name: [
@@ -112,7 +116,12 @@ getDate() {
     if(this.checkRoom(data['room'],data['dateAdmission'])){
         //Construir el objeto
         data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-        //console.log(data);
+        
+        data.dateAdmission = data.dateAdmission.substring(0,11)+"00:00:00-07:00";
+        data.departureDate = data.departureDate.substring(0,11)+"14:00:00-07:00";
+        // console.log(data);
+
+
         this.huesped = data;
         this.huespedService.newHuesped(this.huesped);
         this.presentToast();

@@ -1,143 +1,425 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      {{'PANTALLABIENVENIDA' | translate}}
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-segment #langSegment [value]="translate.currentLang" (click)="translate.use(langSegment.value)">
+            <ion-segment-button *ngFor="let lang of translate.getLangs()" [value]="lang">
+                <ion-label>{{lang}}</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> 
-<div class="ion-padding">
- <ion-row>
-  <ion-col text-center>
-    <label>
-      {{'IDIOMA'| translate}}
-      <select #langSelect (change)="translate.use(langSelect.value)">
-        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang == translate.currentLang">{{lang}}</option>
-      </select>
-    </label>
+<ion-content [fullscreen]="true" class="contentback">
+    <!--BIENVENIDA -->
+    <ion-card class="reservation">
+        <swiper [config]="config" #swiperSlideShow>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/Logo.svg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
+            </ng-template>
+        </swiper>
+        <ion-card-header class="no-padding" *ngIf="viewInstructions===-1||viewInstructions===1">
+            <ion-card-title class="text-center">
+                <ion-label *ngIf="translate.currentLang!='Español'">{{ 'BIENVENIDA' | translate}}{{ " "+huespedname}}</ion-label>
+                <ion-label *ngIf="translate.currentLang==='Español'">{{ "HOLA "+ huespedname}}</ion-label>
+            </ion-card-title>
+            <ion-card-subtitle class="text-center">
+                {{ 'BIENVENIDA_P1' | translate }}{{ roomname }} {{ 'BIENVENIDA_P11' | translate }}
+            </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-header *ngIf="viewInstructions===3 || viewInstructions===2" class="text-center">
+            <ion-card-title>{{huespedname+" "}}{{ 'GRACIAS' | translate }}</ion-card-title>
+        </ion-card-header>
 
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large"> {{'REGLAS' | translate}}</ion-title>
-      </ion-toolbar>
-    </ion-header>
+        <ion-card-content *ngIf="viewInstructions===-1||viewInstructions===1">
+            <label>{{ 'BIENVENIDA_P2' | translate }}</label>
+        </ion-card-content>
+        <ion-card-content *ngIf="viewInstructions===2||viewInstructions===3">
+            <label>{{ 'GRACIAS2' | translate }}{{" "}}
+                <a href="https://www.facebook.com/VillaErnestinaSamao/" target="_blank">
+                    <ion-icon name="logo-facebook" color="primary"></ion-icon>
+                </a>
+                {{" "}}{{ 'GRACIAS3' | translate }}</label>
+        </ion-card-content>
+    </ion-card>
+    <!--RESERVACIONES POR FUERA -->
+    <ion-card color="medium" (click)="restart()">
+        <ion-card-header>
+            <ion-card-title class="text-center">
+                {{ 'GRACIAS4' | translate }}
+            </ion-card-title>
+            <ion-card-subtitle>
+                <ion-grid class="no-padding0">
+                    <ion-row>
+                        <ion-col size="6">
+                            <ion-card class="checkingrid">
+                                <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
+                                    <ion-card-title>
+                                        <ion-chip [outline]="true" color="primary">
+                                            <ion-avatar color="light">
+                                                <img alt="image of elephant" src="../../assets/img/elefante.png" />
+                                            </ion-avatar>
+                                            <ion-label>Elefante</ion-label>
+                                        </ion-chip>
+                                    </ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                    {{ 'GRACIAS5' | translate }}
+                                    <a href="https://wa.me/p/5539003919444086/5213111032724" target="_blank">
+                                        <ion-chip color="primary" class="text-center">
+                                            <ion-icon name="images"></ion-icon>
+                                            <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                                        </ion-chip>
+                                    </a>
+                                </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                        <ion-col size="6">
+                            <ion-card class="checkingrid">
+                                <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
+                                    <ion-card-title>
+                                        <ion-chip [outline]="true" color="warning">
+                                            <ion-avatar color="light">
+                                                <img alt="image of leon" src="../../assets/img/leon.png" />
+                                            </ion-avatar>
+                                            <ion-label>León</ion-label>
+                                        </ion-chip>
+                                    </ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content>
+                                    {{ 'GRACIAS6' | translate }}
+                                    <a href="https://wa.me/p/4778164838956679/5213111032724" target="_blank">
+                                        <ion-chip color="primary" class="text-center">
+                                            <ion-icon name="images"></ion-icon>
+                                            <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                                        </ion-chip>
+                                    </a>
+                                </ion-card-content>
+                            </ion-card>
 
-    <ion-img style="width: auto; height: 25vh; margin: auto; display: block;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/280805508_104205032295708_3380461089577804993_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGNFFskRaCJaWknR6tRX0LRxz-EqGPcxZbHP4SoY9zFlr82itL2GtiEJyaoxCh2xyIFZ568dza1VfQEvws55X42&_nc_ohc=e-KpocvZrh4AX_A6jVY&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfDIAG9pI2H0ded9Wr8Ee0jp_3RNYbq6lGDTCBgF7oN5mQ&oe=639F7108"></ion-img>
-    <ion-label>{{ 'BIENVENIDA' | translate }}{{ huesped.name }}</ion-label>
-    <br/>
-    <ion-label>{{ 'BIENVENIDA_P1' | translate }}{{ huesped.room }}</ion-label>
-    <ion-label>{{ 'BIENVENIDA_P11' | translate }} 
-      <ng-container *ngIf="fecha.toISOString() >= huesped.dateAdmission && huesped.departureDate >= fecha.toISOString()">
-        <a [routerLink]="['/tabs/tab4']">Mi Llegada</a>
-      </ng-container>
-      <ng-container *ngIf="huesped.dateAdmission > fecha.toISOString() || fecha.toISOString() > huesped.departureDate">
-        <a>Mi Llegada (No disponible por el momento)</a>
-      </ng-container>
-      {{ 'BIENVENIDA_P111' | translate }}</ion-label>
-    <br />
-    <ion-label>{{ 'BIENVENIDA_P2' | translate }}</ion-label>
-    <ion-label>{{ 'BIENVENIDA_P3' | translate }}</ion-label>
-    <hr />
-    <h4>{{ 'CHECKIN' | translate }}</h4>
-    <ion-label>{{ 'CHECKIN_P1' | translate }}{{ huesped.dateAdmission.substring(0,10) }}</ion-label>
-    <br />
-    <ion-label>{{ 'CHECKIN_P2' | translate }}<a href="https://wa.me/+523111032724?" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a></ion-label>
-    <hr />
-    <h4>{{ 'CHECKOUT' | translate }}</h4>
-    <ion-label>{{ 'CHECKOUT_P1' | translate }}{{ huesped.departureDate.substring(0,10) }}</ion-label>
-    <br />
-    <ion-label>{{ 'CHECKOUT_P2' | translate }}<a href="https://wa.me/+523111032724?" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a></ion-label>
-    <hr />
-    <ion-accordion-group>
-      <ion-accordion value="first">
-        <ion-item slot="header" color="light">
-          <ion-label>{{ 'LANCHA' | translate }}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-slides>
-            <ion-slide>
-              <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.18169-9/11081113_846347905427181_1103758381634362967_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ba80b0&_nc_eui2=AeFwHEAsLAB-jcmc3eTDUIYlGQnZRdzbgLAZCdlF3NuAsMrxuzN-7dmx_vq019vId8loFEkA9BIwpH23emKHKtre&_nc_ohc=xHQ-IDXfU5EAX_h09ON&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBxNSIxEsiQfKiHrkFYCmN8tFZHpJJCMrtKUn3Nkfh8FA&oe=63C21546"></ion-img>
-            </ion-slide>
-            <ion-slide>
-              <ion-img style="width: auto; height: 40vh;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t1.6435-9/121293397_3216423935142151_4157992477249226905_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH7PrDUVGTgHw2Q5Xvi1jjfqRHV5__PXb-pEdXn_89dvzxjevEeO-32WJPzDhB-A95s1B4Twly4gQ_s6qBF-kwB&_nc_ohc=mqIUN3dDYEoAX_4ZbT4&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfDOlP8f57GiQ-yrodBld8OUarIvdfLMy6lYAb-OY5SiGw&oe=63C217EC"></ion-img>
-            </ion-slide>
-            <ion-slide>
-              <ion-img style="width: auto; height: 40vh;" src="https://jalisco.quadratin.com.mx/www/wp-content/uploads/2018/09/e-1.jpg"></ion-img>
-            </ion-slide>
-          </ion-slides>
-          <br />
-          <ion-label>{{ 'LANCHA_P1' | translate }}<a href="tel:+523112661762">3112661762</a></ion-label>
-          <br />
-          <ion-label>{{ 'LANCHA_P2' | translate }}<a href="tel:+523112661762">3112661762</a></ion-label>
-          <br />
-          <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
-        </div>
-      </ion-accordion>
-      <ion-accordion value="second">
-        <ion-item slot="header" color="light">
-          <ion-label>{{'MASAJESTEMAZ' | translate}}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-slides>
-            <ion-slide>
-              <ion-row>
-                <ion-col>
-                  <ion-img style="width: auto; height: 40vh;" src="https://images.locanto.com.mx/3763289336/MASAJES-ESPECIALES-Solo-para-damas_1.jpg"></ion-img>
-                  <ion-label>{{ 'MASAJE' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
-                </ion-col>
-              </ion-row>
-            </ion-slide>
-            <ion-slide>
-              <ion-row>
-                <ion-col>
-                  <ion-img style="width: auto; height: 40vh;" src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2019/02/shutterstock_1225715473.jpg"></ion-img>
-                  <ion-label>{{ 'TEMAZCAL' | translate }}<a href="tel:+523111232609">3111232609</a></ion-label>
-                </ion-col>
-              </ion-row>
-            </ion-slide>
-          </ion-slides>
-          <br />
-          <ion-note>{{ 'LANCHA_NOTE' | translate }}</ion-note>
-        </div>
-      </ion-accordion>
-      <ion-accordion value="third">
-        <ion-item slot="header" color="light">
-          <ion-label>{{ 'CICLISMO' | translate }}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://www.mountainbike.es/uploads/s1/94/27/58/2/ciclismo-y-senderismo-se-dan-la-mano-con-esta-firma.jpeg"></ion-img>
-          <ion-label>{{ 'CICLISMO_P1' | translate }}</ion-label>
-        </div>
-      </ion-accordion>
-      <ion-accordion value="four">
-        <ion-item slot="header" color="light">
-          <ion-label>{{ 'KAYAK' | translate }}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://scontent.ftpq2-1.fna.fbcdn.net/v/t39.30808-6/305987630_125497706905688_657665189673724151_n.jpg?stp=cp6_dst-jpg&_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHZZpU7b9naeqvvHu4dQ9KrT9wcCPlVEglP3BwI-VUSCSfv5bh3uMPKyoNSPKnEUBr-OsaH1waRrRlSt0IAIRjD&_nc_ohc=mBK3jKAhtlgAX9VZTDk&_nc_ht=scontent.ftpq2-1.fna&oh=00_AfBls5QWlWheYD0K50j7eSGzXpwoYk0rPQh7IiW3rAvA1g&oe=639FB68F"></ion-img>
-          <ion-label>{{ 'KAYAK_P1' | translate }}</ion-label>
-          <br />
-          <ion-label>{{ 'KAYAK_P2' | translate }}</ion-label>
-          <br />
-          <ion-label>{{ 'KAYAK_P3' | translate }}</ion-label>
-          <br />
-          <ion-label>{{ 'KAYAK_P4' | translate }}</ion-label>
-          <br />
-          <ion-label>{{ 'KAYAK_P5' | translate }}</ion-label>
-        </div>
-      </ion-accordion>
-      <ion-accordion value="five">
-        <ion-item slot="header" color="light">
-          <ion-label>{{ 'NATACION' | translate }}</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-img style="width: auto; height: 40vh; margin: auto; display: block;" src="https://i.ytimg.com/vi/3fXHiaqDcJM/maxresdefault.jpg"></ion-img>
-          <ion-label>{{ 'NATACION_P1' | translate }}</ion-label>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-  </ion-col>
- </ion-row>
-</div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+
+            <div class="bold">
+                {{ 'GRACIAS7' | translate }}
+            </div>
+            <div class="text-center">
+                <!-- <ion-item> -->
+                <a href="tel:+523111032724">
+                    <ion-chip [outline]="true" color="light">
+                        <ion-avatar color="light">
+                            <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                        </ion-avatar>
+                        <ion-label color="light">{{"Mariela: "}}311 103 2724</ion-label>
+                        <ion-icon name="call-outline" color="light"></ion-icon>
+                    </ion-chip>
+                </a>
+                <ion-chip color="light" [outline]="true">
+                    <a href="https://wa.me/+523111032724" target="_blank" class="text-center">
+                        <ion-icon name="logo-whatsapp" color="light"></ion-icon>
+                    </a>
+                </ion-chip>
+                <!-- </ion-item> -->
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <!--INSTRUCCIONES CHECKOUT-->
+    <ion-card *ngIf="viewInstructions===2">
+        <ion-card-header class="text-center">
+            <ion-card-title>{{'INSTRUCCIONESSAL' | translate}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="" *ngIf="viewInstructions===2">
+                <ion-grid fixed>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">1</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL2' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">2</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL3' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">3</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL4' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">4</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL5' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">5</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL6' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">6</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL61' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">7</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL62' | translate}}
+
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">8</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL7' | translate}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="1">
+                            <ion-badge color="success">9</ion-badge>
+                        </ion-col>
+                        <ion-col size="11">
+                            {{'INSTRUCCIONESSAL8' | translate}}
+                            <a href="https://wa.me/+523111032724?text=Hola Mariela ya salimos del Bungalow {{roomname}}" target="_blank">
+                                <ion-chip class="text-center">
+                                    <!-- <ion-icon name="logo-whatsapp"></ion-icon> -->
+                                    <ion-icon name="send" color="primary"></ion-icon>
+                                    <!-- <ion-label></ion-label> -->
+                                </ion-chip>
+                            </a>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <!--INFOR CHECKIN CHECKOUT -->
+    <ion-grid class="no-padding" *ngIf="viewInstructions===-1||viewInstructions===1">
+        <ion-row>
+            <!--CHECKIN -->
+            <ion-col size="6">
+                <ion-card class="checkingrid">
+                    <ion-card-header class="checkinheader">
+                        <ion-card-title>{{ 'CHECKIN' | translate }}</ion-card-title>
+                        <ion-card-subtitle>
+                            <div class="text-center">
+                                <ion-chip color="tertiary">
+                                    <ion-icon name="calendar-clear"></ion-icon>
+                                    <ion-label>{{ admisiondate.substring(0,10) }}</ion-label>
+                                </ion-chip>
+                            </div>
+                            <div class="hour">
+                                <ion-chip color="success" id="infcheckin">
+                                    <ion-icon name="time"></ion-icon>
+                                    <ion-label>{{ "15:00" }}</ion-label>
+                                    <ion-icon name="information-circle"></ion-icon>
+                                </ion-chip>
+                                <ion-popover trigger="infcheckin" triggerAction="hover">
+                                    <ng-template>
+                                        <ion-content class="ion-padding">
+                                            <ion-label>
+                                                {{ 'CHECKIN_P2' | translate }}
+                                            </ion-label>
+                                            <a href="https://wa.me/+523111032724?" target="_blank">
+                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
+                                            </a>
+                                        </ion-content>
+                                    </ng-template>
+                                </ion-popover>
+                            </div>
+                        </ion-card-subtitle>
+                    </ion-card-header>
+
+                </ion-card>
+            </ion-col>
+            <!--CHECKOUT -->
+            <ion-col size="6">
+                <ion-card class="checkingrid">
+                    <ion-card-header class="checkinheader">
+                        <ion-card-title>{{ 'CHECKOUT' | translate }}</ion-card-title>
+                        <ion-card-subtitle>
+                            <div class="text-center">
+                                <ion-chip color="tertiary">
+                                    <ion-icon name="calendar-clear"></ion-icon>
+                                    <ion-label>{{ departuredate.substring(0,10) }}</ion-label>
+                                </ion-chip>
+                            </div>
+                            <div class="hour">
+                                <ion-chip color="danger" id="infcheckout">
+                                    <ion-icon name="time"></ion-icon>
+                                    <ion-label>{{ "12:00" }}</ion-label>
+                                    <ion-icon name="information-circle"></ion-icon>
+                                </ion-chip>
+                                <!-- <ion-icon name="information-circle" id="infcheckout"></ion-icon> -->
+                                <ion-popover trigger="infcheckout" triggerAction="hover">
+                                    <ng-template>
+                                        <ion-content class="ion-padding">
+                                            <ion-label>
+                                                {{ 'CHECKOUT_P2' | translate }}
+                                            </ion-label>
+                                            <a href="https://wa.me/+523111032724?" target="_blank">
+                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
+                                            </a>
+                                        </ion-content>
+                                    </ng-template>
+                                </ion-popover>
+                            </div>
+                        </ion-card-subtitle>
+                    </ion-card-header>
+
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!--INSTRUCCIONES DE INGRESO BLOQUEADAS -->
+    <ion-card *ngIf="viewInstructions===-1">
+        <ion-card-header>
+            <ion-card-title class="text-center">{{ 'INSTRUCCIONESR' | translate }}</ion-card-title>
+            <ion-card-subtitle class="text-center">{{ 'HABILITAR' | translate }}</ion-card-subtitle>
+        </ion-card-header>
+    </ion-card>
+    <!--INSTRUCCIONES DE INGRESO ACTIVADAS -->
+    <ion-card *ngIf="viewInstructions===1">
+        <ion-card-header class="text-center">
+            <ion-card-title>{{ 'INSTRUCCIONESR' | translate }}</ion-card-title>
+            <!-- <ion-card-subtitle>{{ 'HABILITAR' | translate }}</ion-card-subtitle> -->
+        </ion-card-header>
+        <ion-card-content class="no-padding0">
+            <ion-accordion-group [multiple]="false">
+                <ion-accordion value="first">
+                    <ion-item slot="header" color="light">
+                        <ion-label> {{"UBICACION" | translate}}</ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.769549813231!2d-104.56799578544135!3d21.359583281778768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1676164295465!5m2!1ses-419!2smx"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <hr />
+                        <ion-label class="textjustify">
+                            <strong>
+                                {{ 'INSTRUCCIONES' | translate }}
+                            </strong>
+                        </ion-label>
+                        <ion-label class="textjustify">{{ 'INSTRUCCION' | translate }}</ion-label>
+                        <hr />
+                        <iframe style="width: auto; height: 80vh; margin: auto; display: block;" src="/assets/videos/llegada.mp4">
+                                </iframe>
+                    </div>
+                </ion-accordion>
+                <ion-accordion value="second">
+                    <ion-item slot="header" color="light">
+                        <ion-label>{{ 'ACCESAR' | translate }}</ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-card-title>{{ 'ACCESO1' | translate }}</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content class="textjustify">
+                                {{ 'ACCESO2' | translate }}{{ roomcode }}
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+                </ion-accordion>
+                <ion-accordion value="third">
+                    <ion-item slot="header" color="light">
+                        <ion-label>{{ 'WIFI' | translate }}</ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                        <ion-card class="no-padding">
+                            <ion-card-header class="nopaddingbottom">
+                                <ion-card-title>{{ 'RED' | translate }}</ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <ion-chip>
+                                    <ion-icon name="wifi"></ion-icon>
+                                    <ion-label>VILLAERNESTINAMAX</ion-label>
+                                </ion-chip>
+                                <ion-chip>
+                                    <ion-icon name="wifi"></ion-icon>
+                                    <ion-label>VILLAERNESTINAMAX_leon</ion-label>
+                                </ion-chip>
+                                <div class="text-center">
+                                    <ion-note>
+                                        <ion-label>{{ 'CONTRA' | translate }}</ion-label>
+                                    </ion-note>
+                                    <ion-button (click)="copy('17091984')" #btncopy size="small" shape="round">Copiar</ion-button>
+                                </div>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+                </ion-accordion>
+                <ion-accordion value="fourth">
+                    <ion-item slot="header" color="light">
+                        <ion-label>{{ 'STREAM' | translate }}</ion-label>
+                    </ion-item>
+                    <div slot="content">
+                        <ion-card class="no-padding">
+                            <ion-card-content>
+                                <ion-label>{{ 'PLATAFORMAS' | translate }}</ion-label>
+                            </ion-card-content>
+                            <div class="text-center">
+                                <ion-chip color="tertiary">
+                                    <ion-icon name="tv"></ion-icon>
+                                    <ion-label>HBOMAX</ion-label>
+                                </ion-chip>
+                                <ion-chip color="primary">
+                                    <ion-icon name="tv"></ion-icon>
+                                    <ion-label>Disney+</ion-label>
+                                </ion-chip>
+                                <ion-chip color="danger">
+                                    <ion-icon name="tv"></ion-icon>
+                                    <ion-label>Netflix</ion-label>
+                                </ion-chip>
+                            </div>
+                        </ion-card>
+                    </div>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

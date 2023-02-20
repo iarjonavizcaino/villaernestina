@@ -1,82 +1,91 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-    <ion-title>Lista de huéspedes</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-searchbar show-clear-button="always" (ionChange)="search($event)" animated="true" placeholder="Huésped"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-row>
-    <ion-col>
-      <ion-list no-border>
-        <form [formGroup]="myForm">
-          <ion-item>
-            <ion-select interface="popover" formControlName="filter" placeholder="Mostrar por:">
-              <ion-select-option value="all" (click)="filterByAll()">Todos</ion-select-option>
-              <ion-select-option value="dateAdmission">Fecha de ingreso</ion-select-option>
-              <ion-select-option value="lion">Habitación León</ion-select-option>
-              <ion-select-option value="elephant">Habitación Elefante</ion-select-option>
+<ion-content class="back">
+
+    <form [formGroup]="myForm">
+        <ion-item>
+            <ion-select interface="popover" formControlName="filter" placeholder="Mostrar por:" value="all" (click)="filter()">
+                <ion-select-option value="dateAdmission">Próximos</ion-select-option>
+                <ion-select-option value="lion">León</ion-select-option>
+                <ion-select-option value="elephant">Elefante</ion-select-option>
+                <ion-select-option value="all">Todos</ion-select-option>
             </ion-select>
-          </ion-item>
-        </form>
-        <ion-item-sliding *ngFor="let item of huespeds; let i = index">
-          <ng-container *ngIf="item.name != '' && myForm.value['filter'] !=''">
-              <ion-item>
-                <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                      <ion-label>Fecha de ingreso:</ion-label>
-                      <ion-label>{{item.dateAdmission.substring(0,10)}}</ion-label>
-                    </ion-col>
-                    <ion-col>
-                      <ion-label>Fecha de salida:</ion-label>
-                      <ion-label>{{item.departureDate.substring(0,10)}}</ion-label>
-                    </ion-col>
-                    <ion-col>
-                      <a href="https://wa.me/{{item.phone}}?text={{message}}" target="_blank"><ion-icon name='logo-whatsapp' slot="start"></ion-icon></a>
-                    </ion-col>
-                    <ion-col>
-                      <a href="https://wa.me/{{item.phone}}?text={{item.token}}" target="_blank"><ion-label class="name">Token</ion-label></a>
-                    </ion-col>
-                    <ion-col>
-                      <ion-label class="name">
-                        {{item.name}}
-                      </ion-label>
-                    </ion-col>
-                    <ion-col>
-                      <ion-note>Habitación:</ion-note>
-                      <ion-chip *ngIf="item.room == 'León'" color="primary" class="ion-float-right">
-                        <ion-label>{{item.room}}</ion-label>
-                      </ion-chip>
-                      <ion-chip *ngIf="item.room == 'Elefante'" color="warning" class="ion-float-right">
-                        <ion-label>{{item.room}}</ion-label>
-                      </ion-chip>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-              </ion-item>
-          </ng-container>
-          <!--ion-item>
-            <ion-label>{{item.name}}</ion-label>
-            <a href="https://wa.me/{{item.phone}}?text=¡Hola!%20tu%20token%20es%20{{item.token}}" target="_blank">Enviar token</a>
-          </ion-item-->
-
-          <ion-item-options side="end" (ionSwipe)="removeHuesped(item.token)">
-            <ion-item-option expandable color="danger">
-                <ion-icon name="trash-outline"></ion-icon>
-            </ion-item-option>
-          </ion-item-options>
-
-        </ion-item-sliding>
-        
-      </ion-list>
-    </ion-col>
-  </ion-row>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="newHuesped()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> 
+        </ion-item>
+    </form>
+    <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
+        <ion-card-header class="card-header">
+            <ion-card-subtitle class="card-subtitle">
+                <ion-chip [outline]="true" color="warning" *ngIf="item.room == 'León'" class="ion-float-right">
+                    <ion-avatar color="light">
+                        <img alt="image of leon" src="../../assets/img/leon.png" />
+                    </ion-avatar>
+                    <ion-label>{{item.room}}</ion-label>
+                </ion-chip>
+                <ion-chip [outline]="true" color="primary" *ngIf="item.room == 'Elefante'" class="ion-float-right">
+                    <ion-avatar color="light">
+                        <img alt="image of elephant" src="../../assets/img/elefante.png" />
+                    </ion-avatar>
+                    <ion-label>{{item.room}}</ion-label>
+                </ion-chip>
+            </ion-card-subtitle>
+            <ion-card-title class="card-title">{{item.name.split(" ")[0] | uppercase}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="card-content">
+            <ion-row>
+                <ion-col size="6" class="card-col">
+                    <ion-card class="check">
+                        <ion-card-header class="header-day">
+                            <ion-card-subtitle>{{getMonthName(item.dateAdmission)}}{{" '"+item.departureDate.substring(2,4)}}</ion-card-subtitle>
+                            <ion-card-title class="day">{{item.dateAdmission.substring(8,10)}}</ion-card-title>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-col>
+                <ion-col size="6" class="card-col">
+                    <ion-card class="check">
+                        <ion-card-header class="header-day">
+                            <ion-card-subtitle>{{getMonthName(item.dateAdmission)}}{{" '"+item.departureDate.substring(2,4)}}</ion-card-subtitle>
+                            <ion-card-title class="day">{{item.departureDate.substring(8,10)}}</ion-card-title>
+                        </ion-card-header>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+            <div class="text-center">
+                <a href="https://wa.me/{{item.phone}}?text={{'Hola '+item.name +' '+ message+item.token}}" target="_blank">
+                    <ion-chip [outline]="true" color="medium">
+                        <ion-icon name="logo-whatsapp" color="success"></ion-icon>
+                        <ion-label color="medium">Info </ion-label>
+                        <ion-icon name="send" color="primary"></ion-icon>
+                    </ion-chip>
+                </a>
+                <a href="/?token={{item.token}}">
+                    <ion-chip [outline]="true" color="medium">
+                        <ion-icon name="person-circle"></ion-icon>
+                        <ion-label color="medium">Perfil </ion-label>
+                    </ion-chip>
+                </a>
+                <a href="https://wa.me/{{item.phone}}" target="_blank">
+                    <ion-chip [outline]="true" color="medium">
+                        <ion-icon name="logo-whatsapp" color="success" class="icon-center"></ion-icon>
+                        <!-- <ion-label color="medium">Chat </ion-label>
+                        <ion-icon name="send" color="primary"></ion-icon> -->
+                    </ion-chip>
+                </a>
+                <ion-button (click)="removeHuesped(item.token)" fill="clear">
+                    <ion-icon name="trash-outline" color="danger"></ion-icon>
+                </ion-button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="newHuesped()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

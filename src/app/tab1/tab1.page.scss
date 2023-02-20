@@ -1,0 +1,141 @@
+.checkout-ins {
+    font-size: 18px;
+    padding: 0px;
+    font-weight: bold;
+    color: black;
+}
+
+hr {
+    background: black;
+}
+
+.ion-padding {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+}
+
+.reservation {
+    // padding-top: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    //background-color: #D9EAD3;
+    //padding: 20px;
+    // border-radius: 25px;
+}
+
+ion-title {
+    text-align: center;
+}
+
+ion-content {
+    --background: #e8e8e8 !important;
+}
+
+.date {
+    // font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    // background: #1ed894;
+    // color: white;
+    // margin-right: auto;
+    text-align: center;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hour {
+    // font-family: Arial, Helvetica, sans-serif;
+    //font-size: 30px;
+    // background: #075178;
+    // color: white;
+    text-align: center;
+    // margin-left: auto;
+}
+
+.checkingrid {
+    margin: 0px !important;
+}
+
+.checkinheader {
+    text-align: center;
+    padding: 5px
+}
+
+.kayak {
+    background-image: url('../../assets/img/Kayak.jpeg');
+}
+
+.massage {
+    background-image: url('../../assets/img/Masaje.jpeg');
+}
+
+.temazcal {
+    background-image: url('../../assets/img/Temazcal.jpeg');
+}
+
+.ciclism {
+    background-image: url('../../assets/img/Ciclismo.jpeg');
+}
+
+.boat {
+    background-image: url('../../assets/img/Lancha.jpeg');
+}
+
+.swim {
+    background-image: url('../../assets/img/Natacion.jpeg');
+}
+
+.carditem {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.card-text {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    height: 150px;
+    font-size: x-large;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.carditem:hover {
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+}
+
+// ol {
+//     margin-block-start: 0px !important;
+//     margin-block-end: 0px !important;
+//     padding-inline-start: 5px !important;
+// }
+.no-padding {
+    padding: 5px;
+}
+
+.no-padding0 {
+    padding: 0px;
+}
+
+.textjustify {
+    text-align: justify;
+    display: flex;
+}
+
+.nopaddingbottom {
+    padding-bottom: 0px !important;
+}
+
+.nopaddingtop2 {
+    padding-top: 4px !important;
+}

@@ -21,6 +21,7 @@ export class InfoHuespedPage implements OnInit {
       room: '',
       advance: 0,
       token: '',
+      gender: ''
     }]
    }
 

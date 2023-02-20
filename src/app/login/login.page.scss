@@ -1,0 +1,28 @@
+.back {
+    --background: #fff url('../../assets/img/VillaErnestina0.png') no-repeat center center / cover;
+}
+
+.text-center {
+    display: flex;
+    //align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    --background: #ffffff;
+    opacity: 80%;
+    margin-top: 50%;
+}
+
+.imglogo {
+    width: 300px;
+}
+
+.divimg {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding-top: 0;
+    padding-bottom: 0;
+}

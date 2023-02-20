@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { HuespedService } from '../services/huesped.service';
-import { Huesped } from '../models/huesped';
+// import { TranslateService } from '@ngx-translate/core';
+// import { HuespedService } from '../services/huesped.service';
+// import { Huesped } from '../models/huesped';
 
 @Component({
   selector: 'app-tabs',
@@ -10,17 +10,22 @@ import { Huesped } from '../models/huesped';
 })
 export class TabsPage {
 
-  public isButtonDisabled: boolean;
-  public huesped: Huesped;
+  // public isButtonDisabled: boolean;
+  // public huesped: Huesped;
 
-  constructor(public translate : TranslateService, huespedService:HuespedService) {
-    this.huesped = huespedService.getHuespedByToken(huespedService.getToken());
-    let fecha = new Date;
-    if(this.huesped.dateAdmission <= fecha.toISOString() &&  this.huesped.departureDate >= fecha.toISOString()){
-      this.isButtonDisabled = false;
-    }else{
-      this.isButtonDisabled = true;
-    }
+  constructor() {
+    // this.huesped = huespedService.getHuespedByToken(huespedService.getToken());
+    // let fecha = new Date();
+    
+    // console.log("entrada: "+this.huesped.dateAdmission);
+    // console.log("salida: "+this.huesped.departureDate);
+    // console.log("fecha: "+fecha.toISOString());
+
+    // if(this.huesped.dateAdmission <= fecha.toISOString() &&  this.huesped.departureDate >= fecha.toISOString()){
+    //   this.isButtonDisabled = false;
+    // }else{
+    //   this.isButtonDisabled = true;
+    // }
 
   }
 
