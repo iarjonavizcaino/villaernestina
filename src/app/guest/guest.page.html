@@ -1,0 +1,266 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>Villa Ernestina</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="contentback">
+    <ion-card class="reservation">
+        <swiper [config]="config" #swiperSlideShow>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/Logo.svg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
+            </ng-template>
+            <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
+            </ng-template>
+        </swiper>
+        <ion-card-header class="card-header">
+            <ion-card-title class="strong title">Villa Ernestina</ion-card-title>
+            <ion-card-subtitle class="strong subtitle">"Encanto Natural"</ion-card-subtitle>
+        </ion-card-header>
+        <!-- Lo que ofrecemos -->
+        <ion-card-content class="card-content">
+            <div class="strong message">
+                Vive con nosotros una experiencia placentera
+            </div>
+            <ion-accordion-group [multiple]="false" class="accordion-group">
+                <ion-accordion value="first">
+                    <ion-item slot="header" class="accordion" color="success">
+                        <ion-label> Un poco de lo que ofrecemos</ion-label>
+                    </ion-item>
+                    <div class="ion-padding points" slot="content">
+                        <ion-grid class="ion-no-padding">
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Áreas verdes
+                                    </div>
+                                    <div class="description">
+                                        Extensas áreas verdes y una zona de agaves donde salen padrísimas las fotos
+                                    </div>
+                                </ion-col>
+
+                            </ion-row>
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Kayak
+                                    </div>
+                                    <div class="description">
+                                        Te prestamos 1 kayak doble gratis
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Fogata
+                                    </div>
+                                    <div class="description">
+                                        Zona de fogata
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Ubicación
+                                    </div>
+                                    <div class="description">
+                                        Estamos a menos de1 minuto del agua<br> Restaurantes, abarrotes y modelorama a unos pasos
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Entretenimiento
+                                    </div>
+                                    <div class="description">
+                                        WiFi estable <br> TV con plataformas de streaming (HBO MAX, Disney+ y Netflix) para disfrutar de tus series y pelís favoritas
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row class="row">
+                                <ion-col size="1">
+                                    <div class="number">
+                                        <ion-icon name="star"></ion-icon>
+                                    </div>
+                                </ion-col>
+                                <ion-col size="11">
+                                    <div class="tit">
+                                        Estacionamiento
+                                    </div>
+                                    <div class="description">
+                                        Estacionamiento privado gratuito
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+
+                        </ion-grid>
+                    </div>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- Oferta Bungalows -->
+    <ion-card color="medium">
+        <ion-card-content class="card-content2">
+            <ion-grid class="no-padding0">
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-card class="checkingrid">
+                            <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
+                                <ion-card-title>
+                                    <ion-chip [outline]="true" color="primary">
+                                        <ion-avatar color="light">
+                                            <img alt="image of elephant" src="../../assets/img/elefante.png" />
+                                        </ion-avatar>
+                                        <ion-label>Elefante</ion-label>
+                                    </ion-chip>
+                                </ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content class="paddingbottom3">
+                                {{ 'GRACIAS5' | translate }}
+                                <ion-icon name="information-circle" id="infprice"></ion-icon>
+                                <ion-popover trigger="infprice" triggerAction="hover">
+                                    <ng-template>
+                                        <ion-content class="ion-padding">
+                                            <ion-label>
+                                                {{ 'PRECIOS' | translate }}
+                                            </ion-label>
+                                            <a href="https://wa.me/+523111032724?" target="_blank">
+                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
+                                            </a>
+                                        </ion-content>
+                                    </ng-template>
+                                </ion-popover>
+                                <a href="https://wa.me/p/5539003919444086/5213111032724" target="_blank">
+                                    <ion-chip color="primary" class="text-center">
+                                        <ion-icon name="images"></ion-icon>
+                                        <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                                    </ion-chip>
+                                </a>
+                            </ion-card-content>
+                            <ion-button color="primary" expand="full">
+                                <ion-icon name="star" slot="start"></ion-icon>
+                                <ion-label>Ver más...</ion-label>
+                            </ion-button>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-card class="checkingrid">
+                            <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
+                                <ion-card-title>
+                                    <ion-chip [outline]="true" color="warning">
+                                        <ion-avatar color="light">
+                                            <img alt="image of leon" src="../../assets/img/leon.png" />
+                                        </ion-avatar>
+                                        <ion-label>León</ion-label>
+                                    </ion-chip>
+                                </ion-card-title>
+                            </ion-card-header>
+                            <ion-card-content class="paddingbottom3">
+                                {{ 'GRACIAS6' | translate }}
+                                <ion-icon name="information-circle" id="infpricelion"></ion-icon>
+                                <ion-popover trigger="infpricelion" triggerAction="hover">
+                                    <ng-template>
+                                        <ion-content class="ion-padding">
+                                            <ion-label>
+                                                {{ 'PRECIOS' | translate }}
+                                            </ion-label>
+                                            <a href="https://wa.me/+523111032724?" target="_blank">
+                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
+                                            </a>
+                                        </ion-content>
+                                    </ng-template>
+                                </ion-popover>
+                                <a href="https://wa.me/p/4778164838956679/5213111032724" target="_blank">
+                                    <ion-chip color="primary" class="text-center">
+                                        <ion-icon name="images"></ion-icon>
+                                        <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                                    </ion-chip>
+                                </a>
+                            </ion-card-content>
+                            <ion-button color="primary" expand="full" (click)="viewDetails('lion')">
+                                <ion-icon name="star" slot="start"></ion-icon>
+                                <ion-label>Ver más...</ion-label>
+                            </ion-button>
+                            <!-- Modal León -->
+
+                        </ion-card>
+
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </ion-card-content>
+        <div class="footcard">
+            <div class="bold">
+                {{ 'GRACIAS7' | translate }}
+            </div>
+            <div class="text-center">
+                <a href="tel:+523111032724">
+                    <ion-chip [outline]="true" color="primary">
+                        <ion-avatar color="primary">
+                            <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
+                        </ion-avatar>
+                        <ion-label color="primary">{{"Mariela: "}}311 103 2724</ion-label>
+                        <ion-icon name="call-outline" color="primary"></ion-icon>
+                    </ion-chip>
+                </a>
+                <ion-chip color="primary" [outline]="true">
+                    <a href="https://wa.me/+523111032724" target="_blank" class="text-center">
+                        <ion-icon name="logo-whatsapp" color="primary"></ion-icon>
+                    </a>
+                </ion-chip>
+            </div>
+        </div>
+
+    </ion-card>
+
+</ion-content>

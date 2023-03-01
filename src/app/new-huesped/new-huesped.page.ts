@@ -39,7 +39,7 @@ export class NewHuespedPage implements OnInit {
     this.getDate();
     this.huespedService.getRooms().subscribe(res =>{
       this.rooms = res;
-    })
+    });
     
     this.myForm = this.fb.group({
       name:["",Validators.required],
@@ -72,7 +72,7 @@ export class NewHuespedPage implements OnInit {
 
     this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue =>{
       let newDay = new Date(selectedValue);
-      newDay.setDate(newDay.getDate() + 1)
+      newDay.setDate(newDay.getDate()+1)
       this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
       console.log(this.dayDeparture);
     });
@@ -80,7 +80,7 @@ export class NewHuespedPage implements OnInit {
 
 getDate() { 
   const date = new Date(); 
-  this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate() + 1)).slice(-2); /*console.log(this.today);*/ }
+  this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/ }
 
   async presentToast() {
     const toast = await this.toastController.create({

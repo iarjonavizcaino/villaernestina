@@ -1,0 +1,151 @@
+.title1 {
+    display: flex;
+    justify-content: center;
+}
+
+.labtitle {
+    font-size: 20px;
+}
+
+.chip {
+    display: flex;
+    justify-content: center;
+}
+
+.strong {
+    font-weight: bolder;
+}
+
+.title {
+    font-size: large;
+    color: #DF6817;
+    font-size: 30px;
+}
+
+ion-content {
+    --background: #e8e8e8 !important;
+}
+
+.subtitle {
+    margin-top: 0px;
+    font-style: italic;
+    color: #DF6817;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.message {
+    // padding-left: 5px !important;
+    // padding-right: 5px !important;
+    padding-bottom: 10px;
+}
+
+.li {}
+
+.ul {
+    padding-inline-start: 10px;
+}
+
+.text-content {
+    padding-top: 14px
+}
+
+.card-header {
+    padding-top: 2px;
+    text-align: right;
+}
+
+.accordion {
+    font-size: 14px;
+    font-weight: bolder;
+    text-decoration: underline;
+    border-radius: 10px;
+}
+
+.accordion-group {}
+
+.card-content {
+    // display: flex;
+    text-align: justify;
+    // padding: 0;
+}
+
+.points {
+    padding-top: 0;
+}
+
+.text-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.no-padding0 {
+    padding: 0px;
+}
+
+.checkingrid {
+    margin: 0px !important;
+}
+
+.nopaddingbottom {
+    padding-bottom: 0px !important;
+}
+
+.nopaddingtop2 {
+    padding-top: 4px !important;
+}
+
+.ion-padding {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+}
+
+.bold {
+    font-weight: bolder;
+    padding-left: 10px;
+    color: black;
+    padding-top: 5px;
+}
+
+.tit {
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.number {
+    background: #EEC606;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 10px;
+}
+
+.description {
+    font-size: 12px;
+    font-style: italic;
+    line-height: normal;
+}
+
+.row {
+    padding-bottom: 7px;
+}
+
+.paddingbottom3 {
+    padding-bottom: 3px;
+}
+
+.footcard {
+    background: white;
+}
+
+.card-content2 {
+    text-align: center;
+    padding: 3px;
+}
