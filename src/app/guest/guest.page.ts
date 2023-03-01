@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SwiperComponent } from 'swiper/angular';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Zoom } from 'swiper';
 
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 SwiperCore.use([Autoplay, IonicSlides]);
 
@@ -61,7 +61,14 @@ export class GuestPage implements OnInit {
   }
 
   public viewDetails(bungalow: string) {
-    this.router.navigate(['/'+bungalow]);
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        bungalow: bungalow
+      }
+    }; 
+
+    this.router.navigate(['/lion'], navigationExtras);
   }
 
 }

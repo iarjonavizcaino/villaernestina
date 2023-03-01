@@ -4,11 +4,11 @@
             <ion-back-button></ion-back-button>
         </ion-buttons>
         <ion-title class="title1">
-            <ion-chip [outline]="true" color="warning" class="chip">
+            <ion-chip [outline]="true" [color]="selectedSpace.color" class="chip">
                 <ion-avatar color="light">
-                    <img alt="image of leon" src="../../assets/img/leon.png" />
+                    <img alt="image of leon" [src]="selectedSpace.avatarimg" />
                 </ion-avatar>
-                <ion-label class="labtitle">Bungalow León</ion-label>
+                <ion-label class="labtitle">{{selectedSpace.name}}</ion-label>
             </ion-chip>
         </ion-title>
     </ion-toolbar>
@@ -16,39 +16,99 @@
 
 <ion-content [fullscreen]="true">
     <ion-card class="reservation">
-        <!-- <swiper [config]="config" #swiperSlideShow>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/Logo.svg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
-            </ng-template>
-        </swiper> -->
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
+        <ion-img ionImgViewer [swipeToClose]="true" scheme="light" [src]="selectedSpace.photoscreen">
+        </ion-img>
+
+        <ion-grid class="imggrid">
+            <ion-row>
+                <ion-col size="4" class="imgcol" *ngFor="let img of selectedSpace.photos">
+                    <ion-img ionImgViewer [swipeToClose]="true" scheme="light" [src]="img">
+                    </ion-img>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
         <ion-card-header class="card-header">
-            <!-- <ion-card-title class="strong title">Ideal para parejas</ion-card-title> -->
-            <ion-card-subtitle class="strong subtitle">"Para disfrutar en familia..."</ion-card-subtitle>
+            <ion-card-subtitle class="strong subtitle">{{selectedSpace.slogan}}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
+            <div class="bungalowname">
+                <div class="descriptionb">
+                    {{selectedSpace.name}}
+                </div>
+                <div class="starts">
+                    <ion-icon name="star"></ion-icon>
+                    &nbsp;{{selectedSpace.starts|number:'1.2-2'}}&nbsp;{{"("+selectedSpace.commentsqty+")"}}
+                </div>
+            </div>
+            <div class="people">
+                {{selectedSpace.abstract}}
+            </div>
+            <div class="spaces">
+                {{selectedSpace.description}}
+            </div>
+
+            <div class="price">
+                {{selectedSpace.price}}
+            </div>
+            <div class="note">
+                El precio es por noche, aplica al reservar de manera directa y puede variar en temporada alta
+            </div>
 
         </ion-card-content>
+        <ion-accordion-group [multiple]="false" class="accordion-group" value="first">
+            <ion-accordion value="first">
+                <ion-item slot="header" class="accordion" color="success">
+                    <ion-icon name="chatbubbles" slot="start"></ion-icon>
+                    <ion-label> Opiniones </ion-label>
+                    <!-- <ion-chip color="light" mode="ios" outline="true" class="qtycomments"> -->
+                    <ion-badge class="labelcomments">
+                        <ion-icon name="star"></ion-icon>
+                        &nbsp;{{selectedSpace.starts|number:'1.2-2'}}&nbsp;{{"("+selectedSpace.commentsqty+")"}}
+
+                    </ion-badge>
+                    <!-- </ion-chip> -->
+                </ion-item>
+                <div class="ion-padding points" slot="content">
+                    <div class="" *ngFor="let comment of selectedSpace.comments">
+                        <table>
+                            <tr>
+                                <td class="avatar">
+                                    <ion-icon name="person-circle"></ion-icon>
+                                </td>
+                                <td class="columncomment">
+                                    <div class="comments">
+                                        <div class="commenttitle">
+                                            <div class="name">
+                                                {{comment.name}}
+                                            </div>
+                                            <div class="commentstars">
+                                                <ion-icon name="star"></ion-icon>
+                                                &nbsp;{{comment.starts|number:'1.2-2'}}
+                                            </div>
+                                        </div>
+                                        <div class="month">
+                                            {{comment.month}}
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="comment">
+                                        {{comment.comment}}
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+                        <hr>
+                    </div>
+                </div>
+            </ion-accordion>
+        </ion-accordion-group>
     </ion-card>
 </ion-content>

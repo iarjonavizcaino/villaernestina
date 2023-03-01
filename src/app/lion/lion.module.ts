@@ -9,6 +9,8 @@ import { LionPageRoutingModule } from './lion-routing.module';
 import { LionPage } from './lion.page';
 import { SwiperModule } from 'swiper/angular';
 import { TranslateModule} from '@ngx-translate/core';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { TranslateModule} from '@ngx-translate/core';
     IonicModule,
     LionPageRoutingModule,
     TranslateModule,
+    NgxIonicImageViewerModule,
     SwiperModule
   ],
   declarations: [LionPage]

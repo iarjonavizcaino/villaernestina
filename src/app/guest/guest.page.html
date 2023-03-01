@@ -1,9 +1,3 @@
-<!-- <ion-header>
-    <ion-toolbar>
-        <ion-title>Villa Ernestina</ion-title>
-    </ion-toolbar>
-</ion-header> -->
-
 <ion-content [fullscreen]="true" class="contentback">
     <ion-card class="reservation">
         <swiper [config]="config" #swiperSlideShow>
@@ -33,13 +27,13 @@
             </ng-template>
         </swiper>
         <ion-card-header class="card-header">
-            <ion-card-title class="strong title">Villa Ernestina</ion-card-title>
-            <ion-card-subtitle class="strong subtitle">"Encanto Natural"</ion-card-subtitle>
+            <ion-card-title class="strong title2">Villa Ernestina</ion-card-title>
+            <ion-card-subtitle class="strong subtitle2">"Encanto Natural"</ion-card-subtitle>
         </ion-card-header>
         <!-- Lo que ofrecemos -->
         <ion-card-content class="card-content">
             <div class="strong message">
-                Vive con nosotros una experiencia placentera
+                ¡Vive una experiencia placentera!
             </div>
             <ion-accordion-group [multiple]="false" class="accordion-group">
                 <ion-accordion value="first">
@@ -148,7 +142,7 @@
     </ion-card>
 
     <!-- Oferta Bungalows -->
-    <ion-card color="medium">
+    <ion-card color="light">
         <ion-card-content class="card-content2">
             <ion-grid class="no-padding0">
                 <ion-row>
@@ -156,7 +150,7 @@
                         <ion-card class="checkingrid">
                             <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
                                 <ion-card-title>
-                                    <ion-chip [outline]="true" color="primary">
+                                    <ion-chip [outline]="true" color="primary" (click)="viewDetails('elephant')">
                                         <ion-avatar color="light">
                                             <img alt="image of elephant" src="../../assets/img/elefante.png" />
                                         </ion-avatar>
@@ -180,15 +174,15 @@
                                     </ng-template>
                                 </ion-popover>
                                 <a href="https://wa.me/p/5539003919444086/5213111032724" target="_blank">
-                                    <ion-chip color="primary" class="text-center">
+                                    <ion-chip color="tertiary" class="text-center">
                                         <ion-icon name="images"></ion-icon>
                                         <ion-label>{{"CATALOGO"|translate}}</ion-label>
                                     </ion-chip>
                                 </a>
                             </ion-card-content>
-                            <ion-button color="primary" expand="full">
-                                <ion-icon name="star" slot="start"></ion-icon>
-                                <ion-label>Ver más...</ion-label>
+                            <ion-button color="primary" expand="block" (click)="viewDetails('elephant')">
+
+                                Ver más...
                             </ion-button>
                         </ion-card>
                     </ion-col>
@@ -196,7 +190,7 @@
                         <ion-card class="checkingrid">
                             <ion-card-header class="text-center nopaddingtop2 nopaddingbottom">
                                 <ion-card-title>
-                                    <ion-chip [outline]="true" color="warning">
+                                    <ion-chip [outline]="true" color="warning" (click)="viewDetails('lion')">
                                         <ion-avatar color="light">
                                             <img alt="image of leon" src="../../assets/img/leon.png" />
                                         </ion-avatar>
@@ -220,14 +214,14 @@
                                     </ng-template>
                                 </ion-popover>
                                 <a href="https://wa.me/p/4778164838956679/5213111032724" target="_blank">
-                                    <ion-chip color="primary" class="text-center">
+                                    <ion-chip color="tertiary" class="text-center">
                                         <ion-icon name="images"></ion-icon>
                                         <ion-label>{{"CATALOGO"|translate}}</ion-label>
                                     </ion-chip>
                                 </a>
                             </ion-card-content>
-                            <ion-button color="primary" expand="full" (click)="viewDetails('lion')">
-                                <ion-icon name="star" slot="start"></ion-icon>
+                            <ion-button color="primary" expand="block" (click)="viewDetails('lion')">
+
                                 <ion-label>Ver más...</ion-label>
                             </ion-button>
                             <!-- Modal León -->

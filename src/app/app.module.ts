@@ -18,6 +18,8 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
+
 
 
 import {registerLocaleData} from '@angular/common';
@@ -43,6 +45,7 @@ export function HttpLoaderFactory(httpClient: HttpClient){
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    NgxIonicImageViewerModule,
     IonicStorageModule.forRoot()
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

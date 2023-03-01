@@ -28,9 +28,9 @@ ion-content {
 
 .subtitle {
     margin-top: 0px;
-    font-style: italic;
+    // font-style: italic;
     color: #DF6817;
-    font-size: 20px;
+    font-size: 16px;
     text-decoration: underline;
 }
 
@@ -62,7 +62,13 @@ ion-content {
     border-radius: 10px;
 }
 
-.accordion-group {}
+.imggrid {
+    padding: 1px;
+}
+
+.imgcol {
+    padding: 1px;
+}
 
 .card-content {
     // display: flex;
@@ -79,6 +85,7 @@ ion-content {
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .no-padding0 {
@@ -114,19 +121,6 @@ ion-content {
     font-weight: bolder;
 }
 
-.number {
-    background: #EEC606;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bolder;
-    font-size: 10px;
-}
-
 .description {
     font-size: 12px;
     font-style: italic;
@@ -148,4 +142,132 @@ ion-content {
 .card-content2 {
     text-align: center;
     padding: 3px;
+}
+
+.people {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.descriptionb {
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: CerealBold;
+}
+
+.spaces {
+    font-style: italic;
+    line-height: normal;
+}
+
+.price {
+    padding-top: 5px;
+    text-align: right;
+    font-size: 23px;
+    font-weight: bolder;
+    color: black;
+}
+
+.note {
+    font-size: 10px;
+    line-height: normal;
+    text-align: right;
+}
+
+.accordion {
+    font-size: 16px;
+}
+
+.starts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bungalowname {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    color: black;
+}
+
+// .itemcomment {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: center;
+// }
+.avatar {
+    font-size: 40px;
+    color: black;
+    display: flex;
+    align-items: flex-start;
+}
+
+// .avatarimg {
+//     width: 33px;
+//     height: 33px;
+// }
+.comments {
+    padding-left: 6px;
+}
+
+.month {
+    font-size: 13px;
+    font-weight: 800;
+    // text-align: right;
+    // padding-top: 3px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // flex-direction: column;
+}
+
+.comment {
+    font-size: 12px;
+    list-style: normal;
+    font-style: italic;
+    padding-top: 3px;
+    text-align: center;
+}
+
+hr {
+    background: #e8e8e8;
+}
+
+.commentstars {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.commenttitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.columncomment {
+    width: 100%;
+}
+
+.qtycomments {}
+
+.labelcomments {
+    --background: white;
+    // border-radius: 50%;
+    --color: #FF385D;
+    display: flex;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
 }
