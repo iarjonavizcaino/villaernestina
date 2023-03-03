@@ -23,10 +23,6 @@ hr {
     // border-radius: 25px;
 }
 
-ion-title {
-    text-align: center;
-}
-
 ion-content {
     --background: #e8e8e8 !important;
 }
@@ -107,6 +103,9 @@ ion-content {
 
 .bold {
     font-weight: bolder;
+    padding-left: 10px;
+    color: black;
+    padding-top: 5px;
 }
 
 .carditem:hover {
@@ -123,8 +122,17 @@ ion-content {
     padding: 5px;
 }
 
+.cardpsub {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 .no-padding0 {
     padding: 0px;
+}
+
+.fontbold {
+    font-family: CerealBold;
 }
 
 .textjustify {
@@ -138,4 +146,76 @@ ion-content {
 
 .nopaddingtop2 {
     padding-top: 4px !important;
+}
+
+.name {
+    font-family: CerealBold;
+}
+
+.thanks {
+    color: #5b5757;
+    font-size: 16px;
+}
+
+.continue {
+    line-height: normal!important;
+    font-size: 13px;
+}
+
+.disposition {
+    color: black;
+    font-family: CerealBold;
+    font-size: 15px;
+}
+
+.fontchip {
+    font-size: 11px;
+}
+
+.card-content2 {
+    text-align: center;
+    padding: 3px;
+}
+
+ion-button {
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+.footcard {
+    background: white;
+}
+
+.paddingbottom3 {
+    padding-bottom: 3px;
+}
+
+.txtcenter {
+    text-align: center;
+}
+
+.contentcenter {
+    justify-content: center;
+    display: flex;
+}
+
+.accordion {
+    font-size: 14px;
+    font-weight: bolder;
+    // text-decoration: underline;
+    border-radius: 10px;
+    --ion-color-shade: #ffffff !important;
+}
+
+.fontbold {
+    font-family: CerealBold;
+}
+
+.font17 {
+    font-size: 17px;
+}
+
+.centeralign {
+    display: flex;
+    align-items: center;
 }

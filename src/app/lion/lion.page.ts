@@ -356,7 +356,7 @@ export class LionPage implements OnInit {
       key: "lion",
       name: "Bungalow León",
       avatarimg: "../../assets/img/leon.png",
-      price: "MXN$1450.00",
+      price: "MXN$1,450.00",
       photoscreen: "../../assets/img/lion2.jpeg",
       photos: [
         "../../assets/img/lioncocina.jpeg",
@@ -377,7 +377,7 @@ export class LionPage implements OnInit {
       key: "elephant",
       name: "Bungalow Elefante",
       avatarimg: "../../assets/img/elefante.png",
-      price: "MXN$1150.00",
+      price: "MXN$1,150.00",
       photoscreen: "../../assets/img/elephant1.jpeg",
       photos: [
         "../../assets/img/elephant2.jpeg",

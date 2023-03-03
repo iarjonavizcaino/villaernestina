@@ -115,7 +115,7 @@
 
 .description {
     font-size: 12px;
-    font-style: italic;
+    // font-style: italic;
     line-height: normal;
 }
 
@@ -144,4 +144,13 @@ ion-content {
 ion-button {
     text-transform: capitalize;
     font-weight: bolder;
+}
+
+.txtcenter {
+    text-align: center;
+}
+
+.contentcenter {
+    justify-content: center;
+    display: flex;
 }

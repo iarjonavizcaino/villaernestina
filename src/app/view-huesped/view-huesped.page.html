@@ -58,22 +58,22 @@
             </ion-row>
             <div class="text-center">
                 <a href="https://wa.me/{{item.phone}}?text={{'Hola '+item.name +' '+ message+item.token}}" target="_blank">
-                    <ion-chip [outline]="true" color="medium">
+                    <ion-chip [outline]="true">
                         <ion-icon name="logo-whatsapp" color="success"></ion-icon>
-                        <ion-label color="medium">Info </ion-label>
+                        <ion-label>Info </ion-label>
                         <ion-icon name="send" color="primary"></ion-icon>
                     </ion-chip>
                 </a>
                 <a href="/?token={{item.token}}">
-                    <ion-chip [outline]="true" color="medium">
+                    <ion-chip [outline]="true">
                         <ion-icon name="person-circle"></ion-icon>
-                        <ion-label color="medium">Perfil </ion-label>
+                        <ion-label>Perfil </ion-label>
                     </ion-chip>
                 </a>
                 <a href="https://wa.me/{{item.phone}}" target="_blank">
-                    <ion-chip [outline]="true" color="medium">
+                    <ion-chip [outline]="true">
                         <ion-icon name="logo-whatsapp" color="success" class="icon-center"></ion-icon>
-                        <!-- <ion-label color="medium">Chat </ion-label>
+                        <!-- <ion-label>Chat </ion-label>
                         <ion-icon name="send" color="primary"></ion-icon> -->
                     </ion-chip>
                 </a>

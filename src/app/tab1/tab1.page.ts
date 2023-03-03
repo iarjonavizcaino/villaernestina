@@ -1,4 +1,4 @@
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HuespedService } from '../services/huesped.service';
@@ -164,5 +164,16 @@ export class Tab1Page {
       await this._storage.clear();
       this.router.navigate(['']);
     }
+  }
+
+  public viewDetails(bungalow: string) {
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        bungalow: bungalow
+      }
+    }; 
+
+    this.router.navigate(['/lion'], navigationExtras);
   }
 }
