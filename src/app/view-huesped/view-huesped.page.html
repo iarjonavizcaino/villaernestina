@@ -11,8 +11,9 @@
 
     <form [formGroup]="myForm">
         <ion-item>
-            <ion-select interface="popover" formControlName="filter" placeholder="Mostrar por:" value="all" (click)="filter()">
+            <ion-select interface="popover" formControlName="filter" placeholder="Mostrar por:" value="dateAdmission" (click)="filter()">
                 <ion-select-option value="dateAdmission">Próximos</ion-select-option>
+                <ion-select-option value="process">En proceso</ion-select-option>
                 <ion-select-option value="lion">León</ion-select-option>
                 <ion-select-option value="elephant">Elefante</ion-select-option>
                 <ion-select-option value="all">Todos</ion-select-option>

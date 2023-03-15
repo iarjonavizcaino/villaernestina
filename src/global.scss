@@ -19,7 +19,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 
@@ -28,11 +28,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import 'swiper/scss';
-@import 'swiper/scss/autoplay';
-@import 'swiper/scss/keyboard';
-@import 'swiper/scss/pagination';
-@import 'swiper/scss/scrollbar';
-@import 'swiper/scss/zoom';
-@import '@ionic/angular/css/ionic-swiper';
-@import 'swiper/scss/effect-fade';
+@import "swiper/scss";
+@import "swiper/scss/autoplay";
+@import "swiper/scss/keyboard";
+@import "swiper/scss/pagination";
+@import "swiper/scss/scrollbar";
+@import "swiper/scss/zoom";
+@import "@ionic/angular/css/ionic-swiper";
+@import "swiper/scss/effect-fade";
+@media (min-width: 500px) {
+    // ion-app {
+    //     width: 500px;
+    // }
+}
+
+body {
+    position: inherit;
+    max-width: 500px;
+    margin: auto;
+    // right: 50%;
+    // transform: translate(-50%, -50%);
+}

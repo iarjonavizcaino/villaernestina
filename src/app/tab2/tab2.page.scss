@@ -37,3 +37,46 @@
     display: flex;
     align-items: center;
 }
+
+.fontbold {
+    font-family: CerealBold;
+}
+
+.accordion {
+    font-size: 14px;
+    font-weight: bolder;
+    // text-decoration: underline;
+    border-radius: 10px;
+    --ion-color-shade: #ffffff !important;
+}
+
+.number {
+    background-color: rgb(107, 107, 107);
+    color: white;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    font-family: CerealBold;
+}
+
+.rule {
+    line-height: normal;
+}
+
+.txtcenter {
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: row;
+}
+
+.padding5 {
+    padding: 5px;
+}
+
+.trgeneral {}
