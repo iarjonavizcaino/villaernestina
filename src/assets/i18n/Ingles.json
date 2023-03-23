@@ -1,5 +1,6 @@
 {
-    "HABILITAR": "This section will be enabled the day of your Check-iN",
+    "HABILITAR": "This section will be enabled the day of your Check-in",
+    "HABILITAR2": "This section will be enabled the day of your Check-out",
     "INSTRUCCIONESR": "Instructions for your check-in",
     "INSTRUCCIONESSAL": "Instructions for your check-out",
     "INSTRUCCIONESSAL2": "Check that you have all your belongings",
@@ -129,5 +130,6 @@
     "GRACIAS6": "For 4 people MXN$1,450.00",
     "GRACIAS7": "More information:",
     "CATALOGO": "Photos",
-    "PRECIOS": "Prices are per night, are subject to change in high season and apply to direct reservations"
+    "PRECIOS": "Prices are per night, are subject to change in high season and apply to direct reservations",
+    "CLAVECAJA": "The password for the safe deposit box is: "
 }

@@ -106,7 +106,6 @@
                                 </a>
                             </ion-card-content>
                             <ion-button color="primary" expand="block" (click)="viewDetails('elephant')">
-
                                 Ver más...
                             </ion-button>
                         </ion-card>
@@ -146,13 +145,10 @@
                                 </a>
                             </ion-card-content>
                             <ion-button color="primary" expand="block" (click)="viewDetails('lion')">
-
                                 <ion-label>Ver más...</ion-label>
                             </ion-button>
                             <!-- Modal León -->
-
                         </ion-card>
-
                     </ion-col>
                 </ion-row>
             </ion-grid>
@@ -261,17 +257,31 @@
                         <ion-col size="11">
                             {{'INSTRUCCIONESSAL8' | translate}}
                             <a href="https://wa.me/+523111032724?text=Hola Mariela ya salimos del Bungalow {{roomname}}" target="_blank">
-                                <ion-chip class="">
+                                <ion-chip class="chipsend" color="success">
                                     <!-- <ion-icon name="logo-whatsapp"></ion-icon> -->
-                                    <ion-icon name="send" color="primary"></ion-icon>
+                                    <ion-icon name="send" color="light"></ion-icon>
                                     <!-- <ion-label></ion-label> -->
                                 </ion-chip>
                             </a>
                         </ion-col>
                     </ion-row>
+                    <ion-row>
+                        <ion-col size="12">
+                            <div class="fontbold txtcenter font17">
+                                {{'CLAVECAJA' | translate}}{{ roomcode }}
+                            </div>
+                        </ion-col>
+                    </ion-row>
                 </ion-grid>
             </div>
         </ion-card-content>
+    </ion-card>
+    <!--INSTRUCCIONES CHECKOUT BLOQUEADAS -->
+    <ion-card *ngIf="viewInstructions===-1||viewInstructions===1">
+        <ion-card-header>
+            <ion-card-title class="">{{ 'INSTRUCCIONESSAL' | translate }}</ion-card-title>
+            <ion-card-subtitle class="">{{ 'HABILITAR2' | translate }}</ion-card-subtitle>
+        </ion-card-header>
     </ion-card>
     <!--INFOR CHECKIN CHECKIN -->
     <ion-grid class="no-padding" *ngIf="viewInstructions===-1||viewInstructions===1">

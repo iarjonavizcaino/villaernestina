@@ -1,5 +1,6 @@
 {
     "HABILITAR": "Cette section sera activée le jour de votre Check-in",
+    "HABILITAR2": "Cette section sera activée le jour de votre Check-out",
     "INSTRUCCIONESR": "Instructions pour votre enregistrement",
     "INSTRUCCIONESSAL": "Instructions pour votre départ",
     "INSTRUCCIONESSAL2": "Vérifiez que vous avez tous vos effets personnels",
@@ -129,5 +130,6 @@
     "GRACIAS6": "Pour 4 personnes MXN$1,450.00",
     "GRACIAS7": "Plus d'informations:",
     "CATALOGO": "Photos",
-    "PRECIOS": "Les prix sont par nuit, sont sujets à changement en haute saison et s'appliquent aux réservations directes"
+    "PRECIOS": "Les prix sont par nuit, sont sujets à changement en haute saison et s'appliquent aux réservations directes",
+    "CLAVECAJA": "Le mot de passe du coffre-fort est: "
 }

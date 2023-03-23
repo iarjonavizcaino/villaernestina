@@ -1,5 +1,6 @@
 {
     "HABILITAR": "Ésta sección se habilitará el día de tu Check-in",
+    "HABILITAR2": "Ésta sección se habilitará el día de tu Check-out",
     "INSTRUCCIONESR": "Instrucciones para tu check-in",
     "INSTRUCCIONESSAL": "Instrucciones para tu check-out",
     "INSTRUCCIONESSAL2": "Revisa que lleves todas tus pertenencias",
@@ -130,5 +131,6 @@
     "GRACIAS6": "Para 4 personas MXN$1,450.00 ",
     "GRACIAS7": "Mayores informes:",
     "CATALOGO": "Fotos",
-    "PRECIOS": "Los precios son por noche, están sujetos a cambios en temporada alta y aplican en reservaciones directas"
+    "PRECIOS": "Los precios son por noche, están sujetos a cambios en temporada alta y aplican en reservaciones directas",
+    "CLAVECAJA": "La clave de la caja de seguridad es: "
 }
