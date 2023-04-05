@@ -127,6 +127,9 @@ export class LoginPage implements OnInit {
     await this._storage?.set("roomcode", this.roomcode);
     await this._storage?.set("admisiondate", this.huesped.dateAdmission);
     await this._storage?.set("departuredate", this.huesped.departureDate);
+    await this._storage?.set("price", this.huesped.price);
+    await this._storage?.set("advance", this.huesped.advance);
+    await this._storage?.set("platform", this.huesped.platform);
   }
 
   async getStorageData() {
@@ -135,6 +138,9 @@ export class LoginPage implements OnInit {
     console.log(await this._storage?.get("roomcode"));
     console.log(await this._storage?.get("admisiondate"));
     console.log(await this._storage?.get("departuredate"));
+    console.log(await this._storage?.get("price"));
+    console.log(await this._storage?.get("advance"));
+    console.log(await this._storage?.get("platform"));
   }
 
   public login(data): void {

@@ -57,6 +57,38 @@
 
         <ion-card-content *ngIf="viewInstructions===-1||viewInstructions===1">
             <div class="continue">{{ 'BIENVENIDA_P2' | translate }}</div>
+            <hr class="divider">
+            <div class="prices" *ngIf="(platform === 'direct') && ((price-advance)>0)">
+                <ion-grid fixed>
+                    <ion-row>
+                        <ion-col size="4" class="ion-text-center">
+                            <div class="price">Precio</div>
+                            <div class="price">
+                                {{price|currency}}
+                            </div>
+                        </ion-col>
+                        <ion-col size="4" class="ion-text-center">
+                            <div class="advance">
+                                Anticipo
+                            </div>
+                            <div class="advance">
+
+                                -{{advance|currency}}
+                            </div>
+                            <!-- <ion-chip [outline]="true" color="primary" *ngIf="huesped.platform === 'direct'" class="chip-card">
+                            </ion-chip> -->
+                        </ion-col>
+                        <ion-col size="4" class="ion-text-center">
+                            <div class="rest">Restante</div>
+                            <div class="rest">
+                                {{(price-advance)|currency}}
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+
+            </div>
         </ion-card-content>
         <ion-card-content *ngIf="viewInstructions===2||viewInstructions===3">
             <div class="continue">{{ 'GRACIAS2' | translate }}{{" "}}
@@ -382,12 +414,12 @@
                     <div class="ion-padding" slot="content">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.769549813231!2d-104.56799578544135!3d21.359583281778768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1676164295465!5m2!1ses-419!2smx"
                             width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <hr />
+                        <hr class="black" />
                         <ion-label class="textjustify fontbold">
                             {{ 'INSTRUCCIONES' | translate }}
                         </ion-label>
                         <ion-label class="textjustify">{{ 'INSTRUCCION' | translate }}</ion-label>
-                        <hr />
+                        <hr class="black" />
                         <iframe style="width: auto; height: 80vh; margin: auto; display: block;" src="/assets/videos/llegada.mp4">
                                 </iframe>
                     </div>

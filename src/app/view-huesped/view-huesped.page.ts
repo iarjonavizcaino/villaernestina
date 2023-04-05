@@ -64,7 +64,7 @@ export class ViewHuespedPage implements OnInit {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            this.handlerMessage = 'Eliminación canceleda';
+            this.handlerMessage = 'Eliminación cancelada';
           },
         },
         {
@@ -190,6 +190,34 @@ export class ViewHuespedPage implements OnInit {
         d => { return d.name.split(" ")[0].toLowerCase().includes(query.toLowerCase()) }
       );
     }
+  }
+
+  async pay(huesped:Huesped) {
+    const alert = await this.alertController.create({
+      header: '¿Desea registrar el pago?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            this.handlerMessage = 'Eliminación cancelada';
+          },
+        },
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            this.huespedService.updatePay(huesped);
+            this.handlerMessage = 'Actualizado';
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    this.roleMessage = `Dismissed with role: ${role}`;
   }
 
 }

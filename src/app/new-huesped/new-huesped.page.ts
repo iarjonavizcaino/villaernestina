@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Huesped, Room } from 'src/app/models/huesped';
 import { HuespedService } from '../services/huesped.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastController } from '@ionic/angular';
+import { IonInput, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,39 +15,50 @@ export class NewHuespedPage implements OnInit {
   public huesped: Huesped;
   public huespedsDates: Huesped[];
   public rooms: Room[];
+  public roomSelected: Room;
   public myForm: FormGroup;
   public validatorMessages: Object;
   public today: any;
   public dayDeparture: any;
   public dateSelected: any;
-  
+  public isContentLoaded: boolean = false;
+  public rest = 0;
+  @ViewChild('inname', { static: false }) inName!: IonInput;
 
-  constructor(private huespedService:HuespedService, private fb:FormBuilder, private router:Router, private toastController: ToastController) { 
+
+  constructor(private huespedService: HuespedService, private fb: FormBuilder, private router: Router, private toastController: ToastController) {
     this.huespedsDates = [{
       name: "",
       phone: "",
       dateAdmission: "",
       departureDate: "",
       room: "",
-      advance: 0,
+      // advance: 0,
       token: "",
-      gender: ""
-    }]
-  }
+      gender: "",
+      platform: "Airbnb",
+      price: 0,
+      advance: 0
+    }];
 
-  ngOnInit() {
     this.getDate();
-    this.huespedService.getRooms().subscribe(res =>{
+    this.huespedService.getRooms().subscribe(res => {
       this.rooms = res;
+      // this.inName.setFocus();
+      this.roomSelected = res[0];
+      console.log(this.roomSelected);
     });
-    
+
     this.myForm = this.fb.group({
-      name:["",Validators.required],
-      phone:["",Validators.compose([Validators.required,Validators.minLength(12),Validators.maxLength(13),Validators.pattern(/\+\d+/)])],
-      dateAdmission:["",Validators.required],
-      departureDate:["",Validators.required],
-      room:["",Validators.required],
-      gender:["woman",Validators.required]
+      name: ["", Validators.required],
+      phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(13), Validators.pattern(/\+\d+/)])],
+      dateAdmission: ["", Validators.required],
+      departureDate: ["", Validators.required],
+      room: ["Elefante", Validators.required],
+      gender: ["woman", Validators.required],
+      platform: ["airbnb", Validators.required],
+      price: [0],
+      advance: [0]
     });
     this.validatorMessages = {
       name: [
@@ -70,17 +81,27 @@ export class NewHuespedPage implements OnInit {
       ]
     }
 
-    this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue =>{
+    this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue => {
       let newDay = new Date(selectedValue);
-      newDay.setDate(newDay.getDate()+1)
+      newDay.setDate(newDay.getDate() + 1)
       this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
       console.log(this.dayDeparture);
     });
+
+    
   }
 
-getDate() { 
-  const date = new Date(); 
-  this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/ }
+  ngOnInit() {
+    
+    
+    
+    
+  }
+
+  getDate() {
+    const date = new Date();
+    this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/
+  }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -112,51 +133,113 @@ getDate() {
     await toast.present();
   }
 
-  public newHuesped(data):void{
-    if(this.checkRoom(data['room'],data['dateAdmission'])){
-        //Construir el objeto
-        data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-        
-        data.dateAdmission = data.dateAdmission.substring(0,11)+"00:00:00-07:00";
-        data.departureDate = data.departureDate.substring(0,11)+"14:00:00-07:00";
-        // console.log(data);
+  ionViewDidEnter() {
+    this.isContentLoaded = true;
+    setTimeout(() => {
+      this.inName.setFocus();
+    }, 2000);
+  }
+
+  public newHuesped(data): void {
+    if (this.checkRoom(data['room'], data['dateAdmission'])) {
+      //Construir el objeto
+      data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
+
+      data.dateAdmission = data.dateAdmission.substring(0, 11) + "00:00:00-07:00";
+      data.departureDate = data.departureDate.substring(0, 11) + "14:00:00-07:00";
+      // console.log(data);
 
 
-        this.huesped = data;
-        this.huespedService.newHuesped(this.huesped);
-        this.presentToast();
-        this.router.navigate(['/view-huesped']);
-    }else{
+      this.huesped = data;
+      this.huespedService.newHuesped(this.huesped);
+      this.presentToast();
+      this.router.navigate(['/view-huesped']);
+    } else {
       this.presentToastRoom();
     }
   }
 
-  public checkRoom(room,dA){
+  public changeRoom() {
+    let room = this.myForm.get("room").value;
+
+    console.log("Room"+room);
     
-    if(this.huespedService.getHuespedByRoom(room)){
-      
-      this.huespedService.getFechasByRoom(room).subscribe(res =>{
+    let platform = this.myForm.get("platform").value;
+    console.log("platform"+platform);
+
+    this.roomSelected = this.rooms.find(elem => {
+      return elem.name === room;
+    });
+
+    console.log(this.roomSelected);
+
+
+
+    if(platform==="airbnb") {
+      this.myForm.get('price').setValue(0);
+      this.myForm.get('advance').setValue(0);
+      this.rest = 0;
+    } else if(platform==="direct") {
+      this.myForm.get('price').setValue(this.roomSelected.price);
+      this.myForm.get('advance').setValue(this.roomSelected.price/2);
+
+      this.rest = this.roomSelected.price/2;
+    }
+
+    
+  }
+
+  public checkRoom(room, dA) {
+
+    if (this.huespedService.getHuespedByRoom(room)) {
+
+      this.huespedService.getFechasByRoom(room).subscribe(res => {
         this.huespedsDates = res;
-        
+
       })
       let item = true;
-    
-    this.huespedsDates.forEach(
-      (huesped) => {
-        if(huesped.departureDate.substring(0,10) >= dA.substring(0,10)){
-          
-          item = false;
-        }
-      });
 
-      if(!item){
+      this.huespedsDates.forEach(
+        (huesped) => {
+          if (huesped.departureDate.substring(0, 10) >= dA.substring(0, 10)) {
+
+            item = false;
+          }
+        });
+
+      if (!item) {
         return false;
-      }else{
+      } else {
         return true;
       }
-    }else{
+    } else {
       return true;
     }
+  }
+
+  public getRest(price: number, advance: number) {
+    this.rest = price - advance;
+  }
+
+  public changePrice(platform: string) {
+    console.log(platform);
+
+    let price = this.rooms
+
+    if (platform === "airbnb") {
+      this.myForm.get('price').setValue(0);
+      this.myForm.get('advance').setValue(0);
+      this.rest = 0;
+    }
+    if (platform === "airbnb") {
+      this.myForm.get('price').setValue(1150);
+      this.myForm.get('advance').setValue(0);
+      this.rest = 0;
+    }
+  }
+
+  getForm() {
+    console.log(this.myForm.valid);
   }
 
 

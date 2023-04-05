@@ -4,14 +4,18 @@ export class Huesped {
     dateAdmission: string;
     departureDate: string;
     room: string;
-    advance:number;
     token: string;
     gender: string;
+    platform: string;
+    price?: number;
+    advance?:number;
+    id?:string;
 }
 
 export class Room{
     name: string;
     code: string;
+    price: number;
 }
 
 export class Comment {

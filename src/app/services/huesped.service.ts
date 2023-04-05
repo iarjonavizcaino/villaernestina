@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { NonNullableFormBuilder } from '@angular/forms';
+import { StringFormat } from '@angular/fire/compat/storage/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -132,7 +133,6 @@ export class HuespedService {
     return this.token;
   }
 
-
   public filterByDateAdmission(): Observable<Huesped[]> {
     return this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '>=', this.today)).snapshotChanges().pipe(
       map(actions => {
@@ -167,6 +167,14 @@ export class HuespedService {
         })
       })
     )
+  }
+
+  public updatePay(huesped:Huesped) {
+    huesped.advance=huesped.price;
+    return this.firestore
+    .collection('Huesped')
+    .doc(huesped.id)
+    .update(huesped);
   }
 
   /*public getRooms(): Room[]{

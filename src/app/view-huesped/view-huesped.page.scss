@@ -70,3 +70,49 @@
 .icon-center {
     margin-left: 0px;
 }
+
+.airbnb {
+    color: #FF385C !important
+}
+
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
+    padding-top: 5px;
+}
+
+.subtitle-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider {
+    border-top: 3px solid #e8e8e8;
+    margin: 0;
+}
+
+.price {}
+
+.prices {
+    font-family: "CerealBold";
+    font-size: 17px;
+}
+
+.advance {
+    color: green;
+}
+
+.rest {
+    color: red;
+}

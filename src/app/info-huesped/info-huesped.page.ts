@@ -19,9 +19,9 @@ export class InfoHuespedPage implements OnInit {
       dateAdmission: '',
       departureDate: '',
       room: '',
-      advance: 0,
       token: '',
-      gender: ''
+      gender: '',
+      platform: ''
     }]
    }
 

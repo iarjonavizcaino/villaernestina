@@ -48,6 +48,10 @@ export class Tab1Page {
   public admisiondate: string;
   public departuredate: string;
   public countrestart: number;
+  public price: number;
+  public advance: number;
+  public platform: string;
+  public isContentload = false;
 
   viewInstructions = 0;
 
@@ -72,6 +76,10 @@ export class Tab1Page {
       this.roomcode = await this._storage?.get("roomcode");
       this.admisiondate = await this._storage?.get("admisiondate");
       this.departuredate = await this._storage?.get("departuredate");
+      this.price = await this._storage?.get("price");
+      this.advance = await this._storage?.get("advance");
+      this.platform = await this._storage?.get("platform");
+      
     }
   }
 
@@ -97,6 +105,8 @@ export class Tab1Page {
     console.log("ionViewDidEnter")
     this.animationInProgress = false;
     this.startAnimation();
+    console.log("Diferencia"+(this.price-this.advance));
+    this.isContentload = true;
   }
 
   ionViewDidLeave() {
