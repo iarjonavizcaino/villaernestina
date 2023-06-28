@@ -29,6 +29,72 @@ export class LionPage implements OnInit {
   animationInProgress = false;
   public lioncomments = [
     {
+      name: 'Jorge',
+      month: 'Junio 2023',
+      comment: `"Un lugar limpio y tranquilo para pasar un buen fin de semana en familia"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Mauricio',
+      month: 'Junio 2023',
+      comment: `"El lugar es ideal para mascotas, muy amplio terreno para que los perros puedan disfrutar, el lugar está literalmente en frente de restaurantes y a pasos de tiendas de conveniencia
+      La propiedad cuenta con árboles de mangos los cuales puedes disfrutar y llevar.
+      Mariela fue super atenta, rápida para responder
+      Muy buena experiencia"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Cynthia',
+      month: 'Junio 2023',
+      comment: '"Excelente lugar, tal como en fotos, limpio y con todas las comodidades. A unos cuantos pasos del acceso a la laguna, restaurantes muy cerca y muy bien ubicado. Ideal para pasar unos días en contacto con la naturaleza y poder descansar"',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Susana',
+      month: 'Junio 2023',
+      comment: '"Súper recomendado, en el lugar te hacían sentir como en casa, hasta pudimos recolectar ciruelas y mangos de lo arboles dentro de la propiedad, Perfecto para pasar unos días de tranquilidad y alejados de la ciudad. la atención de Mariela fue de primera incluso el encargado de la finca siempre muy amable y atento, definitivamente volveríamos."',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Christian',
+      month: 'Abril 2023',
+      comment: '"muy agradable lugar para un buen descanso de relax, Agusto con los colchones y con el servicio"',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Gabriela',
+      month: 'Abril 2023',
+      comment: '"Excelente servicio por mi anfitrión, estuvo al pendiente de mi llegada y mis necesidades, el lugar es excelente y claro que regresaremos pronto… 100% para pasar unos días de verdadero descanso…"',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Carmen',
+      month: 'Abril 2023',
+      comment: '"el alojamiento esta excelente! todo esta como nuevo. las camas comodisimas. tiene todo lo necesario para pasar una buena estancia. la ubicacion es buena. Con restaurantes cerca asi como tienditas. Mariela una anfitriona muy atenta."',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Ivan',
+      month: 'Marzo 2023',
+      comment: '"Depa bonito, tranquilo y limpio"',
+      starts: 5
+    }
+    ,
+    {
+      name: 'Bolivar',
+      month: 'Marzo 2023',
+      comment: '"un lugar rodeado por naturaleza y paz, super tranquilo y que te recarga la pila. Aunque nuestra estancia fue breve definitivamente valió la pena, es un pequeño paraíso al alcance de la ciudad. Nuestra anfitriona siempre estuvo al pendiente de nosotros."',
+      starts: 5
+    }
+    ,
+    {
       name: 'Hector',
       month: 'Febrero 2023',
       comment: '"Excelente ubicación, limpieza y atención! Recomendado"',
@@ -149,7 +215,149 @@ export class LionPage implements OnInit {
   ]
 
   public elephantcomments = [
-    
+
+    {
+      name: 'César',
+      month: 'Junio 2023',
+      comment: `"muy buena atención y muy lindo lugar, 100% recomendado!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Catalina',
+      month: 'Junio 2023',
+      comment: `"Es un agradable lugar, con privacidad y seguridad, pero al mismo tiempo muy cerca de todo.
+      Tiene árboles un frutales, en especial uno de mango que en temporada puedes deleitarlos.
+      Seguramente regresaré..."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Gabriela',
+      month: 'Mayo 2023',
+      comment: `"me gustó mucho, la pasé super bien"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Sandra',
+      month: 'Mayo 2023',
+      comment: `"estaba muy bien ubicado , limpio la terraza mega agusto , buena privacidad ....10 de 10"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Juan Carlos',
+      month: 'Mayo 2023',
+      comment: `"Las instalaciones son iguales a la descripción que vienen en la página, es agradable, con una pequeña vista al lago y silencioso para un descanso optimo, Mariela es una excelente anfitriona y siempre nos brindo información para conocer mejor el lugar, sin duda volveríamos a visitalo"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Thai',
+      month: 'Mayo 2023',
+      comment: `"Mariela was very responsive and we were grateful for her tips -- she pointed us in the right direction when we wanted to know where to buy firewood!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Dennis',
+      month: 'Mayo 2023',
+      comment: `"The bungalow is practically brand new. It was very clean and well furnished. The location is very nice, right at the entrance to La Laguna just across the road from the lake. We will definitely be going for a return stay."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Mara',
+      month: 'Mayo 2023',
+      comment: `"La atención de Mariela fue excelente.
+      Tuvimos un inconveniente con la cerradura al llegar por lo que no pudimos acceder al bungalow elefante, al comunicarle a la anfitriona resolvió rápidamente el problema y nos ofreció otro bungalow dentro de la misma propiedad que cumplía con las características del alojamiento que habíamos rentado.
+      Nuestra estancia fue muy agradable y placentera."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Priscila',
+      month: 'Abril 2023',
+      comment: `"Muy bien todo"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Kenneth',
+      month: 'Abril 2023',
+      comment: `"me sentí como en casa con esa habitación, tiene todo lo indispensable, además de todas las comodidades; el anfitrión es excelente, todo el tiempo está al pendiente y responde rápido los mensajes. no le batallas con nada, limpio, seguro, flexibilidad con el check in y el kayak está en excelentes condiciones, sin duda regresaré. lo único malo es que la recepción del teléfono no funciona y el internet es intermitente, de ahí en más unas muy buenas vacaciones"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Darián',
+      month: 'Abril 2023',
+      comment: `"Mariela siempre estuvo atenta y nos ayudó con todo lo que necesitamos.
+      El lugar muy bonito y limpio, excelente para pasar el fin de semana"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Martha',
+      month: 'Abril 2023',
+      comment: `"El lugar es muy bonito y cómodo, tiene todo. Solo fue un poco difícil de llegar pero porque llegamos de noche y Santa María es un tanto oscuro. Pero eso no tiene que ver con el anfitrión, sonó con el lugar."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Mario',
+      month: 'Abril 2023',
+      comment: `"la anfitriona super amable y atenta, en el horario que establecía estuvo el alojamiento, están al pendiente los anfitriones para cualquier duda, y estaba todo ordenado, quizás solo me pasó a mi pero cuando solicite si podia colocarnos la alberca fueron y la quitaron, y la regadera cuando te balabas a veces se quitaba el agua caliente y salía fría, pero de ahí en más está excelente el lugar lo recomiendo"`,
+      starts: 4
+    }
+    ,
+    {
+      name: 'Aldo',
+      month: 'Abril 2023',
+      comment: `"Muy bonito lugar,privado y con restaurantes y la laguna muy cerca"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Sofi',
+      month: 'Marzo 2023',
+      comment: `"el alojamiento es realmente hermoso, una excelente atención y hospitalidad por parte de los anfitriones, muy cálidos.
+      las fotos tal cual el alojamiento, volvemos sin duda!
+      gracias!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Monica',
+      month: 'Marzo 2023',
+      comment: `"Muy bonito y cómodo lugar, mucha tranquilidad y privado. Al rededor muchos restaurantes y tiendas, todo muy agradable :)"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Ernesto',
+      month: 'Marzo 2023',
+      comment: `"Mariela es una excelente anfitriona siempre estuvo al pendiente y atenta a lo que se necesitará, el bungalow elefante es genial, cómodo, privado y bastante agradable, la pasamos muy bien."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Roseelene',
+      month: 'Marzo 2023',
+      comment: `"El lugar es tal cual en más fotos, tiene fácil acceso para entrar y salir, restaurantes cerca,
+      El lugar es bonito y cómodo"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Itzel',
+      month: 'Febrero 2023',
+      comment: `"100% Recomendable! Un lugar bastante agradable, sin mencionar la atención que tuvieron con nosotros en todo momento, un lugar para relajarse, olvidarse de la rutina y sentirse como en casa.
+      Sin duda volveremos."`,
+      starts: 5
+    }
+    ,
     {
       name: 'Elba',
       month: 'Febrero 2023',
@@ -366,8 +574,8 @@ export class LionPage implements OnInit {
       slogan: '"Para disfrutar en familia..."',
       abstract: "Bungalow completo ideal para 4 personas",
       description: "1 habitación, 2 camas queen, 1 baño, terraza privada, comedor y cocina exterior",
-      starts: 5,
-      commentsqty: "16",
+      starts: 4.96,
+      commentsqty: this.lioncomments.length.toString(),
       comments: this.lioncomments,
       color: "warning"
     }
@@ -387,8 +595,8 @@ export class LionPage implements OnInit {
       slogan: '"Para disfrutar en pareja..."',
       abstract: "Bungalow completo ideal para 2 personas",
       description: "1 habitación, 1 cama king, 1 baño, terraza privada, comedor y cocina exterior",
-      starts: 4.88,
-      commentsqty: "26",
+      starts: 4.91,
+      commentsqty: this.elephantcomments.length.toString(),
       comments: this.elephantcomments,
       color: "primary"
     }
@@ -399,8 +607,6 @@ export class LionPage implements OnInit {
       (params) => {
         if(this.router.getCurrentNavigation().extras.state) {
           this.nameSpace = this.router.getCurrentNavigation().extras.state["bungalow"];
-          
-      
           console.log(this.selectedSpace);
         } else {
           this.nameSpace = "elephant";
@@ -411,6 +617,8 @@ export class LionPage implements OnInit {
             return place.key === this.nameSpace;
           }
         )[0];
+
+        this.selectedSpace.commentsqty
       }
     );
 

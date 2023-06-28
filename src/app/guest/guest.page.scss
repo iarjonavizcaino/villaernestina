@@ -47,6 +47,14 @@
     border-radius: 10px;
 }
 
+.accordion2 {
+    font-size: 14px;
+    font-weight: bolder;
+    // text-decoration: underline;
+    border-radius: 10px;
+    background: #d6d1d1e0 !important;
+}
+
 .accordion-group {}
 
 .card-content {
@@ -153,4 +161,93 @@ ion-button {
 .contentcenter {
     justify-content: center;
     display: flex;
+}
+
+.labelcomments {
+    --background: white;
+    // border-radius: 50%;
+    --color: #000000;
+    display: flex;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelcomments2 {
+    --background: #d6d1d1e0;
+    // border-radius: 50%;
+    --color: #000000;
+    display: flex;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment {
+    font-size: 12px;
+    list-style: normal;
+    font-style: italic;
+    padding-top: 3px;
+    text-align: center;
+}
+
+.commentstars {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.commenttitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.columncomment {
+    width: 100%;
+}
+
+.avatar {
+    font-size: 40px;
+    color: black;
+    display: flex;
+    align-items: flex-start;
+}
+
+// .avatarimg {
+//     width: 33px;
+//     height: 33px;
+// }
+.comments {
+    padding-left: 6px;
+}
+
+.month {
+    font-size: 13px;
+    font-weight: 800;
+    // text-align: right;
+    // padding-top: 3px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // flex-direction: column;
+}
+
+.txtwhite {
+    color: #000000 !important;
+    font-weight: bolder !important;
+}
+
+.placeicon {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.margin2 {
+    margin-right: 2px;
 }

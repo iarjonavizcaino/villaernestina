@@ -138,6 +138,127 @@
                     </div>
                 </ion-accordion>
             </ion-accordion-group>
+
+            <ion-accordion-group [multiple]="false" class="accordion-group">
+                <ion-accordion value="first">
+                    <ion-item slot="header" class="accordion">
+
+                        <ion-icon name="chatbubbles" slot="start" class="txtwhite margin2"></ion-icon>
+                        <ion-label class="txtwhite">León</ion-label>
+                        <ion-avatar class="placeicon">
+                            <img alt="image of lion" src="../../assets/img/leon.png" />
+                        </ion-avatar>
+                        <!-- <ion-chip color="primary"> -->
+                        <!-- </ion-chip> -->
+                        <!-- <ion-chip color="light" mode="ios" outline="true" class="qtycomments"> -->
+                        <ion-badge class="labelcomments">
+                            <ion-icon name="star"></ion-icon>
+                            &nbsp;{{lion.starts|number:'1.2-2'}}&nbsp;{{"("+lion.commentsqty+")"}}
+
+                        </ion-badge>
+                        <!-- </ion-chip> -->
+                    </ion-item>
+                    <div class="ion-padding points" slot="content">
+                        <div class="" *ngFor="let comment of lion.comments">
+                            <table>
+                                <tr>
+                                    <td class="avatar">
+                                        <ion-icon name="person-circle"></ion-icon>
+                                    </td>
+                                    <td class="columncomment">
+                                        <div class="comments">
+                                            <div class="commenttitle">
+                                                <div class="name">
+                                                    {{comment.name}}
+                                                </div>
+                                                <div class="commentstars">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    &nbsp;{{comment.starts|number:'1.2-2'}}
+                                                </div>
+                                            </div>
+                                            <div class="month">
+                                                {{comment.month}}
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="comment">
+                                            {{comment.comment}}
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                    </div>
+                </ion-accordion>
+            </ion-accordion-group>
+            <ion-accordion-group [multiple]="false" class="accordion-group">
+                <ion-accordion value="first">
+                    <ion-item slot="header" class="accordion2" color="Light">
+
+                        <ion-icon name="chatbubbles" slot="start" class="txtwhite margin2"></ion-icon>
+                        <ion-label class="txtwhite">Elefante</ion-label>
+                        <ion-avatar class="placeicon">
+                            <img alt="image of lion" src="../../assets/img/elefante.png" />
+                        </ion-avatar>
+                        <!-- <ion-chip color="primary"> -->
+                        <!-- </ion-chip> -->
+                        <!-- <ion-chip color="light" mode="ios" outline="true" class="qtycomments"> -->
+                        <ion-badge class="labelcomments2">
+                            <ion-icon name="star"></ion-icon>
+                            &nbsp;{{elephant.starts|number:'1.2-2'}}&nbsp;{{"("+elephant.commentsqty+")"}}
+
+                        </ion-badge>
+                        <!-- </ion-chip> -->
+                    </ion-item>
+                    <div class="ion-padding points" slot="content">
+                        <div class="" *ngFor="let comment of elephant.comments">
+                            <table>
+                                <tr>
+                                    <td class="avatar">
+                                        <ion-icon name="person-circle"></ion-icon>
+                                    </td>
+                                    <td class="columncomment">
+                                        <div class="comments">
+                                            <div class="commenttitle">
+                                                <div class="name">
+                                                    {{comment.name}}
+                                                </div>
+                                                <div class="commentstars">
+                                                    <ion-icon name="star"></ion-icon>
+                                                    &nbsp;{{comment.starts|number:'1.2-2'}}
+                                                </div>
+                                            </div>
+                                            <div class="month">
+                                                {{comment.month}}
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="comment">
+                                            {{comment.comment}}
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                            <hr>
+                        </div>
+                    </div>
+                </ion-accordion>
+            </ion-accordion-group>
         </ion-card-content>
     </ion-card>
 
