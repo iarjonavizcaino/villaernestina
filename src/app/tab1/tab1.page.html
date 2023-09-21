@@ -74,233 +74,163 @@
     <ion-card-content *ngIf="viewInstructions===-1||viewInstructions===1">
       <!-- <div class="continue">{{ 'BIENVENIDA_P2' | translate }}</div> -->
       <div *ngIf="todayCheckin">
-        <!-- <ion-card *ngIf="platform==='airbnb'||!(price-advance)">
-          <ion-card-header>
-            <ion-card-title class="fontbold font17"
-              >{{ 'ACCESO1' | translate }}</ion-card-title
-            >
-          </ion-card-header>
-          <ion-card-content class="">
-            {{ 'ACCESO2' | translate }}
-            <div class="fontbold txtcenter font17">{{ roomcode }}</div>
-          </ion-card-content>
-        </ion-card> -->
-        <ion-card class="card-checkin">
-          <ion-card-header class="header-card">
-            <ion-card-title class="fontbold">
-              <div class="hour">
-                {{ 'ACCESO0' | translate }}
+        <div class="hour">
+          <ion-label class="font17 fontbold">
+            {{ 'ACCESO0' | translate }}
+          </ion-label>
+          <ion-chip color="success" id="infcheckin">
+            <ion-icon name="time"></ion-icon>
+            <ion-label>{{ "15:00" }}</ion-label>
+            <ion-icon name="information-circle"></ion-icon>
+          </ion-chip>
+          <ion-popover trigger="infcheckin" triggerAction="hover">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label> {{ 'CHECKIN_P2' | translate }} </ion-label>
+                <a href="https://wa.me/+523111032724?" target="_blank">
+                  <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+                </a>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </div>
 
-                <ion-chip color="success" id="infcheckin">
-                  <ion-icon name="time"></ion-icon>
-                  <ion-label>{{ "15:00" }}</ion-label>
-                  <ion-icon name="information-circle"></ion-icon>
-                </ion-chip>
-                <ion-popover trigger="infcheckin" triggerAction="hover">
-                  <ng-template>
-                    <ion-content class="ion-padding">
-                      <ion-label> {{ 'CHECKIN_P2' | translate }} </ion-label>
-                      <a href="https://wa.me/+523111032724?" target="_blank">
-                        <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
-                      </a>
-                    </ion-content>
-                  </ng-template>
-                </ion-popover>
-              </div>
+        <ion-card class="card-complete">
+          <ion-card-header class="header-card">
+            <ion-card-title class="font17 fontbold">
+              {{'UBICACION'|translate}}
+              <a
+                href="https://maps.app.goo.gl/Lqhct5ZhonbR7V2v7"
+                target="_blank"
+                class="txtwhite"
+              >
+                <ion-button color="primary" class="btntxtwhite">
+                  {{"IRUBICACION"|translate}}
+                  <ion-icon name="navigate-outline"></ion-icon>
+                </ion-button>
+              </a>
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content class="">
+          <!-- <ion-card-content>
+             <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.769549813231!2d-104.56799578544135!3d21.359583281778768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1676164295465!5m2!1ses-419!2smx"
+              width="100%"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </ion-card-content> -->
+        </ion-card>
+        <ion-card class="card-complete">
+          <ion-card-header class="header-card">
+            <ion-card-title class="font17 fontbold"
+              >{{'ACCESAR'|translate}}</ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <!-- {{ 'ACCESO1' | translate }}-->
+            {{ 'ACCESO2' | translate }}
+            <div class="" *ngIf="platform==='direct'&&(price-advance)">
+              <div class="fontbold txtcenter font17">
+                {{ 'ACCESO3' | translate }}
+              </div>
+              <hr class="divider" />
+              <ion-grid fixed class="prices">
+                <ion-row>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="">{{'PRECIO'|translate}}</div>
+                    <div class="">{{price|currency}}</div>
+                  </ion-col>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="advance">{{'ANTICIPO'|translate}}</div>
+                    <div class="advance">-{{advance|currency}}</div>
+                    <!-- <ion-chip [outline]="true" color="primary" *ngIf="huesped.platform === 'direct'" class="chip-card">
+                                  </ion-chip> -->
+                  </ion-col>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="rest">{{'RESTO'|translate}}</div>
+                    <div class="rest">{{(price-advance)|currency}}</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <!--Comunicarse con Mariela-->
+              <div class="txtcenter">
+                <a href="tel:+523111032724">
+                  <ion-chip [outline]="true" color="primary">
+                    <ion-avatar color="primary">
+                      <img
+                        alt="Silhouette of a person's head"
+                        src="../../assets/img/avatar.svg"
+                      />
+                    </ion-avatar>
+                    <ion-label color="primary"
+                      >{{"Mariela: "}}311 103 2724</ion-label
+                    >
+                    <ion-icon name="call-outline" color="primary"></ion-icon>
+                  </ion-chip>
+                </a>
+                <ion-chip color="primary" [outline]="true">
+                  <a
+                    href="https://wa.me/+523111032724"
+                    target="_blank"
+                    class="contentcenter"
+                  >
+                    <ion-label color="primary"
+                      >{{"Mariela: Whatsapp"}}</ion-label
+                    >
+                    <ion-icon name="logo-whatsapp" color="primary"></ion-icon>
+                  </a>
+                </ion-chip>
+              </div>
+            </div>
+            <div
+              class="fontbold txtcenter font17"
+              *ngIf="platform!=='direct'||!(price-advance)"
+            >
+              {{ roomcode }}
+            </div>
+          </ion-card-content>
+        </ion-card>
+        <ion-row class="row-card">
+          <ion-col size="12" class="wifi">
             <ion-card class="card-complete">
               <ion-card-header class="header-card">
                 <ion-card-title class="font17 fontbold">
-                  {{'UBICACION'|translate}}
-                  <a
-                    href="https://maps.app.goo.gl/Lqhct5ZhonbR7V2v7"
-                    target="_blank"
-                    class="txtwhite"
-                  >
-                    <ion-button color="primary" class="btntxtwhite">
-                      {{"IRUBICACION"|translate}}
-                      <ion-icon name="navigate-outline"></ion-icon>
-                    </ion-button>
-                  </a>
+                  <ion-label>{{ 'WIFI' | translate }}&nbsp;</ion-label>
                 </ion-card-title>
               </ion-card-header>
-              <!-- <ion-card-content>
-                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.769549813231!2d-104.56799578544135!3d21.359583281778768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1676164295465!5m2!1ses-419!2smx"
-                  width="100%"
-                  height="150"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe> 
-              </ion-card-content> -->
-            </ion-card>
-            <ion-card class="card-complete">
-              <ion-card-header class="header-card">
-                <ion-card-title class="font17 fontbold"
-                  >{{'ACCESAR'|translate}}</ion-card-title
-                >
-              </ion-card-header>
-              <ion-card-content>
-                <!-- {{ 'ACCESO1' | translate }}-->
-                {{ 'ACCESO2' | translate }}
-                <div class="" *ngIf="platform==='direct'&&(price-advance)">
-                  <div class="fontbold txtcenter font17">
-                    {{ 'ACCESO3' | translate }}
-                  </div>
-                  <hr class="divider" />
-                  <ion-grid fixed class="prices">
-                    <ion-row>
-                      <ion-col size="4" class="ion-text-center">
-                        <div class="">{{'PRECIO'|translate}}</div>
-                        <div class="">{{price|currency}}</div>
-                      </ion-col>
-                      <ion-col size="4" class="ion-text-center">
-                        <div class="advance">{{'ANTICIPO'|translate}}</div>
-                        <div class="advance">-{{advance|currency}}</div>
-                        <!-- <ion-chip [outline]="true" color="primary" *ngIf="huesped.platform === 'direct'" class="chip-card">
-                                      </ion-chip> -->
-                      </ion-col>
-                      <ion-col size="4" class="ion-text-center">
-                        <div class="rest">{{'RESTO'|translate}}</div>
-                        <div class="rest">{{(price-advance)|currency}}</div>
-                      </ion-col>
-                    </ion-row>
-                  </ion-grid>
-
-                  <!--Comunicarse con Mariela-->
-                  <div class="txtcenter">
-                    <a href="tel:+523111032724">
-                      <ion-chip [outline]="true" color="primary">
-                        <ion-avatar color="primary">
-                          <img
-                            alt="Silhouette of a person's head"
-                            src="../../assets/img/avatar.svg"
-                          />
-                        </ion-avatar>
-                        <ion-label color="primary"
-                          >{{"Mariela: "}}311 103 2724</ion-label
-                        >
-                        <ion-icon
-                          name="call-outline"
-                          color="primary"
-                        ></ion-icon>
-                      </ion-chip>
-                    </a>
-                    <ion-chip color="primary" [outline]="true">
-                      <a
-                        href="https://wa.me/+523111032724"
-                        target="_blank"
-                        class="contentcenter"
-                      >
-                        <ion-icon
-                          name="logo-whatsapp"
-                          color="primary"
-                        ></ion-icon>
-                      </a>
-                    </ion-chip>
-                  </div>
+              <ion-card-content class="wifi-content">
+                <div class="wificenter">
+                  <ion-chip class="">
+                    <ion-icon name="wifi"></ion-icon>
+                    <ion-label>VILLAERNESTINAMAX_leon</ion-label>
+                  </ion-chip>
                 </div>
-                <div
-                  class="fontbold txtcenter font17"
-                  *ngIf="platform!=='direct'||!(price-advance)"
-                >
-                  {{ roomcode }}
+                <div class="wificenter">
+                  <ion-chip>
+                    <ion-icon name="wifi"></ion-icon>
+                    <ion-label>VILLAERNESTINAMAX</ion-label>
+                  </ion-chip>
+                </div>
+                <div class="contentcenter centeralign">
+                  <!-- <ion-note> -->
+                  <ion-label>{{ 'CONTRA' | translate }}&nbsp;</ion-label>
+                  <!-- </ion-note> -->
+                  <ion-button
+                    (click)="copy('17091985')"
+                    #btncopy
+                    size="small"
+                    shape="round"
+                    >{{'COPIAR'|translate}}</ion-button
+                  >
                 </div>
               </ion-card-content>
             </ion-card>
-            <ion-row class="row-card">
-              <ion-col size="12" class="wifi">
-                <ion-card class="card-complete">
-                  <ion-card-header class="header-card">
-                    <ion-card-title class="font17 fontbold">
-                      <ion-label>{{ 'WIFI' | translate }}&nbsp;</ion-label>
-                    </ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content class="wifi-content">
-                    <div class="wificenter">
-                      <ion-chip class="">
-                        <ion-icon name="wifi"></ion-icon>
-                        <ion-label>VILLAERNESTINAMAX_leon</ion-label>
-                      </ion-chip>
-                    </div>
-                    <div class="wificenter">
-                      <ion-chip>
-                        <ion-icon name="wifi"></ion-icon>
-                        <ion-label>VILLAERNESTINAMAX</ion-label>
-                      </ion-chip>
-                    </div>
-                    <div class="contentcenter centeralign">
-                      <!-- <ion-note> -->
-                      <ion-label>{{ 'CONTRA' | translate }}&nbsp;</ion-label>
-                      <!-- </ion-note> -->
-                      <ion-button
-                        (click)="copy('17091985')"
-                        #btncopy
-                        size="small"
-                        shape="round"
-                        >{{'COPIAR'|translate}}</ion-button
-                      >
-                    </div>
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-
-            <!-- <div class="txtSubtitle">
-              <ion-card
-                *ngIf="platform==='direct'&&(price-advance)"
-                class="card-complete"
-              >
-                <ion-card-header>
-                  <ion-card-title class="fontbold font17"
-                    >{{ 'ACCESO1' | translate }}</ion-card-title
-                  >
-                </ion-card-header>
-                <ion-card-content class="">
-                  {{ 'ACCESO2' | translate }}
-                  <div class="fontbold txtcenter font17">
-                    {{ 'ACCESO3' | translate }}{{(price-advance|currency)}}
-                  </div>
-                  <div class="txtcenter">
-                    <a href="tel:+523111032724">
-                      <ion-chip [outline]="true" color="primary">
-                        <ion-avatar color="primary">
-                          <img
-                            alt="Silhouette of a person's head"
-                            src="../../assets/img/avatar.svg"
-                          />
-                        </ion-avatar>
-                        <ion-label color="primary"
-                          >{{"Mariela: "}}311 103 2724</ion-label
-                        >
-                        <ion-icon
-                          name="call-outline"
-                          color="primary"
-                        ></ion-icon>
-                      </ion-chip>
-                    </a>
-                    <ion-chip color="primary" [outline]="true">
-                      <a
-                        href="https://wa.me/+523111032724"
-                        target="_blank"
-                        class="contentcenter"
-                      >
-                        <ion-icon
-                          name="logo-whatsapp"
-                          color="primary"
-                        ></ion-icon>
-                      </a>
-                    </ion-chip>
-                  </div>
-                </ion-card-content>
-              </ion-card>
-            </div> -->
-          </ion-card-content>
-        </ion-card>
+          </ion-col>
+        </ion-row>
       </div>
       <!-- <div
         class="prices"
@@ -315,7 +245,7 @@
             <ion-col size="4" class="ion-text-center">
               <div class="advance">Anticipo</div>
               <div class="advance">-{{advance|currency}}</div>
-             
+
             </ion-col>
             <ion-col size="4" class="ion-text-center">
               <div class="rest">Restante</div>
@@ -324,6 +254,155 @@
           </ion-row>
         </ion-grid>
       </div> -->
+      <div *ngIf="futureCheckin">
+        <!--Grid Checkin Checkout-->
+        <ion-grid
+          class="no-padding0"
+          *ngIf="!todayCheckin&&(viewInstructions===-1||viewInstructions===1)"
+        >
+          <ion-row>
+            <!--CHECKIN -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKIN' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ admisiondate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="success" id="infcheckin">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "15:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <ion-popover trigger="infcheckin" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKIN_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+            <!--CHECKOUT -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKOUT' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ departuredate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="danger" id="infcheckout">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "12:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <!-- <ion-icon name="information-circle" id="infcheckout"></ion-icon> -->
+                      <ion-popover trigger="infcheckout" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKOUT_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!--Card de ubicación-->
+        <ion-card class="card-complete">
+          <ion-card-header class="header-card">
+            <ion-card-title class="font17 fontbold">
+              {{'UBICACION'|translate}}
+              <a
+                href="https://maps.app.goo.gl/Lqhct5ZhonbR7V2v7"
+                target="_blank"
+                class="txtwhite"
+              >
+                <ion-button color="primary" class="btntxtwhite">
+                  {{"IRUBICACION"|translate}}
+                  <ion-icon name="navigate-outline"></ion-icon>
+                </ion-button>
+              </a>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <!--Card de acceso-->
+        <ion-card class="card-complete">
+          <ion-card-header class="header-card">
+            <ion-card-title class="font17 fontbold"
+              >{{'ACCESAR'|translate}}</ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content>
+            {{ 'HABILITAR' | translate }}
+            <div class="" *ngIf="platform==='direct'&&(price-advance)">
+              <hr class="divider" />
+              <ion-grid fixed class="prices">
+                <ion-row>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="">{{'PRECIO'|translate}}</div>
+                    <div class="">{{price|currency}}</div>
+                  </ion-col>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="advance">{{'ANTICIPO'|translate}}</div>
+                    <div class="advance">-{{advance|currency}}</div>
+                    <!-- <ion-chip [outline]="true" color="primary" *ngIf="huesped.platform === 'direct'" class="chip-card">
+                                </ion-chip> -->
+                  </ion-col>
+                  <ion-col size="4" class="ion-text-center no-padding0">
+                    <div class="rest">{{'RESTO'|translate}}</div>
+                    <div class="rest">{{(price-advance)|currency}}</div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </ion-card-content>
     <ion-card-content *ngIf="viewInstructions===2||viewInstructions===3">
       <div class="continue">
@@ -338,7 +417,7 @@
   <!--INFOR CHECKIN CHECKIN -->
   <ion-grid
     class="no-padding"
-    *ngIf="!todayCheckin&&(viewInstructions===-1||viewInstructions===1)"
+    *ngIf="!todayCheckin&&!futureCheckin&&(viewInstructions===-1||viewInstructions===1)"
   >
     <ion-row>
       <!--CHECKIN -->
@@ -411,7 +490,7 @@
     </ion-row>
   </ion-grid>
   <!--INSTRUCCIONES DE INGRESO BLOQUEADAS -->
-  <ion-card *ngIf="viewInstructions===-1">
+  <ion-card *ngIf="viewInstructions===-1&&!futureCheckin">
     <ion-card-header>
       <ion-card-title class=""
         >{{ 'INSTRUCCIONESR' | translate }}</ion-card-title
@@ -422,7 +501,7 @@
     </ion-card-header>
   </ion-card>
   <!--INSTRUCCIONES DE INGRESO ACTIVADAS -->
-  <ion-card *ngIf="!todayCheckin&& viewInstructions===1">
+  <ion-card *ngIf="!todayCheckin&&!futureCheckin&&viewInstructions===1">
     <ion-card-header class="">
       <ion-card-title class="fontbold"
         >{{ 'INSTRUCCIONESR' | translate }}</ion-card-title
@@ -585,7 +664,7 @@
   </ion-card>
 
   <!--INSTRUCCIONES CHECKOUT-->
-  <ion-card *ngIf="viewInstructions===2">
+  <ion-card *ngIf="viewInstructions===2&&!futureCheckin">
     <ion-card-header class="">
       <ion-card-title>{{'INSTRUCCIONESSAL' | translate}}</ion-card-title>
     </ion-card-header>
@@ -670,7 +749,9 @@
     </ion-card-content>
   </ion-card>
   <!--INSTRUCCIONES CHECKOUT BLOQUEADAS -->
-  <ion-card *ngIf="viewInstructions===-1||viewInstructions===1">
+  <ion-card
+    *ngIf="(viewInstructions===-1||viewInstructions===1)&&!futureCheckin"
+  >
     <ion-card-header>
       <ion-card-title class="fontbold">
         {{ 'INSTRUCCIONESSAL' | translate }}
@@ -706,6 +787,10 @@
 
   <!--RESERVACIONES POR FUERA -->
   <ion-card color="light" (click)="restart()">
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->
+      <ion-card-title class="fontbold">Nuestros Productos</ion-card-title>
+    </ion-card-header>
     <ion-card-content class="card-content2">
       <ion-grid class="no-padding0">
         <ion-row>

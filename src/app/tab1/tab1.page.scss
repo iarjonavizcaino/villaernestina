@@ -58,7 +58,8 @@ ion-content {
 }
 
 .checkingrid {
-    margin: 0px !important;
+    margin: 0px 0px 5px 0px !important;
+    //padding: 0px;
 }
 
 .checkinheader {
@@ -276,11 +277,11 @@ ion-button {
     // margin: 0;
 }
 
-.price {}
 
 .prices {
     font-family: "CerealBold";
-    font-size: 17px;
+    font-size: 15px;
+    padding:0px;
 }
 
 .advance {

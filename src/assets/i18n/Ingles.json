@@ -111,10 +111,10 @@
     "IRUBICACION": "See map",
     "INSTRUCCIONES": "Directions to get to the place:",
     "INSTRUCCION": "Once you go down to La Laguna de Santa María del Oro, you will come across a tourist hostel where you will find some colored letters with the word 'SAMAO', you must turn right and advance approximately 1 kilometer. When you are in front of the restaurant 'Los Tules', you will find a yellow gate, that is the entrance to Villa Ernestina.",
-    "ACCESAR": "Access to independent room",
+    "ACCESAR": "Access to room",
     "ACCESO0": "Today is your Check-in",
     "ACCESO1": "Independent access",
-    "ACCESO2": "On a wall of the terrace you will find a small safe, inside it is the room key, the password to open it is: ",
+    "ACCESO2": "The key is inside a safe located on the terrace, the code is: ",
     "ACCESO3": "The code will be enabled once full payment is confirmed",
     "WIFI": "WiFi",
     "RED": "Networks",
@@ -137,6 +137,6 @@
     "CLAVECAJA": "The password for the safe deposit box is: ",
     "VIEWMORE": "View more...",
     "PRECIO":"Price",
-    "ANTICIPO": "Advance",
+    "ANTICIPO": "Pay",
     "RESTO": "Rest"
 }

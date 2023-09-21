@@ -53,6 +53,7 @@ export class Tab1Page {
   public platform: string;
   public isContentload = false;
   public todayCheckin = false;
+  public futureCheckin = false;
 
   viewInstructions = 0;
 
@@ -77,6 +78,9 @@ export class Tab1Page {
       //this.huesped = await this.huespedService.getHuespedsByTokenToShow(await this._storage?.get("token"));
       let token = await this._storage?.get("token")
       this.huespedService.getHuespedsByTokenToShow(token).subscribe(async res =>{
+        let now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        this.fecha = now.toISOString().substring(0, 19) + "-07:00";
         this.huesped = res[0];
         //console.log(this.huesped);
         let room: Room;
@@ -96,6 +100,9 @@ export class Tab1Page {
         this.advance = this.huesped.advance;
         this.platform = this.huesped.platform;
 
+        console.log("Fecha"+this.fecha);
+        console.log("Fecha"+this.admisiondate);
+
         if (this.fecha >= this.admisiondate) {
           if(this.fecha.substring(0, 11) === this.admisiondate.substring(0, 11))
             this.todayCheckin = true;
@@ -107,19 +114,21 @@ export class Tab1Page {
             this.viewInstructions = 2;
           else
             this.viewInstructions = 3;
+          this.futureCheckin = false;
         } else {
-          this.viewInstructions = -1
+          this.viewInstructions = -1;
+          this.todayCheckin = false;
+          this.futureCheckin = true;
         }
         this.isContentload = true;
-
       });
     }
   }
 
   async prepareData() {
-    let now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    this.fecha = now.toISOString().substring(0, 19) + "-07:00";
+    // let now = new Date();
+    // now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    // this.fecha = now.toISOString().substring(0, 19) + "-07:00";
     await this.getStorageData();
     
     // console.log("Tipo: "+this.viewInstructions);
