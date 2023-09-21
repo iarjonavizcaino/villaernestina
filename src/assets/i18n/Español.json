@@ -109,11 +109,14 @@
     "LLEGADA": "Mi Llegada",
     "LLEGADA1": "Llegada",
     "UBICACION": "Ubicación",
+    "IRUBICACION": "Ver mapa",
     "INSTRUCCIONES": "Instrucciones para llegar al lugar:",
     "INSTRUCCION": "Una vez que bajas a La Laguna de Santa María del Oro, toparás con un parador turístico en el que encontrarás unas letras de colores con la palabra “SAMAO”, deberás girar a la derecha y avanzar aproximadamente 1 kilometro. Cuando estés frente al restaurante “Los Tules”, encontrarás un cancel color amarillo, esa es la entrada a la Villa Ernestina.",
-    "ACCESAR": "Acceso a habitación",
+    "ACCESAR": "Acceso a habitación independiente",
+    "ACCESO0": "Hoy es tu Check-in",
     "ACCESO1": "El acceso es independiente",
     "ACCESO2": "En una pared de la terraza encontrarás una pequeña caja de seguridad, dentro de ella está la llave de la habitación, la contraseña para abrirla es: ",
+    "ACCESO3": "El código se habilitará una vez confirmado el pago completo",
     "WIFI": "WiFi",
     "RED": "Redes",
     "CONTRA": "Contraseña: 17091985",
@@ -132,5 +135,9 @@
     "GRACIAS7": "Mayores informes:",
     "CATALOGO": "Fotos",
     "PRECIOS": "Los precios son por noche, están sujetos a cambios en temporada alta y aplican en reservaciones directas",
-    "CLAVECAJA": "La clave de la caja de seguridad es: "
+    "CLAVECAJA": "La clave de la caja de seguridad es: ",
+    "VIEWMORE": "Ver más...",
+    "PRECIO":"Precio",
+    "ANTICIPO": "Anticipo",
+    "RESTO": "Resto"
 }

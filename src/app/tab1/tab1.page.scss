@@ -15,12 +15,17 @@
 }
 
 .reservation {
-    // padding-top: 10px;
+    padding-top: 7px;
     text-align: justify;
     text-justify: inter-word;
+
     //background-color: #D9EAD3;
     //padding: 20px;
     // border-radius: 25px;
+}
+
+.header-card {
+    padding: 5px;
 }
 
 ion-content {
@@ -162,6 +167,10 @@ ion-content {
     font-size: 13px;
 }
 
+.txtSubtitle {
+    font-weight: bolder;
+}
+
 .disposition {
     color: black;
     font-family: CerealBold;
@@ -175,6 +184,25 @@ ion-content {
 .card-content2 {
     text-align: center;
     padding: 3px;
+}
+.card-complete {
+    padding: 5px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.card-checkin {
+    padding: 0px;
+    margin: 0px;
+    // margin-bottom: 10px;
+}
+
+.wifi {
+    padding: 0px;
+}
+
+.wifi-content {
+    padding: 0px;
 }
 
 ion-button {
@@ -197,6 +225,21 @@ ion-button {
 .contentcenter {
     justify-content: center;
     display: flex;
+}
+
+.wificenter {
+    justify-content: center;
+    display: flex;
+}
+
+.txtwhite {
+    color: white;
+}
+
+.btntxtwhite {
+    justify-content: center;
+    display: flex;
+    
 }
 
 .accordion {

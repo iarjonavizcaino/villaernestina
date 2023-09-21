@@ -51,7 +51,7 @@ export class NewHuespedPage implements OnInit {
 
     this.myForm = this.fb.group({
       name: ["", Validators.required],
-      phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(13), Validators.pattern(/\+\d+/)])],
+      phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(17), Validators.pattern(/\+\d+/)])],
       dateAdmission: ["", Validators.required],
       departureDate: ["", Validators.required],
       room: ["Elefante", Validators.required],
@@ -66,8 +66,8 @@ export class NewHuespedPage implements OnInit {
       ],
       phone: [
         { type: 'required', message: "Teléfono obligatorio" },
-        { type: 'minlength', message: "El Teléfono debe ser de mínimo 11 digitos" },
-        { type: 'maxlength', message: "El Teléfono debe ser de máximo 12 digitos" },
+        { type: 'minlength', message: "El Teléfono debe ser de mínimo 12 digitos" },
+        { type: 'maxlength', message: "El Teléfono debe ser de máximo 17 digitos" },
         { type: 'pattern', message: "El Teléfono debe ser solo la lada y los números. Ej. +523113331111" }
       ],
       dateAdmission: [

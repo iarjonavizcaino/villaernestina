@@ -52,6 +52,7 @@ export class Tab1Page {
   public advance: number;
   public platform: string;
   public isContentload = false;
+  public todayCheckin = false;
 
   viewInstructions = 0;
 
@@ -60,26 +61,58 @@ export class Tab1Page {
   }
 
   async ngOnInit() {
+    //this.isContentload = false;
     this._storage = await this.storage.create();
     this.prepareData();
   }
 
   async getStorageData() {
-
     this.huespedname = await this._storage?.get("name");
     if (!this.huespedname || this.huespedname === "undefined") {
       await this._storage.clear();
       this.router.navigate(['']);
     }
     else {
-      this.roomname = await this._storage?.get("roomname");
-      this.roomcode = await this._storage?.get("roomcode");
-      this.admisiondate = await this._storage?.get("admisiondate");
-      this.departuredate = await this._storage?.get("departuredate");
-      this.price = await this._storage?.get("price");
-      this.advance = await this._storage?.get("advance");
-      this.platform = await this._storage?.get("platform");
-      
+      //console.log("token"+);
+      //this.huesped = await this.huespedService.getHuespedsByTokenToShow(await this._storage?.get("token"));
+      let token = await this._storage?.get("token")
+      this.huespedService.getHuespedsByTokenToShow(token).subscribe(async res =>{
+        this.huesped = res[0];
+        //console.log(this.huesped);
+        let room: Room;
+        room = await this.huespedService.getRoom(this.huesped.room);
+        this.roomname = room.name;
+        this.roomcode = room.code;
+        // this.roomname = this.huesped.room;
+        // this.roomcode = await this._storage?.get("roomcode");
+        // this.admisiondate = await this._storage?.get("admisiondate");
+        // this.departuredate = await this._storage?.get("departuredate");
+        // this.price = await this._storage?.get("price");
+        // this.advance = await this._storage?.get("advance");
+        // this.platform = await this._storage?.get("platform");
+        this.admisiondate = this.huesped.dateAdmission;
+        this.departuredate = this.huesped.departureDate;
+        this.price = this.huesped.price;
+        this.advance = this.huesped.advance;
+        this.platform = this.huesped.platform;
+
+        if (this.fecha >= this.admisiondate) {
+          if(this.fecha.substring(0, 11) === this.admisiondate.substring(0, 11))
+            this.todayCheckin = true;
+          else 
+            this.todayCheckin = false;
+          if (this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
+            this.viewInstructions = 1;
+          else if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
+            this.viewInstructions = 2;
+          else
+            this.viewInstructions = 3;
+        } else {
+          this.viewInstructions = -1
+        }
+        this.isContentload = true;
+
+      });
     }
   }
 
@@ -88,41 +121,34 @@ export class Tab1Page {
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     this.fecha = now.toISOString().substring(0, 19) + "-07:00";
     await this.getStorageData();
-    if (this.fecha >= this.admisiondate) {
-      if (this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
-        this.viewInstructions = 1;
-      else if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
-        this.viewInstructions = 2;
-      else
-        this.viewInstructions = 3;
-    } else {
-      this.viewInstructions = -1
-    }
+    
     // console.log("Tipo: "+this.viewInstructions);
   }
 
-  ionViewDidEnter() {
-    console.log("ionViewDidEnter")
-    this.animationInProgress = false;
-    this.startAnimation();
-    console.log("Diferencia"+(this.price-this.advance));
-    this.isContentload = true;
-  }
+  // ionViewDidEnter() {
+  //   //console.log("ionViewDidEnter")
+  //   this.animationInProgress = false;
+  //   //this.startAnimation();
+  //   //console.log("Diferencia"+(this.price-this.advance));
+  //   //this.isContentload = true;
+  // }
 
-  ionViewDidLeave() {
-    console.log("ionViewDidLeave")
-    this.animationInProgress = false;
-  }
+  // ionViewDidLeave() {
+  //   //console.log("ionViewDidLeave")
+  //   this.animationInProgress = false;
 
-  startAnimation() {
-    if (this.animationInProgress) return;
-    this.animationInProgress = true;
-    setTimeout(() => {
-      this.swiperSlideShow.swiperRef.slideNext(500);
-      this.animationInProgress = false;
-      this.startAnimation();
-    }, 2000);
-  }
+
+  // }
+
+  // startAnimation() {
+  //   if (this.animationInProgress) return;
+  //   this.animationInProgress = true;
+  //   setTimeout(() => {
+  //     this.swiperSlideShow.swiperRef.slideNext(500);
+  //     this.animationInProgress = false;
+  //     this.startAnimation();
+  //   }, 2000);
+  // }
 
   cancel(type: number) {
     this.animationInProgress = false;

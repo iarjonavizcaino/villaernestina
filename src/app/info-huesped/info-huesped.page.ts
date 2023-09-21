@@ -32,7 +32,7 @@ export class InfoHuespedPage implements OnInit {
         //this.huesped = this.huespedService.getHuespedByToken(params['token']);
         this.huespedService.getHuespedsByTokenToShow(params['token']).subscribe(res =>{
           this.huespeds = res;
-          console.log(this.huespeds);
+          //console.log(this.huespeds);
         })
       }
     );
