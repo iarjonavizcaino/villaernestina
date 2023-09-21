@@ -155,7 +155,7 @@
                   </ion-col>
                 </ion-row>
               </ion-grid>
-
+              <hr class="divider" />
               <!--Comunicarse con Mariela-->
               <div class="txtcenter">
                 <a href="tel:+523111032724">
@@ -232,28 +232,7 @@
           </ion-col>
         </ion-row>
       </div>
-      <!-- <div
-        class="prices"
-        *ngIf="(platform === 'direct') && ((price-advance)>0)"
-      >
-        <ion-grid fixed>
-          <ion-row>
-            <ion-col size="4" class="ion-text-center">
-              <div class="price">Precio</div>
-              <div class="price">{{price|currency}}</div>
-            </ion-col>
-            <ion-col size="4" class="ion-text-center">
-              <div class="advance">Anticipo</div>
-              <div class="advance">-{{advance|currency}}</div>
 
-            </ion-col>
-            <ion-col size="4" class="ion-text-center">
-              <div class="rest">Restante</div>
-              <div class="rest">{{(price-advance)|currency}}</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div> -->
       <div *ngIf="futureCheckin">
         <!--Grid Checkin Checkout-->
         <ion-grid
