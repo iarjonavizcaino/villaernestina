@@ -8,6 +8,7 @@ import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Z
 import { IonicSlides, IonModal, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { verify } from 'crypto';
+import { Observable } from 'rxjs';
 
 
 SwiperCore.use([Autoplay, IonicSlides]);
@@ -53,7 +54,11 @@ export class Tab1Page {
   public platform: string;
   public isContentload = false;
   public todayCheckin = false;
+  public todayCheckout = false;
   public futureCheckin = false;
+  public intermediateDays = false;
+  public pastCheckout = false;
+  private subscription;
 
   viewInstructions = 0;
 
@@ -77,7 +82,7 @@ export class Tab1Page {
       //console.log("token"+);
       //this.huesped = await this.huespedService.getHuespedsByTokenToShow(await this._storage?.get("token"));
       let token = await this._storage?.get("token")
-      this.huespedService.getHuespedsByTokenToShow(token).subscribe(async res =>{
+      this.huespedService.getHuespedsByTokenToShow(token).subscribe(async res => {
         let now = new Date();
         now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
         this.fecha = now.toISOString().substring(0, 19) + "-07:00";
@@ -100,26 +105,56 @@ export class Tab1Page {
         this.advance = this.huesped.advance;
         this.platform = this.huesped.platform;
 
-        console.log("Fecha"+this.fecha);
-        console.log("Fecha"+this.admisiondate);
+        // console.log("Fecha"+this.fecha);
+        // console.log("Fecha"+this.admisiondate);
+
+        if (this.fecha.substring(0, 11) > this.admisiondate.substring(0, 11) && this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
+          this.intermediateDays = true;
+        else
+          this.intermediateDays = false;
+        if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
+          this.todayCheckout = true
+        else
+          this.todayCheckout = false
+        if (this.fecha.substring(0, 11) < this.admisiondate.substring(0, 11))
+          this.futureCheckin = true;
+        else
+          this.futureCheckin = false;
+
+        if (this.fecha.substring(0, 11) === this.admisiondate.substring(0, 11))
+          this.todayCheckin = true;
+        else
+          this.todayCheckin = false;
+
+        if (this.fecha.substring(0, 11) > this.departuredate.substring(0, 11))
+          this.pastCheckout = true;
+        else
+          this.pastCheckout = false;
+
+
+        console.log("fecha " + this.fecha);
+        console.log("Ingreso " + this.admisiondate);
+        console.log("Salida " + this.departuredate);
+
 
         if (this.fecha >= this.admisiondate) {
-          if(this.fecha.substring(0, 11) === this.admisiondate.substring(0, 11))
-            this.todayCheckin = true;
-          else 
-            this.todayCheckin = false;
+
           if (this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
             this.viewInstructions = 1;
           else if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
             this.viewInstructions = 2;
           else
             this.viewInstructions = 3;
-          this.futureCheckin = false;
+          // this.futureCheckin = false;
         } else {
           this.viewInstructions = -1;
-          this.todayCheckin = false;
-          this.futureCheckin = true;
+          // this.todayCheckin = false;
+          // this.futureCheckin = true;
         }
+        console.log("En dias intermedios " + this.intermediateDays);
+        console.log("Checkout hoy " + this.todayCheckout);
+        console.log("Checkin hoy " + this.todayCheckin);
+        console.log("Checkin futuro " + this.futureCheckin);
         this.isContentload = true;
       });
     }
@@ -130,7 +165,7 @@ export class Tab1Page {
     // now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     // this.fecha = now.toISOString().substring(0, 19) + "-07:00";
     await this.getStorageData();
-    
+
     // console.log("Tipo: "+this.viewInstructions);
   }
 
@@ -217,7 +252,7 @@ export class Tab1Page {
       state: {
         bungalow: bungalow
       }
-    }; 
+    };
 
     this.router.navigate(['/lion'], navigationExtras);
   }

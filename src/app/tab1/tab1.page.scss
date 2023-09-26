@@ -219,7 +219,7 @@ ion-button {
     padding-bottom: 3px;
 }
 
-.txtcenter {
+.txtcenter2 {
     text-align: center;
 }
 
@@ -235,12 +235,13 @@ ion-button {
 
 .txtwhite {
     color: white;
+    text-decoration: none;
 }
 
 .btntxtwhite {
     justify-content: center;
     display: flex;
-    
+    text-transform: inherit;
 }
 
 .accordion {
@@ -290,4 +291,32 @@ ion-button {
 
 .rest {
     color: red;
+}
+
+.social {
+    font-size:30px;
+}
+
+.whatsapp {
+    color:#0CC243;
+}
+
+.facebook {
+    color: #0866FF;
+}
+
+.instagram {
+    color: #943DA4;
+}
+
+.tiktok {
+    color: #000000;
+}
+
+.logovilla {
+    height: 110px;
+    display: flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
