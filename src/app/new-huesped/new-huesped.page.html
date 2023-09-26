@@ -1,179 +1,260 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>Nuevo Huesped</ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Huesped</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
-        <form [formGroup]="myForm" *ngIf="isContentLoaded">
-            <ion-grid>
-                <!-- Nombre -->
-                <ion-row>
-                    <ion-col>
-                        <ion-item id="item">
-                            <ion-label position="floating">Nombre</ion-label>
-                            <ion-input formControlName="name" [autofocus]="true" #inname></ion-input>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngFor="let item of validatorMessages['name']">
-                                <div class="errormessages" *ngIf="(myForm.get('name').dirty || myForm.get('name').touched) && myForm.get('name').hasError(item.type)">
-                                    {{item.message}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Habitación -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item">
-                            <ion-select interface="popover" formControlName="room" placeholder="Selecciona la habitación" (ionChange)="changeRoom()">
-                                <ng-container *ngFor="let r of rooms">
-                                    <ion-select-option [value]="r.name">{{ r.name }}</ion-select-option>
-                                </ng-container>
-                            </ion-select>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngFor="let item of validatorMessages['room']">
-                                <div class="errormessages" *ngIf="(myForm.get('room').dirty || myForm.get('room').touched) && myForm.get('room').hasError(item.type)">
-                                    {{item.message}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Género -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item">
-                            <ion-segment value="default" formControlName="gender">
-                                <ion-segment-button value="woman">
-                                    <ion-label>Mujer</ion-label>
-                                </ion-segment-button>
-                                <ion-segment-button value="man">
-                                    <ion-label>Hombre</ion-label>
-                                </ion-segment-button>
-                            </ion-segment>
-                        </ion-item>
-                    </ion-col>
-                </ion-row>
-                <!-- Teléfono -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item">
-                            <ion-label position="floating">Teléfono</ion-label>
-                            <ion-input type="tel" formControlName="phone"></ion-input>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngFor="let item of validatorMessages['phone']">
-                                <div class="errormessages" *ngIf="(myForm.get('phone').dirty || myForm.get('phone').touched) && myForm.get('phone').hasError(item.type)">
-                                    {{item.message}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Plataforma -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item">
-                            <ion-segment formControlName="platform" (click)="changeRoom()">
-                                <ion-segment-button value="airbnb">
-                                    <ion-label>Airbnb</ion-label>
-                                </ion-segment-button>
-                                <ion-segment-button value="direct">
-                                    <ion-label>Directo</ion-label>
-                                </ion-segment-button>
-                            </ion-segment>
-                        </ion-item>
-                    </ion-col>
-                </ion-row>
-                <!-- Precio -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item" *ngIf="myForm.get('platform').value==='direct'">
-                            <ion-label position="floating">Precio</ion-label>
-                            <ion-input type="number" formControlName="price" class="money" value="0" (change)="getRest(myForm.get('price').value, myForm.get('advance').value)"></ion-input>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngIf="(myForm.get('price').dirty || myForm.get('price').touched)&&myForm.get('platform').value==='direct'&&myForm.get('price').value<1000">
-                                <div class="errormessages">
-                                    {{"El precio debe ser mayor que 1000"}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Anticipo -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item" *ngIf="myForm.get('platform').value==='direct'">
-                            <ion-label position="floating">Anticipo</ion-label>
-                            <ion-input type="number" formControlName="advance" value="0" class="money" (change)="getRest(myForm.get('price').value, myForm.get('advance').value)"></ion-input>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngIf="(myForm.get('advance').dirty || myForm.get('advance').touched)&&myForm.get('platform').value==='direct'&&myForm.get('advance').value<500">
-                                <div class="errormessages">
-                                    {{"El anticipo debe ser mayor que 500"}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Resto -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item *ngIf="myForm.get('platform').value==='direct'">
-                            <ion-label class="money restmoney">Resto: {{rest|currency}}</ion-label>
-                        </ion-item>
-                    </ion-col>
-                </ion-row>
-                <!-- Checkin -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ion-item id="item">
-                            <ion-datetime class="calendar" formControlName="dateAdmission" [min]="today" presentation="date">
-                                <span slot="title">Selecciona la fecha a reservar</span>
-                            </ion-datetime>
-                        </ion-item>
-                        <div>
-                            <ng-container *ngFor="let item of validatorMessages['dateAdmission']">
-                                <div class="errormessages" *ngIf="(myForm.get('dateAdmission').dirty || myForm.get('dateAdmission').touched) && myForm.get('dateAdmission').hasError(item.type)">
-                                    {{item.message}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-                <!-- Checkout -->
-                <ion-row>
-                    <ion-col size="12">
-                        <ng-container *ngFor="let item of validatorMessages['dateAdmission']">
-                            <ion-item id="item" *ngIf="(myForm.get('dateAdmission').dirty || myForm.get('dateAdmission').touched) && !myForm.get('dateAdmission').hasError(item.type)">
-                                <ion-datetime class="calendar" presentation="date" [min]="dayDeparture" formControlName="departureDate" (click)="getForm()">
-                                    <span slot="title">Selecciona la fecha de salida</span>
-                                </ion-datetime>
-                            </ion-item>
-                        </ng-container>
-                        <div>
-                            <ng-container *ngFor="let item of validatorMessages['departureDate']">
-                                <div class="errormessages" *ngIf="(myForm.get('departureDate').dirty || myForm.get('departureDate').touched) && myForm.get('departureDate').hasError(item.type)">
-                                    {{item.message}}
-                                </div>
-                            </ng-container>
-                        </div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </form>
-    </ion-grid>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isContentLoaded&&myForm.valid">
-        <ion-fab-button (click)="newHuesped(myForm.value)">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
+  <ion-grid>
+    <form [formGroup]="myForm" *ngIf="isContentLoaded">
+      <ion-grid>
+        <!-- Nombre -->
+        <ion-row>
+          <ion-col>
+            <ion-item id="item">
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input
+                formControlName="name"
+                [autofocus]="true"
+                #inname
+              ></ion-input>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let item of validatorMessages['name']">
+                <div
+                  class="errormessages"
+                  *ngIf="(myForm.get('name').dirty || myForm.get('name').touched) && myForm.get('name').hasError(item.type)"
+                >
+                  {{item.message}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Habitación -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item">
+              <ion-select
+                interface="popover"
+                formControlName="room"
+                placeholder="Selecciona la habitación"
+                (ionChange)="changeRoom()"
+              >
+                <ng-container *ngFor="let r of rooms">
+                  <ion-select-option [value]="r.name"
+                    >{{ r.name }}</ion-select-option
+                  >
+                </ng-container>
+              </ion-select>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let item of validatorMessages['room']">
+                <div
+                  class="errormessages"
+                  *ngIf="(myForm.get('room').dirty || myForm.get('room').touched) && myForm.get('room').hasError(item.type)"
+                >
+                  {{item.message}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Género -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item">
+              <ion-segment value="default" formControlName="gender">
+                <ion-segment-button value="woman">
+                  <ion-label>Mujer</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="man">
+                  <ion-label>Hombre</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!-- Teléfono -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item">
+              <ion-label position="floating">Teléfono</ion-label>
+              <ion-input type="tel" formControlName="phone"></ion-input>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let item of validatorMessages['phone']">
+                <div
+                  class="errormessages"
+                  *ngIf="(myForm.get('phone').dirty || myForm.get('phone').touched) && myForm.get('phone').hasError(item.type)"
+                >
+                  {{item.message}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Plataforma -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item">
+              <ion-segment formControlName="platform" (click)="changeRoom()">
+                <ion-segment-button value="airbnb">
+                  <ion-label>Airbnb</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="direct">
+                  <ion-label>Directo</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!-- Precio -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item" *ngIf="myForm.get('platform').value==='direct'">
+              <ion-label position="floating">Precio</ion-label>
+              <ion-input
+                type="number"
+                formControlName="price"
+                class="money"
+                value="0"
+                (change)="getRest(myForm.get('price').value, myForm.get('advance').value)"
+              ></ion-input>
+            </ion-item>
+            <div>
+              <ng-container
+                *ngIf="(myForm.get('price').dirty || myForm.get('price').touched)&&myForm.get('platform').value==='direct'&&myForm.get('price').value<1000"
+              >
+                <div class="errormessages">
+                  {{"El precio debe ser mayor que 1000"}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Anticipo -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item" *ngIf="myForm.get('platform').value==='direct'">
+              <ion-label position="floating">Anticipo</ion-label>
+              <ion-input
+                type="number"
+                formControlName="advance"
+                value="0"
+                class="money"
+                (change)="getRest(myForm.get('price').value, myForm.get('advance').value)"
+              ></ion-input>
+            </ion-item>
+            <div>
+              <ng-container
+                *ngIf="(myForm.get('advance').dirty || myForm.get('advance').touched)&&myForm.get('platform').value==='direct'&&myForm.get('advance').value<500"
+              >
+                <div class="errormessages">
+                  {{"El anticipo debe ser mayor que 500"}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Resto -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item *ngIf="myForm.get('platform').value==='direct'">
+              <ion-label class="money restmoney"
+                >Resto: {{rest|currency}}</ion-label
+              >
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <!-- Checkin -->
+        <ion-row>
+          <ion-col size="12">
+            <ion-item id="item">
+              Entrada:&nbsp;
+              <ion-datetime-button datetime="datetime"></ion-datetime-button>
+              <ion-modal [keepContentsMounted]="true" #modaldatetime>
+                <ng-template>
+                  <!-- <ion-datetime ></ion-datetime> -->
+                  <ion-datetime
+                    class="calendar"
+                    id="datetime"
+                    formControlName="dateAdmission"
+                    [min]="today"
+                    presentation="date"
+                    (ionChange)="modaldatetime.dismiss();"
+                  >
+                    <span slot="title">Selecciona la fecha de ingreso</span>
+                  </ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </ion-item>
+            <div>
+              <ng-container
+                *ngFor="let item of validatorMessages['dateAdmission']"
+              >
+                <div
+                  class="errormessages"
+                  *ngIf="(myForm.get('dateAdmission').dirty || myForm.get('dateAdmission').touched) && myForm.get('dateAdmission').hasError(item.type)"
+                >
+                  {{item.message}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!-- Checkout -->
+        <ion-row>
+          <ion-col size="12">
+            <!-- <ng-container *ngFor="let item of validatorMessages['dateAdmission']"> -->
+            <ion-item id="item">
+              Salida:&nbsp;
+              <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+              <ion-modal [keepContentsMounted]="true" #modaldatetime2>
+                <ng-template>
+                  <ion-datetime
+                    class="calendar"
+                    id="datetime2"
+                    presentation="date"
+                    [min]="dayDeparture"
+                    formControlName="departureDate"
+                    (click)="getForm()"
+                    (ionChange)="modaldatetime2.dismiss();"
+                  >
+                    <span slot="title">Selecciona la fecha de salida</span>
+                  </ion-datetime>
+                </ng-template>
+              </ion-modal>
+            </ion-item>
+            <!-- </ng-container> -->
+            <div>
+              <ng-container
+                *ngFor="let item of validatorMessages['departureDate']"
+              >
+                <div
+                  class="errormessages"
+                  *ngIf="(myForm.get('departureDate').dirty || myForm.get('departureDate').touched) && myForm.get('departureDate').hasError(item.type)"
+                >
+                  {{item.message}}
+                </div>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-grid>
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    *ngIf="isContentLoaded&&myForm.valid"
+  >
+    <ion-fab-button (click)="newHuesped(myForm.value)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

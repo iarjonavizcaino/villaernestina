@@ -53,7 +53,7 @@ export class NewHuespedPage implements OnInit {
       name: ["", Validators.required],
       phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(17), Validators.pattern(/\+\d+/)])],
       dateAdmission: ["", Validators.required],
-      departureDate: ["", Validators.required],
+      departureDate: [this.dayDeparture, Validators.required],
       room: ["Elefante", Validators.required],
       gender: ["woman", Validators.required],
       platform: ["airbnb", Validators.required],
@@ -86,6 +86,8 @@ export class NewHuespedPage implements OnInit {
       newDay.setDate(newDay.getDate() + 1)
       this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
       console.log(this.dayDeparture);
+      this.myForm.get("departureDate").setValue(this.dayDeparture);
+
     });
 
     
@@ -101,6 +103,8 @@ export class NewHuespedPage implements OnInit {
   getDate() {
     const date = new Date();
     this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/
+    date.setDate(date.getDate()+1);
+    this.dayDeparture = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/
   }
 
   async presentToast() {
@@ -240,6 +244,10 @@ export class NewHuespedPage implements OnInit {
 
   getForm() {
     console.log(this.myForm.valid);
+  }
+
+  closeModal() {
+
   }
 
 
