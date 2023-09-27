@@ -20,9 +20,9 @@
   <ion-card class="reservation">
     <ion-card-header
       class="no-padding"
-      *ngIf="(viewInstructions===-1||viewInstructions===1)"
+      
     >
-      <ion-card-title class="txtcenter2 fontbold">
+      <ion-card-title class="txtcenter2 fontbold" *ngIf="intermediateDays||todayCheckin||futureCheckin||todayCheckout">
         <ion-label *ngIf="translate.currentLang!='Español'"
           >{{ 'BIENVENIDA' | translate}}{{ " "+huespedname}}</ion-label
         >
@@ -30,7 +30,11 @@
           >{{ "HOLA "+ huespedname}}</ion-label
         >
       </ion-card-title>
-      <ion-card-subtitle class="cardpsub" *ngIf="!intermediateDays">
+      <ion-card-title class="fontbold txtcenter2" *ngIf="pastCheckout">
+        <ion-label> {{huespedname+" "}} </ion-label>
+        <!-- <ion-label class="thanks">{{ 'GRACIAS' | translate }}</ion-label> -->
+      </ion-card-title>
+      <ion-card-subtitle class="cardpsub" *ngIf="futureCheckin||todayCheckin">
         {{ 'BIENVENIDA_P1' | translate }}{{ roomname }} {{ 'BIENVENIDA_P11' |
         translate }}
       </ion-card-subtitle>
@@ -39,13 +43,10 @@
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-header
-      *ngIf="(viewInstructions===3 || viewInstructions===2)"
+      *ngIf=""
       class="nopaddingtop2"
     >
-      <ion-card-title class="fontbold txtcenter2">
-        <ion-label > {{huespedname+" "}} </ion-label>
-        <!-- <ion-label class="thanks">{{ 'GRACIAS' | translate }}</ion-label> -->
-      </ion-card-title>
+      
     </ion-card-header>
 
     <ion-card-content>
@@ -246,7 +247,7 @@
         <!--Grid Checkin Checkout-->
         <ion-grid
           class="no-padding0"
-          *ngIf="!todayCheckin&&(viewInstructions===-1||viewInstructions===1)"
+          *ngIf=""
         >
           <ion-row>
             <!--CHECKIN -->
@@ -439,37 +440,6 @@
 
       <!-- Estancia en curso!! -->
       <div *ngIf="intermediateDays">
-        <!--Datos de acceso y Wifi-->
-        <ion-grid class="no-padding0">
-          <ion-row>
-            <ion-col size="6" class="no-padding0">
-              <!--Card de acceso a la habitación-->
-              <ion-card class="card-complete">
-                <ion-card-header class="header-card">
-                  <ion-card-title class="font17 fontbold"
-                    >{{'ESTANCIA1'|translate}}</ion-card-title
-                  >
-                </ion-card-header>
-                <ion-card-content class="wifi-content">
-                  <div class="fontbold txtcenter2 font17">{{ roomcode }}</div>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-            <ion-col size="6" class="no-padding0">
-              <!--Card Wifi-->
-              <ion-card class="card-complete">
-                <ion-card-header class="header-card">
-                  <ion-card-title class="font17 fontbold">
-                    {{ 'WIFI' | translate }}
-                  </ion-card-title>
-                </ion-card-header>
-                <ion-card-content class="wifi-content">
-                  <div class="fontbold txtcenter2 font17">{{ "17091985" }}</div>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
         <!--Video de actividades e información de interés-->
         <ion-grid class="no-padding0">
           <ion-row>
@@ -566,6 +536,73 @@
             </ion-grid>
           </ion-card-content>
         </ion-card>
+        <!--Datos de acceso y Wifi-->
+        <!-- <ion-grid class="no-padding0"> -->
+        <!-- <ion-row>
+            <ion-col size="6" class="no-padding0"> -->
+        <!--Card de acceso a la habitación-->
+        <ion-card class="card-complete">
+          <ion-card-header class="header-card">
+            <ion-card-title class="font17 fontbold"
+              >{{'ESTANCIA1'|translate}}</ion-card-title
+            >
+          </ion-card-header>
+          <ion-card-content class="wifi-content">
+            <ion-list>
+              <ion-item>
+                <ion-icon
+                  aria-hidden="true"
+                  name="wifi"
+                  slot="start"
+                ></ion-icon>
+                <ion-label class="fontbold txtcenter2 font17"
+                  >{{ "WIFI" | translate }}:&nbsp;{{ "17091985" }}</ion-label
+                >
+                <ion-button
+                  (click)="copy('17091985')"
+                  #btncopy
+                  size="small"
+                  shape="round"
+                  >{{'COPIAR'|translate}}</ion-button
+                >
+              </ion-item>
+              <ion-item>
+                <ion-icon
+                  aria-hidden="true"
+                  name="key"
+                  slot="start"
+                ></ion-icon>
+                <ion-label class="fontbold txtcenter2 font17"
+                  >{{ "ACCESAR" | translate }}:&nbsp;{{ roomcode }}</ion-label
+                >
+                <ion-button
+                  (click)="copy(roomcode)"
+                  #btncopy
+                  size="small"
+                  shape="round"
+                  >{{'COPIAR'|translate}}</ion-button
+                >
+              </ion-item>
+            </ion-list>
+            <!-- <div class="fontbold txtcenter2 font17">{{ roomcode }}</div> -->
+          </ion-card-content>
+        </ion-card>
+        <!-- </ion-col>
+            <ion-col size="6" class="no-padding0">
+              
+              <ion-card class="card-complete">
+                <ion-card-header class="header-card">
+                  <ion-card-title class="font17 fontbold">
+                    {{ 'WIFI' | translate }}
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="wifi-content">
+                  <div class="fontbold txtcenter2 font17">{{ "17091985" }}</div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row> -->
+        <!-- </ion-grid> -->
       </div>
 
       <!--Checkout hoy-->
@@ -686,7 +723,6 @@
           </ion-card-content>
         </ion-card>
       </div>
-
     </ion-card-content>
   </ion-card>
 
@@ -696,7 +732,7 @@
       <ion-card-title>{{'INSTRUCCIONESSAL' | translate}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <div class="" *ngIf="viewInstructions===2">
+      <div class="">
         <ion-grid fixed>
           <ion-row>
             <ion-col size="1">
@@ -777,7 +813,7 @@
   </ion-card>
   <!--INSTRUCCIONES CHECKOUT BLOQUEADAS -->
   <ion-card
-    *ngIf="(viewInstructions===-1||viewInstructions===1)&&!futureCheckin"
+    *ngIf="todayCheckin&&intermediateDays"
   >
     <ion-card-header>
       <ion-card-title class="fontbold">
@@ -819,9 +855,7 @@
       <ion-card-title class="fontbold">Nuestros Productos</ion-card-title>
     </ion-card-header>
     <ion-card-content class="card-content2">
-
       <ion-grid class="no-padding0">
-        
         <ion-row>
           <ion-col size="6">
             <ion-card class="checkingrid">

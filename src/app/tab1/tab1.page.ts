@@ -137,20 +137,20 @@ export class Tab1Page {
         console.log("Salida " + this.departuredate);
 
 
-        if (this.fecha >= this.admisiondate) {
+        // if (this.fecha >= this.admisiondate) {
 
-          if (this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
-            this.viewInstructions = 1;
-          else if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
-            this.viewInstructions = 2;
-          else
-            this.viewInstructions = 3;
-          // this.futureCheckin = false;
-        } else {
-          this.viewInstructions = -1;
-          // this.todayCheckin = false;
-          // this.futureCheckin = true;
-        }
+        //   if (this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
+        //     this.viewInstructions = 1;
+        //   else if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
+        //     this.viewInstructions = 2;
+        //   else
+        //     this.viewInstructions = 3;
+        //   // this.futureCheckin = false;
+        // } else {
+        //   this.viewInstructions = -1;
+        //   // this.todayCheckin = false;
+        //   // this.futureCheckin = true;
+        // }
         console.log("En dias intermedios " + this.intermediateDays);
         console.log("Checkout hoy " + this.todayCheckout);
         console.log("Checkin hoy " + this.todayCheckin);
