@@ -87,12 +87,13 @@ export class NewHuespedPage implements OnInit {
 
 
     this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue => {
+      console.log("Fecha seleccionada: "+selectedValue);
       let newDay = new Date(selectedValue);
-      newDay.setDate(newDay.getDate() + 1)
+      newDay.setDate(newDay.getDate() + 2);
+      console.log("Fecha nueva: "+newDay);
       this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
       console.log(this.dayDeparture);
       this.myForm.get("departureDate").setValue(this.dayDeparture);
-
     });
 
     
