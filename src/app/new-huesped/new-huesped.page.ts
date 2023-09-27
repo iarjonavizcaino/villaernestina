@@ -46,13 +46,17 @@ export class NewHuespedPage implements OnInit {
       this.rooms = res;
       // this.inName.setFocus();
       this.roomSelected = res[0];
-      console.log(this.roomSelected);
+      //console.log(this.roomSelected);
     });
+
+ 
+
+
 
     this.myForm = this.fb.group({
       name: ["", Validators.required],
       phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(17), Validators.pattern(/\+\d+/)])],
-      dateAdmission: ["", Validators.required],
+      dateAdmission: [this.today, Validators.required],
       departureDate: [this.dayDeparture, Validators.required],
       room: ["Elefante", Validators.required],
       gender: ["woman", Validators.required],
@@ -80,6 +84,7 @@ export class NewHuespedPage implements OnInit {
         { type: 'required', message: "Cuarto obligatorio" }
       ]
     }
+
 
     this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue => {
       let newDay = new Date(selectedValue);
@@ -176,8 +181,6 @@ export class NewHuespedPage implements OnInit {
     });
 
     console.log(this.roomSelected);
-
-
 
     if(platform==="airbnb") {
       this.myForm.get('price').setValue(0);

@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 import { SwiperComponent } from 'swiper/angular';
-import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Zoom } from 'swiper';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Zoom, Navigation } from 'swiper';
 
 import { Router, NavigationExtras } from '@angular/router';
 import { RoomV2 } from '../models/huesped';
@@ -21,11 +21,31 @@ SwiperCore.use([Autoplay, IonicSlides]);
 })
 export class GuestPage implements OnInit {
 
+  public isContentload = false;
+
   config: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween: 0,
-    pagination: true,
-    loop: true
+    //allowTouchMove: true,
+    pagination: {
+      //el: ".swiper-pagination",
+      type: "progressbar",
+      clickable: true,
+      //enabled: true
+    },
+    navigation: {
+      //enabled: true,
+      nextEl: ".swiper-button-next"
+    }
+
+    //pagination: true,
+    //loop: true,
+    //cssMode: true
+    
+    //,
+    //direction: 'vertical'
+    
+
   };
 
   public lioncomments = [
@@ -603,9 +623,9 @@ export class GuestPage implements OnInit {
 
 
 
-  constructor(public translate: TranslateService, private router: Router) { 
-    
+  constructor(public translate: TranslateService, private router: Router) {
 
+    
     // this.spaces.push(elephant);
 
   }
@@ -615,8 +635,10 @@ export class GuestPage implements OnInit {
 
   ionViewDidEnter() {
     console.log("ionViewDidEnter")
-    this.animationInProgress = false;
-    this.startAnimation();
+    //this.animationInProgress = false;
+    this.isContentload = true;
+    //this.swiperSlideShow.config = this.config;
+    //this.startAnimation();
   }
 
   // ionViewDidLeave() {
@@ -624,7 +646,7 @@ export class GuestPage implements OnInit {
   //   this.animationInProgress = false;
   // }
 
-  startAnimation() {
+  /*startAnimation() {
     if (this.animationInProgress) return;
     this.animationInProgress = true;
     setTimeout(() => {
@@ -632,7 +654,7 @@ export class GuestPage implements OnInit {
       this.animationInProgress = false;
       this.startAnimation();
     }, 2000);
-  }
+  }*/
 
   public viewDetails(bungalow: string) {
 
@@ -640,7 +662,7 @@ export class GuestPage implements OnInit {
       state: {
         bungalow: bungalow
       }
-    }; 
+    };
 
     this.router.navigate(['/lion'], navigationExtras);
   }

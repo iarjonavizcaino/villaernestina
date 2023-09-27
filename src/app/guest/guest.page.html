@@ -1,9 +1,9 @@
 <ion-content [fullscreen]="true" class="contentback">
     <ion-card class="reservation">
-        <swiper [config]="config" #swiperSlideShow>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/Logo.svg" />
-            </ng-template>
+        <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
+            <!-- <ng-template swiperSlide>
+                <img alt="Bienvenida3" src="../../assets/img/Logo.png" />
+            </ng-template> -->
             <ng-template swiperSlide>
                 <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
             </ng-template>
@@ -25,6 +25,12 @@
             <ng-template swiperSlide>
                 <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
             </ng-template>
+            <ng-template>
+                <div class="swiper-button-next"></div>
+            </ng-template>
+            <!-- <div class="swiper-button-prev">Aquí estoy</div>
+             -->
+            <div class="swiper-pagination"></div>
         </swiper>
         <ion-card-header class="card-header">
             <ion-card-title class="strong title2">Villa Ernestina</ion-card-title>

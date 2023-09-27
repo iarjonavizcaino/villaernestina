@@ -247,14 +247,22 @@
       </ion-grid>
     </form>
   </ion-grid>
-  <ion-fab
+  <ion-button
+    (click)="newHuesped(myForm.value)"
+    expand="block"
+    shape="round"
+    [disabled]="!myForm.valid"
+  >
+    <ion-icon name="add"></ion-icon> Guardar
+  </ion-button>
+  <!-- <ion-fab
     vertical="bottom"
     horizontal="end"
     slot="fixed"
-    *ngIf="isContentLoaded&&myForm.valid"
+    *ngIf="isContentLoaded&&myForm.valid&&!myForm.get('name').dirty&&!myForm.get('phone').dirty"
   >
     <ion-fab-button (click)="newHuesped(myForm.value)">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>
