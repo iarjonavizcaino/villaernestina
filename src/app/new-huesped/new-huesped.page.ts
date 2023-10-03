@@ -155,9 +155,9 @@ export class NewHuespedPage implements OnInit {
       //Construir el objeto
       data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
 
-      data.dateAdmission = data.dateAdmission.substring(0, 11) + "00:00:00-07:00";
-      data.departureDate = data.departureDate.substring(0, 11) + "14:00:00-07:00";
-      // console.log(data);
+      data.dateAdmission = data.dateAdmission.substring(0, 11) + "T00:00:00-07:00";
+      data.departureDate = data.departureDate.substring(0, 11) + "T14:00:00-07:00";
+      //console.log(data);
 
 
       this.huesped = data;

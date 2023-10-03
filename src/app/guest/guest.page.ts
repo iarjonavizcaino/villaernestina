@@ -30,16 +30,13 @@ export class GuestPage implements OnInit {
     pagination: {
       //el: ".swiper-pagination",
       type: "progressbar",
-      clickable: true,
+      //clickable: true,
       //enabled: true
     },
-    navigation: {
-      //enabled: true,
-      nextEl: ".swiper-button-next"
-    }
+    navigation: true,
 
     //pagination: true,
-    //loop: true,
+    loop: true,
     //cssMode: true
     
     //,

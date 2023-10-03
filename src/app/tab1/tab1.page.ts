@@ -108,25 +108,25 @@ export class Tab1Page {
         // console.log("Fecha"+this.fecha);
         // console.log("Fecha"+this.admisiondate);
 
-        if (this.fecha.substring(0, 11) > this.admisiondate.substring(0, 11) && this.fecha.substring(0, 11) < this.departuredate.substring(0, 11))
+        if (this.fecha.substring(0, 10) > this.admisiondate.substring(0, 10) && this.fecha.substring(0, 10) < this.departuredate.substring(0, 10))
           this.intermediateDays = true;
         else
           this.intermediateDays = false;
-        if (this.fecha.substring(0, 11) === this.departuredate.substring(0, 11))
+        if (this.fecha.substring(0, 10) === this.departuredate.substring(0, 10))
           this.todayCheckout = true
         else
           this.todayCheckout = false
-        if (this.fecha.substring(0, 11) < this.admisiondate.substring(0, 11))
+        if (this.fecha.substring(0, 10) < this.admisiondate.substring(0, 10))
           this.futureCheckin = true;
         else
           this.futureCheckin = false;
 
-        if (this.fecha.substring(0, 11) === this.admisiondate.substring(0, 11))
+        if (this.fecha.substring(0, 10) === this.admisiondate.substring(0, 10))
           this.todayCheckin = true;
         else
           this.todayCheckin = false;
 
-        if (this.fecha.substring(0, 11) > this.departuredate.substring(0, 11))
+        if (this.fecha.substring(0, 10) > this.departuredate.substring(0, 10))
           this.pastCheckout = true;
         else
           this.pastCheckout = false;
