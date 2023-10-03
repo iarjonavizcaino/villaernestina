@@ -220,4 +220,11 @@ export class ViewHuespedPage implements OnInit {
     this.roleMessage = `Dismissed with role: ${role}`;
   }
 
+  public deleteSpaces(cad: string) {
+    console.log("Cadena "+cad);
+    console.log("Cadena sin espacios"+cad.replace(/ /g,""));
+    return cad.replace(/ /g,"");
+  }
+
 }
+
