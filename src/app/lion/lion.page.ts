@@ -29,6 +29,50 @@ export class LionPage implements OnInit {
   animationInProgress = false;
   public lioncomments = [
     {
+      name: 'Chrystian Viridiana',
+      month: 'Octubre 2023',
+      comment: `"Fue mucho más de lo que imaginamos un excelente lugar para relajarse lejos de la ciudad, la vista a los agaves es mágica, mucha vegetación, excelente trato siempre al pendiente, responde de inmediato, las persona que está a cargo de la estancia desde que llegamos muy amable el señor, acomedido, servicial, muy limpio el lugar recomendado al 100% no dan ganas de salir mucho menos de regresar a casa.
+      Gracias"`,
+      starts: 5
+    },
+    {
+      name: 'Nubia Fabiola',
+      month: 'Agosto 2023',
+      comment: `"Excelente anfitriona y excelente lugar, mi estancia fue muy agradable, tanto que ni siquiera salí del lugar, siempre hay alguien al pendiente para cualquier eventualidad y son muy amables. Sin duda regreso."`,
+      starts: 5
+    },
+    {
+      name: 'Areli',
+      month: 'Agosto 2023',
+      comment: `"Tuvimos una excelente experiencia, Mariela siempre estuvo al pendiente. El depa estaba limpio y completamente funcional, todo estaba en perfecto estado, muy comodo y limpio. Nos prestaron gratuitamente un Kayac y chalecos, pudimos pasar un rato muy divertido en el lago. Hay un arbol de mangos junto al departamento, solo hizo que mejorar la experiencia de desayunar por las mañanas viendo al cerrito. Me encanto todo!"`,
+      starts: 5
+    },
+    {
+      name: 'Mariela',
+      month: 'Julio 2023',
+      comment: `"Impecable, coincide con las fotos, camas cómodas, jardín muy amplio, nos llevamos a nuestro perrito y la paso super. El intendente muy amable y servicial en todo momento. No está a pie de laguna pero está cruzando la calle, es muy cerca de la entrada principal, de los restaurantes y tiendas, un lugar seguro y tranquilo pero sobretodo muy limpio"`,
+      starts: 5
+    },
+    {
+      name: 'Jazmin',
+      month: 'Julio 2023',
+      comment: `"Un lugar muy bello, literal como se muestran en las fotos. El señor jardinero que nos recibió, en todo momento se porto muy amable, al igual que Mariela.
+      Sin duda regresaría!"`,
+      starts: 5
+    },
+    {
+      name: 'Ariana',
+      month: 'Julio 2023',
+      comment: `"En lo personal me gusta leer reseñas de personas que viajan con niños. La descripción coincide con el alojamiento, en donde se anuncia que prestan un Kayak, eso y la piscina fue lo que me llevó a tomar la decisión de reservar ahí. A nuestra llegada veo que la piscina está inhabilitada, cosa que no me sorprendió puesto que había hecho la reservación para el mismo día. Pero mi sorpresa fue al siguiente día la alberca ya se estaba llenando de agua calientita. Con el Kayak nos divertimos mucho en la laguna. Por lo demás el lugar es muy confortable."`,
+      starts: 5
+    },
+    {
+      name: 'Alejandra',
+      month: 'Julio 2023',
+      comment: `"La estancia fue muy amena, el lugar es exactamente como en las fotos. Además, Mariela siempre fue muy amable y atenta a cualquier duda que tuviéramos, muy recomendado!"`,
+      starts: 5
+    },
+    {
       name: 'Jorge',
       month: 'Junio 2023',
       comment: `"Un lugar limpio y tranquilo para pasar un buen fin de semana en familia"`,
@@ -215,7 +259,78 @@ export class LionPage implements OnInit {
   ]
 
   public elephantcomments = [
-
+    {
+      name: 'Syamakanta',
+      month: 'Septiembre 2023',
+      comment: `"Todo estuvo de lujo volveríamos sin duda!
+      La anfitriona súper amable y atenta en todo momento, muy recomendable!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Manuel',
+      month: 'Septiembre 2023',
+      comment: `"Increíble lugar y la Villa impecable, gracias!.. regresamos pronto!, saludos!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Israel',
+      month: 'Septiembre 2023',
+      comment: `"Me gustó mucho el lugar, super privado y tranquilo disfrutamos despertarnos tarde y sin ruido.
+      justo como esperábamos para una estancia de detox del ajetreo de la ciudad.
+      volvería a hospedarme en este lugar 100% y lo recomiendo mucho"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Cindy',
+      month: 'Agosto 2023',
+      comment: `"Los anfitriones siempre estuvieron al pendiente, el lugar muy limpio, tranquilo, zona segura, cómoda y agradable, internet algo intermitente.
+      Nos gusto mucho
+      Si volveríamos!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Sonia',
+      month: 'Agosto 2023',
+      comment: `"Nuestra estancia fue buena, agusto, nos gustó mucho, descansamos y pasamos unos días muy relajados. Muy amable y atenta la anfitriona así como el personal que tienen en la casa para ver los imprevistos.
+      Gracias Mariela!!"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Yazmin',
+      month: 'Agosto 2023',
+      comment: `"un lugar muy bonito para pasar momentos de relajación muy atento todo el personal sin duda volveré"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Natalia',
+      month: 'Julio 2023',
+      comment: `"Súper bien"`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Cynthia',
+      month: 'Julio 2023',
+      comment: `"Es un lugar lindo, lleno de naturaleza y muy bien ubicado; perfecto para desconectarte y tener días a pasos de la laguna.
+      Al rededor hay lugares para comer o si prefieres comprar alimentos en el pueblo y cocinarlos en el Airbnb tambien lo puedes hacer, el espacio cuenta con lo elemental para preparar algo simple.
+      Destacable el WIFI, tiene una recepción eficiente y las fotos del anuncio coinciden con la realidad.
+      Mariela fue muy amable y estuvo al pendiente de nuestra estancia. La habitación no es muy lujosa, pero tiene lo necesario para descansar con mucha comodidad."`,
+      starts: 5
+    }
+    ,
+    {
+      name: 'Alfonso',
+      month: 'Julio 2023',
+      comment: `"Excelente alojamiento para aislarte un rato de la ciudad, con toda la privacidad y con una excelente anfitriona que sin contacto personal está pendiente de principio a fin."`,
+      starts: 5
+    }
+    ,
     {
       name: 'César',
       month: 'Junio 2023',

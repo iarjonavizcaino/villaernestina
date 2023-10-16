@@ -159,6 +159,8 @@ export class NewHuespedPage implements OnInit {
       data.departureDate = data.departureDate.substring(0, 11) + "T14:00:00-07:00";
       //console.log(data);
 
+      data.phone = data.phone.replace(/ /g,"");
+
 
       this.huesped = data;
       this.huespedService.newHuesped(this.huesped);

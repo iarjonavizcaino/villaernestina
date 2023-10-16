@@ -1,387 +1,589 @@
 <ion-content [fullscreen]="true" class="contentback">
-    <ion-card class="reservation">
-        <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
-            <!-- <ng-template swiperSlide>
+  <ion-card class="card-title">
+    <div class="imgtitle">
+      <ion-img
+        class="imgfondo"
+        alt="Bienvenida3"
+        src="../../assets/img/VillaErnestina5.jpeg"
+      ></ion-img>
+    </div>
+    <div class="imglogo">
+      <ion-img
+        class="logovilla swipermsg"
+        src="../../assets/img/Logoblanco.png"
+      ></ion-img>
+    </div>
+  </ion-card>
+  <ion-card class="reservation">
+    <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
+      <!-- <ng-template swiperSlide>
                 <img alt="Bienvenida3" src="../../assets/img/Logo.png" />
             </ng-template> -->
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
-            </ng-template>
-            <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
-            </ng-template>
-            <!-- <ng-template> -->
-                <div class="swiper-button-next"></div>
-            <!-- </ng-template> -->
-            <div class="swiper-button-prev"></div>
+
+      <ng-template swiperSlide>
+        <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
+      </ng-template>
+      <!-- <ng-template> -->
+      <!-- <div class="swiper-button-next"></div> -->
+      <!-- </ng-template> -->
+      <!-- <div class="swiper-button-prev"></div>
              
-            <div class="swiper-pagination"></div>
-        </swiper>
-        <ion-card-header class="card-header">
-            <ion-card-title class="strong title2">Villa Ernestina</ion-card-title>
-            <ion-card-subtitle class="strong subtitle2">"Encanto Naturaleza"</ion-card-subtitle>
+            <div class="swiper-pagination"></div> -->
+    </swiper>
+    <!-- <ion-card-header class="card-header"> -->
+    <!-- <ion-card-title class="strong title2"> <ion-row>
+        <ion-col size="12" class="logovilla"> -->
+
+    <!-- </ion-col>
+      </ion-row> -->
+    <!-- </ion-card-title> -->
+    <!-- <ion-card-subtitle class="strong subtitle2"
+        >"Encanto Natural"</ion-card-subtitle
+      > -->
+    <!-- </ion-card-header> -->
+    <!-- Lo que ofrecemos -->
+    <ion-card-content class="card-content no-padding0">
+      <div class="strong message">¡Vive una experiencia placentera!</div>
+
+      <!--Comentarios slide-->
+      <!-- <ion-card class="swiperslide"> -->
+      <swiper [config]="config2" #swiperSlideShow2 *ngIf="isContentload">
+        <!-- <ng-template swiperSlide class="swipermsg">
+            
+          </ng-template> -->
+        <ng-template swiperSlide class="swipermessage">
+          <!-- <ion-card class="message"> -->
+          <ion-grid class="no-padding0">
+            <ion-row>
+              <ion-col size="12"
+                ><div class="name2">
+                  {{elephantcomments[1].name}}{{"
+                  ("+elephantcomments[1].month+")"}}
+                </div></ion-col
+              >
+            </ion-row>
+            <ion-row class="principalmessage no-padding0">
+              <ion-col size="12"
+                ><div class="comment2">
+                  {{elephantcomments[1].comment}}
+                </div></ion-col
+              >
+            </ion-row>
+          </ion-grid>
+          <!-- </ion-card> -->
+        </ng-template>
+        <ng-template swiperSlide class="no-padding0">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12"
+                ><div class="name2">
+                  {{lioncomments[1].name}}{{" ("+lioncomments[1].month+")"}}
+                </div></ion-col
+              >
+            </ion-row>
+            <ion-row class="principalmessage no-padding0">
+              <ion-col size="12"
+                ><div class="comment2">
+                  {{lioncomments[1].comment}}
+                </div></ion-col
+              >
+            </ion-row>
+          </ion-grid>
+        </ng-template>
+        <ng-template swiperSlide class="no-padding0">
+          <ion-grid>
+            <ion-row class="no-padding0">
+              <ion-col size="12"
+                ><div class="name2">
+                  {{lioncomments[12].name}}{{" ("+lioncomments[12].month+")"}}
+                </div></ion-col
+              >
+            </ion-row>
+            <ion-row class="principalmessage no-padding0">
+              <ion-col size="12"
+                ><div class="comment2">
+                  {{lioncomments[12].comment}}
+                </div></ion-col
+              >
+            </ion-row>
+          </ion-grid>
+        </ng-template>
+        <!-- <ng-template swiperSlide>
+              {{lioncomments[11].comment}} {{lioncomments[11].name}}
+              {{lioncomments[11].month}}
+            </ng-template>
+            <ng-template swiperSlide>
+              {{lioncomments[15].comment}} {{lioncomments[15].name}}
+              {{lioncomments[15].month}}
+            </ng-template>
+            <ng-template swiperSlide>
+              {{lioncomments[20].comment}} {{lioncomments[20].name}}
+              {{lioncomments[20].month}}
+            </ng-template> -->
+
+        <!-- <ng-template> -->
+        <!-- <div class="swiper-button-next"></div> -->
+        <!-- </ng-template> -->
+        <!-- <div class="swiper-button-prev"></div>
+                   
+                  <div class="swiper-pagination"></div> -->
+      </swiper>
+      <!-- </ion-card> -->
+
+      <!--Más comentarios-->
+      <!-- <ion-card>
+        <ion-card-header>
+          <ion-card-title class="no-padding0 morecomments"
+            >Más comentarios</ion-card-title
+          >
         </ion-card-header>
-        <!-- Lo que ofrecemos -->
-        <ion-card-content class="card-content">
-            <div class="strong message">
-                ¡Vive una experiencia placentera!
-            </div>
-            <ion-accordion-group [multiple]="false" class="accordion-group">
-                <ion-accordion value="first">
-                    <ion-item slot="header" class="accordion" color="success">
-                        <ion-label> Un poco de lo que ofrecemos</ion-label>
-                    </ion-item>
-                    <div class="ion-padding points" slot="content">
-                        <ion-grid class="ion-no-padding">
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Áreas verdes
-                                    </div>
-                                    <div class="description">
-                                        Extensas áreas verdes y una zona de agaves donde salen padrísimas las fotos
-                                    </div>
-                                </ion-col>
-
-                            </ion-row>
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Kayak
-                                    </div>
-                                    <div class="description">
-                                        Te prestamos 1 kayak doble gratis
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Fogata
-                                    </div>
-                                    <div class="description">
-                                        Zona de fogata
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Ubicación
-                                    </div>
-                                    <div class="description">
-                                        Estamos a menos de1 minuto del agua<br> Restaurantes, abarrotes y modelorama a unos pasos
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Entretenimiento
-                                    </div>
-                                    <div class="description">
-                                        WiFi estable <br> TV con plataformas de streaming (HBO MAX, Disney+ y Netflix) para disfrutar de tus series y pelís favoritas
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row class="row">
-                                <ion-col size="1">
-                                    <div class="number">
-                                        <ion-icon name="star"></ion-icon>
-                                    </div>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <div class="tit">
-                                        Estacionamiento
-                                    </div>
-                                    <div class="description">
-                                        Estacionamiento privado gratuito
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-
-                        </ion-grid>
-                    </div>
-                </ion-accordion>
-            </ion-accordion-group>
-
-            <ion-accordion-group [multiple]="false" class="accordion-group">
-                <ion-accordion value="first">
-                    <ion-item slot="header" class="accordion">
-
-                        <ion-icon name="chatbubbles" slot="start" class="txtwhite margin2"></ion-icon>
-                        <ion-label class="txtwhite">León</ion-label>
-                        <ion-avatar class="placeicon">
-                            <img alt="image of lion" src="../../assets/img/leon.png" />
-                        </ion-avatar>
-                        <!-- <ion-chip color="primary"> -->
-                        <!-- </ion-chip> -->
-                        <!-- <ion-chip color="light" mode="ios" outline="true" class="qtycomments"> -->
-                        <ion-badge class="labelcomments">
-                            <ion-icon name="star"></ion-icon>
-                            &nbsp;{{lion.starts|number:'1.2-2'}}&nbsp;{{"("+lion.commentsqty+")"}}
-
-                        </ion-badge>
-                        <!-- </ion-chip> -->
-                    </ion-item>
-                    <div class="ion-padding points" slot="content">
-                        <div class="" *ngFor="let comment of lion.comments">
-                            <table>
-                                <tr>
-                                    <td class="avatar">
-                                        <ion-icon name="person-circle"></ion-icon>
-                                    </td>
-                                    <td class="columncomment">
-                                        <div class="comments">
-                                            <div class="commenttitle">
-                                                <div class="name">
-                                                    {{comment.name}}
-                                                </div>
-                                                <div class="commentstars">
-                                                    <ion-icon name="star"></ion-icon>
-                                                    &nbsp;{{comment.starts|number:'1.2-2'}}
-                                                </div>
-                                            </div>
-                                            <div class="month">
-                                                {{comment.month}}
-                                            </div>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="comment">
-                                            {{comment.comment}}
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                            <hr>
+        <ion-card-content>
+          <ion-accordion-group [multiple]="false" class="accordion-group">
+            <ion-accordion value="first">
+              <ion-item slot="header" class="accordion3" color="Light">
+                <ion-icon
+                  name="chatbubbles"
+                  slot="start"
+                  class="txtwhite margin2"
+                ></ion-icon>
+                <ion-label class="txtwhite">León</ion-label>
+                <ion-avatar class="placeicon">
+                  <img alt="image of lion" src="../../assets/img/leon.png" />
+                </ion-avatar>
+                <ion-badge class="labelcomments">
+                  <ion-icon name="star"></ion-icon>
+                  &nbsp;{{lion.starts|number:'1.2-2'}}&nbsp;{{"("+lion.commentsqty+")"}}
+                </ion-badge>
+              </ion-item>
+              <div class="ion-padding points" slot="content">
+                <div class="" *ngFor="let comment of lion.comments">
+                  <table>
+                    <tr>
+                      <td class="avatar">
+                        <ion-icon name="person-circle"></ion-icon>
+                      </td>
+                      <td class="columncomment">
+                        <div class="comments">
+                          <div class="commenttitle">
+                            <div class="name">{{comment.name}}</div>
+                            <div class="commentstars">
+                              <ion-icon name="star"></ion-icon>
+                              &nbsp;{{comment.starts|number:'1.2-2'}}
+                            </div>
+                          </div>
+                          <div class="month">{{comment.month}}</div>
                         </div>
-                    </div>
-                </ion-accordion>
-            </ion-accordion-group>
-            <ion-accordion-group [multiple]="false" class="accordion-group">
-                <ion-accordion value="first">
-                    <ion-item slot="header" class="accordion2" color="Light">
-
-                        <ion-icon name="chatbubbles" slot="start" class="txtwhite margin2"></ion-icon>
-                        <ion-label class="txtwhite">Elefante</ion-label>
-                        <ion-avatar class="placeicon">
-                            <img alt="image of lion" src="../../assets/img/elefante.png" />
-                        </ion-avatar>
-                        <!-- <ion-chip color="primary"> -->
-                        <!-- </ion-chip> -->
-                        <!-- <ion-chip color="light" mode="ios" outline="true" class="qtycomments"> -->
-                        <ion-badge class="labelcomments2">
-                            <ion-icon name="star"></ion-icon>
-                            &nbsp;{{elephant.starts|number:'1.2-2'}}&nbsp;{{"("+elephant.commentsqty+")"}}
-
-                        </ion-badge>
-                        <!-- </ion-chip> -->
-                    </ion-item>
-                    <div class="ion-padding points" slot="content">
-                        <div class="" *ngFor="let comment of elephant.comments">
-                            <table>
-                                <tr>
-                                    <td class="avatar">
-                                        <ion-icon name="person-circle"></ion-icon>
-                                    </td>
-                                    <td class="columncomment">
-                                        <div class="comments">
-                                            <div class="commenttitle">
-                                                <div class="name">
-                                                    {{comment.name}}
-                                                </div>
-                                                <div class="commentstars">
-                                                    <ion-icon name="star"></ion-icon>
-                                                    &nbsp;{{comment.starts|number:'1.2-2'}}
-                                                </div>
-                                            </div>
-                                            <div class="month">
-                                                {{comment.month}}
-                                            </div>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="comment">
-                                            {{comment.comment}}
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-                            <hr>
+                      </td>
+                    </tr>
+                  </table>
+                  <table>
+                    <tr>
+                      <td>
+                        <div class="comment">{{comment.comment}}</div>
+                      </td>
+                    </tr>
+                  </table>
+                  <hr />
+                </div>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+          <ion-accordion-group [multiple]="false" class="accordion-group">
+            <ion-accordion value="first">
+              <ion-item slot="header" class="accordion2" color="Light">
+                <ion-icon
+                  name="chatbubbles"
+                  slot="start"
+                  class="txtwhite margin2"
+                ></ion-icon>
+                <ion-label class="txtwhite">Elefante</ion-label>
+                <ion-avatar class="placeicon">
+                  <img
+                    alt="image of lion"
+                    src="../../assets/img/elefante.png"
+                  />
+                </ion-avatar>
+                <ion-badge class="labelcomments2">
+                  <ion-icon name="star"></ion-icon>
+                  &nbsp;{{elephant.starts|number:'1.2-2'}}&nbsp;{{"("+elephant.commentsqty+")"}}
+                </ion-badge>
+              </ion-item>
+              <div class="ion-padding points" slot="content">
+                <div class="" *ngFor="let comment of elephant.comments">
+                  <table>
+                    <tr>
+                      <td class="avatar">
+                        <ion-icon name="person-circle"></ion-icon>
+                      </td>
+                      <td class="columncomment">
+                        <div class="comments">
+                          <div class="commenttitle">
+                            <div class="name">{{comment.name}}</div>
+                            <div class="commentstars">
+                              <ion-icon name="star"></ion-icon>
+                              &nbsp;{{comment.starts|number:'1.2-2'}}
+                            </div>
+                          </div>
+                          <div class="month">{{comment.month}}</div>
                         </div>
-                    </div>
-                </ion-accordion>
-            </ion-accordion-group>
+                      </td>
+                    </tr>
+                  </table>
+                  <table>
+                    <tr>
+                      <td>
+                        <div class="comment">{{comment.comment}}</div>
+                      </td>
+                    </tr>
+                  </table>
+                  <hr />
+                </div>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
         </ion-card-content>
-    </ion-card>
+      </ion-card> -->
 
-    <!-- Oferta Bungalows -->
-    <ion-card color="light">
-        <ion-card-content class="card-content2">
-            <ion-grid class="no-padding0">
-                <ion-row>
-                    <ion-col size="6">
-                        <ion-card class="checkingrid">
-                            <ion-card-header class=" nopaddingtop2 nopaddingbottom">
-                                <ion-card-title>
-                                    <ion-chip [outline]="true" color="primary" (click)="viewDetails('elephant')">
-                                        <ion-avatar color="light">
-                                            <img alt="image of elephant" src="../../assets/img/elefante.png" />
-                                        </ion-avatar>
-                                        <ion-label>Elefante</ion-label>
-                                    </ion-chip>
-                                </ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content class="paddingbottom3">
-                                {{ 'GRACIAS5' | translate }}
-                                <ion-icon name="information-circle" id="infprice"></ion-icon>
-                                <ion-popover trigger="infprice" triggerAction="hover">
-                                    <ng-template>
-                                        <ion-content class="ion-padding">
-                                            <ion-label>
-                                                {{ 'PRECIOS' | translate }}
-                                            </ion-label>
-                                            <a href="https://wa.me/+523111032724?" target="_blank">
-                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
-                                            </a>
-                                        </ion-content>
-                                    </ng-template>
-                                </ion-popover>
-                                <a href="https://wa.me/p/5539003919444086/5213111032724" target="_blank">
-                                    <ion-chip color="tertiary" class="">
-                                        <!-- <ion-icon name="images"></ion-icon> -->
-                                        <ion-label>{{"CATALOGO"|translate}}</ion-label>
-                                    </ion-chip>
-                                </a>
-                            </ion-card-content>
-                            <ion-button color="primary" expand="block" (click)="viewDetails('elephant')">
+      <!-- <ion-card>
+        <ion-card-header class="cardheader-ofrece1">
+          <ion-card-title class="no-padding0 cardtitle"
+            >Te ofrecemos...</ion-card-title
+          >
+        </ion-card-header>
 
-                                Ver más...
-                            </ion-button>
-                        </ion-card>
-                    </ion-col>
-                    <ion-col size="6">
-                        <ion-card class="checkingrid">
-                            <ion-card-header class=" nopaddingtop2 nopaddingbottom">
-                                <ion-card-title>
-                                    <ion-chip [outline]="true" color="warning" (click)="viewDetails('lion')">
-                                        <ion-avatar color="light">
-                                            <img alt="image of leon" src="../../assets/img/leon.png" />
-                                        </ion-avatar>
-                                        <ion-label>León</ion-label>
-                                    </ion-chip>
-                                </ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content class="paddingbottom3">
-                                {{ 'GRACIAS6' | translate }}
-                                <ion-icon name="information-circle" id="infpricelion"></ion-icon>
-                                <ion-popover trigger="infpricelion" triggerAction="hover">
-                                    <ng-template>
-                                        <ion-content class="ion-padding">
-                                            <ion-label>
-                                                {{ 'PRECIOS' | translate }}
-                                            </ion-label>
-                                            <a href="https://wa.me/+523111032724?" target="_blank">
-                                                <ion-icon name='logo-whatsapp' slot="start"></ion-icon>
-                                            </a>
-                                        </ion-content>
-                                    </ng-template>
-                                </ion-popover>
-                                <a href="https://wa.me/p/4778164838956679/5213111032724" target="_blank">
-                                    <ion-chip color="tertiary" class="">
-                                        <!-- <ion-icon name="images"></ion-icon> -->
-                                        <ion-label>{{"CATALOGO"|translate}}</ion-label>
-                                    </ion-chip>
-                                </a>
-                            </ion-card-content>
-                            <ion-button color="primary" expand="block" (click)="viewDetails('lion')">
+        <ion-card-content class="no-padding0">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="no-padding0">
+                <ion-card class="no-padding0 no-margin">
+                  <div class="imgcard-ofrece">
+                    <img
+                      alt="Kayaks"
+                      src="../../assets/img/Kayak.jpeg"
+                      
+                    />
+                  </div>
 
-                                <ion-label>Ver más...</ion-label>
-                            </ion-button>
-                            <!-- Modal León -->
+                  <ion-card-header class="cardheader-ofrece">
+                    <ion-card-title class="cardtitle-ofrece">
+                      Kayaks
+                    </ion-card-title>
+                  </ion-card-header>
 
-                        </ion-card>
+                  <ion-card-content class="cardcontent-ofrece">
+                    Te los prestamos gratis!!!
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col size="6" class="no-padding">
+                <ion-card class="no-padding0 no-margin">
+                  <ion-card-content>
+                    <div class="kayak content-card">
+                      <div class="carditem">
+                        <div class="card-text">
+                          <ion-grid>
+                            <ion-row>
+                              <ion-col size="12">
+                                <ion-label class="txt-label"> Kayaks</ion-label>
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                        </div>
+                      </div>
+                    </div>
+                  </ion-card-content>
+                </ion-card></ion-col
+              >
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card> -->
 
-                    </ion-col>
-                </ion-row>
+      <!--Un poco de lo que ofrecemos-->
+      <ion-accordion-group
+        [multiple]="false"
+        value="first"
+        class="accordion-group"
+      >
+        <ion-accordion value="first">
+          <ion-item slot="header" class="accordion" color="success">
+            <ion-label> Un poco de lo que ofrecemos</ion-label>
+          </ion-item>
+          <div class="ion-padding points" slot="content">
+            <ion-grid class="ion-no-padding">
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Áreas verdes</div>
+                  <div class="description">
+                    Extensas áreas verdes y una zona de agaves donde salen
+                    padrísimas las fotos
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Kayak</div>
+                  <div class="description">Te prestamos Kayaks gratis</div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Alberca</div>
+                  <div class="description">
+                    Te ofrecemos una alberca de tipo tubular
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Trampolin (Brincolín)</div>
+                  <div class="description">
+                    Contamos con un trampolín completamente gratis
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Fogata</div>
+                  <div class="description">Zona de fogata</div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Ubicación</div>
+                  <div class="description">
+                    Estamos a menos de 1 minuto del agua<br />
+                    Restaurantes, abarrotes y modelorama a unos pasos
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Entretenimiento</div>
+                  <div class="description">
+                    WiFi estable <br />
+                    TV con plataformas de streaming (HBO MAX, Disney+ y Netflix)
+                    para disfrutar de tus series y pelís favoritas
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row class="row">
+                <ion-col size="1">
+                  <div class="number">
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </ion-col>
+                <ion-col size="11">
+                  <div class="tit">Estacionamiento</div>
+                  <div class="description">
+                    Estacionamiento privado gratuito
+                  </div>
+                </ion-col>
+              </ion-row>
             </ion-grid>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </ion-card>
 
-        </ion-card-content>
-        <div class="footcard">
-            <div class="bold">
-                {{ 'GRACIAS7' | translate }}
-            </div>
-            <div class="txtcenter">
-                <a href="tel:+523111032724">
-                    <ion-chip [outline]="true" color="primary">
-                        <ion-avatar color="primary">
-                            <img alt="Silhouette of a person's head" src="../../assets/img/avatar.svg" />
-                        </ion-avatar>
-                        <ion-label color="primary">{{"Mariela: "}}311 103 2724</ion-label>
-                        <ion-icon name="call-outline" color="primary"></ion-icon>
-                    </ion-chip>
+  <!-- Oferta Bungalows -->
+  <ion-card color="light">
+    <ion-card-content class="card-content2">
+      <ion-grid class="no-padding0">
+        <ion-row>
+          <ion-col size="6">
+            <ion-card class="checkingrid">
+              <ion-card-header class="nopaddingtop2 nopaddingbottom">
+                <ion-card-title>
+                  <ion-chip
+                    [outline]="true"
+                    color="primary"
+                    (click)="viewDetails('elephant')"
+                  >
+                    <ion-avatar color="light">
+                      <img
+                        alt="image of elephant"
+                        src="../../assets/img/elefante.png"
+                      />
+                    </ion-avatar>
+                    <ion-label>Elefante</ion-label>
+                  </ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="paddingbottom3">
+                {{ 'GRACIAS5' | translate }}
+                <ion-icon name="information-circle" id="infprice"></ion-icon>
+                <ion-popover trigger="infprice" triggerAction="hover">
+                  <ng-template>
+                    <ion-content class="ion-padding">
+                      <ion-label> {{ 'PRECIOS' | translate }} </ion-label>
+                      <a href="https://wa.me/+523111032724?" target="_blank">
+                        <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+                      </a>
+                    </ion-content>
+                  </ng-template>
+                </ion-popover>
+                <a
+                  href="https://wa.me/p/5539003919444086/5213111032724"
+                  target="_blank"
+                >
+                  <ion-chip color="tertiary" class="">
+                    <!-- <ion-icon name="images"></ion-icon> -->
+                    <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                  </ion-chip>
                 </a>
-                <ion-chip color="primary" [outline]="true">
-                    <a href="https://wa.me/+523111032724" target="_blank" class="contentcenter">
-                        <ion-icon name="logo-whatsapp" color="primary"></ion-icon>
-                    </a>
-                </ion-chip>
-            </div>
-        </div>
-
-    </ion-card>
-
+              </ion-card-content>
+              <ion-button
+                color="tertiary"
+                expand="block"
+                (click)="viewDetails('elephant')"
+              >
+                Ver más...
+              </ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card class="checkingrid">
+              <ion-card-header class="nopaddingtop2 nopaddingbottom">
+                <ion-card-title>
+                  <ion-chip
+                    [outline]="true"
+                    color="warning"
+                    (click)="viewDetails('lion')"
+                  >
+                    <ion-avatar color="light">
+                      <img
+                        alt="image of leon"
+                        src="../../assets/img/leon.png"
+                      />
+                    </ion-avatar>
+                    <ion-label>León</ion-label>
+                  </ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="paddingbottom3">
+                {{ 'GRACIAS6' | translate }}
+                <ion-icon
+                  name="information-circle"
+                  id="infpricelion"
+                ></ion-icon>
+                <ion-popover trigger="infpricelion" triggerAction="hover">
+                  <ng-template>
+                    <ion-content class="ion-padding">
+                      <ion-label> {{ 'PRECIOS' | translate }} </ion-label>
+                      <a href="https://wa.me/+523111032724?" target="_blank">
+                        <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+                      </a>
+                    </ion-content>
+                  </ng-template>
+                </ion-popover>
+                <a
+                  href="https://wa.me/p/4778164838956679/5213111032724"
+                  target="_blank"
+                >
+                  <ion-chip color="tertiary" class="">
+                    <!-- <ion-icon name="images"></ion-icon> -->
+                    <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                  </ion-chip>
+                </a>
+              </ion-card-content>
+              <ion-button
+                color="tertiary"
+                expand="block"
+                (click)="viewDetails('lion')"
+              >
+                <ion-label>Ver más...</ion-label>
+              </ion-button>
+              <!-- Modal León -->
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="logovillafoot">
+            <ion-img src="../../assets/img/Logosinfondo.png"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <div class="footcard">
+      <div class="bold">{{ 'GRACIAS7' | translate }}</div>
+      <div class="txtcenter">
+        <a href="tel:+523111032724">
+          <ion-chip [outline]="true" color="primary">
+            <ion-avatar color="primary">
+              <img
+                alt="Silhouette of a person's head"
+                src="../../assets/img/avatar.svg"
+              />
+            </ion-avatar>
+            <ion-label color="primary">{{"Mariela: "}}311 103 2724</ion-label>
+            <ion-icon name="call-outline" color="primary"></ion-icon>
+          </ion-chip>
+        </a>
+        <ion-chip color="primary" [outline]="true">
+          <a
+            href="https://wa.me/+523111032724"
+            target="_blank"
+            class="contentcenter"
+          >
+            <ion-icon name="logo-whatsapp" color="primary"></ion-icon>
+          </a>
+        </ion-chip>
+      </div>
+    </div>
+  </ion-card>
 </ion-content>
