@@ -18,11 +18,11 @@
 <ion-content [fullscreen]="true" class="contentback" *ngIf="isContentload">
   <!--BIENVENIDA -->
   <ion-card class="reservation">
-    <ion-card-header
-      class="no-padding"
-      
-    >
-      <ion-card-title class="txtcenter2 fontbold" *ngIf="intermediateDays||todayCheckin||futureCheckin||todayCheckout">
+    <ion-card-header class="no-padding">
+      <ion-card-title
+        class="txtcenter2 fontbold"
+        *ngIf="intermediateDays||todayCheckin||futureCheckin||todayCheckout"
+      >
         <ion-label *ngIf="translate.currentLang!='Español'"
           >{{ 'BIENVENIDA' | translate}}{{ " "+huespedname}}</ion-label
         >
@@ -42,12 +42,7 @@
         {{ 'ESTANCIA' | translate }}
       </ion-card-subtitle>
     </ion-card-header>
-    <ion-card-header
-      *ngIf=""
-      class="nopaddingtop2"
-    >
-      
-    </ion-card-header>
+    <ion-card-header *ngIf="" class="nopaddingtop2"> </ion-card-header>
 
     <ion-card-content>
       <!-- Checkin Hoy!! -->
@@ -73,6 +68,100 @@
             </ng-template>
           </ion-popover>
         </div>
+
+        <!--Grid Checkin Checkout-->
+        <ion-grid class="no-padding0">
+          <ion-row>
+            <!--CHECKIN -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKIN' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ admisiondate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="success" id="infcheckin">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "15:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <ion-popover trigger="infcheckin" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKIN_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+            <!--CHECKOUT -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKOUT' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ departuredate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="danger" id="infcheckout">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "12:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <!-- <ion-icon name="information-circle" id="infcheckout"></ion-icon> -->
+                      <ion-popover trigger="infcheckout" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKOUT_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
         <!--Card de ubicación-->
         <ion-card class="card-complete">
           <ion-card-header class="header-card">
@@ -245,10 +334,7 @@
       <!--Checkin Futuro-->
       <div *ngIf="futureCheckin">
         <!--Grid Checkin Checkout-->
-        <ion-grid
-          class="no-padding0"
-          *ngIf=""
-        >
+        <ion-grid class="no-padding0">
           <ion-row>
             <!--CHECKIN -->
             <ion-col size="6" class="no-padding0">
@@ -440,6 +526,98 @@
 
       <!-- Estancia en curso!! -->
       <div *ngIf="intermediateDays">
+        <!--Grid Checkin Checkout-->
+        <ion-grid class="no-padding0">
+          <ion-row>
+            <!--CHECKIN -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKIN' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ admisiondate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="success" id="infcheckin">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "15:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <ion-popover trigger="infcheckin" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKIN_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+            <!--CHECKOUT -->
+            <ion-col size="6" class="no-padding0">
+              <ion-card class="checkingrid">
+                <ion-card-header class="checkinheader fontbold">
+                  <ion-card-title>{{ 'CHECKOUT' | translate }}</ion-card-title>
+                  <ion-card-subtitle>
+                    <div class="">
+                      <ion-chip color="tertiary">
+                        <!-- <ion-icon name="calendar-clear"></ion-icon> -->
+                        <ion-label
+                          >{{ departuredate.substring(0,10) }}</ion-label
+                        >
+                      </ion-chip>
+                    </div>
+                    <div class="hour">
+                      <ion-chip color="danger" id="infcheckout">
+                        <ion-icon name="time"></ion-icon>
+                        <ion-label>{{ "12:00" }}</ion-label>
+                        <ion-icon name="information-circle"></ion-icon>
+                      </ion-chip>
+                      <!-- <ion-icon name="information-circle" id="infcheckout"></ion-icon> -->
+                      <ion-popover trigger="infcheckout" triggerAction="hover">
+                        <ng-template>
+                          <ion-content class="ion-padding">
+                            <ion-label>
+                              {{ 'CHECKOUT_P2' | translate }}
+                            </ion-label>
+                            <a
+                              href="https://wa.me/+523111032724?"
+                              target="_blank"
+                            >
+                              <ion-icon
+                                name="logo-whatsapp"
+                                slot="start"
+                              ></ion-icon>
+                            </a>
+                          </ion-content>
+                        </ng-template>
+                      </ion-popover>
+                    </div>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <!--Video de actividades e información de interés-->
         <ion-grid class="no-padding0">
           <ion-row>
@@ -536,10 +714,6 @@
             </ion-grid>
           </ion-card-content>
         </ion-card>
-        <!--Datos de acceso y Wifi-->
-        <!-- <ion-grid class="no-padding0"> -->
-        <!-- <ion-row>
-            <ion-col size="6" class="no-padding0"> -->
         <!--Card de acceso a la habitación-->
         <ion-card class="card-complete">
           <ion-card-header class="header-card">
@@ -567,11 +741,7 @@
                 >
               </ion-item>
               <ion-item>
-                <ion-icon
-                  aria-hidden="true"
-                  name="key"
-                  slot="start"
-                ></ion-icon>
+                <ion-icon aria-hidden="true" name="key" slot="start"></ion-icon>
                 <ion-label class="fontbold txtcenter2 font17"
                   >{{ "ACCESAR" | translate }}:&nbsp;{{ roomcode }}</ion-label
                 >
@@ -587,33 +757,27 @@
             <!-- <div class="fontbold txtcenter2 font17">{{ roomcode }}</div> -->
           </ion-card-content>
         </ion-card>
-        <!-- </ion-col>
-            <ion-col size="6" class="no-padding0">
-              
-              <ion-card class="card-complete">
-                <ion-card-header class="header-card">
-                  <ion-card-title class="font17 fontbold">
-                    {{ 'WIFI' | translate }}
-                  </ion-card-title>
-                </ion-card-header>
-                <ion-card-content class="wifi-content">
-                  <div class="fontbold txtcenter2 font17">{{ "17091985" }}</div>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row> -->
-        <!-- </ion-grid> -->
       </div>
 
       <!--Checkout hoy-->
       <div *ngIf="todayCheckout">
         {{'CHECKOUT1'|translate}}
+
+        <!--Título y Horario Checkout-->
+        <div class="hour">
+          <ion-label class="font17 fontbold">
+            {{ 'ACCESO4' | translate }}
+          </ion-label>
+          <ion-chip color="success" id="infcheckin">
+            <ion-icon name="time"></ion-icon>
+            <ion-label>{{ "12:00" }}</ion-label>
+          </ion-chip>
+        </div>
+
         <!--Card de redes sociales-->
         <ion-card class="card-complete">
           <ion-card-header class="header-card">
-            <ion-card-title class="font17 fontbold"
-              >{{'ESTANCIA6'|translate}}</ion-card-title
-            >
+            <ion-card-title class="font17 fontbold">{{'ESTANCIA6'|translate}}</ion-card-title>
           </ion-card-header>
           <ion-card-content class="font17 fontbold">
             <ion-grid fixed>
@@ -811,8 +975,9 @@
       </div>
     </ion-card-content>
   </ion-card>
+
   <!--INSTRUCCIONES CHECKOUT BLOQUEADAS -->
-  <ion-card
+  <!-- <ion-card
     *ngIf="todayCheckin&&intermediateDays"
   >
     <ion-card-header>
@@ -831,7 +996,6 @@
             <ion-label>{{ "12:00" }}</ion-label>
             <ion-icon name="information-circle"></ion-icon>
           </ion-chip>
-          <!-- <ion-icon name="information-circle" id="infcheckout"></ion-icon> -->
           <ion-popover trigger="infcheckout" triggerAction="hover">
             <ng-template>
               <ion-content class="ion-padding">
@@ -846,14 +1010,14 @@
       </ion-card-subtitle>
       <ion-card-content> {{ 'HABILITAR2' | translate }} </ion-card-content>
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
 
   <!--NUESTROS PRODUCTOS  -->
   <ion-card color="light" (click)="restart()">
-    <ion-card-header class="header-card2">
-      <!-- <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> -->
+    <!-- <ion-card-header class="header-card2">
+       <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle> 
       <ion-card-title class="fontbold">Nuestros Productos</ion-card-title>
-    </ion-card-header>
+    </ion-card-header> -->
     <ion-card-content class="card-content2">
       <ion-grid class="no-padding0">
         <ion-row>

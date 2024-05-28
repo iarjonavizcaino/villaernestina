@@ -347,9 +347,22 @@ ion-button {
 
 .imgcard-ofrece {
     //width: 200px;
-    //height: 200px;
+    //height: 100px;
     //object-fit: cover;
-    clip-path: inset(20px 60px 20px 0px);
+    //clip-path: inset(20px 60px 20px 0px);
+    //background-image: url("../../assets/img/activities/kayaks.jpeg");
+    background: black;
+    border-radius: 10px;
+    //background-image: url("../../assets/img/activities/kayaks.jpeg");
+    //clip-path: inset(100px 100px 100px 100px);
+
+}
+
+.imgfondo {
+    opacity: 0.55;
+    //display: block;
+    //margin: auto;
+    border-radius: 10px;
 }
 
 .card-title {
@@ -377,14 +390,10 @@ ion-button {
     // background:rgba(0, 0, 0, 0.5);
 }
 
-.imgfondo {
-    opacity: 0.55;
-    display: block;
-    margin: auto;
-}
+
 
 .logovilla {
-    height: 110px;
+    height: 150px;
     margin-top: 10%;
     display: flex;
     align-content: center;
