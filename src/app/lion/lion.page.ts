@@ -29,6 +29,84 @@ export class LionPage implements OnInit {
   animationInProgress = false;
   public lioncomments = [
     {
+      name: 'Roberto',
+      month: 'Mayo 2024',
+      comment: `"El Bungalow es genial, el cuarto es amplio y muy cómodo, en el exterior cuenta con un jardín con todo lo necesario (asador, fogata, sillas, camastros, kayaks), muy recomendable"`,
+      starts: 5
+    },
+    {
+      name: 'J Jesús',
+      month: 'Abril 2024',
+      comment: `"Estamos sumamente complacidos con nuestra estancia. El lugar ofrece un ambiente de serenidad inigualable, equiparable a ningún otro. El personal se distingue por su amabilidad excepcional, y la habitación, por su impecable limpieza y confort. Sin lugar a dudas, planeamos regresar en el futuro. Expresamos nuestro sincero agradecimiento a la anfitriona, cuya atención y disponibilidad constante fueron invaluables. Nos honró profundamente hospedarnos en sus instalaciones"`,
+      starts: 5
+    },
+    {
+      name: 'Ileana',
+      month: 'Abril 2024',
+      comment: `"Todo excelente durante nuestra estancia, Mariela estuvo siempre muy al pendiente y toda la información fue clara, el lugar está muy cerca de la laguna lo que facilitó el acceso a ella, además de muy cómodo y con todo lo necesario para pasar unos días de descanso, muchas gracias!"`,
+      starts: 5
+    },
+    {
+      name: 'Paulo',
+      month: 'Marzo 2024',
+      comment: `"Excelente lugar para pasar unos días de descanso, muy buena ubicación que a pesar de no estar junto a la laguna si queda muy cerca y estás en un lugar muy tranquilo"`,
+      starts: 5
+    },
+    {
+      name: 'Francisco',
+      month: 'Marzo 2024',
+      comment: `"Excelente opción para descansar cerca de la Laguna de SAMAO, la pasamos muy bien la habitación muy comoda con muy buenas amenidades, disfrutamos del kayac y la alberca. Gracias a Mariela por estar atenta en nuestra estancia"`,
+      starts: 5
+    },
+    {
+      name: 'Karen',
+      month: 'Febrero 2024',
+      comment: `"¡Excelente ubicación y atención!"`,
+      starts: 5
+    },
+    {
+      name: 'Karen',
+      month: 'Enero 2024',
+      comment: `"Pasamos un fin de semana genial en el bungalow. Todo coincidió con los servicios ofrecidos y siempre nos trataron de una manera cordial y amigable. Definitivamente regresaremos ✨"`,
+      starts: 5
+    },
+    {
+      name: 'Clariza',
+      month: 'Enero 2024',
+      comment: `"Las instalaciones son hermosas y seguras, el bungalow es hermoso, súper cómodo, ideal para pasar en familia. Tiene área para hacer fogata lo cual a mi familia le encantó! Está a unos pasos de la laguna por lo que puedes disfrutar todo el día"`,
+      starts: 5
+    },
+    {
+      name: 'Yareli',
+      month: 'Enero 2024',
+      comment: `"El lugar y sus alrededores están muy bonitos. El conserje Martin fue super amable y estuvo al pendiente. Es un lugar ideal para conectarte con la naturaleza. Si buscan algo que comer, les recomiendo el restaurante Pacos, que está cercas de ahí"`,
+      starts: 5
+    },
+    {
+      name: 'Evelia',
+      month: 'Noviembre 2023',
+      comment: `"El lugar coincidía con las imágenes, unas vistas increíbles y varias actividades para los niños en la misma estancia, fácil acceso a la laguna justo enfrente de la estancia, todo estuvo increíble"`,
+      starts: 5
+    },
+    {
+      name: 'Ricardo',
+      month: 'Noviembre 2023',
+      comment: `"Excelente atención y un lugar muy bonito, gracias por las atenciones"`,
+      starts: 5
+    },
+    {
+      name: 'Amy',
+      month: 'Octubre 2023',
+      comment: `"Muy bien, nuestra estancia… Ubicación excelente, muy amables y atentos Muy cómodo el lugar"`,
+      starts: 5
+    },
+    {
+      name: 'Sussan',
+      month: 'Octubre 2023',
+      comment: `"Lugar muy bello, genial para niños con la piscina y el trampolin. Nos prestaron kayaks y el paseo por la laguna fue espectacular. Cuarto muy comodo y agradable terreno con lindas vistas."`,
+      starts: 5
+    },
+    {
       name: 'Chrystian Viridiana',
       month: 'Octubre 2023',
       comment: `"Fue mucho más de lo que imaginamos un excelente lugar para relajarse lejos de la ciudad, la vista a los agaves es mágica, mucha vegetación, excelente trato siempre al pendiente, responde de inmediato, las persona que está a cargo de la estancia desde que llegamos muy amable el señor, acomedido, servicial, muy limpio el lugar recomendado al 100% no dan ganas de salir mucho menos de regresar a casa.
@@ -257,16 +335,44 @@ export class LionPage implements OnInit {
       starts: 5
     }
   ]
-
   public elephantcomments = [
+    {
+      name: 'Vladimir',
+      month: 'Mayo 2024',
+      comment: `"gracias por recibirnos con nuestros perros, la alberca es muy disfrutable, el señor que se encarga del aseo del lugar es muy atento y hamable nos mostró donde estaban ubicados los kayaks y nos acompaño hasta la orilla del lago"`,
+      starts: 5
+    },
+    {
+      name: 'Claus',
+      month: 'Mayo 2024',
+      comment: `"Nos encantó. Pasamos un tiempo muy agradable. El alojamiento muy bonito, cerca de la laguna, de restaurantes y de tiendas. Todo al 100. Seguramente volvemos"`,
+      starts: 5
+    },
+    {
+      name: 'Paul',
+      month: 'Marzo 2024',
+      comment: `"This place was amazing. Between the mountains near the lake. Stunning view from the terrace and all the amenities you need. We were very pleasantly surprised"`,
+      starts: 5
+    },
+    {
+      name: 'Michelle',
+      month: 'Febrero 2024',
+      comment: `"El lugar es aún más bonito que en las fotos, se respira tranquilidad, las áreas son preciosas para salir y tomar al aire. Las instrucciones para llegar fueron claras así como me encanto las recomendaciones de su app y la rapidez para contestar. Me encanto que tiene servicio de kayak y chalecos salvavidas gratis, por lo cual no dudamos en aprovecharlos, el lugar esta súper cerca de la entrada y de todo puedes salir caminando tranquilamente, definitivamente es súper buena opción para desconectarte y pasar un buen rato!"`,
+      starts: 5
+    },
+    {
+      name: 'David',
+      month: 'Enero 2024',
+      comment: `"El lugar es muy tranquilo y agradable. Cerca de todo! Mariela siempre muy amable y atenta. La estancia cuenta con todo lo necesario"`,
+      starts: 5
+    },
     {
       name: 'Syamakanta',
       month: 'Septiembre 2023',
       comment: `"Todo estuvo de lujo volveríamos sin duda!
       La anfitriona súper amable y atenta en todo momento, muy recomendable!"`,
       starts: 5
-    }
-    ,
+    },
     {
       name: 'Manuel',
       month: 'Septiembre 2023',
@@ -667,6 +773,7 @@ export class LionPage implements OnInit {
       starts: 5
     }
   ]
+
   public spaces: Array<RoomV2> = new Array<RoomV2>;
 
   public selectedSpace: RoomV2 = null;
@@ -689,7 +796,7 @@ export class LionPage implements OnInit {
       slogan: '"Para disfrutar en familia..."',
       abstract: "Bungalow completo ideal para 4 personas",
       description: "1 habitación, 2 camas queen, 1 baño, terraza privada, comedor y cocina exterior",
-      starts: 4.96,
+      starts: 4.92,
       commentsqty: this.lioncomments.length.toString(),
       comments: this.lioncomments,
       color: "warning"
@@ -710,7 +817,7 @@ export class LionPage implements OnInit {
       slogan: '"Para disfrutar en pareja..."',
       abstract: "Bungalow completo ideal para 2 personas",
       description: "1 habitación, 1 cama king, 1 baño, terraza privada, comedor y cocina exterior",
-      starts: 4.91,
+      starts: 4.93,
       commentsqty: this.elephantcomments.length.toString(),
       comments: this.elephantcomments,
       color: "primary"
