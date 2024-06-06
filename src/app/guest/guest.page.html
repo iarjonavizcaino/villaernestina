@@ -1,10 +1,15 @@
 <ion-content [fullscreen]="true" class="contentback">
   <ion-card class="card-title">
     <div class="imgtitle">
-      <ion-img
+      <!-- <ion-img
         class="imgfondo"
         alt="Bienvenida3"
         src="../../assets/img/VillaErnestina5.jpeg"
+      ></ion-img> -->
+      <ion-img
+        class="imgfondo"
+        alt="Bienvenida3"
+        src="../../assets/img/DomoPanoramico.jpeg"
       ></ion-img>
     </div>
     <div class="imglogo">
@@ -14,12 +19,21 @@
       ></ion-img>
     </div>
   </ion-card>
+  <!--Fotos y comentarios-->
   <ion-card class="reservation">
     <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
       <!-- <ng-template swiperSlide>
-                <img alt="Bienvenida3" src="../../assets/img/Logo.png" />
-            </ng-template> -->
-
+                  <img alt="Bienvenida3" src="../../assets/img/Logo.png" />
+              </ng-template> -->
+      <ng-template swiperSlide>
+        <img alt="Bienvenida" src="../../assets/img/Domo1.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida" src="../../assets/img/Domo2.jpeg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img alt="Bienvenida" src="../../assets/img/Domo3.jpeg" />
+      </ng-template>
       <ng-template swiperSlide>
         <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
       </ng-template>
@@ -45,19 +59,19 @@
       <!-- <div class="swiper-button-next"></div> -->
       <!-- </ng-template> -->
       <!-- <div class="swiper-button-prev"></div>
-             
-            <div class="swiper-pagination"></div> -->
+              
+              <div class="swiper-pagination"></div> -->
     </swiper>
     <!-- <ion-card-header class="card-header"> -->
     <!-- <ion-card-title class="strong title2"> <ion-row>
-        <ion-col size="12" class="logovilla"> -->
+          <ion-col size="12" class="logovilla"> -->
 
     <!-- </ion-col>
-      </ion-row> -->
+        </ion-row> -->
     <!-- </ion-card-title> -->
     <!-- <ion-card-subtitle class="strong subtitle2"
-        >"Encanto Natural"</ion-card-subtitle
-      > -->
+          >"Encanto Natural"</ion-card-subtitle
+        > -->
     <!-- </ion-card-header> -->
     <!-- Lo que ofrecemos -->
     <ion-card-content class="card-content no-padding0">
@@ -67,8 +81,8 @@
       <!-- <ion-card class="swiperslide"> -->
       <swiper [config]="config2" #swiperSlideShow2 *ngIf="isContentload">
         <!-- <ng-template swiperSlide class="swipermsg">
-            
-          </ng-template> -->
+              
+            </ng-template> -->
         <ng-template swiperSlide class="swipermessage">
           <!-- <ion-card class="message"> -->
           <ion-grid class="no-padding0">
@@ -126,197 +140,7 @@
             </ion-row>
           </ion-grid>
         </ng-template>
-        <!-- <ng-template swiperSlide>
-              {{lioncomments[11].comment}} {{lioncomments[11].name}}
-              {{lioncomments[11].month}}
-            </ng-template>
-            <ng-template swiperSlide>
-              {{lioncomments[15].comment}} {{lioncomments[15].name}}
-              {{lioncomments[15].month}}
-            </ng-template>
-            <ng-template swiperSlide>
-              {{lioncomments[20].comment}} {{lioncomments[20].name}}
-              {{lioncomments[20].month}}
-            </ng-template> -->
-
-        <!-- <ng-template> -->
-        <!-- <div class="swiper-button-next"></div> -->
-        <!-- </ng-template> -->
-        <!-- <div class="swiper-button-prev"></div>
-                   
-                  <div class="swiper-pagination"></div> -->
       </swiper>
-      <!-- </ion-card> -->
-
-      <!--Más comentarios-->
-      <!-- <ion-card>
-        <ion-card-header>
-          <ion-card-title class="no-padding0 morecomments"
-            >Más comentarios</ion-card-title
-          >
-        </ion-card-header>
-        <ion-card-content>
-          <ion-accordion-group [multiple]="false" class="accordion-group">
-            <ion-accordion value="first">
-              <ion-item slot="header" class="accordion3" color="Light">
-                <ion-icon
-                  name="chatbubbles"
-                  slot="start"
-                  class="txtwhite margin2"
-                ></ion-icon>
-                <ion-label class="txtwhite">León</ion-label>
-                <ion-avatar class="placeicon">
-                  <img alt="image of lion" src="../../assets/img/leon.png" />
-                </ion-avatar>
-                <ion-badge class="labelcomments">
-                  <ion-icon name="star"></ion-icon>
-                  &nbsp;{{lion.starts|number:'1.2-2'}}&nbsp;{{"("+lion.commentsqty+")"}}
-                </ion-badge>
-              </ion-item>
-              <div class="ion-padding points" slot="content">
-                <div class="" *ngFor="let comment of lion.comments">
-                  <table>
-                    <tr>
-                      <td class="avatar">
-                        <ion-icon name="person-circle"></ion-icon>
-                      </td>
-                      <td class="columncomment">
-                        <div class="comments">
-                          <div class="commenttitle">
-                            <div class="name">{{comment.name}}</div>
-                            <div class="commentstars">
-                              <ion-icon name="star"></ion-icon>
-                              &nbsp;{{comment.starts|number:'1.2-2'}}
-                            </div>
-                          </div>
-                          <div class="month">{{comment.month}}</div>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                  <table>
-                    <tr>
-                      <td>
-                        <div class="comment">{{comment.comment}}</div>
-                      </td>
-                    </tr>
-                  </table>
-                  <hr />
-                </div>
-              </div>
-            </ion-accordion>
-          </ion-accordion-group>
-          <ion-accordion-group [multiple]="false" class="accordion-group">
-            <ion-accordion value="first">
-              <ion-item slot="header" class="accordion2" color="Light">
-                <ion-icon
-                  name="chatbubbles"
-                  slot="start"
-                  class="txtwhite margin2"
-                ></ion-icon>
-                <ion-label class="txtwhite">Elefante</ion-label>
-                <ion-avatar class="placeicon">
-                  <img
-                    alt="image of lion"
-                    src="../../assets/img/elefante.png"
-                  />
-                </ion-avatar>
-                <ion-badge class="labelcomments2">
-                  <ion-icon name="star"></ion-icon>
-                  &nbsp;{{elephant.starts|number:'1.2-2'}}&nbsp;{{"("+elephant.commentsqty+")"}}
-                </ion-badge>
-              </ion-item>
-              <div class="ion-padding points" slot="content">
-                <div class="" *ngFor="let comment of elephant.comments">
-                  <table>
-                    <tr>
-                      <td class="avatar">
-                        <ion-icon name="person-circle"></ion-icon>
-                      </td>
-                      <td class="columncomment">
-                        <div class="comments">
-                          <div class="commenttitle">
-                            <div class="name">{{comment.name}}</div>
-                            <div class="commentstars">
-                              <ion-icon name="star"></ion-icon>
-                              &nbsp;{{comment.starts|number:'1.2-2'}}
-                            </div>
-                          </div>
-                          <div class="month">{{comment.month}}</div>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                  <table>
-                    <tr>
-                      <td>
-                        <div class="comment">{{comment.comment}}</div>
-                      </td>
-                    </tr>
-                  </table>
-                  <hr />
-                </div>
-              </div>
-            </ion-accordion>
-          </ion-accordion-group>
-        </ion-card-content>
-      </ion-card> -->
-
-      <!-- <ion-card>
-        <ion-card-header class="cardheader-ofrece1">
-          <ion-card-title class="no-padding0 cardtitle"
-            >Te ofrecemos...</ion-card-title
-          >
-        </ion-card-header>
-
-        <ion-card-content class="no-padding0">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="6" class="no-padding0">
-                <ion-card class="no-padding0 no-margin">
-                  <div class="imgcard-ofrece">
-                    <img
-                      alt="Kayaks"
-                      src="../../assets/img/Kayak.jpeg"
-                      
-                    />
-                  </div>
-
-                  <ion-card-header class="cardheader-ofrece">
-                    <ion-card-title class="cardtitle-ofrece">
-                      Kayaks
-                    </ion-card-title>
-                  </ion-card-header>
-
-                  <ion-card-content class="cardcontent-ofrece">
-                    Te los prestamos gratis!!!
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              <ion-col size="6" class="no-padding">
-                <ion-card class="no-padding0 no-margin">
-                  <ion-card-content>
-                    <div class="kayak content-card">
-                      <div class="carditem">
-                        <div class="card-text">
-                          <ion-grid>
-                            <ion-row>
-                              <ion-col size="12">
-                                <ion-label class="txt-label"> Kayaks</ion-label>
-                              </ion-col>
-                            </ion-row>
-                          </ion-grid>
-                        </div>
-                      </div>
-                    </div>
-                  </ion-card-content>
-                </ion-card></ion-col
-              >
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card> -->
-
       <!--Un poco de lo que ofrecemos-->
       <ion-accordion-group
         [multiple]="false"
@@ -329,32 +153,32 @@
           </ion-item>
           <div class="ion-padding points" slot="content">
             <!-- <ion-grid class="ion-no-padding">
-              <ion-row>
-                <ion-col size="6" class="no-padding0">
-                  <div class="imgcard-ofrece">
-                    <img
-                        class="imgfondo"
-                        alt="Bienvenida3"
-                        src="../../assets/img/activities/kayaks.jpeg"
-                      />
-                      <div class="">Kayaks</div>
-                  </div>
-                  <ion-card class="no-padding0 no-margin imgcard-ofrece">
-                    
-                    <ion-card-header class="cardheader-ofrece">
-                      <ion-card-title class="cardtitle-ofrece">
-                        Kayaks
-                      </ion-card-title>
-                    </ion-card-header>
+                <ion-row>
+                  <ion-col size="6" class="no-padding0">
+                    <div class="imgcard-ofrece">
+                      <img
+                          class="imgfondo"
+                          alt="Bienvenida3"
+                          src="../../assets/img/activities/kayaks.jpeg"
+                        />
+                        <div class="">Kayaks</div>
+                    </div>
+                    <ion-card class="no-padding0 no-margin imgcard-ofrece">
+                      
+                      <ion-card-header class="cardheader-ofrece">
+                        <ion-card-title class="cardtitle-ofrece">
+                          Kayaks
+                        </ion-card-title>
+                      </ion-card-header>
 
-                    <ion-card-content class="cardcontent-ofrece">
-                      Te los prestamos gratis!!!
-                    </ion-card-content>
-                  </ion-card>
-                </ion-col>
+                      <ion-card-content class="cardcontent-ofrece">
+                        Te los prestamos gratis!!!
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
 
-              </ion-row>
-            </ion-grid> -->
+                </ion-row>
+              </ion-grid> -->
             <ion-grid class="ion-no-padding">
               <ion-row class="row">
                 <ion-col size="1">
@@ -466,12 +290,122 @@
       </ion-accordion-group>
     </ion-card-content>
   </ion-card>
+  <!--Fotos y comentarios-->
 
   <!-- Oferta Bungalows -->
   <ion-card color="light">
     <ion-card-content class="card-content2">
       <ion-grid class="no-padding0">
+        <!--Colibrí-->
         <ion-row>
+          <ion-col size="12">
+            <ion-card class="checkingrid">
+              <ion-card-header class="no-padding0">
+                <ion-img
+                  class="imgcolibri"
+                  alt="Bienvenida3"
+                  src="../../assets/img/DomoPanoramico.jpeg"
+                ></ion-img>
+                <ion-card-title>
+                  <div class="product-title">
+                    <ion-label class="colibri-title"
+                      >Glamping Colibrí</ion-label
+                    >
+                    <ion-label class="colibri-subtitle"
+                      >Domo geodésico</ion-label
+                    >
+                    <ion-label class="colibri-description"
+                      >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · Jacuzzi · Cocina</ion-label
+                    >
+                    <ion-label class="colibri-medallas">
+                      <div class="medallas">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 32 32"
+                          aria-hidden="true"
+                          role="presentation"
+                          focusable="false"
+                          style="
+                            display: block;
+                            height: 14px;
+                            width: 14px;
+                            fill: currentcolor;
+                          "
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                          ></path>
+                        </svg>
+                        &nbsp;Nuevo
+                      </div>
+                    </ion-label>
+                    <div class="separador1">
+                      <hr class="separador" />
+                    </div>
+                  </div>
+                  <div class="product-description">
+                    ¡Vive lujo y aventura en nuestro Glamping de ensueño!
+                    Sumérgete en la naturaleza en nuestro domo para 4 personas,
+                    con cama king, cama queen en el tapanco, cocina equipada,
+                    baño privado y amplio armario. Relájate al aire libre,
+                    contempla las estrellas o disfruta de las vistas desde la
+                    malla volada. Con comedor al aire libre, A/C, TV con
+                    streaming, WiFi y dispositivos inteligentes, nuestro
+                    Glamping es el refugio perfecto para escapar de la rutina y
+                    conectar con la naturaleza.
+                  </div>
+                  <!-- <ion-chip
+                    [outline]="true"
+                    color="primary"
+                    (click)="viewDetails('elephant')"
+                  >
+                    <ion-avatar color="light">
+                      <img
+                        alt="image of elephant"
+                        src="../../assets/img/elefante.png"
+                      />
+                    </ion-avatar>
+                    <ion-label>Colibrí</ion-label>
+                  </ion-chip> -->
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="paddingbottom3">
+                Para 4 personas MXN$2750.00
+                <ion-icon name="information-circle" id="infprice"></ion-icon>
+                <ion-popover trigger="infprice" triggerAction="hover">
+                  <ng-template>
+                    <ion-content class="ion-padding">
+                      <ion-label> {{ 'PRECIOS' | translate }} </ion-label>
+                      <a href="https://wa.me/+523111032724?" target="_blank">
+                        <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+                      </a>
+                    </ion-content>
+                  </ng-template>
+                </ion-popover>
+                <a
+                  href="https://wa.me/p/5539003919444086/5213111032724"
+                  target="_blank"
+                >
+                  <ion-chip color="tertiary" class="">
+                    <!-- <ion-icon name="images"></ion-icon> -->
+                    <ion-label>{{"CATALOGO"|translate}}</ion-label>
+                  </ion-chip>
+                </a>
+              </ion-card-content>
+              <ion-button
+                color="tertiary"
+                expand="block"
+                (click)="viewDetails('elephant')"
+              >
+                Ver más...
+              </ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <!--Elefante-->
           <ion-col size="6">
             <ion-card class="checkingrid">
               <ion-card-header class="nopaddingtop2 nopaddingbottom">
@@ -523,6 +457,7 @@
               </ion-button>
             </ion-card>
           </ion-col>
+          <!--León-->
           <ion-col size="6">
             <ion-card class="checkingrid">
               <ion-card-header class="nopaddingtop2 nopaddingbottom">
@@ -613,4 +548,5 @@
       </div>
     </div>
   </ion-card>
+  <!-- Oferta Bungalows -->
 </ion-content>

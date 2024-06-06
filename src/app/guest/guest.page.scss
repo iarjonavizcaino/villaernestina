@@ -381,7 +381,7 @@ ion-button {
 
 .imglogo {
     position: relative;
-    height: 200px;
+    height: 137px;
 }
 
 .imgtitle {
@@ -412,4 +412,68 @@ ion-button {
 
 .swipermessage {
     padding: 5px;
+}
+
+.product-title {
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.colibri-title {
+    color: black;
+    font-weight: bolder;
+    font-size: 23px;
+}
+.colibri-subtitle {
+    color: black;
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.colibri-description {
+    font-size: 14px;
+    padding-top: 5px;
+    font-weight: lighter;
+}
+
+.colibri-medallas {
+    color: black;
+    font-size: 15px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.medallas {
+    display: flex;
+    flex-direction: row;
+}
+
+.separador1 {
+    width: 100%;
+}
+
+.separador {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid #dad7d7; /* Línea gris oscuro */
+}
+
+.product-description {
+    display: flex;
+    justify-content: start;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    margin: 5px;
+    line-height: 1.4;
 }
