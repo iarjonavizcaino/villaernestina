@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { IonicSlides, IonModal, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -43,8 +43,8 @@ export class GuestPage implements OnInit {
   };
 
   config2: SwiperOptions = {
-    slidesPerView: 1.2,
-    spaceBetween: 10,
+    slidesPerView: 1.1,
+    spaceBetween: 0,
     // autoplay: {
     //   delay: 5000
     // },
@@ -64,6 +64,39 @@ export class GuestPage implements OnInit {
     //,
     //direction: 'vertical'
   };
+
+  public principalcomments = [
+    {
+      name: 'Roberto',
+      month: 'Mayo 2024',
+      comment: `"El Bungalow es genial, el cuarto es amplio y muy cómodo, en el exterior cuenta con un jardín con todo lo necesario (asador, fogata, sillas, camastros, kayaks), muy recomendable"`,
+      starts: 5
+    },
+    {
+      name: 'Claus',
+      month: 'Mayo 2024',
+      comment: `"Nos encantó. Pasamos un tiempo muy agradable. El alojamiento muy bonito, cerca de la laguna, de restaurantes y de tiendas. Todo al 100. Seguramente volvemos"`,
+      starts: 5
+    },
+    {
+      name: 'Paul',
+      month: 'Marzo 2024',
+      comment: `"This place was amazing. Between the mountains near the lake. Stunning view from the terrace and all the amenities you need. We were very pleasantly surprised"`,
+      starts: 5
+    },
+    {
+      name: 'Michelle',
+      month: 'Febrero 2024',
+      comment: `"El lugar es aún más bonito que en las fotos, se respira tranquilidad, las áreas son preciosas para salir y tomar al aire. Las instrucciones para llegar fueron claras así como me encanto las recomendaciones de su app y la rapidez para contestar. Me encanto que tiene servicio de kayak y chalecos salvavidas gratis, por lo cual no dudamos en aprovecharlos, el lugar esta súper cerca de la entrada y de todo puedes salir caminando tranquilamente, definitivamente es súper buena opción para desconectarte y pasar un buen rato!"`,
+      starts: 5
+    },
+    {
+      name: 'Sussan',
+      month: 'Octubre 2023',
+      comment: `"Lugar muy bello, genial para niños con la piscina y el trampolin. Nos prestaron kayaks y el paseo por la laguna fue espectacular. Cuarto muy comodo y agradable terreno con lindas vistas."`,
+      starts: 5
+    },
+  ]
 
   public lioncomments = [
     {
@@ -813,10 +846,17 @@ export class GuestPage implements OnInit {
     }
   ]
 
+  
+
   public spaces: Array<RoomV2> = new Array<RoomV2>;
 
   @ViewChild('swiperSlideShow') swiperSlideShow: SwiperComponent;
   @ViewChild('swiperSlideShow2') swiperSlideShow2: SwiperComponent;
+  @ViewChild('colibri', { read: ElementRef }) colibri: ElementRef;
+
+  scrollToSection() {
+    this.colibri.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
   // @ViewChild("lionmodal") lionmodal: IonModal;
 
   animationInProgress = false;
@@ -861,14 +901,15 @@ export class GuestPage implements OnInit {
     color: "primary"
   }
 
-
-
   constructor(public translate: TranslateService, private router: Router) {
-
     
     // this.spaces.push(elephant);
 
   }
+
+  numSequence(n: number): Array<number> { 
+    return Array(n); 
+  } 
 
   ngOnInit() {
   }
@@ -898,13 +939,18 @@ export class GuestPage implements OnInit {
 
   public viewDetails(bungalow: string) {
 
-    let navigationExtras: NavigationExtras = {
-      state: {
-        bungalow: bungalow
-      }
-    };
-
-    this.router.navigate(['/lion'], navigationExtras);
+    if(bungalow === "lion" || bungalow === "elephant"){
+      let navigationExtras: NavigationExtras = {
+        state: {
+          bungalow: bungalow
+        }
+      };
+      this.router.navigate(['/lion'], navigationExtras);
+    } else if (bungalow === "colibri") {
+      this.router.navigate(['/colibri']);
+    }
+  
+    
   }
 
 }

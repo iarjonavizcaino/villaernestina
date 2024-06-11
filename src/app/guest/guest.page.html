@@ -1,303 +1,367 @@
-<ion-content [fullscreen]="true" class="contentback">
-  <ion-card class="card-title">
-    <div class="imgtitle">
-      <!-- <ion-img
-        class="imgfondo"
-        alt="Bienvenida3"
-        src="../../assets/img/VillaErnestina5.jpeg"
-      ></ion-img> -->
-      <ion-img
-        class="imgfondo"
-        alt="Bienvenida3"
-        src="../../assets/img/DomoPanoramico.jpeg"
-      ></ion-img>
-    </div>
-    <div class="imglogo">
-      <ion-img
-        class="logovilla swipermsg"
-        src="../../assets/img/Logoblanco.png"
-      ></ion-img>
-    </div>
-  </ion-card>
-  <!--Fotos y comentarios-->
-  <ion-card class="reservation">
-    <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
-      <!-- <ng-template swiperSlide>
-                  <img alt="Bienvenida3" src="../../assets/img/Logo.png" />
-              </ng-template> -->
-      <ng-template swiperSlide>
-        <img alt="Bienvenida" src="../../assets/img/Domo1.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida" src="../../assets/img/Domo2.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida" src="../../assets/img/Domo3.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
-      </ng-template>
-      <!-- <ng-template> -->
-      <!-- <div class="swiper-button-next"></div> -->
-      <!-- </ng-template> -->
-      <!-- <div class="swiper-button-prev"></div>
-              
-              <div class="swiper-pagination"></div> -->
-    </swiper>
-    <!-- <ion-card-header class="card-header"> -->
-    <!-- <ion-card-title class="strong title2"> <ion-row>
-          <ion-col size="12" class="logovilla"> -->
-
-    <!-- </ion-col>
-        </ion-row> -->
-    <!-- </ion-card-title> -->
-    <!-- <ion-card-subtitle class="strong subtitle2"
-          >"Encanto Natural"</ion-card-subtitle
-        > -->
-    <!-- </ion-card-header> -->
-    <!-- Lo que ofrecemos -->
-    <ion-card-content class="card-content no-padding0">
-      <div class="strong message">¡Vive una experiencia placentera!</div>
-
-      <!--Comentarios slide-->
-      <!-- <ion-card class="swiperslide"> -->
-      <swiper [config]="config2" #swiperSlideShow2 *ngIf="isContentload">
-        <!-- <ng-template swiperSlide class="swipermsg">
-              
-            </ng-template> -->
-        <ng-template swiperSlide class="swipermessage">
-          <!-- <ion-card class="message"> -->
-          <ion-grid class="no-padding0">
-            <ion-row>
-              <ion-col size="12"
-                ><div class="name2">
-                  {{elephantcomments[3].name}}{{"
-                  ("+elephantcomments[3].month+")"}}
-                </div></ion-col
-              >
-            </ion-row>
-            <ion-row class="principalmessage no-padding0">
-              <ion-col size="12"
-                ><div class="comment2">
-                  {{elephantcomments[1].comment}}
-                </div></ion-col
-              >
-            </ion-row>
-          </ion-grid>
-          <!-- </ion-card> -->
-        </ng-template>
-        <ng-template swiperSlide class="no-padding0">
-          <ion-grid>
-            <ion-row>
-              <ion-col size="12"
-                ><div class="name2">
-                  {{lioncomments[1].name}}{{" ("+lioncomments[1].month+")"}}
-                </div></ion-col
-              >
-            </ion-row>
-            <ion-row class="principalmessage no-padding0">
-              <ion-col size="12"
-                ><div class="comment2">
-                  {{lioncomments[1].comment}}
-                </div></ion-col
-              >
-            </ion-row>
-          </ion-grid>
-        </ng-template>
-        <ng-template swiperSlide class="no-padding0">
-          <ion-grid>
-            <ion-row class="no-padding0">
-              <ion-col size="12"
-                ><div class="name2">
-                  {{lioncomments[12].name}}{{" ("+lioncomments[12].month+")"}}
-                </div></ion-col
-              >
-            </ion-row>
-            <ion-row class="principalmessage no-padding0">
-              <ion-col size="12"
-                ><div class="comment2">
-                  {{lioncomments[12].comment}}
-                </div></ion-col
-              >
-            </ion-row>
-          </ion-grid>
-        </ng-template>
-      </swiper>
-      <!--Un poco de lo que ofrecemos-->
-      <ion-accordion-group
-        [multiple]="false"
-        value="first"
-        class="accordion-group"
-      >
-        <ion-accordion value="first">
-          <ion-item slot="header" class="accordion" color="success">
-            <ion-label> Un poco de lo que ofrecemos</ion-label>
-          </ion-item>
-          <div class="ion-padding points" slot="content">
-            <!-- <ion-grid class="ion-no-padding">
-                <ion-row>
-                  <ion-col size="6" class="no-padding0">
-                    <div class="imgcard-ofrece">
-                      <img
-                          class="imgfondo"
-                          alt="Bienvenida3"
-                          src="../../assets/img/activities/kayaks.jpeg"
-                        />
-                        <div class="">Kayaks</div>
-                    </div>
-                    <ion-card class="no-padding0 no-margin imgcard-ofrece">
-                      
-                      <ion-card-header class="cardheader-ofrece">
-                        <ion-card-title class="cardtitle-ofrece">
-                          Kayaks
-                        </ion-card-title>
-                      </ion-card-header>
-
-                      <ion-card-content class="cardcontent-ofrece">
-                        Te los prestamos gratis!!!
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-col>
-
-                </ion-row>
-              </ion-grid> -->
-            <ion-grid class="ion-no-padding">
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Áreas verdes</div>
-                  <div class="description">
-                    Extensas áreas verdes y una zona de agaves donde salen
-                    padrísimas las fotos
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Kayak</div>
-                  <div class="description">Te prestamos Kayaks gratis</div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Alberca</div>
-                  <div class="description">
-                    Te ofrecemos una alberca de tipo tubular
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Trampolin (Brincolín)</div>
-                  <div class="description">
-                    Contamos con un trampolín completamente gratis
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Fogata</div>
-                  <div class="description">Zona de fogata</div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Ubicación</div>
-                  <div class="description">
-                    Estamos a menos de 1 minuto del agua<br />
-                    Restaurantes, abarrotes y modelorama a unos pasos
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Entretenimiento</div>
-                  <div class="description">
-                    WiFi estable <br />
-                    TV con plataformas de streaming (HBO MAX, Disney+ y Netflix)
-                    para disfrutar de tus series y pelís favoritas
-                  </div>
-                </ion-col>
-              </ion-row>
-              <ion-row class="row">
-                <ion-col size="1">
-                  <div class="number">
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                </ion-col>
-                <ion-col size="11">
-                  <div class="tit">Estacionamiento</div>
-                  <div class="description">
-                    Estacionamiento privado gratuito
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+<ion-content [fullscreen]="true">
+  <ion-grid class="no-padding">
+    <!--Domo Colibrí-->
+    <ion-row
+      class="no-padding firstproduct clickeable-row"
+      (click)="viewDetails('colibri')"
+    >
+      <ion-col size="12" class="no-padding">
+        <ion-card class="no-padding">
+          <div class="imgdomo">
+            <ion-img
+              class="imgfondo"
+              alt="Colibrí"
+              src="../../assets/img/DomoPanoramico.jpeg"
+            ></ion-img>
           </div>
-        </ion-accordion>
-      </ion-accordion-group>
+          <div class="placetitle">
+            <ion-label class="domotitle"> Colibrí </ion-label>
+            <ion-label class="colibri-resum">
+              4 huéspedes · 1 habitación con tapanco · 2 camas · 1 baño ·
+              Jacuzzi · Cocina
+            </ion-label>
+          </div>
+        </ion-card>
+
+        <!--Código que puede servir para la descripción de Colibrí-->
+
+        <!-- <div>
+          <div class="product-title">
+            <ion-label class="colibri-title">Glamping Colibrí</ion-label>
+            <ion-label class="colibri-subtitle">Domo geodésico</ion-label>
+            <ion-label class="colibri-description"
+              >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · Jacuzzi
+              · Cocina</ion-label
+            >
+            <ion-label class="colibri-insignias">
+              <div class="insignias">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                  style="
+                    display: block;
+                    height: 14px;
+                    width: 14px;
+                    fill: currentcolor;
+                  "
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                  ></path>
+                </svg>
+                &nbsp;Nuevo
+              </div>
+            </ion-label>
+            <div class="separador1">
+              <hr class="separador" />
+            </div>
+          </div>
+        </div> -->
+      </ion-col>
+    </ion-row>
+    <!--Bungalows-->
+    <ion-row class="no-padding secondproducts">
+      <!--Elefante-->
+      <ion-col
+        size="6"
+        class="no-padding nomarginright"
+        (click)="viewDetails('elephant')"
+      >
+        <ion-card class="no-padding">
+          <div class="imgbungalows">
+            <ion-img
+              class="imgfondobungalows"
+              alt="Elefante"
+              src="../../assets/img/VillaErnestina5.jpeg"
+            ></ion-img>
+          </div>
+          <div class="placebungalowstitle">
+            <ion-label class="bungalowstitle"> Elefante </ion-label>
+            <ion-label class="bungalows-resum">
+              2 huéspedes · 1 habitación · cama king · baño · terraza· cocina
+            </ion-label>
+          </div>
+        </ion-card>
+      </ion-col>
+      <!--León-->
+      <ion-col
+        size="6"
+        class="no-padding"
+        (click)="viewDetails('lion')"
+      >
+        <ion-card class="no-padding">
+          <div class="imgbungalows">
+            <ion-img
+              class="imgfondobungalows"
+              alt="Elefante"
+              src="../../assets/img/lion2.jpeg"
+            ></ion-img>
+          </div>
+          <div class="placebungalowstitle">
+            <ion-label class="bungalowstitle"> León </ion-label>
+            <ion-label class="bungalows-resum">
+              4 huéspedes · 1 habitación · 2 camas queen · baño · terraza·
+              cocina
+            </ion-label>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!--Comentarios-->
+    <ion-row class="no-padding">
+      <ion-col size="12" class="no-padding">
+        <div class="product-title no-padding">
+          <div class="separador1 no-padding">
+            <hr class="separador" />
+          </div>
+        </div>
+        <swiper
+          [config]="config2"
+          #swiperSlideShow2
+          *ngIf="isContentload"
+          class="no-padding"
+        >
+          <ng-template swiperSlide class="no-padding" *ngFor="let comment of principalcomments; let i = index ">
+            <ion-card class="principalmessage no-padding">
+              <ion-card-content class="comments-content">
+                <div class="stars">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                    role="presentation"
+                    focusable="false"
+                    style="
+                      display: block;
+                      height: 0.5625rem;
+                      width: 0.5625rem;
+                      fill: var(--linaria-theme_palette-hof);
+                    "
+                  *ngFor="let star of numSequence(comment.starts)"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                    ></path>
+                  </svg>
+                  <span>
+                     &nbsp;{{"· "+comment.month}}
+                  </span>
+                </div>
+                <div class="comment2">
+                  {{comment.comment}}
+                </div>
+                <div class="name2 no-padding">
+                  {{comment.name}}
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ng-template>
+        </swiper>
+        <div class="product-title">
+          <div class="separador1">
+            <hr class="separador" />
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!--Logotipo-->
+    <ion-row class="no-padding">
+      <ion-col size="12" class="logovillafoot no-padding" >
+        <ion-img src="../../assets/img/Logosinfondo.png" class="no-padding"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--Fotos y comentarios-->
+  <ion-card class="reservation no-padding">
+    <!-- <swiper [config]="config" #swiperSlideShow *ngIf="isContentload">
+
+        <ng-template swiperSlide>
+          <img alt="Bienvenida" src="../../assets/img/VillaErnestina0.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida2" src="../../assets/img/VillaErnestina1.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida3" src="../../assets/img/VillaErnestina2.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida3" src="../../assets/img/VillaErnestina4.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida3" src="../../assets/img/VillaErnestina5.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida3" src="../../assets/img/VillaErnestina6.jpeg" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img alt="Bienvenida3" src="../../assets/img/VillaErnestina3.png" />
+        </ng-template>
+      </swiper> -->
+
+    <!-- Más información -->
+    <ion-card-content class="card-content no-padding">
+     <div class="txtcenter">
+        <a href="tel:+523111032724">
+          <ion-chip [outline]="true" color="primary">
+            <ion-avatar color="primary">
+              <img
+                alt="Silhouette of a person's head"
+                src="../../assets/img/avatar.svg"
+              />
+            </ion-avatar>
+            <ion-label color="primary">{{"Mariela: "}}311 103 2724</ion-label>
+            <ion-icon name="call-outline" color="primary"></ion-icon>
+          </ion-chip>
+        </a>
+        <ion-chip color="primary" [outline]="true">
+          <a
+            href="https://wa.me/+523111032724"
+            target="_blank"
+            class="contentcenter"
+          >
+            <ion-icon name="logo-whatsapp" color="primary"></ion-icon>
+          </a>
+        </ion-chip>
+      </div>
+      <div class="strong message">¡Vive una experiencia placentera!</div>
+      <!--Un poco de lo que ofrecemos-->
+      <!-- <ion-accordion-group
+          [multiple]="false"
+          value="first"
+          class="accordion-group"
+        >
+          <ion-accordion value="first">
+            <ion-item slot="header" class="accordion" color="success">
+              <ion-label> Un poco de lo que ofrecemos</ion-label>
+            </ion-item>
+            <div class="ion-padding points" slot="content">
+              <ion-grid class="ion-no-padding">
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Áreas verdes</div>
+                    <div class="description">
+                      Extensas áreas verdes y una zona de agaves donde salen
+                      padrísimas las fotos
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Kayak</div>
+                    <div class="description">Te prestamos Kayaks gratis</div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Alberca</div>
+                    <div class="description">
+                      Te ofrecemos una alberca de tipo tubular
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Trampolin (Brincolín)</div>
+                    <div class="description">
+                      Contamos con un trampolín completamente gratis
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Fogata</div>
+                    <div class="description">Zona de fogata</div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Ubicación</div>
+                    <div class="description">
+                      Estamos a menos de 1 minuto del agua<br />
+                      Restaurantes, abarrotes y modelorama a unos pasos
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Entretenimiento</div>
+                    <div class="description">
+                      WiFi estable <br />
+                      TV con plataformas de streaming (HBO MAX, Disney+ y Netflix)
+                      para disfrutar de tus series y pelís favoritas
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row">
+                  <ion-col size="1">
+                    <div class="number">
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                  </ion-col>
+                  <ion-col size="11">
+                    <div class="tit">Estacionamiento</div>
+                    <div class="description">
+                      Estacionamiento privado gratuito
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group> -->
     </ion-card-content>
   </ion-card>
   <!--Fotos y comentarios-->
 
   <!-- Oferta Bungalows -->
-  <ion-card color="light">
-    <ion-card-content class="card-content2">
-      <ion-grid class="no-padding0">
-        <!--Colibrí-->
-        <ion-row>
+  <!-- <ion-card color="light" class="no-padding"> -->
+  <!-- <ion-card-content class="card-content2">
+      <ion-grid class="no-padding0"> -->
+  <!--Colibrí-->
+  <!-- <ion-row id="colibri" #colibri>
           <ion-col size="12">
             <ion-card class="checkingrid">
               <ion-card-header class="no-padding0">
@@ -315,10 +379,11 @@
                       >Domo geodésico</ion-label
                     >
                     <ion-label class="colibri-description"
-                      >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · Jacuzzi · Cocina</ion-label
+                      >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño ·
+                      Jacuzzi · Cocina</ion-label
                     >
-                    <ion-label class="colibri-medallas">
-                      <div class="medallas">
+                    <ion-label class="colibri-insignias">
+                      <div class="insignias">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 32 32"
@@ -355,23 +420,10 @@
                     Glamping es el refugio perfecto para escapar de la rutina y
                     conectar con la naturaleza.
                   </div>
-                  <!-- <ion-chip
-                    [outline]="true"
-                    color="primary"
-                    (click)="viewDetails('elephant')"
-                  >
-                    <ion-avatar color="light">
-                      <img
-                        alt="image of elephant"
-                        src="../../assets/img/elefante.png"
-                      />
-                    </ion-avatar>
-                    <ion-label>Colibrí</ion-label>
-                  </ion-chip> -->
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content class="paddingbottom3">
-                Para 4 personas MXN$2750.00
+                MXN$2750.00
                 <ion-icon name="information-circle" id="infprice"></ion-icon>
                 <ion-popover trigger="infprice" triggerAction="hover">
                   <ng-template>
@@ -388,7 +440,6 @@
                   target="_blank"
                 >
                   <ion-chip color="tertiary" class="">
-                    <!-- <ion-icon name="images"></ion-icon> -->
                     <ion-label>{{"CATALOGO"|translate}}</ion-label>
                   </ion-chip>
                 </a>
@@ -402,11 +453,11 @@
               </ion-button>
             </ion-card>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row>
-          <!--Elefante-->
-          <ion-col size="6">
+  <!-- <ion-row> -->
+  <!--Elefante-->
+  <!-- <ion-col size="6">
             <ion-card class="checkingrid">
               <ion-card-header class="nopaddingtop2 nopaddingbottom">
                 <ion-card-title>
@@ -443,7 +494,6 @@
                   target="_blank"
                 >
                   <ion-chip color="tertiary" class="">
-                    <!-- <ion-icon name="images"></ion-icon> -->
                     <ion-label>{{"CATALOGO"|translate}}</ion-label>
                   </ion-chip>
                 </a>
@@ -456,9 +506,9 @@
                 Ver más...
               </ion-button>
             </ion-card>
-          </ion-col>
-          <!--León-->
-          <ion-col size="6">
+          </ion-col> -->
+  <!--León-->
+  <!-- <ion-col size="6">
             <ion-card class="checkingrid">
               <ion-card-header class="nopaddingtop2 nopaddingbottom">
                 <ion-card-title>
@@ -498,7 +548,6 @@
                   target="_blank"
                 >
                   <ion-chip color="tertiary" class="">
-                    <!-- <ion-icon name="images"></ion-icon> -->
                     <ion-label>{{"CATALOGO"|translate}}</ion-label>
                   </ion-chip>
                 </a>
@@ -510,18 +559,17 @@
               >
                 <ion-label>Ver más...</ion-label>
               </ion-button>
-              <!-- Modal León -->
             </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row>
+          </ion-col> -->
+  <!-- </ion-row> -->
+  <!-- <ion-row>
           <ion-col size="12" class="logovillafoot">
             <ion-img src="../../assets/img/Logosinfondo.png"></ion-img>
           </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-    <div class="footcard">
+        </ion-row> -->
+  <!-- </ion-grid>
+    </ion-card-content> -->
+  <!-- <div class="footcard">
       <div class="bold">{{ 'GRACIAS7' | translate }}</div>
       <div class="txtcenter">
         <a href="tel:+523111032724">
@@ -546,7 +594,7 @@
           </a>
         </ion-chip>
       </div>
-    </div>
-  </ion-card>
+    </div> -->
+  <!-- </ion-card> -->
   <!-- Oferta Bungalows -->
 </ion-content>

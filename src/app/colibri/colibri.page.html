@@ -1,0 +1,141 @@
+<ion-content class="">
+  <ion-grid>
+    <!--Colibrí-->
+    <ion-row class="">
+      <ion-col size="12" class="colimages">
+        <ion-img
+          class="imgcolibri"
+          alt="Bienvenida3"
+          src="../../assets/img/colibri/terraza.jpeg"
+        ></ion-img>
+        <div class="back-button-container">
+          <button
+            type="button"
+            class="back-button"
+            (click)="goToGuest()"
+          >
+            <!-- <span class="">
+              <div class="">
+                <div> -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 32 32"
+                    focusable="false"
+                    style="
+                      display: block;
+                      fill: none;
+                      height: 16px;
+                      width: 16px;
+                      stroke: currentcolor;
+                      stroke-width: 4;
+                      overflow: visible;
+                      color: black;
+                    "
+                  >
+                    <path
+                      fill="none"
+                      d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
+                    ></path>
+                  </svg>
+                <!-- </div>
+                <div class="">
+
+                </div>
+              </div>
+            </span> -->
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="no-padding">
+        <!-- <ion-card-title> -->
+        <div class="product-title">
+          <ion-label class="colibri-title">Glamping Colibrí</ion-label>
+          <ion-label class="colibri-subtitle">Domo geodésico</ion-label>
+          <ion-label class="colibri-description"
+            >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · Jacuzzi ·
+            Cocina</ion-label
+          >
+          <ion-label class="colibri-insignias">
+            <div class="insignias">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  height: 14px;
+                  width: 14px;
+                  fill: currentcolor;
+                "
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                ></path>
+              </svg>
+              &nbsp;Nuevo
+            </div>
+          </ion-label>
+          <div class="separador1">
+            <hr class="separador" />
+          </div>
+        </div>
+        <div class="product-description">
+          ¡Vive lujo y aventura en nuestro Glamping de ensueño! Sumérgete en la
+          naturaleza en nuestro domo para 4 personas, con cama king, cama queen
+          en el tapanco, cocina equipada, baño privado y amplio armario.
+          Relájate al aire libre, contempla las estrellas o disfruta de las
+          vistas desde la malla volada. Con comedor al aire libre, A/C, TV con
+          streaming, WiFi y dispositivos inteligentes, nuestro Glamping es el
+          refugio perfecto para escapar de la rutina y conectar con la
+          naturaleza.
+        </div>
+        <!-- <ion-chip
+                [outline]="true"
+                color="primary"
+                (click)="viewDetails('elephant')"
+              >
+                <ion-avatar color="light">
+                  <img
+                    alt="image of elephant"
+                    src="../../assets/img/elefante.png"
+                  />
+                </ion-avatar>
+                <ion-label>Colibrí</ion-label>
+              </ion-chip> -->
+        <!-- </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="paddingbottom3"> -->
+        MXN$2750.00
+        <ion-icon name="information-circle" id="infprice"></ion-icon>
+        <ion-popover trigger="infprice" triggerAction="hover">
+          <ng-template>
+            <ion-content class="ion-padding">
+              <ion-label> </ion-label>
+              <a href="https://wa.me/+523111032724?" target="_blank">
+                <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+              </a>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+        <a
+          href="https://wa.me/p/5539003919444086/5213111032724"
+          target="_blank"
+        >
+          <ion-chip color="tertiary" class="">
+            <!-- <ion-icon name="images"></ion-icon> -->
+            <ion-label></ion-label>
+          </ion-chip>
+        </a>
+        <!-- </ion-card-content> -->
+        <ion-button color="tertiary" expand="block"> Ver más... </ion-button>
+        <!-- </ion-card> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
