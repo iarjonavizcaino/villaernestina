@@ -12,7 +12,6 @@ import { TranslateModule} from '@ngx-translate/core';
 import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 
 
-
 @NgModule({
   imports: [
     CommonModule,

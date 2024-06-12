@@ -939,7 +939,7 @@ export class GuestPage implements OnInit {
 
   public viewDetails(bungalow: string) {
 
-    if(bungalow === "lion" || bungalow === "elephant"){
+    if(bungalow === "lion"){
       let navigationExtras: NavigationExtras = {
         state: {
           bungalow: bungalow
@@ -948,6 +948,8 @@ export class GuestPage implements OnInit {
       this.router.navigate(['/lion'], navigationExtras);
     } else if (bungalow === "colibri") {
       this.router.navigate(['/colibri']);
+    } else if(bungalow ==="elephant") {
+      this.router.navigate(['/elephant']);
     }
   
     

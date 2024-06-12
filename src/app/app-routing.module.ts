@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'colibri',
     loadChildren: () => import('./colibri/colibri.module').then( m => m.ColibriPageModule)
   },
+  {
+    path: 'elephant',
+    loadChildren: () => import('./elephant/elephant.module').then( m => m.ElephantPageModule)
+  },
   /*{
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
