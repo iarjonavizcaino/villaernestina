@@ -1,56 +1,87 @@
 <ion-content class="">
   <ion-grid>
-    <!--Colibrí-->
+    <!--Row Imagenes-->
     <ion-row class="">
       <ion-col size="12" class="colimages">
-        <ion-img
-          class="imgcolibri"
-          alt="Bienvenida3"
-          src="../../assets/img/colibri/terraza.jpeg"
-        ></ion-img>
-        <div class="back-button-container">
-          <button
-            type="button"
-            class="back-button"
-            (click)="goToGuest()"
+        <swiper
+          [config]="config"
+          #swiperSlideShow
+          class="colimages"
+          (slideChange)="onSlideChange()"
+        >
+          <ng-template
+            swiperSlide
+            *ngFor="let image of imagesSlides; let i = index"
           >
-            <!-- <span class="">
-              <div class="">
-                <div> -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                    focusable="false"
-                    style="
-                      display: block;
-                      fill: none;
-                      height: 16px;
-                      width: 16px;
-                      stroke: currentcolor;
-                      stroke-width: 4;
-                      overflow: visible;
-                      color: black;
-                    "
-                  >
-                    <path
-                      fill="none"
-                      d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
-                    ></path>
-                  </svg>
-                <!-- </div>
-                <div class="">
-
-                </div>
+            <ion-img
+              class="imgcolibri"
+              alt="Bienvenida3"
+              [src]="image"
+            ></ion-img>
+            <div class="back-button-container">
+              <button type="button" class="back-button" (click)="goToGuest()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  focusable="false"
+                  style="
+                    display: block;
+                    fill: none;
+                    height: 20px;
+                    width: 20px;
+                    stroke: currentcolor;
+                    stroke-width: 4;
+                    overflow: visible;
+                    color: black;
+                  "
+                >
+                  <path
+                    fill="none"
+                    d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="love-button-container">
+              <a
+                href="https://wa.me/+523111032724?text={{ loveMessage }}"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                  style="
+                    display: block;
+                    fill: none;
+                    height: 20px;
+                    width: 20px;
+                    stroke: currentcolor;
+                    stroke-width: 3;
+                    overflow: visible;
+                    color: black;
+                  "
+                >
+                  <path
+                    d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+            <div class="counter-container">
+              <div class="counter">
+                {{ currentIndex +1}} / {{imagesSlides.length}}
               </div>
-            </span> -->
-          </button>
-        </div>
+            </div>
+          </ng-template>
+        </swiper>
       </ion-col>
     </ion-row>
-
+    <!--Row Informacion Principal-->
     <ion-row>
-      <ion-col size="12" class="no-padding">
-        <!-- <ion-card-title> -->
+      <ion-col size="12" class="colimages">
         <div class="product-title">
           <ion-label class="colibri-title">Glamping Colibrí</ion-label>
           <ion-label class="colibri-subtitle">Domo geodésico</ion-label>
@@ -81,60 +112,63 @@
               &nbsp;Nuevo
             </div>
           </ion-label>
-          <div class="separador1">
+          <ion-label class="colibri-price">
+            <strong>$ 2,750 MXN</strong>
+            noche
+          </ion-label>
+          <div class="separador-container">
             <hr class="separador" />
           </div>
         </div>
+      </ion-col>
+    </ion-row>
+    <!--Row Descripción-->
+    <ion-row>
+      <ion-col size="12" class="colimages">
         <div class="product-description">
           ¡Vive lujo y aventura en nuestro Glamping de ensueño! Sumérgete en la
           naturaleza en nuestro domo para 4 personas, con cama king, cama queen
           en el tapanco, cocina equipada, baño privado y amplio armario.
-          Relájate al aire libre, contempla las estrellas o disfruta de las
-          vistas desde la malla volada. Con comedor al aire libre, A/C, TV con
-          streaming, WiFi y dispositivos inteligentes, nuestro Glamping es el
-          refugio perfecto para escapar de la rutina y conectar con la
-          naturaleza.
+          Relájate al aire libre con la tina climatizada, contempla las
+          estrellas o disfruta de las vistas desde la malla volada. Con comedor
+          al aire libre, A/C, TV con streaming, WiFi y dispositivos
+          inteligentes, nuestro Glamping es el refugio perfecto para escapar de
+          la rutina y conectar con la naturaleza.
         </div>
-        <!-- <ion-chip
-                [outline]="true"
-                color="primary"
-                (click)="viewDetails('elephant')"
+        <div class="separador-container">
+          <hr class="separador" />
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--Row Lo que ofrece-->
+    <ion-row>
+      <ion-col size="12">
+        <div class="product-title">
+          <ion-label class="colibri-title">Lo que ofrecemos</ion-label>
+          <ion-label class="amenities" *ngFor="let amenity of amenities">
+            <div class="amenities-img">
+              
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                style="
+                  display: block;
+                  height: 24px;
+                  width: 24px;
+                  fill: currentcolor;
+                "
               >
-                <ion-avatar color="light">
-                  <img
-                    alt="image of elephant"
-                    src="../../assets/img/elefante.png"
-                  />
-                </ion-avatar>
-                <ion-label>Colibrí</ion-label>
-              </ion-chip> -->
-        <!-- </ion-card-title>
-          </ion-card-header>
-          <ion-card-content class="paddingbottom3"> -->
-        MXN$2750.00
-        <ion-icon name="information-circle" id="infprice"></ion-icon>
-        <ion-popover trigger="infprice" triggerAction="hover">
-          <ng-template>
-            <ion-content class="ion-padding">
-              <ion-label> </ion-label>
-              <a href="https://wa.me/+523111032724?" target="_blank">
-                <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
-              </a>
-            </ion-content>
-          </ng-template>
-        </ion-popover>
-        <a
-          href="https://wa.me/p/5539003919444086/5213111032724"
-          target="_blank"
-        >
-          <ion-chip color="tertiary" class="">
-            <!-- <ion-icon name="images"></ion-icon> -->
-            <ion-label></ion-label>
-          </ion-chip>
-        </a>
-        <!-- </ion-card-content> -->
-        <ion-button color="tertiary" expand="block"> Ver más... </ion-button>
-        <!-- </ion-card> -->
+                <path
+                  [attr.d]="amenity.svg"
+                ></path>
+              </svg>
+            </div>
+            <div class="amenities-title">{{amenity.title}}</div>
+          </ion-label>
+          <div class="separador-container">
+            <hr class="separador" />
+          </div>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
