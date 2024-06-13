@@ -788,7 +788,6 @@ export class LionPage implements OnInit {
     '../../assets/img/lion/fogata.jpeg',
     '../../assets/img/lion/banio.jpeg',
     '../../assets/img/lion/noche.jpeg',
-    //'../../assets/img/elephant/sala.webp',
   ];
 
   public amenities = [
@@ -996,5 +995,12 @@ export class LionPage implements OnInit {
 
   toggleExpand() {
     this.expanded = !this.expanded;
+  }
+
+  sendMessage() {
+    var phoneNumber = "+523111032724"; // Reemplaza con tu número de teléfono
+      var message = this.loveMessage;
+      var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+      window.open(url, '_blank');
   }
 }

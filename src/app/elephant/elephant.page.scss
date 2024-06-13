@@ -142,6 +142,7 @@ ion-grid {
     font-size: 14px;
     padding-top: 5px;
     font-weight: lighter;
+    color: black;
 }
 
 .colibri-insignias {
@@ -202,6 +203,7 @@ ion-grid {
     font-size: 16px;
     padding-top: 10px;
     font-weight: lighter;
+    color: black;
 }
 
 .amenities-title {
@@ -220,16 +222,26 @@ ion-grid {
 
 .button-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    height: 33px;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
 }
 
 .expanded-button {
-    background: white !important;
+    background-color: transparent;
     --riple-color: black;
     color: black;
     font-size: 14px;
+    font-weight: bold;
 }
 
-.expanded-button:hover {
+.button-container:hover {
     background: rgba(0, 0, 0, 0.1); /* Un ligero fondo gris al pasar el cursor por encima */
 }
 
@@ -253,6 +265,22 @@ ion-grid {
 
 .button-interest {
     text-decoration: none;
+    width: 100%;
+    height: 33px;
+    color: black !important;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button-interest:hover {
+    background: rgba(0, 0, 0, 0.1); /* Un ligero fondo gris al pasar el cursor por encima */
 }
 
 .amenities-column {

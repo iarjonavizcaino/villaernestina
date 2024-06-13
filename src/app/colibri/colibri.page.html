@@ -71,10 +71,7 @@
               </a>
             </div>
             <div class="phone-button-container">
-              <a
-                href="tel:+523111032724"
-                target="_blank"
-              >
+              <a href="tel:+523111032724" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
@@ -116,8 +113,8 @@
           <ion-label class="colibri-title">Glamping Colibrí</ion-label>
           <ion-label class="colibri-subtitle">Domo geodésico</ion-label>
           <ion-label class="colibri-description"
-            >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · tina exterior ·
-            cocina</ion-label
+            >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · tina
+            exterior · cocina</ion-label
           >
           <ion-label class="colibri-insignias">
             <div class="insignias">
@@ -180,12 +177,7 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
-                style="
-                  display: block;
-                  height: 24px;
-                  width: 24px;
-                  fill: currentcolor;
-                "
+                style="display: block; height: 24px; width: 24px; color: black"
               >
                 <path [attr.d]="amenity.svg"></path>
               </svg>
@@ -193,16 +185,10 @@
             <div class="amenities-title">{{amenity.title}}</div>
           </ion-label>
         </div>
-        <div class="button-container">
-          <ion-button
-            (click)="toggleExpand()"
-            expand="block"
-            fill="outline"
-            color="dark"
-            class="expanded-button"
-          >
+        <div class="button-container" (click)="toggleExpand()">
+          <button class="expanded-button">
             {{ expanded ? 'Ver menos' : 'Mostrar todos los servicios' }}
-          </ion-button>
+          </button>
         </div>
         <div class="separador-container separador-intermediate">
           <hr class="separador" />
@@ -229,21 +215,8 @@
         <div class="separador-container separador-intermediate">
           <hr class="separador" />
         </div>
-        <div class="button-container">
-          <a
-            href="https://wa.me/+523111032724?text={{ loveMessage }}"
-            target="_blank"
-            class="button-interest"
-          >
-            <ion-button
-            expand="block"
-            fill="outline"
-            color="dark"
-            class="expanded-button"
-          >
+        <div class="button-interest" (click)="sendMessage()">
             Me interesa
-          </ion-button>
-          </a>
         </div>
       </ion-col>
     </ion-row>

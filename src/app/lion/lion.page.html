@@ -1,127 +1,52 @@
 <ion-content class="">
-    <ion-grid>
-      <!--Row Imagenes-->
-      <ion-row class="">
-        <ion-col size="12" class="colimages">
-          <swiper
-            [config]="config"
-            #swiperSlideShow
-            class="colimages"
-            (slideChange)="onSlideChange()"
+  <ion-grid>
+    <!--Row Imagenes-->
+    <ion-row class="">
+      <ion-col size="12" class="colimages">
+        <swiper
+          [config]="config"
+          #swiperSlideShow
+          class="colimages"
+          (slideChange)="onSlideChange()"
+        >
+          <ng-template
+            swiperSlide
+            *ngFor="let image of imagesSlides; let i = index"
           >
-            <ng-template
-              swiperSlide
-              *ngFor="let image of imagesSlides; let i = index"
-            >
-              <ion-img
-                class="images-content"
-                alt="Bienvenida3"
-                [src]="image"
-              ></ion-img>
-              <div class="back-button-container">
-                <button type="button" class="back-button" (click)="goToGuest()">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                    focusable="false"
-                    style="
-                      display: block;
-                      fill: none;
-                      height: 20px;
-                      width: 20px;
-                      stroke: currentcolor;
-                      stroke-width: 4;
-                      overflow: visible;
-                      color: black;
-                    "
-                  >
-                    <path
-                      fill="none"
-                      d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="love-button-container">
-                <a
-                  href="https://wa.me/+523111032724?text={{ loveMessage }}"
-                  target="_blank"
+            <ion-img
+              class="images-content"
+              alt="Bienvenida3"
+              [src]="image"
+            ></ion-img>
+            <div class="back-button-container">
+              <button type="button" class="back-button" (click)="goToGuest()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  focusable="false"
+                  style="
+                    display: block;
+                    fill: none;
+                    height: 20px;
+                    width: 20px;
+                    stroke: currentcolor;
+                    stroke-width: 4;
+                    overflow: visible;
+                    color: black;
+                  "
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                    role="presentation"
-                    focusable="false"
-                    style="
-                      display: block;
-                      fill: none;
-                      height: 20px;
-                      width: 20px;
-                      stroke: currentcolor;
-                      stroke-width: 3;
-                      overflow: visible;
-                      color: black;
-                    "
-                  >
-                    <path
-                      d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-  
-              <div class="phone-button-container">
-                <a
-                  href="tel:+523111032724"
-                  target="_blank"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 32 32"
-                    aria-hidden="true"
-                    role="presentation"
-                    focusable="false"
-                    style="
-                      display: block;
-                      fill: none;
-                      height: 20px;
-                      width: 20px;
-                      stroke: currentcolor;
-                      stroke-width: 3;
-                      overflow: visible;
-                      color: black;
-                    "
-                  >
-                    <path
-                      d="M6.6,16.4C8.9,20,11.9,23.1,15.5,25.4l3.4-3.4c0.4-0.4,1-0.5,1.5-0.3c1.6,0.7,3.3,1.1,5,1.1
-                      c0.6,0,1,0.4,1,1v5c0,0.6-0.4,1-1,1C13.4,30,2,18.6,2,5c0-0.6,0.4-1,1-1h5c0.6,0,1,0.4,1,1c0,1.7,0.4,3.4,1.1,5
-                      c0.2,0.5,0.1,1.1-0.3,1.5L6.6,16.4z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="counter-container">
-                <div class="counter">
-                  {{ currentIndex +1}} / {{imagesSlides.length}}
-                </div>
-              </div>
-            </ng-template>
-          </swiper>
-        </ion-col>
-      </ion-row>
-      <!--Row Informacion Principal-->
-      <ion-row>
-        <ion-col size="12" class="colimages">
-          <div class="product-title">
-            <ion-label class="colibri-title">Bungalow León</ion-label>
-            <!-- <ion-label class="colibri-subtitle">Domo geodésico</ion-label> -->
-            <ion-label class="colibri-description"
-              >4 huéspedes · 1 habitación · 2 camas queen · baño · terraza ·
-              cocina</ion-label
-            >
-            <ion-label class="colibri-insignias">
-              <div class="insignias">
+                  <path
+                    fill="none"
+                    d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="love-button-container">
+              <a
+                href="https://wa.me/+523111032724?text={{ loveMessage }}"
+                target="_blank"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
@@ -130,127 +55,172 @@
                   focusable="false"
                   style="
                     display: block;
-                    height: 14px;
-                    width: 14px;
-                    fill: currentcolor;
+                    fill: none;
+                    height: 20px;
+                    width: 20px;
+                    stroke: currentcolor;
+                    stroke-width: 3;
+                    overflow: visible;
+                    color: black;
                   "
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                    d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z"
                   ></path>
                 </svg>
-                &nbsp;Favorito entre huéspedes
-              </div>
-            </ion-label>
-            <ion-label class="colibri-price">
-              <strong>$ 1,450 MXN</strong>
-              noche
-            </ion-label>
-            <div class="separador-container">
-              <hr class="separador" />
+              </a>
             </div>
-          </div>
-        </ion-col>
-      </ion-row>
-      <!--Row Descripción-->
-      <ion-row>
-        <ion-col size="12" class="amenities-column">
-          <div class="colibri-resum">
-            "¡Bienvenido al Bungalow "León", donde la comodidad y la aventura se
-            unen para crear recuerdos inolvidables para hasta cuatro personas! Con
-            dos amplias camas Queen, este refugio te ofrece la libertad de
-            compartir momentos especiales con amigos o familiares en un ambiente
-            íntimo y relajante. Disfruta de todas las comodidades modernas que
-            necesitas para una estadía confortable, desde una cocina totalmente
-            equipada hasta un acogedor espacio de descanso. Sumérgete en la
-            tranquilidad de nuestro oasis y crea recuerdos inolvidables mientras
-            te relajas alrededor de la fogata. ¡Explora la belleza natural que te
-            rodea y vive una experiencia única en nuestro Bungalow "León"!"
-          </div>
-  
-          <div class="separador-container separador-intermediate">
-            <hr class="separador" />
-          </div>
-        </ion-col>
-      </ion-row>
-      <!--Row Amenidades-->
-      <ion-row>
-        <ion-col size="12" class="amenities-column">
-          <div [ngClass]="{'amenities-content': true, 'expanded': expanded}">
-            <ion-label class="amenities-title-label">Lo que ofrecemos</ion-label>
-            <ion-label class="amenities" *ngFor="let amenity of amenities">
-              <div>
+
+            <div class="phone-button-container">
+              <a href="tel:+523111032724" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
                   style="
                     display: block;
-                    height: 24px;
-                    width: 24px;
-                    fill: currentcolor;
+                    fill: none;
+                    height: 20px;
+                    width: 20px;
+                    stroke: currentcolor;
+                    stroke-width: 3;
+                    overflow: visible;
+                    color: black;
                   "
                 >
-                  <path [attr.d]="amenity.svg"></path>
+                  <path
+                    d="M6.6,16.4C8.9,20,11.9,23.1,15.5,25.4l3.4-3.4c0.4-0.4,1-0.5,1.5-0.3c1.6,0.7,3.3,1.1,5,1.1
+                      c0.6,0,1,0.4,1,1v5c0,0.6-0.4,1-1,1C13.4,30,2,18.6,2,5c0-0.6,0.4-1,1-1h5c0.6,0,1,0.4,1,1c0,1.7,0.4,3.4,1.1,5
+                      c0.2,0.5,0.1,1.1-0.3,1.5L6.6,16.4z"
+                  ></path>
                 </svg>
-              </div>
-              <div class="amenities-title">{{amenity.title}}</div>
-            </ion-label>
-          </div>
-          <div class="button-container">
-            <ion-button
-              (click)="toggleExpand()"
-              expand="block"
-              fill="outline"
-              color="dark"
-              class="expanded-button"
-            >
-              {{ expanded ? 'Ver menos' : 'Mostrar todos los servicios' }}
-            </ion-button>
-          </div>
-          <div class="separador-container separador-intermediate">
-            <hr class="separador" />
-          </div>
-        </ion-col>
-      </ion-row>
-      <!--Row Ubicación-->
-      <ion-row>
-        <ion-col size="12" class="amenities-column">
-          <div>
-            <ion-label class="amenities-title-label">
-              Dónde nos ubicamos
-            </ion-label>
-            <div class="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.7698365488786!2d-104.56890502515542!3d21.359571976335044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1718212847860!5m2!1ses-419!2smx"
-                style="border: 0"
-                allowfullscreen="true"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              </a>
             </div>
-          </div>
-          <div class="separador-container separador-intermediate">
+            <div class="counter-container">
+              <div class="counter">
+                {{ currentIndex +1}} / {{imagesSlides.length}}
+              </div>
+            </div>
+          </ng-template>
+        </swiper>
+      </ion-col>
+    </ion-row>
+    <!--Row Informacion Principal-->
+    <ion-row>
+      <ion-col size="12" class="colimages">
+        <div class="product-title">
+          <ion-label class="colibri-title">Bungalow León</ion-label>
+          <!-- <ion-label class="colibri-subtitle">Domo geodésico</ion-label> -->
+          <ion-label class="colibri-description"
+            >4 huéspedes · 1 habitación · 2 camas queen · baño · terraza ·
+            cocina</ion-label
+          >
+          <ion-label class="colibri-insignias">
+            <div class="insignias">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="display: block; height: 14px; width: 14px; color: black"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
+                ></path>
+              </svg>
+              &nbsp;Favorito entre huéspedes
+            </div>
+          </ion-label>
+          <ion-label class="colibri-price">
+            <strong>$ 1,450 MXN</strong>
+            noche
+          </ion-label>
+          <div class="separador-container">
             <hr class="separador" />
           </div>
-          <div class="button-container">
-            <a
-              href="https://wa.me/+523111032724?text={{ loveMessage }}"
-              target="_blank"
-              class="button-interest"
-            >
-              <ion-button
-                expand="block"
-                fill="outline"
-                color="dark"
-                class="expanded-button"
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--Row Descripción-->
+    <ion-row>
+      <ion-col size="12" class="amenities-column">
+        <div class="colibri-resum">
+          "¡Bienvenido al Bungalow "León", donde la comodidad y la aventura se
+          unen para crear recuerdos inolvidables para hasta cuatro personas! Con
+          dos amplias camas Queen, este refugio te ofrece la libertad de
+          compartir momentos especiales con amigos o familiares en un ambiente
+          íntimo y relajante. Disfruta de todas las comodidades modernas que
+          necesitas para una estadía confortable, desde una cocina totalmente
+          equipada hasta un acogedor espacio de descanso. Sumérgete en la
+          tranquilidad de nuestro oasis y crea recuerdos inolvidables mientras
+          te relajas alrededor de la fogata. ¡Explora la belleza natural que te
+          rodea y vive una experiencia única en nuestro Bungalow "León"!"
+        </div>
+
+        <div class="separador-container separador-intermediate">
+          <hr class="separador" />
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--Row Amenidades-->
+    <ion-row>
+      <ion-col size="12" class="amenities-column">
+        <div [ngClass]="{'amenities-content': true, 'expanded': expanded}">
+          <ion-label class="amenities-title-label">Lo que ofrecemos</ion-label>
+          <ion-label class="amenities" *ngFor="let amenity of amenities">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                style="
+                  display: block;
+                  height: 24px;
+                  width: 24px;
+                  fill: currentcolor;
+                "
               >
-                Me interesa
-              </ion-button>
-            </a>
+                <path [attr.d]="amenity.svg"></path>
+              </svg>
+            </div>
+            <div class="amenities-title">{{amenity.title}}</div>
+          </ion-label>
+        </div>
+        <div class="button-container" (click)="toggleExpand()">
+          <button class="expanded-button">
+            {{ expanded ? 'Ver menos' : 'Mostrar todos los servicios' }}
+          </button>
+        </div>
+        <div class="separador-container separador-intermediate">
+          <hr class="separador" />
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--Row Ubicación-->
+    <ion-row>
+      <ion-col size="12" class="amenities-column">
+        <div>
+          <ion-label class="amenities-title-label">
+            Dónde nos ubicamos
+          </ion-label>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3715.7698365488786!2d-104.56890502515542!3d21.359571976335044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84271919fadc9295%3A0xb213d12b58efbdd0!2sVilla%20Ernestina!5e0!3m2!1ses-419!2smx!4v1718212847860!5m2!1ses-419!2smx"
+              style="border: 0"
+              allowfullscreen="true"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
-  
+        </div>
+        <div class="separador-container separador-intermediate">
+          <hr class="separador" />
+        </div>
+        <div class="button-interest" (click)="sendMessage()">Me interesa</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

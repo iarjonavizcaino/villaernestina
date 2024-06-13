@@ -257,7 +257,7 @@
               <ion-label>{{ 'WIFI' | translate }}&nbsp;</ion-label>
             </ion-card-title>
           </ion-card-header>
-          <ion-card-content class="wifi-content">
+          <ion-card-content class="wifi-content" *ngIf="roomname!=='Colibrí'">
             <div class="wificenter">
               <ion-chip class="">
                 <ion-icon name="wifi"></ion-icon>
@@ -276,6 +276,27 @@
               <!-- </ion-note> -->
               <ion-button
                 (click)="copy('17091985')"
+                #btncopy
+                size="small"
+                shape="round"
+                >{{'COPIAR'|translate}}</ion-button
+              >
+            </div>
+          </ion-card-content>
+
+          <ion-card-content class="wifi-content" *ngIf="roomname==='Colibrí'">
+            <div class="wificenter">
+              <ion-chip class="">
+                <ion-icon name="wifi"></ion-icon>
+                <ion-label>COLIBRÍ</ion-label>
+              </ion-chip>
+            </div>
+            <div class="contentcenter centeralign">
+              <!-- <ion-note> -->
+              <ion-label>{{ 'CONTRA1' | translate }}&nbsp;</ion-label>
+              <!-- </ion-note> -->
+              <ion-button
+                (click)="copy('17091984')"
                 #btncopy
                 size="small"
                 shape="round"
@@ -1020,7 +1041,7 @@
     </ion-card-header> -->
     <ion-card-content class="card-content2">
       <ion-grid class="no-padding0">
-        <ion-row>
+        <!-- <ion-row>
           <ion-col size="6">
             <ion-card class="checkingrid">
               <ion-card-header class="nopaddingtop2 nopaddingbottom">
@@ -1058,7 +1079,6 @@
                   target="_blank"
                 >
                   <ion-chip color="tertiary" class="">
-                    <!-- <ion-icon name="images"></ion-icon> -->
                     <ion-label>{{"CATALOGO"|translate}}</ion-label>
                   </ion-chip>
                 </a>
@@ -1112,7 +1132,6 @@
                   target="_blank"
                 >
                   <ion-chip color="tertiary" class="">
-                    <!-- <ion-icon name="images"></ion-icon> -->
                     <ion-label>{{"CATALOGO"|translate}}</ion-label>
                   </ion-chip>
                 </a>
@@ -1124,10 +1143,9 @@
               >
                 <ion-label>{{'VIEWMORE'|translate}}</ion-label>
               </ion-button>
-              <!-- Modal León -->
             </ion-card>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
         <ion-row>
           <ion-col size="12" class="logovilla">
             <ion-img src="../../assets/img/Logosinfondo.png"></ion-img>

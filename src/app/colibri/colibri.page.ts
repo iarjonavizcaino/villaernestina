@@ -176,4 +176,11 @@ export class ColibriPage implements OnInit {
     this.expanded = !this.expanded;
   }
 
+  sendMessage() {
+    var phoneNumber = "+523111032724"; // Reemplaza con tu número de teléfono
+      var message = this.loveMessage;
+      var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+      window.open(url, '_blank');
+  }
+
 }
