@@ -17,8 +17,8 @@
           <div class="placetitle">
             <ion-label class="domotitle"> Colibrí </ion-label>
             <ion-label class="colibri-resum">
-              4 huéspedes · 1 habitación con tapanco · 2 camas · 1 baño ·
-              tina exterior · cocina
+              4 huéspedes · 1 habitación con tapanco · 2 camas · 1 baño · tina
+              exterior · cocina
             </ion-label>
           </div>
         </ion-card>
@@ -88,11 +88,7 @@
         </ion-card>
       </ion-col>
       <!--León-->
-      <ion-col
-        size="6"
-        class="no-padding"
-        (click)="viewDetails('lion')"
-      >
+      <ion-col size="6" class="no-padding" (click)="viewDetails('lion')">
         <ion-card class="no-padding">
           <div class="imgbungalows">
             <ion-img
@@ -126,7 +122,11 @@
           *ngIf="isContentload"
           class="no-padding"
         >
-          <ng-template swiperSlide class="no-padding" *ngFor="let comment of principalcomments; let i = index ">
+          <ng-template
+            swiperSlide
+            class="no-padding"
+            *ngFor="let comment of principalcomments; let i = index "
+          >
             <ion-card class="principalmessage no-padding">
               <ion-card-content class="comments-content">
                 <div class="stars">
@@ -142,23 +142,18 @@
                       width: 0.5625rem;
                       fill: var(--linaria-theme_palette-hof);
                     "
-                  *ngFor="let star of numSequence(comment.starts)"
+                    *ngFor="let star of numSequence(comment.starts)"
                   >
                     <path
                       fill-rule="evenodd"
                       d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
                     ></path>
                   </svg>
-                  <span>
-                     &nbsp;{{"· "+comment.month}}
-                  </span>
+                  <span> &nbsp;{{"· "+comment.month}} </span>
+                  <span> &nbsp;{{"· "+comment.place}} </span>
                 </div>
-                <div class="comment2">
-                  {{comment.comment}}
-                </div>
-                <div class="name2 no-padding">
-                  {{comment.name}}
-                </div>
+                <div class="comment">{{comment.comment}}</div>
+                <div class="name no-padding">{{comment.name}}</div>
               </ion-card-content>
             </ion-card>
           </ng-template>
@@ -173,8 +168,11 @@
 
     <!--Logotipo-->
     <ion-row class="no-padding">
-      <ion-col size="12" class="logovillafoot no-padding" >
-        <ion-img src="../../assets/img/Logosinfondo.png" class="no-padding"></ion-img>
+      <ion-col size="12" class="logovillafoot no-padding">
+        <ion-img
+          src="../../assets/img/Logosinfondo.png"
+          class="no-padding"
+        ></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -208,7 +206,7 @@
 
     <!-- Más información -->
     <ion-card-content class="card-content no-padding">
-     <div class="txtcenter">
+      <div class="txtcenter">
         <a href="tel:+523111032724">
           <ion-chip [outline]="true" color="primary">
             <ion-avatar color="primary">

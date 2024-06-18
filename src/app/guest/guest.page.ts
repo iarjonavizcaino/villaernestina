@@ -67,34 +67,60 @@ export class GuestPage implements OnInit {
 
   public principalcomments = [
     {
+      name: 'Luis',
+      month: 'Junio 2024',
+      comment: `"Todo perfecto, el alojamiento es tal cual se describe y es muy cómodo , limpio, ordenado y Mariela es excelente anfitrión. Sin duda volveríamos."`,
+      starts: 5,
+      place: 'Colibrí'
+    },
+    {
       name: 'Roberto',
       month: 'Mayo 2024',
       comment: `"El Bungalow es genial, el cuarto es amplio y muy cómodo, en el exterior cuenta con un jardín con todo lo necesario (asador, fogata, sillas, camastros, kayaks), muy recomendable"`,
-      starts: 5
+      starts: 5,
+      place: 'León'
     },
     {
       name: 'Claus',
       month: 'Mayo 2024',
       comment: `"Nos encantó. Pasamos un tiempo muy agradable. El alojamiento muy bonito, cerca de la laguna, de restaurantes y de tiendas. Todo al 100. Seguramente volvemos"`,
-      starts: 5
+      starts: 5,
+      place: 'Elefante'
+    },
+    {
+      name: 'Francisco',
+      month: 'Marzo 2024',
+      comment: `"Excelente opción para descansar cerca de la Laguna de SAMAO, la pasamos muy bien la habitación muy comoda con muy buenas amenidades, disfrutamos del kayac y la alberca. Gracias a Mariela por estar atenta en nuestra estancia."`,
+      starts: 5,
+      place: 'León'
     },
     {
       name: 'Paul',
       month: 'Marzo 2024',
       comment: `"This place was amazing. Between the mountains near the lake. Stunning view from the terrace and all the amenities you need. We were very pleasantly surprised"`,
-      starts: 5
+      starts: 5,
+      place: 'Elefante'
     },
     {
       name: 'Michelle',
       month: 'Febrero 2024',
       comment: `"El lugar es aún más bonito que en las fotos, se respira tranquilidad, las áreas son preciosas para salir y tomar al aire. Las instrucciones para llegar fueron claras así como me encanto las recomendaciones de su app y la rapidez para contestar. Me encanto que tiene servicio de kayak y chalecos salvavidas gratis, por lo cual no dudamos en aprovecharlos, el lugar esta súper cerca de la entrada y de todo puedes salir caminando tranquilamente, definitivamente es súper buena opción para desconectarte y pasar un buen rato!"`,
-      starts: 5
+      starts: 5,
+      place: 'Elefante'
+    },
+    {
+      name: 'Karen',
+      month: 'Enero 2024',
+      comment: `"Pasamos un fin de semana genial en el bungalow. Todo coincidió con los servicios ofrecidos y siempre nos trataron de una manera cordial y amigable. Definitivamente regresaremos ✨"`,
+      starts: 5,
+      place: 'León'
     },
     {
       name: 'Sussan',
       month: 'Octubre 2023',
       comment: `"Lugar muy bello, genial para niños con la piscina y el trampolin. Nos prestaron kayaks y el paseo por la laguna fue espectacular. Cuarto muy comodo y agradable terreno con lindas vistas."`,
-      starts: 5
+      starts: 5,
+      place: 'Elefante'
     },
   ]
 
