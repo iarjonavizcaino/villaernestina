@@ -13,8 +13,8 @@ import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Z
 @Component({
   selector: 'app-lion',
   templateUrl: './lion.page.html',
-  styleUrls: ['./lion.page.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./lion.page.scss']
+  // encapsulation: ViewEncapsulation.None
 })
 export class LionPage implements OnInit {
 
