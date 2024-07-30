@@ -21,6 +21,7 @@ SwiperCore.use([Autoplay, IonicSlides]);
 })
 export class Tab1Page {
 
+
   @ViewChild('swiperSlideShow') swiperSlideShow: SwiperComponent;
   @ViewChild("kayakmodal") modalKayak: IonModal;
   @ViewChild("massagemodal") modalMassage: IonModal;
@@ -59,6 +60,7 @@ export class Tab1Page {
   public intermediateDays = false;
   public pastCheckout = false;
   private subscription;
+  public roomtype: string;
 
   viewInstructions = 0;
 
@@ -91,6 +93,7 @@ export class Tab1Page {
         let room: Room;
         room = await this.huespedService.getRoom(this.huesped.room);
         this.roomname = room.name;
+        this.roomtype = this.roomname === "Colibrí" ? "Glamping" : "Bungalow";
         this.roomcode = room.code;
         // this.roomname = this.huesped.room;
         // this.roomcode = await this._storage?.get("roomcode");
