@@ -33,6 +33,7 @@ export class Tab1Page {
   private _storage: Storage | null = null;
 
   public room: Room;
+  public textCheckout: string;
 
   config: SwiperOptions = {
     slidesPerView: 1,
@@ -94,6 +95,7 @@ export class Tab1Page {
         room = await this.huespedService.getRoom(this.huesped.room);
         this.roomname = room.name;
         this.roomtype = this.roomname === "Colibrí" ? "Glamping" : "Bungalow";
+        this.textCheckout = `https://wa.me/+523111032724?text=Hola Mariela ya salimos del ${this.roomtype} ${this.roomname}`;
         this.roomcode = room.code;
         // this.roomname = this.huesped.room;
         // this.roomcode = await this._storage?.get("roomcode");
