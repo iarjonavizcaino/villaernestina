@@ -145,6 +145,23 @@ export class HuespedService {
     )
   }
 
+  public filterByProcess(): Observable<Huesped[]> {
+    let now = new Date();
+    // console.log(now);
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    console.log(now.toISOString());
+    let fecha = now.toISOString().substring(0, 19) + "-00:00";
+    return this.firestore.collection('Huesped', ref => ref.where('departureDate', '>=', fecha)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+    )
+  }
+
   public filterByLionRoom(): Observable<Huesped[]> {
     return this.firestore.collection('Huesped', ref => ref.where('room', '==', 'León')).snapshotChanges().pipe(
       map(actions => {

@@ -42,6 +42,12 @@
                     </ion-avatar>
                     <ion-label>{{item.room}}</ion-label>
                 </ion-chip>
+                <ion-chip [outline]="true" color="primary" *ngIf="item.room == 'Colibrí'" class="chip-card">
+                    <ion-avatar color="light">
+                        <img alt="image of elephant" src="../../assets/img/colibri.png" />
+                    </ion-avatar>
+                    <ion-label>{{item.room}}</ion-label>
+                </ion-chip>
             </ion-card-subtitle>
 
         </ion-card-header>

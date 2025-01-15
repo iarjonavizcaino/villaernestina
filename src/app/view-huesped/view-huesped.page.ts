@@ -23,23 +23,23 @@ export class ViewHuespedPage implements OnInit {
 
   constructor(private huespedService: HuespedService, private alertController: AlertController, private router: Router, private fb: FormBuilder) {
     this.message = 'Gracias por tu reservación, para ver más detalles ingresa a https://villaernestina-52a85.web.app/login?token=';
-    this.huespedService.getHuespeds().subscribe(res => {
+    this.huespedService.filterByDateAdmission().subscribe(res => {
       this.huespeds = res;
-      // this.huespedsFilter = this.huespeds;
       let now = new Date();
-      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-      let fecha = now.toISOString().substring(0, 19) + "-00:00";
-      this.huespedsFilter = this.huespeds.filter(
-        (obj) => {
-          return obj.dateAdmission >= fecha;
-        }
-      );
-      this.huespedsFilter.sort(
-        (a, b) => {
-          return a.dateAdmission.localeCompare(b.dateAdmission);
-        }
-      );
+      // now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      // let fecha = now.toISOString().substring(0, 19) + "-00:00";
+      this.huespedsFilter = this.huespeds;
+      // this.huespedsFilter.sort(
+      //   (a, b) => {
+      //     return a.dateAdmission.localeCompare(b.dateAdmission);
+      //   }
+      // );
     })
+
+    /*this.huespedService.filterByDateAdmission().subscribe(res => {
+      this.huespeds = res;
+      console.log(this.huespeds);
+    });*/
   }
 
   ngOnInit() {
@@ -137,18 +137,36 @@ export class ViewHuespedPage implements OnInit {
   }
 
   public filterByProcess(): void {
-    let now = new Date();
-    console.log(now);
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    console.log(now.toISOString());
-    let fecha = now.toISOString().substring(0, 19) + "-00:00";
-    console.log(fecha);
-    this.huespedsFilter = this.huespeds.filter(
-      (obj) => {
-        return obj.dateAdmission <= fecha && obj.departureDate>=fecha;
-      }
-    );
+
+
+    this.huespedService.getHuespeds().subscribe(res => {
+      this.huespeds = res;
+      this.huespedsFilter = this.huespeds;
+      let now = new Date();
+      console.log(now);
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      console.log(now.toISOString());
+      let fecha = now.toISOString().substring(0, 19) + "-00:00";
+      console.log(fecha);
+
+      this.huespedsFilter = this.huespeds.filter(
+        (obj) => {
+          return obj.dateAdmission <= fecha && obj.departureDate >= fecha;
+        }
+      );
+      this.huespedsFilter.sort(
+        (a, b) => {
+          return a.dateAdmission.localeCompare(b.dateAdmission);
+        }
+      )
+    });
+
+   
+    
+
+    
   }
+
 
   public filterByDateAdmission(): void {
     let now = new Date();
@@ -159,6 +177,12 @@ export class ViewHuespedPage implements OnInit {
         return obj.dateAdmission >= fecha;
       }
     );
+
+    this.huespedsFilter.sort(
+      (a, b) => {
+        return a.dateAdmission.localeCompare(b.dateAdmission);
+      }
+    )
   }
 
   public filterByLionRoom(): void {
@@ -179,20 +203,34 @@ export class ViewHuespedPage implements OnInit {
 
   }
 
-  search(event) {
+  async search(event) {
     const query = event.target.value.toLowerCase();
-    //console.log(query)
-    if (!query || query === "undefined" || query === "")
-      this.all();
+    // console.log(query)
+    if (!query || query === "undefined" || query === "") {
+      //console.log(this.myForm.get('filter').value).subscribe(selectedValue => {
+      switch (this.myForm.get('filter').value) {
+        case 'dateAdmission': await this.filterByDateAdmission(); break;
+        case 'process': await this.filterByProcess(); break;
+        case 'all': await this.filterByAll(); break;
+        case 'lion': await this.filterByLionRoom(); break;
+        case 'elephant': await this.filterByElephantRoom(); break;
+      };
+
+      this.huespedsFilter.sort(
+        (a, b) => {
+          return a.dateAdmission.localeCompare(b.dateAdmission);
+        }
+      );
+    }
     else {
-      //console.log("Intentando filtrar...");
-      this.huespedsFilter = this.huespeds.filter(
+      // console.log("Intentando filtrar...");
+      this.huespedsFilter = this.huespedsFilter.filter(
         d => { return d.name.split(" ")[0].toLowerCase().includes(query.toLowerCase()) }
       );
     }
   }
 
-  async pay(huesped:Huesped) {
+  async pay(huesped: Huesped) {
     const alert = await this.alertController.create({
       header: '¿Desea registrar el pago?',
       buttons: [
@@ -221,9 +259,9 @@ export class ViewHuespedPage implements OnInit {
   }
 
   public deleteSpaces(cad: string) {
-    console.log("Cadena "+cad);
-    console.log("Cadena sin espacios"+cad.replace(/ /g,""));
-    return cad.replace(/ /g,"");
+    // console.log("Cadena "+cad);
+    // console.log("Cadena sin espacios"+cad.replace(/ /g,""));
+    return cad.replace(/ /g, "");
   }
 
 }
