@@ -23,6 +23,7 @@ export class NewHuespedPage implements OnInit {
   public dateSelected: any;
   public isContentLoaded: boolean = false;
   public rest = 0;
+  public nights = 1;
   @ViewChild('inname', { static: false }) inName!: IonInput;
 
 
@@ -49,20 +50,18 @@ export class NewHuespedPage implements OnInit {
       //console.log(this.roomSelected);
     });
 
- 
-
-
 
     this.myForm = this.fb.group({
       name: ["", Validators.required],
       phone: ["", Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(17), Validators.pattern(/\+\d+/)])],
       dateAdmission: [this.today, Validators.required],
-      departureDate: [this.dayDeparture, Validators.required],
+      //departureDate: [this.dayDeparture, Validators.required],
       room: ["Elefante", Validators.required],
       gender: ["woman", Validators.required],
       platform: ["airbnb", Validators.required],
       price: [0],
-      advance: [0]
+      advance: [0],
+      //nights: 1
     });
     this.validatorMessages = {
       name: [
@@ -77,9 +76,9 @@ export class NewHuespedPage implements OnInit {
       dateAdmission: [
         { type: 'required', message: "Fecha de entrada obligatoria" }
       ],
-      departureDate: [
-        { type: 'required', message: "Fecha de salida obligatoria" }
-      ],
+      // departureDate: [
+      //   { type: 'required', message: "Fecha de salida obligatoria" }
+      // ],
       room: [
         { type: 'required', message: "Cuarto obligatorio" }
       ]
@@ -87,29 +86,27 @@ export class NewHuespedPage implements OnInit {
 
 
     this.myForm.get('dateAdmission').valueChanges.subscribe(selectedValue => {
-      console.log("Fecha seleccionada: "+selectedValue);
+      console.log("Fecha seleccionada: " + selectedValue);
       let newDay = new Date(selectedValue);
       newDay.setDate(newDay.getDate() + 2);
-      console.log("Fecha nueva: "+newDay);
+      console.log("Fecha nueva: " + newDay);
       this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
       console.log(this.dayDeparture);
-      this.myForm.get("departureDate").setValue(this.dayDeparture);
+      //this.myForm.get("departureDate").setValue(this.dayDeparture);
     });
 
-    
+
   }
 
   ngOnInit() {
-    
-    
-    
-    
+
+
   }
 
   getDate() {
     const date = new Date();
     this.today = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/
-    date.setDate(date.getDate()+1);
+    date.setDate(date.getDate() + 1);
     this.dayDeparture = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + (date.getDate())).slice(-2); /*console.log(this.today);*/
   }
 
@@ -152,6 +149,7 @@ export class NewHuespedPage implements OnInit {
 
   public newHuesped(data): void {
     if (this.checkRoom(data['room'], data['dateAdmission'])) {
+      data.departureDate = this.dayDeparture;
       //Construir el objeto
       data.token = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
 
@@ -159,7 +157,7 @@ export class NewHuespedPage implements OnInit {
       data.departureDate = data.departureDate.substring(0, 11) + "T14:00:00-07:00";
       //console.log(data);
 
-      data.phone = data.phone.replace(/ /g,"");
+      data.phone = data.phone.replace(/ /g, "");
 
 
       this.huesped = data;
@@ -174,10 +172,10 @@ export class NewHuespedPage implements OnInit {
   public changeRoom() {
     let room = this.myForm.get("room").value;
 
-    console.log("Room"+room);
-    
+    console.log("Room" + room);
+
     let platform = this.myForm.get("platform").value;
-    console.log("platform"+platform);
+    console.log("platform" + platform);
 
     this.roomSelected = this.rooms.find(elem => {
       return elem.name === room;
@@ -185,18 +183,18 @@ export class NewHuespedPage implements OnInit {
 
     console.log(this.roomSelected);
 
-    if(platform==="airbnb") {
+    if (platform === "airbnb") {
       this.myForm.get('price').setValue(0);
       this.myForm.get('advance').setValue(0);
       this.rest = 0;
-    } else if(platform==="direct") {
+    } else if (platform === "direct") {
       this.myForm.get('price').setValue(this.roomSelected.price);
-      this.myForm.get('advance').setValue(this.roomSelected.price/2);
+      this.myForm.get('advance').setValue(this.roomSelected.price / 2);
 
-      this.rest = this.roomSelected.price/2;
+      this.rest = this.roomSelected.price / 2;
     }
 
-    
+
   }
 
   public checkRoom(room, dA) {
@@ -254,6 +252,32 @@ export class NewHuespedPage implements OnInit {
 
   closeModal() {
 
+  }
+
+  public changeDepartureDate() {
+    let newDay = new Date(this.myForm.get('dateAdmission').value);
+    console.log(newDay);
+    newDay.setDate(newDay.getDate() + this.nights+1);
+    console.log("Fecha nueva: " + newDay+2);
+    this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
+    console.log(this.dayDeparture);
+    //this.dayDeparture = this.myForm.get('dateAdmission').value + this.myForm.get('nights').value;
+  }
+
+  public modifyNights(nights){
+    console.log(nights);
+    console.log(this.nights);
+    if(nights>0 ){
+      //this.myForm.get('nights').setValue(this.myForm.get('nights').value+nights);
+      this.nights = this.nights+nights;
+      this.changeDepartureDate();
+    } else {
+      if(this.nights>1) {
+        this.nights = this.nights+nights;
+        this.changeDepartureDate();
+      }
+        //this.myForm.get('nights').setValue(this.myForm.get('nights').value+nights);
+    }
   }
 
 

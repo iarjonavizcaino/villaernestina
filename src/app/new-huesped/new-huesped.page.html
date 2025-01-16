@@ -125,7 +125,7 @@
                 (change)="getRest(myForm.get('price').value, myForm.get('advance').value)"
               ></ion-input>
             </ion-item>
-            <div>
+            <!-- <div>
               <ng-container
                 *ngIf="(myForm.get('price').dirty || myForm.get('price').touched)&&myForm.get('platform').value==='direct'&&myForm.get('price').value<1000"
               >
@@ -133,7 +133,7 @@
                   {{"El precio debe ser mayor que 1000"}}
                 </div>
               </ng-container>
-            </div>
+            </div> -->
           </ion-col>
         </ion-row>
         <!-- Anticipo -->
@@ -178,7 +178,6 @@
               <ion-datetime-button datetime="datetime"></ion-datetime-button>
               <ion-modal [keepContentsMounted]="true" #modaldatetime>
                 <ng-template>
-                  <!-- <ion-datetime ></ion-datetime> -->
                   <ion-datetime
                     class="calendar"
                     id="datetime"
@@ -186,6 +185,7 @@
                     [min]="today"
                     presentation="date"
                     (ionChange)="modaldatetime.dismiss();"
+                    
                   >
                     <span slot="title">Selecciona la fecha de ingreso</span>
                   </ion-datetime>
@@ -206,13 +206,42 @@
             </div>
           </ion-col>
         </ion-row>
+        <!-- Nigths -->
+        <ion-row>
+          <ion-col> </ion-col>
+        </ion-row>
         <!-- Checkout -->
         <ion-row>
-          <ion-col size="12">
+          <ion-col size="3">
             <!-- <ng-container *ngFor="let item of validatorMessages['dateAdmission']"> -->
-            <ion-item id="item">
-              Salida:&nbsp;
-              <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+            
+              <ion-button (click)="modifyNights(-1)" expand="block" color="danger">
+                <ion-icon name="arrow-down-outline"></ion-icon>
+              </ion-button>
+            <!-- </ion-item> -->
+          </ion-col>
+          <ion-col size="6">
+              <ion-item>
+                <ion-label class="day-departure">{{dayDeparture | date: 'dd/MMM/yyyy'}}</ion-label>
+              </ion-item>
+          </ion-col>
+          <ion-col size="3">
+            <!-- <ion-item> -->
+              <!-- <ion-item> {{nights}} </ion-item> -->
+              <ion-button (click)="modifyNights(1)" expand="block">
+                <ion-icon name="arrow-up-outline"></ion-icon>
+              </ion-button>
+
+              <!-- <ion-input type="number"
+                formControlName="nights"
+                [min]="1"
+                #innights
+                (ionChange)="changeDepartureDate()"
+              ></ion-input> -->
+
+              
+
+              <!-- <ion-datetime-button datetime="datetime2"></ion-datetime-button>
               <ion-modal [keepContentsMounted]="true" #modaldatetime2>
                 <ng-template>
                   <ion-datetime
@@ -221,16 +250,16 @@
                     presentation="date"
                     [min]="dayDeparture"
                     formControlName="departureDate"
-                    (click)="getForm()"
+                    [value]="dayDeparture"
                     (ionChange)="modaldatetime2.dismiss();"
                   >
                     <span slot="title">Selecciona la fecha de salida</span>
                   </ion-datetime>
                 </ng-template>
-              </ion-modal>
-            </ion-item>
+              </ion-modal> -->
+            <!-- </ion-item> -->
             <!-- </ng-container> -->
-            <div>
+            <!-- <div>
               <ng-container
                 *ngFor="let item of validatorMessages['departureDate']"
               >
@@ -241,7 +270,7 @@
                   {{item.message}}
                 </div>
               </ng-container>
-            </div>
+            </div> -->
           </ion-col>
         </ion-row>
       </ion-grid>
