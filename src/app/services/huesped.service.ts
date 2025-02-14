@@ -34,7 +34,9 @@ export class HuespedService {
 
   getDate() {
     this.today = new Date();
-    this.today = this.today.toISOString();
+    console.log(this.today.toISOString());
+    this.today = this.today.toISOString().substring(0, 11)+"00:00:00-00:00";
+    //this.today = this.today
   }
 
   public getHuespeds(): Observable<Huesped[]> {
@@ -134,6 +136,7 @@ export class HuespedService {
   }
 
   public filterByDateAdmission(): Observable<Huesped[]> {
+    console.log(this.today);
     return this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '>=', this.today)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {

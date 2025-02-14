@@ -22,12 +22,12 @@
     </form>
     <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
         <ion-card-header class="header-card">
-            <ion-card-title class="title-card">{{item.name.split(" ")[0] | uppercase}}</ion-card-title>
-            <ion-card-subtitle class="card-subtitle" class="subtitle-card">
+            <ion-card-title class="title-card">{{item.name | uppercase}}</ion-card-title>
+            <ion-card-subtitle  class="subtitle-card">
                 <ion-chip [outline]="true" class="chip-card airbnb" *ngIf="item.platform == 'airbnb'">
                     <ion-label>{{"Airbnb"}}</ion-label>
                 </ion-chip>
-                <ion-chip [outline]="true" color="primary" *ngIf="item.platform == 'direct'">
+                <ion-chip [outline]="true" color="primary" class="chip-card" *ngIf="item.platform == 'direct'">
                     <ion-label>{{"Directo"}}</ion-label>
                 </ion-chip>
                 <ion-chip [outline]="true" color="warning" *ngIf="item.room == 'León'" class="chip-card">

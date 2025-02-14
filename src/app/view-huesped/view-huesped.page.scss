@@ -82,19 +82,24 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-content: stretch;
-    padding-top: 5px;
+    padding-top: 0px;
+    padding-right: 0;
+    padding-left: 10px;
 }
 
 .subtitle-card {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px;
 }
 
 .title-card {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
+    font-weight: bolder;
 }
 
 .divider {
@@ -115,4 +120,9 @@
 
 .rest {
     color: red;
+}
+
+.chip-card {
+    font-size: 12px;
+    margin-left: 0px;
 }
