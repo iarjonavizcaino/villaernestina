@@ -32,7 +32,6 @@
       </ion-card-title>
       <ion-card-title class="fontbold txtcenter2" *ngIf="pastCheckout">
         <ion-label> {{huespedname+" "}} </ion-label>
-        <!-- <ion-label class="thanks">{{ 'GRACIAS' | translate }}</ion-label> -->
       </ion-card-title>
       <ion-card-subtitle class="cardpsub" *ngIf="futureCheckin||todayCheckin">
         {{ 'BIENVENIDA_P1' | translate }}
@@ -1006,41 +1005,6 @@
     </ion-card-content>
   </ion-card>
 
-  <!--INSTRUCCIONES CHECKOUT BLOQUEADAS -->
-  <!-- <ion-card
-    *ngIf="todayCheckin&&intermediateDays"
-  >
-    <ion-card-header>
-      <ion-card-title class="fontbold">
-        {{ 'INSTRUCCIONESSAL' | translate }}
-      </ion-card-title>
-      <ion-card-subtitle class="">
-        <div class="contentcenter">
-          <ion-chip color="tertiary">
-            <ion-icon name="calendar-clear"></ion-icon>
-            <ion-label>{{ departuredate.substring(0,10) }}</ion-label>
-          </ion-chip>
-
-          <ion-chip color="danger" id="infcheckout">
-            <ion-icon name="time"></ion-icon>
-            <ion-label>{{ "12:00" }}</ion-label>
-            <ion-icon name="information-circle"></ion-icon>
-          </ion-chip>
-          <ion-popover trigger="infcheckout" triggerAction="hover">
-            <ng-template>
-              <ion-content class="ion-padding">
-                <ion-label> {{ 'CHECKOUT_P2' | translate }} </ion-label>
-                <a href="https://wa.me/+523111032724?" target="_blank">
-                  <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
-                </a>
-              </ion-content>
-            </ng-template>
-          </ion-popover>
-        </div>
-      </ion-card-subtitle>
-      <ion-card-content> {{ 'HABILITAR2' | translate }} </ion-card-content>
-    </ion-card-header>
-  </ion-card> -->
 
   <!--NUESTROS PRODUCTOS  -->
   <ion-card color="light" (click)="restart()">

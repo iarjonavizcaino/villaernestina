@@ -157,7 +157,7 @@ export class ColibriPage implements OnInit {
 
   expanded: boolean = false;
 
-  public loveMessage: string = "Hola Mariela, me interesa el Bungalow Colibrí, me podrías proporcionar más información";
+  public loveMessage: string = "Hola Mariela, me interesa el Glamping Colibrí, me podrías proporcionar más información";
 
   constructor(private router: Router, private navCtrl: NavController) { }
 
