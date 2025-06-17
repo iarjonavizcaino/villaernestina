@@ -128,6 +128,7 @@ export class ViewHuespedPage implements OnInit {
     this.myForm.get('filter').valueChanges.subscribe(selectedValue => {
       switch (selectedValue) {
         case 'dateAdmission': this.filterByDateAdmission(); break;
+        case 'today': this.filterByToday(); break;
         case 'process': this.filterByProcess(); break;
         case 'all': this.filterByAll(); break;
         case 'lion': this.filterByLionRoom(); break;
@@ -138,6 +139,35 @@ export class ViewHuespedPage implements OnInit {
 
   public all(): void {
     this.huespedsFilter = this.huespeds;
+  }
+
+   public filterByToday(): void {
+    this.huespedService.filterByProcess().subscribe(res => {
+      this.huespeds = res;
+
+      this.huespeds.sort(
+        (a, b) => {
+          return a.dateAdmission.localeCompare(b.dateAdmission);
+        }
+      );
+
+      let now = new Date();
+     
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      //console.log(now.toISOString());
+      let fecha = now.toISOString().substring(0, 11) + "00:00:00-07:00";
+      //console.log("HOY/n"+fecha);
+      this.huespedsFilter = this.huespeds.filter(
+        (obj) => {
+          //console.log(obj.dateAdmission);
+          return obj.dateAdmission === fecha;
+        }
+      );
+      
+      this.huespeds = this.huespedsFilter;
+      //console.log("Universo");
+      //console.log(this.huespeds);
+    });
   }
 
   public filterByProcess(): void {
@@ -167,11 +197,6 @@ export class ViewHuespedPage implements OnInit {
       //console.log("Universo");
       //console.log(this.huespeds);
     });
-
-   
-    
-
-    
   }
 
 

@@ -10,6 +10,7 @@ export class Huesped {
     price?: number;
     advance?:number;
     id?:string;
+    people?:number;
 }
 
 export class Room{

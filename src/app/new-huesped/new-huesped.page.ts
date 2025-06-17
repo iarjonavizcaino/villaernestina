@@ -39,7 +39,8 @@ export class NewHuespedPage implements OnInit {
       gender: "",
       platform: "Airbnb",
       price: 0,
-      advance: 0
+      advance: 0,
+      people: 0
     }];
 
     this.getDate();
@@ -61,6 +62,7 @@ export class NewHuespedPage implements OnInit {
       platform: ["airbnb", Validators.required],
       price: [0],
       advance: [0],
+      people: 2
       //nights: 1
     });
     this.validatorMessages = {
@@ -172,16 +174,16 @@ export class NewHuespedPage implements OnInit {
   public changeRoom() {
     let room = this.myForm.get("room").value;
 
-    console.log("Room" + room);
+    //console.log("Room" + room);
 
     let platform = this.myForm.get("platform").value;
-    console.log("platform" + platform);
+    //console.log("platform" + platform);
 
     this.roomSelected = this.rooms.find(elem => {
       return elem.name === room;
     });
 
-    console.log(this.roomSelected);
+    //console.log(this.roomSelected);
 
     if (platform === "airbnb") {
       this.myForm.get('price').setValue(0);
@@ -192,6 +194,12 @@ export class NewHuespedPage implements OnInit {
       this.myForm.get('advance').setValue(this.roomSelected.price / 2);
 
       this.rest = this.roomSelected.price / 2;
+    }
+
+    switch(this.roomSelected.name){
+      case "Elefante": this.myForm.get('people').setValue(2); break;
+      case "León": this.myForm.get('people').setValue(4); break;
+      case "Colibrí": this.myForm.get('people').setValue(4); break;
     }
 
 

@@ -136,7 +136,7 @@ export class HuespedService {
   }
 
   public filterByDateAdmission(): Observable<Huesped[]> {
-    console.log(this.today);
+    //console.log(this.today);
     return this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '>=', this.today)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
