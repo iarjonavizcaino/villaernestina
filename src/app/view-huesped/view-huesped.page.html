@@ -245,11 +245,45 @@
         </ion-chip>
       </div>
       <div class="huespedroom">
-        {{item.dateAdmission|date: 'd MMM' }} - {{item.departureDate|date: 'd
-        MMM' }} ({{diffInDays(item.dateAdmission, item.departureDate)}})
+        {{item.dateAdmission|date: 'd MMM' }} - {{item.departureDate|date: 'd MMM' }} ({{diffInDays(item.dateAdmission, item.departureDate)}})
       </div>
       <div class="huespedpeople">{{huespedQty(item.people)}}{{petsQty(item.pets)}}</div>
-
+      <div class="text-center">
+          <a
+            href="https://wa.me/{{deleteSpaces(item.phone)}}?text={{'Hola '+item.name +' '+ message+item.token}}"
+            target="_blank"
+          >
+            <ion-chip [outline]="true">
+              <ion-icon name="logo-whatsapp" color="success"></ion-icon>
+              <ion-label>Info </ion-label>
+              <ion-icon name="send" color="primary"></ion-icon>
+            </ion-chip>
+          </a>
+          <a href="/?token={{item.token}}">
+            <ion-chip [outline]="true">
+              <ion-icon name="person-circle"></ion-icon>
+              <ion-label>Perfil </ion-label>
+            </ion-chip>
+          </a>
+          <a href="https://wa.me/{{item.phone}}" target="_blank">
+            <ion-chip [outline]="true">
+              <ion-icon
+                name="logo-whatsapp"
+                color="success"
+                class="icon-center"
+              ></ion-icon>
+              <!-- <ion-label>Chat </ion-label>
+                        <ion-icon name="send" color="primary"></ion-icon> -->
+            </ion-chip>
+          </a>
+          <ion-button
+            (click)="removeHuesped(item.token)"
+            fill="clear"
+            class="btn-delete"
+          >
+            <ion-icon name="trash-outline" color="danger"></ion-icon>
+          </ion-button>
+        </div>
     </ion-card>
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button (click)="newHuesped()">
