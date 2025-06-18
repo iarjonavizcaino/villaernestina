@@ -13,7 +13,7 @@
       <ion-grid>
         <!-- Nombre -->
         <ion-row>
-          <ion-col>
+          <ion-col size="8">
             <ion-item id="item">
               <ion-label position="floating">Nombre</ion-label>
               <ion-input
@@ -32,6 +32,12 @@
                 </div>
               </ng-container>
             </div>
+          </ion-col>
+          <ion-col size="4">
+            <ion-item id="item">
+                <ion-label position="floating">Personas</ion-label>
+                <ion-input label="Personas" type="number" min="1" formControlName="people"></ion-input>
+              </ion-item>
           </ion-col>
         </ion-row>
         <!-- Habitación -->
@@ -97,10 +103,11 @@
               </ng-container>
             </div>
           </ion-col>
+          <!-- Mascotas-->
           <ion-col size="4">
             <ion-item id="item">
-                <ion-label position="floating">Personas</ion-label>
-                <ion-input label="Personas" type="number" formControlName="people"></ion-input>
+                <ion-label position="floating">Mascotas</ion-label>
+                <ion-input label="Personas" type="number" formControlName="pets"></ion-input>
               </ion-item>
           </ion-col>
         </ion-row>

@@ -133,3 +133,47 @@
     text-align: center;
     margin: 0
 }
+
+.huespedname {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bolder;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-family: "CerealBold";
+    color: black;
+    margin: 0;
+    justify-content: space-between;
+
+}
+
+.huespedroom {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: lighter;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: black;
+    margin: 0
+}
+.huespedpeople {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: lighter;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    color: black;
+    margin: 0
+}
+
+.roomhuesped {
+    padding-left: 20px;
+}
+
+.namehuesped {
+
+}

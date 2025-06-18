@@ -40,7 +40,8 @@ export class NewHuespedPage implements OnInit {
       platform: "Airbnb",
       price: 0,
       advance: 0,
-      people: 0
+      people: 0,
+      pets:0
     }];
 
     this.getDate();
@@ -62,7 +63,8 @@ export class NewHuespedPage implements OnInit {
       platform: ["airbnb", Validators.required],
       price: [0],
       advance: [0],
-      people: 2
+      people: 2,
+      pets: 0
       //nights: 1
     });
     this.validatorMessages = {

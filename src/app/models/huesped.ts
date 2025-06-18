@@ -11,6 +11,7 @@ export class Huesped {
     advance?:number;
     id?:string;
     people?:number;
+    pets?:number;
 }
 
 export class Room{

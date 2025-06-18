@@ -23,7 +23,7 @@ export class ViewHuespedPage implements OnInit {
 
   constructor(private huespedService: HuespedService, private alertController: AlertController, private router: Router, private fb: FormBuilder) {
     this.message = 'Gracias por tu reservación, para ver más detalles ingresa a https://villaernestina-52a85.web.app/login?token=';
-    this.huespedService.filterByDateAdmission().subscribe(res => {
+    /*this.huespedService.filterByDateAdmission().subscribe(res => {
       this.huespeds = res;
 
       this.huespeds.sort(
@@ -40,6 +40,18 @@ export class ViewHuespedPage implements OnInit {
       //     return a.dateAdmission.localeCompare(b.dateAdmission);
       //   }
       // );
+    });*/
+    this.huespedService.filterByToday().subscribe(res => {
+      this.huespeds = res;
+
+      this.huespeds.sort(
+        (a, b) => {
+          return a.dateAdmission.localeCompare(b.dateAdmission);
+        }
+      );
+      let now = new Date();
+      this.huespedsFilter = this.huespeds;
+      this.myForm.get('filter').setValue('today');
     });
   }
 
@@ -142,7 +154,7 @@ export class ViewHuespedPage implements OnInit {
   }
 
    public filterByToday(): void {
-    this.huespedService.filterByProcess().subscribe(res => {
+    /*this.huespedService.filterByProcess().subscribe(res => {
       this.huespeds = res;
 
       this.huespeds.sort(
@@ -165,6 +177,33 @@ export class ViewHuespedPage implements OnInit {
       );
       
       this.huespeds = this.huespedsFilter;
+      //console.log("Universo");
+      //console.log(this.huespeds);
+    });*/
+    this.huespedService.filterByToday().subscribe(res => {
+      this.huespeds = res;
+
+      this.huespeds.sort(
+        (a, b) => {
+          return a.dateAdmission.localeCompare(b.dateAdmission);
+        }
+      );
+
+      //let now = new Date();
+     
+      //now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      //console.log(now.toISOString());
+      //let fecha = now.toISOString().substring(0, 11) + "00:00:00-07:00";
+      //console.log("HOY/n"+fecha);
+      /*this.huespedsFilter = this.huespeds.filter(
+        (obj) => {
+          //console.log(obj.dateAdmission);
+          return obj.dateAdmission === fecha;
+        }
+      );*/
+      
+      this.huespedsFilter = this.huespeds;
+      
       //console.log("Universo");
       //console.log(this.huespeds);
     });
@@ -304,6 +343,34 @@ export class ViewHuespedPage implements OnInit {
     // console.log("Cadena "+cad);
     // console.log("Cadena sin espacios"+cad.replace(/ /g,""));
     return cad.replace(/ /g, "");
+  }
+
+  public diffInDays(inicio,fin) {
+    const start = new Date(inicio);
+    const end = new Date(fin);
+    const diffDays = Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(start.getFullYear(), start.getMonth(), start.getDate()) ) /(1000 * 60 * 60 * 24));
+    const label = Math.abs(diffDays) === 1 ? 'noche' : 'noches';
+    return `${diffDays} ${label}`;
+  }
+
+  public huespedQty(people: number) {
+
+    if(people === undefined){
+      return "";
+    }
+
+    const label = people === 1 ? 'persona' : 'personas';
+    return `${people} ${label} ·`;
+  }
+
+  public petsQty(pets: number) {
+
+    if(pets === undefined){
+      return "";
+    }
+
+    const label = pets === 1 ? 'mascota' : 'mascotas';
+    return ` ${pets} ${label} ·`;
   }
 
 }
