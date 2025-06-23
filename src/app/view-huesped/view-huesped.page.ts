@@ -20,6 +20,7 @@ export class ViewHuespedPage implements OnInit {
   public huespeds: Huesped[];
   public huesped: Huesped;
   public huespedsFilter: Huesped[];
+  public viewPrices = false;
 
   constructor(private huespedService: HuespedService, private alertController: AlertController, private router: Router, private fb: FormBuilder) {
     this.message = 'Gracias por tu reservación, para ver más detalles ingresa a https://villaernestina-52a85.web.app/login?token=';

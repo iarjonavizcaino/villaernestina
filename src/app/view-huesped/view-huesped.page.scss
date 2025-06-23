@@ -1,18 +1,6 @@
-.name {
-    text-align: center;
-    //padding-right: 10px;
-    /*font-style: italicb;
-    font-size: 13px;*/
-}
-
 .card {
     padding-top: 0;
     padding-bottom: 0;
-}
-
-.card-header {
-    padding-top: 3px;
-    padding-bottom: 8px;
 }
 
 .card-content {
@@ -51,20 +39,12 @@
     margin: 0;
 }
 
-.year {
-    font-size: 25px;
-}
-
 .header-day {
     padding-top: 3px;
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.content-year {
-    padding-bottom: 0;
 }
 
 .icon-center {
@@ -140,7 +120,7 @@
     font-size: 25px;
     font-weight: bolder;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
     font-family: "CerealBold";
     color: black;
     margin: 0;
