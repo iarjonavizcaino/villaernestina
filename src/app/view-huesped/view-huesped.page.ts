@@ -354,14 +354,22 @@ export class ViewHuespedPage implements OnInit {
     return `${diffDays} ${label}`;
   }
 
-  public huespedQty(people: number) {
+  public huespedQty(people: number, children: number) {
+
+    var childrenstring = "";
 
     if(people === undefined){
       return "";
     }
 
+    if (children !== undefined) {
+
+      childrenstring = children === 1 ? ` ${children} menor ·` : ` ${children} menores ·`;
+    } 
+    
     const label = people === 1 ? 'persona' : 'personas';
-    return `${people} ${label} ·`;
+
+    return `${people} ${label} · ${childrenstring}`;
   }
 
   public petsQty(pets: number) {
@@ -371,7 +379,7 @@ export class ViewHuespedPage implements OnInit {
     }
 
     const label = pets === 1 ? 'mascota' : 'mascotas';
-    return ` ${pets} ${label} ·`;
+    return ` ${pets} ${label}`;
   }
 
 }

@@ -12,6 +12,7 @@ export class Huesped {
     id?:string;
     people?:number;
     pets?:number;
+    children?:number;
 }
 
 export class Room{

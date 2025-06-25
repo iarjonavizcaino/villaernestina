@@ -41,7 +41,8 @@ export class NewHuespedPage implements OnInit {
       price: 0,
       advance: 0,
       people: 0,
-      pets:0
+      pets:0,
+      children:0
     }];
 
     this.getDate();
@@ -64,7 +65,8 @@ export class NewHuespedPage implements OnInit {
       price: [0],
       advance: [0],
       people: 2,
-      pets: 0
+      pets: 0,
+      children: 0
       //nights: 1
     });
     this.validatorMessages = {
