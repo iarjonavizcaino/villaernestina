@@ -21,7 +21,7 @@
             interface="popover"
             formControlName="filter"
             placeholder="Mostrar por:"
-            value="dateAdmission"
+            value="today"
             (click)="filter()"
           >
             <ion-select-option value="today">Ingreso Hoy</ion-select-option>
@@ -217,6 +217,11 @@
     <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
       <div class="huespedname">
         <div class="namehuesped">{{item.name | titlecase}}</div>
+        <div class="celphonehuesped">
+          <a href="tel:{{item.phone}}">
+          ({{item.phone.replace("+", "")}})
+          </a>
+        </div>
       </div>
       <div class="roomhuesped">
         <ion-chip
