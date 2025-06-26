@@ -358,11 +358,14 @@ export class ViewHuespedPage implements OnInit {
 
     var childrenstring = "";
 
-    if(people === undefined){
+    if(people === undefined || people === 0){
+
       return "";
     }
 
-    if (children !== undefined) {
+    if (children === undefined || children === 0) {
+      childrenstring = "";
+    } else {
 
       childrenstring = children === 1 ? ` ${children} menor ·` : ` ${children} menores ·`;
     } 
@@ -374,7 +377,7 @@ export class ViewHuespedPage implements OnInit {
 
   public petsQty(pets: number) {
 
-    if(pets === undefined){
+    if(pets === undefined || pets === 0){
       return "";
     }
 
