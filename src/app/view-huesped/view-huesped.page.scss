@@ -129,7 +129,6 @@
     font-family: "CerealBold";
     color: black;
     margin: 0;
-    
 }
 
 .celphonehuesped {
@@ -163,4 +162,19 @@
 
 .roomhuesped {
     padding-left: 20px;
+}
+
+.filtersection {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it stays on top */
+    background-color: white;
+}
+
+.info {
+    padding-top: 55px; /* Adjust to the height of your fixed section */
+    height: 1500px; /* Example height, adjust as needed */
+    overflow-y: auto;
 }

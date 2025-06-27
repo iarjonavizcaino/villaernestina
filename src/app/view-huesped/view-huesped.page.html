@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content class="back">
-  <ion-row>
+  <ion-row class="filtersection">
     <ion-col size="10" >
       <form [formGroup]="myForm">
         <ion-item>
@@ -38,6 +38,11 @@
       <ion-toggle [(ngModel)]="viewPrices" [enableOnOffLabels]="true"></ion-toggle>
     </ion-col>
   </ion-row>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="newHuesped()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   <!-- <ion-row *ngIf="myForm.value.filter !== 'today'">
     <ion-col size="12" >
       <form [formGroup]="myForm">
@@ -213,7 +218,7 @@
 
 
 
-  <div class="">
+  <div class="info">
     <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
       <div class="huespedname">
         <div class="namehuesped">{{item.name | titlecase}}</div>
@@ -337,10 +342,5 @@
         </ion-grid>
       </div>
     </ion-card>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="newHuesped()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </div>
 </ion-content>
