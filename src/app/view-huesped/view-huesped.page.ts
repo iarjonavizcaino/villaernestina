@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Huesped } from '../models/huesped';
 import { HuespedService } from '../services/huesped.service';
 import { NavigationExtras, Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class ViewHuespedPage implements OnInit {
   public huespedsFilter: Huesped[];
   public viewPrices = false;
 
-  constructor(private huespedService: HuespedService, private alertController: AlertController, private router: Router, private fb: FormBuilder) {
+  constructor(private huespedService: HuespedService, private alertController: AlertController, private router: Router, private fb: FormBuilder, private toastController: ToastController) {
     this.message = 'Gracias por tu reservación, para ver más detalles ingresa a https://villaernestina-52a85.web.app/login?token=';
     /*this.huespedService.filterByDateAdmission().subscribe(res => {
       this.huespeds = res;
@@ -385,5 +385,33 @@ export class ViewHuespedPage implements OnInit {
     return ` ${pets} ${label}`;
   }
 
+  public getCel(phone: string) {
+    //console.log(phone);
+    //console.log(this.huespedsFilter);
+    return phone.replace(/^\+?(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4');
+  }
+
+  public async copyTextToClipboard(text: string) {
+    if (navigator.clipboard) {
+      try {
+       //const message = 'Hola '+huesped.name +' '+ this.message+huesped.token
+        await navigator.clipboard.writeText(text);
+        this.presentToast(text);
+       
+      } catch (err) { }
+    }
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: 'Copiado '+message,
+      duration: 1500,
+      position: 'bottom'
+    });
+    await toast.present();
+  }
+
 }
+
+
 

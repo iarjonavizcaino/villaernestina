@@ -14,7 +14,7 @@
 
 <ion-content class="back">
   <ion-row class="filtersection">
-    <ion-col size="10" >
+    <ion-col size="10">
       <form [formGroup]="myForm">
         <ion-item>
           <ion-select
@@ -35,14 +35,17 @@
       </form>
     </ion-col>
     <ion-col size="2">
-      <ion-toggle [(ngModel)]="viewPrices" [enableOnOffLabels]="true"></ion-toggle>
+      <ion-toggle
+        [(ngModel)]="viewPrices"
+        [enableOnOffLabels]="true"
+      ></ion-toggle>
     </ion-col>
   </ion-row>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="newHuesped()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    <ion-fab-button (click)="newHuesped()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <!-- <ion-row *ngIf="myForm.value.filter !== 'today'">
     <ion-col size="12" >
       <form [formGroup]="myForm">
@@ -216,16 +219,19 @@
     </ion-fab>
   </div> -->
 
-
-
   <div class="info">
     <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
       <div class="huespedname">
-        <div class="namehuesped">{{item.name | titlecase}}</div>
+        <div class="namehuesped">
+          {{item.name | titlecase}} 
+        </div>
         <div class="celphonehuesped">
-          <a href="tel:{{item.phone}}">
-          ({{item.phone.replace("+", "")}})
-          </a>
+          <ion-button (click)="copyTextToClipboard(getCel(item.phone))" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
+            <ion-icon name="call-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button (click)="copyTextToClipboard('Hola '+item.name +' '+ this.message+item.token)" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
+            <ion-icon name="copy-outline" slot="icon-only"></ion-icon>
+          </ion-button>
         </div>
       </div>
       <div class="roomhuesped">
