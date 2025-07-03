@@ -34,7 +34,7 @@ export class HuespedService {
 
   getDate() {
     this.today = new Date();
-    console.log(this.today.toISOString());
+    //console.log(this.today.toISOString());
     this.today = this.today.toISOString().substring(0, 11)+"00:00:00-00:00";
     //this.today = this.today
   }
@@ -174,7 +174,7 @@ export class HuespedService {
     //console.log(now.toISOString());
     let fecha = now.toISOString().substring(0, 11) + "00:00:00-07:00";
 
-    console.log("Hoy:"+fecha);
+    //console.log("Hoy:"+fecha);
 
 
     const result = this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '==', fecha)).snapshotChanges().pipe(

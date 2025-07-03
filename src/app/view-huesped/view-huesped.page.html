@@ -226,6 +226,9 @@
           {{item.name | titlecase}} 
         </div>
         <div class="celphonehuesped">
+          <ion-button (click)="copyTextToClipboard(item.token)" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
+            <ion-icon name="key-outline" slot="icon-only"></ion-icon>
+          </ion-button>
           <ion-button (click)="copyTextToClipboard(getCel(item.phone))" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
             <ion-icon name="call-outline" slot="icon-only"></ion-icon>
           </ion-button>
@@ -314,9 +317,9 @@
               name="logo-whatsapp"
               color="success"
               class="icon-center"
+              
             ></ion-icon>
-            <!-- <ion-label>Chat </ion-label>
-                        <ion-icon name="send" color="primary"></ion-icon> -->
+            
           </ion-chip>
         </a>
         <ion-button
