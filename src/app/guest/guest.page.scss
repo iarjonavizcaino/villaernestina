@@ -134,94 +134,8 @@ ion-button {
     font-weight: bolder;
 }
 
-.accordion {
-    font-size: 14px;
-    font-weight: bolder;
-    border-radius: 10px;
-    background: #f2b188 !important;
-}
-
-.card-content {
-    text-align: justify;
-    background-color: white;
-    //height: 100%;
-}
-
-.points {
-    padding-top: 0;
-}
-
-.checkingrid {
-    margin: 0px !important;
-}
-
-.nopaddingbottom {
-    padding-bottom: 0px !important;
-}
-
-.nopaddingtop2 {
-    padding-top: 4px !important;
-}
-
-.ion-padding {
-    padding: 8px;
-}
-
-.bold {
-    font-weight: bolder;
-    padding-left: 10px;
-    color: black;
-    padding-top: 5px;
-}
-
-.tit {
-    font-size: 16px;
-    font-weight: bolder;
-}
-
-.number {
-    background: #eec606;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bolder;
-    font-size: 10px;
-}
-
-.description {
-    font-size: 12px;
-
-    line-height: normal;
-}
-
-.row {
-    padding-bottom: 7px;
-}
-
-.paddingbottom3 {
-    padding-bottom: 3px;
-}
-
-.footcard {
-    background: white;
-}
-
-.card-content2 {
-    text-align: center;
-    padding: 3px;
-}
-
 .txtcenter {
     text-align: center;
-}
-
-.contentcenter {
-    justify-content: center;
-    display: flex;
 }
 
 .custom-card {
@@ -237,16 +151,6 @@ ion-button {
   .custom-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-
-//   .custom-card h2 {
-//     margin-top: 0;
-//     font-size: 14px;
-//   }
-
-//   .custom-card p {
-//     margin: 0;
-//     color: #666;
-//   }
 
 .comment {
     font-size: 13px;
@@ -327,19 +231,6 @@ ion-button {
     padding-left: 20px;
     padding-right: 20px;
     border-top: 1px solid #dad7d7; /* Línea gris oscuro */
-}
-
-.product-description {
-    display: flex;
-    justify-content: start;
-    font-size: 15px;
-    color: black;
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    margin: 5px;
-    line-height: 1.4;
 }
 
 .stars {
