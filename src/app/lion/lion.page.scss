@@ -1,5 +1,4 @@
 ion-content {
-    //--background: #e8e8e8 !important;
     --background: white !important;
     font-family: CerealBook !important;
 }
@@ -36,6 +35,23 @@ ion-grid {
         box-shadow 0.3s ease-in-out;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.favorite-slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    background-color: white;
+    transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    font-size: 15px;
 }
 
 .back-button-container:hover {
@@ -145,18 +161,6 @@ ion-grid {
     color: black;
 }
 
-.colibri-insignias {
-    color: black;
-    font-size: 15px;
-    padding-top: 10px;
-    font-weight: bold;
-}
-
-.insignias {
-    display: flex;
-    flex-direction: row;
-}
-
 .colibri-price {
     color: black;
     font-size: 15px;
@@ -186,15 +190,6 @@ ion-grid {
     line-height: 1.4;
 }
 
-.amenities-content {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    max-height: 240px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-}
-
 .amenities {
     display: flex;
     flex-direction: row;
@@ -214,10 +209,6 @@ ion-grid {
     color: black;
     font-weight: bolder;
     font-size: 23px;
-}
-
-.amenities-content.expanded {
-    max-height: none; /* Permite que el contenedor se expanda completamente viene en un*/
 }
 
 .button-container {
@@ -286,4 +277,18 @@ ion-grid {
 .amenities-column {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+/*** Amenities Si funciona***/
+.amenities-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    max-height: 240px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.amenities-content.expanded {
+    max-height: none; /* Permite que el contenedor se expanda completamente viene en un*/
 }

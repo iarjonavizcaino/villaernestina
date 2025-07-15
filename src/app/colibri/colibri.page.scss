@@ -37,6 +37,23 @@ ion-grid {
     cursor: pointer;
 }
 
+.favorite-slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    background-color: white;
+    transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
 .back-button-container:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -274,24 +291,16 @@ ion-grid {
     padding-right: 15px;
 }
 
-.gallery-modal {
-  //position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 100%;
+/*** Amenities Si funciona***/
+.amenities-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    max-height: 240px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
 }
 
-// .close-button {
-//     position: absolute;
-//     top: 10px;
-//     right: 10px;
-//     z-index: 99999;
-//     --color: white;
-//     --background: rgba(0, 0, 0, 0.4);
-//     border-radius: 50%;
-// }
-
-.full-image {
-    object-fit: contain;
+.amenities-content.expanded {
+    max-height: none; /* Permite que el contenedor se expanda completamente viene en un*/
 }
