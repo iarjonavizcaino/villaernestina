@@ -68,67 +68,67 @@ export class GuestPage implements OnInit {
 
   public principalcomments = [
     {
-      name: 'Luis',
-      month: 'Junio 2024',
-      comment: `"Todo perfecto, el alojamiento es tal cual se describe y es muy cómodo , limpio, ordenado y Mariela es excelente anfitrión. Sin duda volveríamos."`,
+      name: 'Teresa',
+      month: 'Junio 2025',
+      comment: `"El alojamiento muy bien en general, visiten la Laguna de Sta María del Oro, muy lindo fin se semana, gracias por las atenciones."`,
       starts: 5,
       place: 'Colibrí',
       isExpanded: false
     },
     {
-      name: 'Roberto',
-      month: 'Mayo 2024',
-      comment: `"El Bungalow es genial, el cuarto es amplio y muy cómodo, en el exterior cuenta con un jardín con todo lo necesario (asador, fogata, sillas, camastros, kayaks), muy recomendable"`,
+      name: 'José Juan',
+      month: 'Julio 2025',
+      comment: `"El lugar me gustó mucho, habitación y baño limpio y ordenado. Cerca de la zona de restaurantes, y la atención del anfitrión excelente, mucha disposición, explicaciones sencillas y claras acerca del uso de las instalaciones y amenidades"`,
+      starts: 5,
+      place: 'Elefante',
+      isExpanded: false
+    },
+    {
+      name: 'Karla',
+      month: 'Junio 2025',
+      comment: `"Un lugar hermoso para relajarte"`,
       starts: 5,
       place: 'León',
       isExpanded: false
     },
     {
-      name: 'Claus',
-      month: 'Mayo 2024',
-      comment: `"Nos encantó. Pasamos un tiempo muy agradable. El alojamiento muy bonito, cerca de la laguna, de restaurantes y de tiendas. Todo al 100. Seguramente volvemos"`,
-      starts: 5,
-      place: 'Elefante',
-      isExpanded: false
-    },
-    {
-      name: 'Francisco',
-      month: 'Marzo 2024',
-      comment: `"Excelente opción para descansar cerca de la Laguna de SAMAO, la pasamos muy bien la habitación muy comoda con muy buenas amenidades, disfrutamos del kayac y la alberca. Gracias a Mariela por estar atenta en nuestra estancia."`,
+      name: 'Carlos',
+      month: 'Mayo 2025',
+      comment: `"Excelente. Mariela en todo momento estuvo al pendiente y el personal que apoya en el lugar, muy amable."`,
       starts: 5,
       place: 'León',
       isExpanded: false
     },
     {
-      name: 'Paul',
-      month: 'Marzo 2024',
-      comment: `"This place was amazing. Between the mountains near the lake. Stunning view from the terrace and all the amenities you need. We were very pleasantly surprised"`,
+      name: 'Ernesto',
+      month: 'Junio 2025',
+      comment: `"Todo estuvo excelente, es un buen lugar para relajarse y disfrutar en pareja o con la familia! Sin duda regresaria"`,
       starts: 5,
       place: 'Elefante',
       isExpanded: false
     },
     {
-      name: 'Michelle',
-      month: 'Febrero 2024',
-      comment: `"El lugar es aún más bonito que en las fotos, se respira tranquilidad, las áreas son preciosas para salir y tomar al aire. Las instrucciones para llegar fueron claras así como me encanto las recomendaciones de su app y la rapidez para contestar. Me encanto que tiene servicio de kayak y chalecos salvavidas gratis, por lo cual no dudamos en aprovecharlos, el lugar esta súper cerca de la entrada y de todo puedes salir caminando tranquilamente, definitivamente es súper buena opción para desconectarte y pasar un buen rato!"`,
+      name: 'Mariana',
+      month: 'Mayo 2025',
+      comment: `"Muy satisfecha con la atención, respondió todas nuestras dudas, muy buena hospitalidad. El lugar estaba muy limpio, con todo lo necesario para pasar un fin de semana tranquilo. Sin duda, volvería a alojarme en este departamento."`,
       starts: 5,
       place: 'Elefante',
       isExpanded: false
     },
     {
-      name: 'Karen',
-      month: 'Enero 2024',
-      comment: `"Pasamos un fin de semana genial en el bungalow. Todo coincidió con los servicios ofrecidos y siempre nos trataron de una manera cordial y amigable. Definitivamente regresaremos ✨"`,
+      name: 'Sonia',
+      month: 'Abril 2025',
+      comment: `"Nosotros nos quedamos en el ecoglamping Colibrí el cual recomendamos 100%. El espacio es perfecto y muy cómodo para una pareja aunque tiene más espacio para que más puedan dormir. El baño es muy práctico y funcional sin ser minúsculo. La cocina tiene todo lo necesario: estufa, utensilios, fregadero, refrigerador, cafetera y, lo mejor de todo, café para prepararlo por la mañana. La vista que tiene la cama al abrir las cortinas es precioso de cara a los magueyes y fuera cuenta con un jacuzzi. También tiene un espacio donde se pueden echar a leer y una mesa para beber o comer fuera. El hospedaje tiene la posibilidad de una alberca por un pequeño precio adicional. Vale la pena. Usamos los kayaks y disfrutamos muchísimo de un buen paseo por la laguna por la mañana. El personal del lugar es muy amable y los administradores muy reactivos. A unos 5 minutos a pie hay una tiendita. Recomendamos venir entre semana y/o temporada baja para disfrutar de la tranquilidad del lugar."`,
+      starts: 5,
+      place: 'Colibrí',
+      isExpanded: false
+    },
+    {
+      name: 'Agueda',
+      month: 'Abril 2025',
+      comment: `"El lugar está en cuanto bajas a la laguna, las indicaciones de Mariela muy buenas y siempre en contacto muy atenta, la cabaña estuvo antes y nos dieron acceso de check in todo muy limpio y tranquilo restaurantes cruzando la calle, sin duda alguna volveríamos"`,
       starts: 5,
       place: 'León',
-      isExpanded: false
-    },
-    {
-      name: 'Sussan',
-      month: 'Octubre 2023',
-      comment: `"Lugar muy bello, genial para niños con la piscina y el trampolin. Nos prestaron kayaks y el paseo por la laguna fue espectacular. Cuarto muy comodo y agradable terreno con lindas vistas."`,
-      starts: 5,
-      place: 'Elefante',
       isExpanded: false
     },
   ]

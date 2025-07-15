@@ -17,6 +17,7 @@
               class="images-content"
               alt="Bienvenida3"
               [src]="image"
+              (click)="openImage(image)"
             ></ion-img>
             <div class="back-button-container">
               <button type="button" class="back-button" (click)="goToGuest()">
@@ -223,4 +224,32 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-modal
+    [isOpen]="modalIsOpen"
+    (didDismiss)="modalIsOpen = false"
+    class="gallery-modal"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="light">
+          <ion-title>Galería</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modalIsOpen = false">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content fullscreen>
+        <swiper [zoom]="true" class="swiper-zoom">
+        <ng-template swiperSlide>
+          <div class="swiper-zoom-container">
+            <img [src]="selectedImage" />
+          </div>
+        </ng-template>
+      </swiper>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

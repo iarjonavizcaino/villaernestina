@@ -17,6 +17,7 @@
               class="images-content"
               alt="Bienvenida3"
               [src]="image"
+              (click)="openImage(image)"
             ></ion-img>
             <div class="back-button-container">
               <button type="button" class="back-button" (click)="goToGuest()">
@@ -113,8 +114,8 @@
           <ion-label class="colibri-title">Glamping Colibrí</ion-label>
           <ion-label class="colibri-subtitle">Domo geodésico</ion-label>
           <ion-label class="colibri-description"
-            >4 huéspedes · 1 habitación y tapanco · 2 camas · 1 baño · tina
-            exterior · cocina</ion-label
+            >4 huéspedes · 1 habitación y tapanco · 1 cama king y 1 cama queen ·
+            1 baño · jacuzzi exterior · cocina</ion-label
           >
           <ion-label class="colibri-insignias">
             <div class="insignias">
@@ -156,7 +157,7 @@
           ¡Vive lujo y aventura en nuestro Glamping de ensueño! Sumérgete en la
           naturaleza en nuestro domo para 4 personas, con cama king, cama queen
           en el tapanco, cocina equipada, baño privado y amplio armario.
-          Relájate al aire libre con la tina con agua caliente, contempla las
+          Relájate al aire libre con el jacuzzi en la terraza, contempla las
           estrellas o disfruta de las vistas desde la malla volada. Con comedor
           al aire libre, A/C, TV con streaming, WiFi y dispositivos
           inteligentes, nuestro Glamping es el refugio perfecto para escapar de
@@ -215,10 +216,36 @@
         <div class="separador-container separador-intermediate">
           <hr class="separador" />
         </div>
-        <div class="button-interest" (click)="sendMessage()">
-            Me interesa
-        </div>
+        <div class="button-interest" (click)="sendMessage()">Me interesa</div>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-modal
+    [isOpen]="modalIsOpen"
+    (didDismiss)="modalIsOpen = false"
+    class="gallery-modal"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="light">
+          <ion-title>Galería</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modalIsOpen = false">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content fullscreen>
+        <swiper [zoom]="true" class="swiper-zoom">
+        <ng-template swiperSlide>
+          <div class="swiper-zoom-container">
+            <img [src]="selectedImage" />
+          </div>
+        </ng-template>
+      </swiper>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

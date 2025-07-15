@@ -8,6 +8,8 @@ import { ColibriPageRoutingModule } from './colibri-routing.module';
 
 import { ColibriPage } from './colibri.page';
 import { SwiperModule } from 'swiper/angular';
+import { ModalGalleryComponent } from '../modal-gallery/modal-gallery.component';
+
 
 @NgModule({
   imports: [
@@ -17,6 +19,6 @@ import { SwiperModule } from 'swiper/angular';
     ColibriPageRoutingModule,
     SwiperModule
   ],
-  declarations: [ColibriPage]
+  declarations: [ColibriPage, ModalGalleryComponent]
 })
 export class ColibriPageModule {}

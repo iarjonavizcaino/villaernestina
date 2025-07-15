@@ -18,12 +18,9 @@ import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, SwiperOptions, Z
 })
 export class LionPage implements OnInit {
 
-  // config: SwiperOptions = {
-  //   slidesPerView: 1,
-  //   spaceBetween: 0,
-  //   pagination: true,
-  //   loop: true
-  // };
+  modalIsOpen = false;
+  photoIndex = 0;
+  selectedImage = '';
 
   @ViewChild('swiperSlideShow') swiperSlideShow: SwiperComponent;
 
@@ -805,7 +802,7 @@ export class LionPage implements OnInit {
     },
     {
       svg: `M16 20.33a3.67 3.67 0 1 1 0 7.34 3.67 3.67 0 0 1 0-7.34zm0 2a1.67 1.67 0 1 0 0 3.34 1.67 1.67 0 0 0 0-3.34zM16 15a9 9 0 0 1 8.04 4.96l-1.51 1.51a7 7 0 0 0-13.06 0l-1.51-1.51A9 9 0 0 1 16 15zm0-5.33c4.98 0 9.37 2.54 11.94 6.4l-1.45 1.44a12.33 12.33 0 0 0-20.98 0l-1.45-1.45A14.32 14.32 0 0 1 16 9.66zm0-5.34c6.45 0 12.18 3.1 15.76 7.9l-1.43 1.44a17.64 17.64 0 0 0-28.66 0L.24 12.24c3.58-4.8 9.3-7.9 15.76-7.9z`,
-      title: 'Wifi'
+      title: 'Wifi (Starlink)'
     },
     {
       svg: `M26 19a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 18a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm20.7-5 .41 1.12A4.97 4.97 0 0 1 30 18v9a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2H8v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9c0-1.57.75-2.96 1.89-3.88L4.3 13H2v-2h3v.15L6.82 6.3A2 2 0 0 1 8.69 5h14.62c.83 0 1.58.52 1.87 1.3L27 11.15V11h3v2h-2.3zM6 25H4v2h2v-2zm22 0h-2v2h2v-2zm0-2v-5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v5h24zm-3-10h.56L23.3 7H8.69l-2.25 6H25zm-15 7h12v-2H10v2z`,
@@ -813,7 +810,7 @@ export class LionPage implements OnInit {
     },
     {
       svg: `M9 29v-2h2v-2H6a5 5 0 0 1-5-4.78V8a5 5 0 0 1 4.78-5H26a5 5 0 0 1 5 4.78V20a5 5 0 0 1-4.78 5H21v2h2v2zm10-4h-6v2h6zm7-20H6a3 3 0 0 0-3 2.82V20a3 3 0 0 0 2.82 3H26a3 3 0 0 0 3-2.82V8a3 3 0 0 0-2.82-3z`,
-      title: 'SmartTV 4K Ultra HD de 40" con MAX, Disney+, Netflix'
+      title: 'SmartTV 4K Ultra HD de 40" con Disney+ y Netflix'
     },
     {
       svg: `M17 1v4.03l4.03-2.32 1 1.73L17 7.34v6.93l6-3.47V5h2v4.65l3.49-2.02 1 1.74L26 11.38l4.03 2.33-1 1.73-5.03-2.9L18 16l6 3.46 5.03-2.9 1 1.73L26 20.62l3.49 2.01-1 1.74L25 22.35V27h-2v-5.8l-6-3.47v6.93l5.03 2.9-1 1.73L17 26.97V31h-2v-4.03l-4.03 2.32-1-1.73 5.03-2.9v-6.93L9 21.2V27H7v-4.65l-3.49 2.02-1-1.74L6 20.62l-4.03-2.33 1-1.73L8 19.46 14 16l-6-3.46-5.03 2.9-1-1.73L6 11.38 2.51 9.37l1-1.74L7 9.65V5h2v5.8l6 3.47V7.34l-5.03-2.9 1-1.73L15 5.03V1z`,
@@ -1002,5 +999,11 @@ export class LionPage implements OnInit {
       var message = this.loveMessage;
       var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
       window.open(url, '_blank');
+  }
+
+  openImage(photo: string) {
+    this.selectedImage = photo;
+    console.log(this.selectedImage);
+    this.modalIsOpen = true;
   }
 }

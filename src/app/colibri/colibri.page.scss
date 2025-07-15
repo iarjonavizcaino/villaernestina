@@ -17,7 +17,7 @@ ion-grid {
 }
 
 .images-content {
-    max-height: 270px;
+    max-height: 300px;
 }
 
 .back-button-container {
@@ -185,16 +185,6 @@ ion-grid {
     line-height: 1.4;
 }
 
-.amenities-content {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-    max-height: 240px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    color:black;
-}
-
 .amenities {
     display: flex;
     flex-direction: row;
@@ -214,10 +204,6 @@ ion-grid {
     color: black;
     font-weight: bolder;
     font-size: 23px;
-}
-
-.amenities-content.expanded {
-    max-height: none; /* Permite que el contenedor se expanda completamente viene en un*/
 }
 
 .button-container {
@@ -286,4 +272,26 @@ ion-grid {
 .amenities-column {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.gallery-modal {
+  //position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 100%;
+}
+
+// .close-button {
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     z-index: 99999;
+//     --color: white;
+//     --background: rgba(0, 0, 0, 0.4);
+//     border-radius: 50%;
+// }
+
+.full-image {
+    object-fit: contain;
 }

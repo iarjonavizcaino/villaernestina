@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Galería</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let foto of photos">
+        <ion-img [src]="foto" (click)="verFoto(foto)"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-modal [isOpen]="!!fotoAmpliada" (didDismiss)="cerrarFoto()">
+    <ng-template>
+      <ion-content (click)="cerrarFoto()" fullscreen>
+        <img [src]="fotoAmpliada" style="width: 100%; height: 100%; object-fit: contain;" />
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

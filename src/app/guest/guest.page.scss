@@ -24,9 +24,11 @@ ion-button {
 }
 
 .imgfondo {
-    opacity: 0.6;
+    opacity: 0.8;
     border-radius: 10px;
-    height: 100%;
+    height: 180px; /* altura visible */
+    object-fit: cover;
+    object-position: bottom; /* enfoca la parte superior */
 }
 
 .placetitle {
@@ -361,4 +363,43 @@ ion-button {
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 0px;
+}
+
+.whatsapp-button {
+    --background: #25D366 !important;
+    --color: #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px; 
+}
+
+.instagram-button {
+    --background: #E1306C !important;
+    --color: #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px; 
+}
+
+.maps-button {
+    --background: #4285F4 !important;
+    --color: #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px; 
+}
+.facebook-button {
+    --background: #3b5998 !important;
+    --color: #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px; 
+}
+
+.phone-button {
+    --background: #fff !important;
+    --color: #4285F4;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px; 
 }
