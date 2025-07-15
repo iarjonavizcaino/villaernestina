@@ -16,32 +16,6 @@ ion-button {
     margin-top: 0px;
 }
 
-.imgdomo {
-    position: relative;
-    background: black;
-    height: 100%;
-    width: 100%;
-}
-
-.imgfondo {
-    opacity: 0.8;
-    border-radius: 10px;
-    height: 180px; /* altura visible */
-    object-fit: cover;
-    object-position: bottom; /* enfoca la parte superior */
-}
-
-.placetitle {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-}
-
 .domotitle {
     font-family: HighSpirited !important;
     font-size: 50px;
@@ -223,26 +197,30 @@ ion-button {
     flex-direction: row;
 }
 
-.separador1 {
+.imgdomo {
+    position: relative;
+    background: black;
+    height: 100%;
     width: 100%;
 }
 
-.separador {
-    padding-left: 20px;
-    padding-right: 20px;
-    border-top: 1px solid #dad7d7; /* Línea gris oscuro */
+.imgfondo {
+    opacity: 0.8;
+    border-radius: 10px;
+    height: 180px; /* altura visible */
+    object-fit: cover;
+    object-position: bottom; /* enfoca la parte superior */
 }
 
-.stars {
+.placetitle {
+    position: absolute;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    font-size: 13px;
-    color: black;
-    font-weight: bold;
+    width: 100%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
 .foot {
@@ -293,4 +271,26 @@ ion-button {
     border-radius: 50%;
     width: 45px;
     height: 45px; 
+}
+
+.separador1 {
+    width: 100%;
+}
+
+.separador {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: 1px solid #dad7d7; /* Línea gris oscuro */
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
 }

@@ -174,10 +174,26 @@ export class HuespedService {
     //console.log(now.toISOString());
     let fecha = now.toISOString().substring(0, 11) + "00:00:00-07:00";
 
-    //console.log("Hoy:"+fecha);
-
-
     const result = this.firestore.collection('Huesped', ref => ref.where('dateAdmission', '==', fecha)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Huesped;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      })
+    );
+    
+    return result;
+  }
+  public filterByCheckout(): Observable<Huesped[]> {
+    let now = new Date();
+    // console.log(now);
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    //console.log(now.toISOString());
+    let fecha = now.toISOString().substring(0, 11) + "14:00:00-07:00";
+
+    const result = this.firestore.collection('Huesped', ref => ref.where('departureDate', '==', fecha)).snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Huesped;

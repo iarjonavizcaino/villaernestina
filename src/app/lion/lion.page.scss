@@ -12,12 +12,13 @@ ion-grid {
     padding: 0;
 }
 
+
 .colimages {
     padding: 0;
 }
 
 .images-content {
-    max-height: 270px;
+    max-height: 300px;
 }
 
 .back-button-container {
@@ -161,6 +162,18 @@ ion-grid {
     color: black;
 }
 
+.colibri-insignias {
+    color: black;
+    font-size: 15px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.insignias {
+    display: flex;
+    flex-direction: row;
+}
+
 .colibri-price {
     color: black;
     font-size: 15px;
@@ -198,7 +211,7 @@ ion-grid {
     font-size: 16px;
     padding-top: 10px;
     font-weight: lighter;
-    color: black;
+    color:black;
 }
 
 .amenities-title {
