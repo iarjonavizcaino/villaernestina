@@ -39,7 +39,6 @@
               </ng-container>
             </div>
           </ion-col>
-          
         </ion-row>
         <!-- Plataforma -->
         <ion-row>
@@ -78,7 +77,6 @@
               </ng-container>
             </div>
           </ion-col>
-          
         </ion-row>
 
         <!-- Teléfono -->
@@ -99,31 +97,8 @@
               </ng-container>
             </div>
           </ion-col>
-          <!-- Mascotas-->
-          
         </ion-row>
-        
-        <!-- Personas y mascotas-->
-        <ion-row>
-          <ion-col size="4">
-            <ion-item id="item" class="no-padding-top">
-                <ion-label position="floating">Adultos</ion-label>
-                <ion-input label="Personas" type="number" min="1" formControlName="people"></ion-input>
-              </ion-item>
-          </ion-col>
-          <ion-col size="4">
-            <ion-item id="item" class="no-padding-top">
-                <ion-label position="floating">Menores</ion-label>
-                <ion-input label="Personas" type="number" formControlName="children"></ion-input>
-              </ion-item>
-          </ion-col>
-          <ion-col size="4">
-            <ion-item id="item" class="no-padding-top">
-                <ion-label position="floating">Mascotas</ion-label>
-                <ion-input label="Personas" type="number" formControlName="pets"></ion-input>
-              </ion-item>
-          </ion-col>
-        </ion-row>
+
         <!-- Género -->
         <ion-row>
           <ion-col size="12">
@@ -139,11 +114,116 @@
             </ion-item>
           </ion-col>
         </ion-row>
-        
+
+        <!-- Personas y mascotas-->
+        <ion-row>
+          <ion-col size="4">
+            <ion-item id="item" class="no-padding-top">
+              <ion-label position="floating">Adultos</ion-label>
+              <ion-input
+                label="Personas"
+                type="number"
+                min="1"
+                formControlName="people"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="4">
+            <ion-item id="item" class="no-padding-top">
+              <ion-label position="floating">Menores</ion-label>
+              <ion-input
+                label="Personas"
+                type="number"
+                formControlName="children"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="4">
+            <ion-item id="item" class="no-padding-top">
+              <ion-label position="floating">Mascotas</ion-label>
+              <ion-input
+                label="Personas"
+                type="number"
+                formControlName="pets"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <!-- Amenidades-->
+        <ion-row class="amenities">
+          <ion-col size="3">
+            <ion-tab-button (click)="toggleFlag('bed')">
+              <ion-icon
+                name="bed-outline"
+                [color]="bed ? 'secondary' : 'light'"
+              ></ion-icon>
+              <ion-label [color]="bed ? 'secondary' : 'light'"
+                >Colchón</ion-label
+              >
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-tab-button (click)="toggleFlag('barbecue')">
+              <ion-icon
+                name="flame-outline"
+                [color]="barbecue ? 'secondary' : 'light'"
+              ></ion-icon>
+              <ion-label [color]="barbecue ? 'secondary' : 'light'"
+                >Asador</ion-label
+              >
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-tab-button (click)="toggleFlag('babyChair')">
+              <ion-icon
+                name="happy-outline"
+                [color]="babyChair ? 'secondary' : 'light'"
+              ></ion-icon>
+              <ion-label [color]="babyChair ? 'secondary' : 'light'"
+                >Silla Bebé</ion-label
+              >
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-tab-button
+              (click)="addpoolWristband()"
+              (mousedown)="startRemoveTimer()"
+              (mouseup)="clearRemoveTimer()"
+              (mouseleave)="clearRemoveTimer()"
+              (touchstart)="startRemoveTimer()"
+              (touchend)="clearRemoveTimer()"
+              (touchcancel)="clearRemoveTimer()"
+            >
+              <ion-icon
+                name="watch-outline"
+                [color]="poolWristband ? 'secondary' : 'light'"
+              ></ion-icon>
+              <ion-label [color]="poolWristband ? 'secondary' : 'light'"
+                >Alberca</ion-label
+              >
+              <ion-badge [color]="poolWristband ? 'secondary' : 'light'"
+                >{{poolWristband}}</ion-badge
+              >
+            </ion-tab-button>
+          </ion-col>
+        </ion-row>
+
+        <!-- Notas-->
+         <ion-row class="notes">
+           <ion-col size="12">
+             <ion-item id="item" class="no-padding-top">
+               <ion-label position="floating">Notas</ion-label>
+               <ion-textarea formControlName="notes"></ion-textarea>
+             </ion-item>
+           </ion-col>
+         </ion-row>
+
+
         <!-- Precio -->
         <ion-row *ngIf="myForm.get('platform').value==='direct'">
           <ion-col size="12">
-            <ion-item id="item" class="no-padding-top" >
+            <ion-item id="item" class="no-padding-top">
               <ion-label position="floating">Precio</ion-label>
               <ion-input
                 type="number"
@@ -155,10 +235,11 @@
             </ion-item>
           </ion-col>
         </ion-row>
+
         <!-- Anticipo -->
         <ion-row *ngIf="myForm.get('platform').value==='direct'">
           <ion-col size="12">
-            <ion-item id="item" class="no-padding-top" >
+            <ion-item id="item" class="no-padding-top">
               <ion-label position="floating">Anticipo</ion-label>
               <ion-input
                 type="number"
@@ -182,7 +263,7 @@
         <!-- Resto -->
         <ion-row *ngIf="myForm.get('platform').value==='direct'">
           <ion-col size="12">
-            <ion-item  class="no-padding-top">
+            <ion-item class="no-padding-top">
               <ion-label class="money restmoney"
                 >Resto: {{rest|currency}}</ion-label
               >
@@ -204,7 +285,6 @@
                     [min]="today"
                     presentation="date"
                     (ionChange)="modaldatetime.dismiss();"
-                    
                   >
                     <span slot="title">Selecciona la fecha de ingreso</span>
                   </ion-datetime>
@@ -229,34 +309,38 @@
         <ion-row>
           <ion-col size="3">
             <!-- <ng-container *ngFor="let item of validatorMessages['dateAdmission']"> -->
-            
-              <ion-button (click)="modifyNights(-1)" expand="block" color="danger">
-                <ion-icon name="arrow-down-outline"></ion-icon>
-              </ion-button>
+
+            <ion-button
+              (click)="modifyNights(-1)"
+              expand="block"
+              color="danger"
+            >
+              <ion-icon name="arrow-down-outline"></ion-icon>
+            </ion-button>
             <!-- </ion-item> -->
           </ion-col>
           <ion-col size="6">
-              <ion-item class="no-padding-top">
-                <ion-label class="day-departure">{{dayDeparture | date: 'dd/MMM/yyyy'}}</ion-label>
-              </ion-item>
+            <ion-item class="no-padding-top">
+              <ion-label class="day-departure"
+                >{{dayDeparture | date: 'dd/MMM/yyyy'}}</ion-label
+              >
+            </ion-item>
           </ion-col>
           <ion-col size="3">
             <!-- <ion-item> -->
-              <!-- <ion-item> {{nights}} </ion-item> -->
-              <ion-button (click)="modifyNights(1)" expand="block">
-                <ion-icon name="arrow-up-outline"></ion-icon>
-              </ion-button>
+            <!-- <ion-item> {{nights}} </ion-item> -->
+            <ion-button (click)="modifyNights(1)" expand="block">
+              <ion-icon name="arrow-up-outline"></ion-icon>
+            </ion-button>
 
-              <!-- <ion-input type="number"
+            <!-- <ion-input type="number"
                 formControlName="nights"
                 [min]="1"
                 #innights
                 (ionChange)="changeDepartureDate()"
               ></ion-input> -->
 
-              
-
-              <!-- <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+            <!-- <ion-datetime-button datetime="datetime2"></ion-datetime-button>
               <ion-modal [keepContentsMounted]="true" #modaldatetime2>
                 <ng-template>
                   <ion-datetime

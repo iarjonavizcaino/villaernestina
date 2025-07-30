@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
-  <ion-grid class="no-padding">
+  <ion-grid class="padding-guest">
     <!--Domo Colibrí-->
     <ion-row
-      class="no-padding firstproduct clickeable-row"
+      class="padding-guest clickeable-row"
       (click)="viewDetails('colibri')"
     >
-      <ion-col size="12" class="no-padding">
-        <ion-card class="no-padding">
+      <ion-col size="12" class="padding-guest">
+        <ion-card class="padding-guest">
           <div class="imgdomo">
             <ion-img
               class="imgfondo"
@@ -16,7 +16,7 @@
           </div>
           <div class="placetitle">
             <ion-label class="domotitle"> Colibrí </ion-label>
-            <ion-label class="colibri-resum">
+            <ion-label class="colibri-resalt">
               4 huéspedes · 1 habitación con tapanco · 2 camas · 1 baño · jacuzzi · cocina
             </ion-label>
           </div>
@@ -63,14 +63,14 @@
       </ion-col>
     </ion-row>
     <!--Bungalows-->
-    <ion-row class="no-padding secondproducts">
+    <ion-row class="padding-guest secondproducts">
       <!--Elefante-->
       <ion-col
         size="6"
-        class="no-padding nomarginright"
+        class="padding-guest nomarginright"
         (click)="viewDetails('elephant')"
       >
-        <ion-card class="no-padding">
+        <ion-card class="padding-guest">
           <div class="imgbungalows">
             <ion-img
               class="imgfondobungalows"
@@ -87,8 +87,8 @@
         </ion-card>
       </ion-col>
       <!--León-->
-      <ion-col size="6" class="no-padding" (click)="viewDetails('lion')">
-        <ion-card class="no-padding">
+      <ion-col size="6" class="padding-guest" (click)="viewDetails('lion')">
+        <ion-card class="padding-guest">
           <div class="imgbungalows">
             <ion-img
               class="imgfondobungalows"
@@ -108,10 +108,10 @@
     </ion-row>
 
     <!--Comentarios-->
-    <ion-row class="no-padding">
-      <ion-col size="12" class="no-padding">
-        <!-- <div class="product-title no-padding">
-          <div class="separador1 no-padding">
+    <ion-row class="padding-guest">
+      <ion-col size="12" class="padding-guest">
+        <!-- <div class="product-title padding-guest">
+          <div class="separador1 padding-guest">
             <hr class="separador" />
           </div>
         </div> -->
@@ -119,11 +119,11 @@
           [config]="config2"
           #swiperSlideShow2
           *ngIf="isContentload"
-          class="no-padding"
+          class="padding-guest"
         >
           <ng-template
             swiperSlide
-            class="no-padding"
+            class="padding-guest"
             *ngFor="let comment of principalcomments; let i = index "
           >
             <div class="custom-card">
@@ -151,7 +151,7 @@
                 <span> &nbsp;{{"· "+comment.place}} </span>
               </div>
               <div class="comment">{{comment.comment}}</div>
-              <div class="name no-padding">{{comment.name}}</div>
+              <div class="author">{{comment.name}}</div>
             </div>
           </ng-template>
         </swiper>
@@ -164,12 +164,12 @@
     </ion-row>
 
     <!--Logotipo-->
-    <ion-row class="no-padding">
-      <ion-col size="12" class="logovillafoot no-padding">
+    <ion-row class="padding-guest">
+      <ion-col size="12" class="logovillafoot padding-guest">
         <!-- <div class="container-logo"> -->
           <ion-img
             src="../../assets/img/Logosinfondo.png"
-            class="no-padding"
+            class="padding-guest"
           ></ion-img>
         <!-- </div> -->
       </ion-col>
@@ -178,8 +178,8 @@
 
   <!--Redes sociales -->
     <div class="custom-card foot">
-        <div class="strong message">...Tu escape perfecto!!!</div>
-        <div class="txtcenter">
+        <div class="message">...Tu escape perfecto!!!</div>
+        <div>
           <ion-button shape="round" fill="solid" size="small"
             onclick="window.open('tel:+523111032724', '_self')" 
             class="phone-button">

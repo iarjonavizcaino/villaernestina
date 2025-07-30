@@ -24,6 +24,13 @@ export class NewHuespedPage implements OnInit {
   public isContentLoaded: boolean = false;
   public rest = 0;
   public nights = 1;
+  public babyChair = false;
+  public barbecue = false;
+  public bed = false;
+  public poolWristband = 0;
+  private removeTimer: any;
+  private longPressActivated: boolean = false;
+
   @ViewChild('inname', { static: false }) inName!: IonInput;
 
 
@@ -41,8 +48,9 @@ export class NewHuespedPage implements OnInit {
       price: 0,
       advance: 0,
       people: 0,
-      pets:0,
-      children:0
+      pets: 0,
+      children: 0,
+      notes: ""
     }];
 
     this.getDate();
@@ -66,7 +74,8 @@ export class NewHuespedPage implements OnInit {
       advance: [0],
       people: 2,
       pets: 0,
-      children: 0
+      children: 0,
+      notes: ""
       //nights: 1
     });
     this.validatorMessages = {
@@ -164,6 +173,10 @@ export class NewHuespedPage implements OnInit {
       //console.log(data);
 
       data.phone = data.phone.replace(/ /g, "");
+      data.bed = this.bed;
+      data.barbeque = this.barbecue;
+      data.poolWristband = this.poolWristband;
+      data.babyChair = this.babyChair;
 
 
       this.huesped = data;
@@ -200,7 +213,7 @@ export class NewHuespedPage implements OnInit {
       this.rest = this.roomSelected.price / 2;
     }
 
-    switch(this.roomSelected.name){
+    switch (this.roomSelected.name) {
       case "Elefante": this.myForm.get('people').setValue(2); break;
       case "León": this.myForm.get('people').setValue(4); break;
       case "Colibrí": this.myForm.get('people').setValue(4); break;
@@ -269,27 +282,59 @@ export class NewHuespedPage implements OnInit {
   public changeDepartureDate() {
     let newDay = new Date(this.myForm.get('dateAdmission').value);
     console.log(newDay);
-    newDay.setDate(newDay.getDate() + this.nights+1);
-    console.log("Fecha nueva: " + newDay+2);
+    newDay.setDate(newDay.getDate() + this.nights + 1);
+    console.log("Fecha nueva: " + newDay + 2);
     this.dayDeparture = newDay.getFullYear() + '-' + ('0' + (newDay.getMonth() + 1)).slice(-2) + '-' + ('0' + (newDay.getDate())).slice(-2);
     console.log(this.dayDeparture);
     //this.dayDeparture = this.myForm.get('dateAdmission').value + this.myForm.get('nights').value;
   }
 
-  public modifyNights(nights){
+  public modifyNights(nights) {
     console.log(nights);
     console.log(this.nights);
-    if(nights>0 ){
+    if (nights > 0) {
       //this.myForm.get('nights').setValue(this.myForm.get('nights').value+nights);
-      this.nights = this.nights+nights;
+      this.nights = this.nights + nights;
       this.changeDepartureDate();
     } else {
-      if(this.nights>1) {
-        this.nights = this.nights+nights;
+      if (this.nights > 1) {
+        this.nights = this.nights + nights;
         this.changeDepartureDate();
       }
-        //this.myForm.get('nights').setValue(this.myForm.get('nights').value+nights);
+      //this.myForm.get('nights').setValue(this.myForm.get('nights').value+nights);
     }
+  }
+
+  public toggleFlag(prop: keyof this) {
+    if (typeof this[prop] === 'boolean') {
+      this[prop] = !(this[prop] as boolean) as any;
+    }
+  }
+
+  public addpoolWristband() {
+    if (!this.longPressActivated) {
+      this.poolWristband++;
+    }
+    this.longPressActivated = false;
+  }// reset para siguiente vez
+
+  decreasePoolWristband() {
+    if (this.poolWristband > 0) {
+      this.poolWristband--;
+    }
+  }
+
+  startRemoveTimer() {
+    this.longPressActivated = false;
+
+    this.removeTimer = setTimeout(() => {
+      this.decreasePoolWristband();
+      this.longPressActivated = true;
+    }, 700); // duración para long press
+  }
+
+  clearRemoveTimer() {
+    clearTimeout(this.removeTimer);
   }
 
 

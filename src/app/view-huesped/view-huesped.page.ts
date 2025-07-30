@@ -304,6 +304,10 @@ export class ViewHuespedPage implements OnInit {
     });
     await toast.present();
   }
+
+  public reduceName(name: string) {
+    return name.split(" ")[0]+" "+name.split(" ")[1];
+  }
 }
 
 

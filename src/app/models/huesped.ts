@@ -13,6 +13,11 @@ export class Huesped {
     people?:number;
     pets?:number;
     children?:number;
+    notes?:string;
+    bed?:boolean;
+    barbeque?:boolean;
+    poolWristband?:number;
+    babyChair?:boolean;
 }
 
 export class Room{

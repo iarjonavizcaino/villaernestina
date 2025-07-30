@@ -222,18 +222,25 @@
   <div class="info">
     <ion-card class="card" *ngFor="let item of huespedsFilter; let i = index">
       <div class="huespedname">
-        <div class="namehuesped">
-          {{item.name | titlecase}} 
-        </div>
+        <div class="namehuesped">{{ reduceName(item.name) | titlecase}}</div>
         <div class="celphonehuesped">
-          <ion-button (click)="copyTextToClipboard(item.token)" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
+          <ion-button
+            (click)="copyTextToClipboard(item.token)"
+            shape="round"
+            fill="solid"
+            size="small"
+            style="width: 40px; height: 40px"
+          >
             <ion-icon name="key-outline" slot="icon-only"></ion-icon>
           </ion-button>
-          <ion-button (click)="copyTextToClipboard(getCel(item.phone))" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
+          <ion-button
+            (click)="copyTextToClipboard(getCel(item.phone))"
+            shape="round"
+            fill="solid"
+            size="small"
+            style="width: 40px; height: 40px"
+          >
             <ion-icon name="call-outline" slot="icon-only"></ion-icon>
-          </ion-button>
-          <ion-button (click)="copyTextToClipboard('Hola '+item.name +' '+ this.message+item.token)" shape="round" fill="solid" size="small" style="width: 40px; height: 40px;">
-            <ion-icon name="copy-outline" slot="icon-only"></ion-icon>
           </ion-button>
         </div>
       </div>
@@ -286,6 +293,27 @@
           </ion-avatar>
           <ion-label>{{item.room}}</ion-label>
         </ion-chip>
+
+        <ion-button
+          (click)="copyTextToClipboard('Hola '+item.name +' '+ this.message+item.token)"
+          shape="round"
+          fill="solid"
+          size="small"
+          style="width: 40px; height: 40px"
+          class="ion-float-right"
+        >
+          <ion-icon name="copy-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button
+          (click)="copyTextToClipboard(item.phone+' '+item.name+' '+item.room+' '+item.people+' $'+item.advance+'.00')"
+          shape="round"
+          fill="solid"
+          size="small"
+          style="width: 40px; height: 40px"
+          class="ion-float-right"
+        >
+          <ion-icon name="newspaper-outline" slot="icon-only"></ion-icon>
+        </ion-button>
       </div>
       <div class="huespedroom">
         {{item.dateAdmission|date: 'd MMM' }} - {{item.departureDate|date: 'd
@@ -294,6 +322,52 @@
       <div class="huespedpeople">
         {{huespedQty(item.people, item.children)}}{{petsQty(item.pets)}}
       </div>
+
+      <!-- Amenidades -->
+
+      <div class="amenities">
+        <ion-row class="amenities">
+          <ion-col size="3" *ngIf="item.bed">
+            <ion-tab-button>
+              <ion-icon name="bed-outline" color="secondary"></ion-icon>
+              <ion-label color="secondary">Colchón</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3" *ngIf="item.barbeque">
+            <ion-tab-button>
+              <ion-icon name="flame-outline" color="secondary"></ion-icon>
+              <ion-label color="secondary">Asador</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3" *ngIf="item.babyChair">
+            <ion-tab-button>
+              <ion-icon name="happy-outline" color="secondary"></ion-icon>
+              <ion-label color="secondary">Silla Bebé</ion-label>
+            </ion-tab-button>
+          </ion-col>
+          <ion-col size="3" *ngIf="item.poolWristband">
+            <ion-tab-button>
+              <ion-icon name="watch-outline" color="secondary"></ion-icon>
+              <ion-label color="secondary">Alberca</ion-label>
+              <ion-badge color="secondary">{{item.poolWristband}}</ion-badge>
+            </ion-tab-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="notes" *ngIf="item.notes">
+          <ion-col size="12">
+            <ion-card class="note-card">
+              <ion-card-content>
+                <p class="note-text">
+                  {{ item.notes || 'No notes provided.' }}
+                </p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <!-- Precios -->
+
       <div class="text-center" *ngIf="viewPrices">
         <a
           href="https://wa.me/{{deleteSpaces(item.phone)}}?text={{'Hola '+item.name +' '+ message+item.token}}"
@@ -317,9 +391,7 @@
               name="logo-whatsapp"
               color="success"
               class="icon-center"
-              
             ></ion-icon>
-            
           </ion-chip>
         </a>
         <ion-button

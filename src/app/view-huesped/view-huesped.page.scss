@@ -178,3 +178,25 @@
     height: 1500px; /* Example height, adjust as needed */
     overflow-y: auto;
 }
+
+.notes-row {
+  margin-top: 8px;
+}
+
+.note-card {
+  background: #f4f4f4;
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+.note-card ion-card-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.note-text {
+  font-size: 1rem;
+  color: #333;
+  white-space: pre-line; // respeta saltos de línea si hay
+}

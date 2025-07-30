@@ -9,7 +9,6 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-
 /* Core CSS required for Ionic components to work properly */
 
 @import "~@ionic/angular/css/core.css";
@@ -49,6 +48,114 @@ body {
     margin: auto;
 }
 
-
 /***For Guest Page***/
+.domotitle {
+    font-family: HighSpirited !important;
+    font-size: 50px;
+    color: white;
+}
 
+.colibri-resalt {
+    font-size: 14px;
+    padding-top: 5px;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
+
+.secondproducts {
+    display: flex;
+    flex-wrap: nowrap;
+    cursor: pointer;
+    margin-right: 3px !important;
+}
+
+.nomarginright {
+    margin-right: 0px;
+}
+
+.author {
+    font-size: 16px;
+    font-weight: 800;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+    color: black;
+}
+
+// .firstproduct {
+//     margin-top: 4px;
+//     cursor: pointer;
+// }
+
+.clickeable-row {
+    cursor: pointer;
+}
+
+.clickable-row .imgdomo {
+    background-color: #f0f0f0; /* Color de fondo del card */
+    transition: background-color 0.3s ease;
+}
+
+.clickable-row .imgdomo:hover {
+    background-color: #d9d9d9; /* Color de fondo al hacer hover */
+}
+
+.imgbungalows {
+    position: relative;
+    background: black;
+    height: 100%;
+    width: 100%;
+}
+
+.imgfondobungalows {
+    opacity: 0.6;
+    border-radius: 10px;
+}
+
+.placebungalowstitle {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bungalowstitle {
+    font-family: HighSpirited !important;
+    font-size: 40px;
+    color: white;
+}
+
+.bungalows-resum {
+    font-size: 12px;
+    padding-top: 5px;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
+
+.custom-card {
+    display: block;
+    //margin: 20px;
+    padding: 7px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.padding-guest {
+    padding: 0;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 1px;
+}
