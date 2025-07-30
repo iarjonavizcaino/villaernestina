@@ -316,11 +316,26 @@
         </ion-button>
       </div>
       <div class="huespedroom">
-        {{item.dateAdmission|date: 'd MMM' }} - {{item.departureDate|date: 'd
-        MMM' }} ({{diffInDays(item.dateAdmission, item.departureDate)}})
+        <div class="info-text">
+          {{item.dateAdmission|date: 'd MMM' }} - {{item.departureDate|date: 'd
+          MMM' }} ({{diffInDays(item.dateAdmission, item.departureDate)}})
+        </div>
       </div>
       <div class="huespedpeople">
-        {{huespedQty(item.people, item.children)}}{{petsQty(item.pets)}}
+        <div class="">
+          {{huespedQty(item.people, item.children)}}{{petsQty(item.pets)}}
+        </div>
+        <div class="button-container">
+          <ion-button
+            (click)="copyTextToClipboard(item.name)"
+            shape="round"
+            fill="solid"
+            size="small"
+            style="width: 35px; height: 35px"
+          >
+            <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
       </div>
 
       <!-- Amenidades -->
