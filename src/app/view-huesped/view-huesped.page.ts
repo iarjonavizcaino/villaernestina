@@ -306,7 +306,7 @@ export class ViewHuespedPage implements OnInit {
   }
 
   public reduceName(name: string) {
-    return name.split(" ")[0]+" "+name.split(" ")[1];
+    return name.split(" ")[1]!=undefined?name.split(" ")[0]+" "+name.split(" ")[1]:name.split(" ")[0];
   }
 }
 
