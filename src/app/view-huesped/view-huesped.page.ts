@@ -4,6 +4,7 @@ import { Huesped } from '../models/huesped';
 import { HuespedService } from '../services/huesped.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { get } from 'http';
 
 
 @Component({
@@ -296,6 +297,54 @@ export class ViewHuespedPage implements OnInit {
     }
   }
 
+  public async copyInfToClipboard(item: Huesped) {
+    if (navigator.clipboard) {
+      console.log(item);
+      const name = item.name
+        .toLowerCase()
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+      const phone = this.getCel(item.phone);
+      const room = item.room;
+      const platform = item.platform === "direct" ? "Directo" : "Airb&b";
+      const key = room + platform;
+      const checkin = this.formatIsoToSlashDate(item.dateAdmission);
+      const checkout = this.formatIsoToSlashDate(item.departureDate);
+      const days = this.getDaysBetweenFormattedDates(checkin, checkout);
+      const people = item.people+item.children;
+      const price = item.price;
+      const advance = item.advance;
+      const rest = item.price - item.advance;
+      
+
+      var textCopy = name + "\t"
+        + phone + "\t"
+        + room + "\t"
+        + platform + "\t"
+        + key + "\t"
+        + checkin + "\t"
+        + days + "\t"
+        + people + "\t"
+        + "" + "\t"
+        + "" + "\t"
+        + "" + "\t"
+        + price + "\t"
+        + "" + "\t"
+        + "Anticipos" + "\t"
+        + advance + "\t"
+        + checkout + "\t"
+        + price + "\t"
+        + rest;
+
+
+      try {
+        await navigator.clipboard.writeText(textCopy);
+        this.presentToast(textCopy);
+      } catch (err) { }
+    }
+  }
+
   async presentToast(message: string) {
     const toast = await this.toastController.create({
       message: 'Copiado ' + message,
@@ -306,9 +355,34 @@ export class ViewHuespedPage implements OnInit {
   }
 
   public reduceName(name: string) {
-    return name.split(" ")[1]!=undefined?name.split(" ")[0]+" "+name.split(" ")[1]:name.split(" ")[0];
+    return name.split(" ")[1] != undefined ? name.split(" ")[0] + " " + name.split(" ")[1] : name.split(" ")[0];
   }
-}
 
+  public formatIsoToSlashDate(isoString: string): string {
+    const date = new Date(isoString);
+
+    const year = date.getFullYear();
+    const month = this.padZero(date.getMonth() + 1); // los meses son 0-indexed
+    const day = this.padZero(date.getDate());
+
+    return `${year}/${month}/${day}`;
+  }
+
+  private padZero(value: number): string {
+    return value < 10 ? '0' + value : value.toString();
+  }
+
+  public getDaysBetweenFormattedDates(start: string, end: string): number {
+    const date1 = new Date(start);
+    const date2 = new Date(end);
+
+    const diffInMs = date2.getTime() - date1.getTime();
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+    return diffInDays;
+  }
+
+
+}
 
 
