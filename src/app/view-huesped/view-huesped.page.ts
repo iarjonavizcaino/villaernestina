@@ -316,9 +316,9 @@ export class ViewHuespedPage implements OnInit {
       const price = item.price;
       const advance = item.advance;
       const rest = item.price - item.advance;
-      const pool = item.poolWristband;
-      const pets = item.pets;
-      const notes = item.notes;
+      const pool = item.poolWristband!=undefined?item.poolWristband:"";
+      const pets = item.pets!=undefined?item.pets:"";
+      const notes = item.notes!=undefined?item.notes:"";
       
 
       var textCopy = name + "\t"
