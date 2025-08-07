@@ -316,6 +316,9 @@ export class ViewHuespedPage implements OnInit {
       const price = item.price;
       const advance = item.advance;
       const rest = item.price - item.advance;
+      const pool = item.poolWristband;
+      const pets = item.pets;
+      const notes = item.notes;
       
 
       var textCopy = name + "\t"
@@ -335,7 +338,10 @@ export class ViewHuespedPage implements OnInit {
         + advance + "\t"
         + checkout + "\t"
         + price + "\t"
-        + rest;
+        + rest+"\t"
+        + pool+"\t"
+        + pets+"\t"
+        + notes;
 
 
       try {
