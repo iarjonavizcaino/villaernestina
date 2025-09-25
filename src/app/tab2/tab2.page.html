@@ -1,165 +1,224 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title class="fontbold">
-            {{"REGLAS" | translate}}
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title class="fontbold"> {{"REGLAS" | translate}} </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large"> {{"REGLAS" | translate}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> {{"REGLAS" | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-    <ion-accordion-group [multiple]="false" value="second">
-        <ion-accordion value="first">
-            <ion-item class="accordion" slot="header" color="success">
-                <ion-label> {{"REGLASPF" | translate}}</ion-label>
-            </ion-item>
-            <div slot="content">
-                <ion-card>
-                    <ion-img class="petfriendly" src="../../assets/img/PetFriendly.png"></ion-img>
-                    <ion-card-content>
-                        <div class="text-resalt">
-                            {{ 'REGLASPF1' | translate }}
-                        </div>
-                        <ion-grid fixed class="text-justify">
-                            <ion-row>
-                                <ion-col size="1">
-                                    <ion-badge color="success">1</ion-badge>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <ion-label>{{ 'REGLAPF1' | translate }}</ion-label>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row>
-                                <ion-col size="1">
-                                    <ion-badge color="success">2</ion-badge>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <ion-label>{{ 'REGLAPF2' | translate }}</ion-label>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row>
-                                <ion-col size="1">
-                                    <ion-badge color="success">3</ion-badge>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <ion-label>{{ 'REGLAPF3' | translate }}</ion-label>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row>
-                                <ion-col size="1">
-                                    <ion-badge color="success">4</ion-badge>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <ion-label>{{ 'REGLAPF4' | translate }}</ion-label>
-                                </ion-col>
-                            </ion-row>
-                            <ion-row>
-                                <ion-col size="1">
-                                    <ion-badge color="success">5</ion-badge>
-                                </ion-col>
-                                <ion-col size="11">
-                                    <ion-label>{{ 'REGLAPF5' | translate }}</ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-grid>
-                        <div class="text-resalt">{{ 'REGLASPFNOTE' | translate }}</div>
-                    </ion-card-content>
-                </ion-card>
-            </div>
-        </ion-accordion>
-        <ion-accordion value="second">
-            <ion-item class="accordion" slot="header" color="success">
-                <ion-label> {{"REGLASG" | translate}}</ion-label>
-            </ion-item>
-            <div slot="content">
-                <ion-card>
-                    <img alt="Comida" src="../../assets/img/VillaErnestina1.jpeg" />
-                    <ion-card-content class="padding5">
-                        <ion-grid fixed class="text-justify">
-                            <ion-row>
-
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                1
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'REGLA1' | translate }}🌿🐕</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                2
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'REGLA2' | translate }}🌿🐕</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                3
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'REGLA3' | translate }}💡🚿</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                4
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'REGLA4' | translate }}😊🙌</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                5
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'REGLA5' | translate }}🤫🔇</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="padding5">
-                                    <table>
-                                        <tr class="trgeneral">
-                                            <td class="number">
-                                                6
-                                            </td>
-                                            <td class="rule">
-                                                <ion-label>{{ 'PROHIBICION1' | translate }}🚭🚭</ion-label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </ion-row>
-                        </ion-grid>
-                    </ion-card-content>
-                </ion-card>
-            </div>
-        </ion-accordion>
-    </ion-accordion-group>
+  <ion-accordion-group [multiple]="false" value="second">
+    <ion-accordion value="first">
+      <ion-item class="accordion" slot="header" color="success">
+        <ion-label> {{"REGLASPF" | translate}}</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-card>
+          <ion-img
+            class="petfriendly"
+            src="../../assets/img/PetFriendly.png"
+          ></ion-img>
+          <ion-card-content>
+            <div class="text-resalt">{{ 'REGLASPF1' | translate }}</div>
+            <ion-grid fixed class="text-justify">
+              <ion-row>
+                <ion-col size="1">
+                  <ion-badge color="success">1</ion-badge>
+                </ion-col>
+                <ion-col size="11">
+                  <ion-label>{{ 'REGLAPF1' | translate }}</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="1">
+                  <ion-badge color="success">2</ion-badge>
+                </ion-col>
+                <ion-col size="11">
+                  <ion-label>{{ 'REGLAPF2' | translate }}</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="1">
+                  <ion-badge color="success">3</ion-badge>
+                </ion-col>
+                <ion-col size="11">
+                  <ion-label>{{ 'REGLAPF3' | translate }}</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="1">
+                  <ion-badge color="success">4</ion-badge>
+                </ion-col>
+                <ion-col size="11">
+                  <ion-label>{{ 'REGLAPF4' | translate }}</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="1">
+                  <ion-badge color="success">5</ion-badge>
+                </ion-col>
+                <ion-col size="11">
+                  <ion-label>{{ 'REGLAPF5' | translate }}</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <div class="text-resalt">{{ 'REGLASPFNOTE' | translate }}</div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item class="accordion" slot="header" color="success">
+        <ion-label> {{"REGLASG" | translate}}</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-card>
+          <img alt="Comida" src="../../assets/img/VillaErnestina1.jpeg" />
+          <ion-card-content class="padding5">
+            <ion-grid fixed class="text-justify">
+              <ion-row>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">1</td>
+                      <td class="rule">
+                        <ion-label>{{ 'REGLA1' | translate }}🌿🐕</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">2</td>
+                      <td class="rule">
+                        <ion-label>{{ 'REGLA2' | translate }}🌿🐕</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">3</td>
+                      <td class="rule">
+                        <ion-label>{{ 'REGLA3' | translate }}💡🚿</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">4</td>
+                      <td class="rule">
+                        <ion-label>{{ 'REGLA4' | translate }}😊🙌</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">5</td>
+                      <td class="rule">
+                        <ion-label>{{ 'REGLA5' | translate }}🤫🔇</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">6</td>
+                      <td class="rule">
+                        <ion-label
+                          >{{ 'PROHIBICION1' | translate }}🚭🚭</ion-label
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item class="accordion" slot="header" color="success">
+        <ion-label> Política de cancelación</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-card>
+          <img alt="Comida" src="../../assets/img/VillaErnestina1.jpeg" />
+          <ion-card-content class="padding5">
+            <ion-grid fixed class="text-justify">
+              <ion-row>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">1</td>
+                      <td class="rule">
+                        <ion-label
+                          >Para confirmar una reservación se requiere un
+                          anticipo mínimo del 50% del total de la
+                          estancia.</ion-label
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">2</td>
+                      <td class="rule">
+                        <ion-label
+                          >Todos los anticipos son no reembolsables, ya que
+                          garantizan la disponibilidad del alojamiento y
+                          bloquean las fechas solicitadas.</ion-label
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">3</td>
+                      <td class="rule">
+                        <ion-label
+                          >En caso de cancelación: Si se avisa con al menos 15
+                          días de anticipación, el huésped podrá reagendar su
+                          estancia dentro de los 3 meses siguientes (sujeto a
+                          disponibilidad). Si la cancelación se realiza con menos
+                          de 15 días de anticipación, no será posible reagendar
+                          y el anticipo se perderá.</ion-label
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="padding5">
+                  <table>
+                    <tr class="trgeneral">
+                      <td class="number">4</td>
+                      <td class="rule">
+                        <ion-label>En caso de no presentarse en la fecha reservada (no show), se pierde el anticipo y la reservación queda cancelada.</ion-label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
