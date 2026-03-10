@@ -58,6 +58,11 @@ export class LoginPage implements OnInit {
         this.token = params['token'];
         this.tokenstorage = await this.storage.get("token")
 
+        // if neither query param nor stored token exists, stay on login page
+        if ((!this.token || this.token === 'undefined') && !this.tokenstorage) {
+          return;
+        }
+
         // console.log("Token Param:" + this.token);
         // console.log("Token storage:" + this.tokenstorage);
         if (this.token && this.token != 'undefined') {
@@ -143,8 +148,8 @@ export class LoginPage implements OnInit {
     console.log(await this._storage?.get("platform"));
   }
 
-  public login(data): void {
-    this.token = data.token;
+  public async login(data): Promise<void> {
+    this.token = data?.token;
     if (this.token == "admin12345") {
       this.presentToast('bottom', 'Acceso Correcto');
       this.router.navigate(['/view-huesped']);
@@ -153,7 +158,13 @@ export class LoginPage implements OnInit {
       this.huespedService.setToken(this.token);
       this.goToTab1(this.token);
     } else {
+      // invalid token: clear any stored data and send back to login
       this.presentToast('bottom', 'Acceso Incorrecto');
+      await this.storage.clear();          // clear primary Ionic storage as well
+      await this._storage?.clear();        // clear secondary reference
+      this.token = null;
+      this.myForm.reset();
+      this.router.navigate(['login']);     // explicitly go to login route
     }
   }
 

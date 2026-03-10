@@ -1,19 +1,29 @@
-.back {
+.login-bg {
     --background: #fff url('../../assets/img/VillaErnestina0.png') no-repeat center center / cover;
 }
 
-.text-center {
+.login-wrapper {
     display: flex;
-    //align-items: center;
+    height: 100%;
     justify-content: center;
-    flex-direction: column;
-    --background: #ffffff;
-    opacity: 80%;
-    margin-top: 50%;
+    align-items: center;
+}
+
+.login-card {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    --background: rgba(255, 255, 255, 0.9);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .imglogo {
-    width: 300px;
+    width: 200px;
+    margin: 0 auto 16px;
 }
 
 .divimg {
@@ -22,6 +32,7 @@
     flex-direction: column;
 }
 
+/* legacy classes removed or repurposed */
 .header {
     padding-top: 0;
     padding-bottom: 0;

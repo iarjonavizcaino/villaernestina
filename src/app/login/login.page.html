@@ -5,28 +5,28 @@
     </ion-toolbar>
 </ion-header> -->
 
-<ion-content [fullscreen]="true" *ngIf="!token||token==='undefined'" class="back">
+<ion-content [fullscreen]="true" *ngIf="!token||token==='undefined'" class="login-bg">
 
-    <ion-card class="text-center">
-        <div class="divimg">
-            <img alt="Bienvenida3" src="../../assets/img/Logosinfondo.png" class="imglogo" />
-        </div>
-        <ion-card-header class="header">
-            <ion-card-subtitle>Capture su token de acceso</ion-card-subtitle>
-            <ion-card-title>Login</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <form [formGroup]="myForm">
-                <ion-item lines="full" *ngIf="isContentLoaded">
-                    <ion-label position="floating">Token</ion-label>
-                    <ion-input autofocus="true" #input type="text" required formControlName="token" type="password" (keyup.enter)="login(myForm.value)"></ion-input>
-                </ion-item>
-                <ion-row>
-                    <ion-col>
-                        <ion-button type="submit" color="danger" expand="block" (click)="login(myForm.value)">Sign In</ion-button>
-                    </ion-col>
-                </ion-row>
-            </form>
-        </ion-card-content>
+  <div class="login-wrapper">
+    <ion-card class="login-card">
+      <div class="divimg">
+        <img alt="Bienvenida" src="../../assets/img/Logosinfondo.png" class="imglogo" />
+      </div>
+      <ion-card-header>
+        <ion-card-title class="title">Bienvenido</ion-card-title>
+        <ion-card-subtitle>Ingrese su token de acceso</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="myForm" (ngSubmit)="login(myForm.value)">
+          <ion-item lines="full" *ngIf="isContentLoaded">
+            <ion-icon slot="start" name="key-outline"></ion-icon>
+            <ion-label position="floating">Token</ion-label>
+            <ion-input #input type="password" required formControlName="token" autofocus (keyup.enter)="login(myForm.value)"></ion-input>
+          </ion-item>
+
+          <ion-button type="submit" expand="block" color="primary">Acceder</ion-button>
+        </form>
+      </ion-card-content>
     </ion-card>
+  </div>
 </ion-content>
