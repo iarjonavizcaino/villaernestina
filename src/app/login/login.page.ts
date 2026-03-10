@@ -3,7 +3,8 @@ import { Huesped } from 'src/app/models/huesped';
 import { HuespedService } from '../services/huesped.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ToastController } from '@ionic/angular';
+import { ToastController, IonInput } from '@ionic/angular';
+import { firstValueFrom } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { LoadingController } from '@ionic/angular';
@@ -23,7 +24,7 @@ export class LoginPage implements OnInit {
   public tokenstorage: string;
   public roomname: string;
   public roomcode: string;
-  @ViewChild('input') myInput;
+  @ViewChild('input', { static: false }) myInput: IonInput;
   isContentLoaded: boolean = false;
 
   constructor(private loadingCtrl: LoadingController, private route: ActivatedRoute, private fb: FormBuilder, private toastController: ToastController, private router: Router, private huespedService: HuespedService, private storage: Storage) {
@@ -39,7 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.showLoading();
+    //this.showLoading();
     this.myForm = this.fb.group({
       token: ""
     });
@@ -49,81 +50,47 @@ export class LoginPage implements OnInit {
 
   ionViewDidEnter(){
       this.isContentLoaded = true;
+      // ensure token field gets focus when the view is shown
+      setTimeout(() => this.myInput?.setFocus(), 250);
   }
 
   async verifyToken() {
-    this.route.queryParams
-      .subscribe(async params => {
-        // console.log(params); // { brand: "bmw" }
-        this.token = params['token'];
-        this.tokenstorage = await this.storage.get("token")
+    this.route.queryParams.subscribe(async params => {
+      this.token = params['token'];
+      this.tokenstorage = await this.storage.get("token");
 
-        // if neither query param nor stored token exists, stay on login page
-        if ((!this.token || this.token === 'undefined') && !this.tokenstorage) {
-          return;
-        }
-
-        // console.log("Token Param:" + this.token);
-        // console.log("Token storage:" + this.tokenstorage);
-        if (this.token && this.token != 'undefined') {
-          if (this.token != this.tokenstorage) {
-            await this._storage?.set("token", this.token);
-            this.tokenstorage = this.token;
-          }
-          setTimeout(async () => {
-            this.huesped = await this.huespedService.getHuespedByToken(this.token)
-
-            if (this.huesped) {
-              //this.presentToast('bottom', 'Ingreso correcto');
-              let room: Room;
-              this.huespedService.setToken(this.token);
-              room = await this.huespedService.getRoom(this.huesped.room);
-              this.roomname = room.name;
-              this.roomcode = room.code;
-
-              await this.setStorageData();
-              await this.getStorageData();
-              console.log(this._storage);
-
-              //this._storage = await this.storage.create();
-              this.goToTab1(this.token);
-            } else {
-              await this._storage.clear();
-              this.router.navigate(['']);
-            }
-          }, 2000);
-
-        } else {
-          if (this.tokenstorage && this.tokenstorage != 'undefined') {
-            this.token = this.tokenstorage;
-          }
-          setTimeout(async () => {
-            this.huesped = await this.huespedService.getHuespedByToken(this.token)
-
-            if (this.huesped) {
-              //this.presentToast('bottom', 'Ingreso correcto');
-              let room: Room;
-              this.huespedService.setToken(this.token);
-              room = await this.huespedService.getRoom(this.huesped.room);
-              this.roomname = room.name;
-              this.roomcode = room.code;
-
-              await this.setStorageData();
-              await this.getStorageData();
-              console.log(this._storage);
-
-              //this._storage = await this.storage.create();
-              this.goToTab1(this.token);
-            } else {
-              await this._storage.clear();
-              this.router.navigate(['']);
-            }
-          }, 2000);
-        }
-        //this.presentToast('bottom', 'Acceso Incorrecto');
-        // console.log(token); // bmw
+      // if there is no token anywhere, stay on login
+      if ((!this.token || this.token === 'undefined') && !this.tokenstorage) {
+        return;
       }
-      );
+
+      if (this.token && this.token !== 'undefined') {
+        if (this.token !== this.tokenstorage) {
+          await this._storage?.set("token", this.token);
+          this.tokenstorage = this.token;
+        }
+      } else {
+        this.token = this.tokenstorage;
+      }
+
+      // perform lookup using Firestore query to avoid stale cache
+      const result = await firstValueFrom(this.huespedService.getHuespedsByTokenToShow(this.token));
+      if (result && result.length > 0) {
+        this.huesped = result[0];
+        let room: Room;
+        this.huespedService.setToken(this.token);
+        room = await this.huespedService.getRoom(this.huesped.room);
+        this.roomname = room.name;
+        this.roomcode = room.code;
+
+        await this.setStorageData();
+        await this.getStorageData();
+        this.goToTab1(this.token);
+      } else {
+        await this._storage?.clear();
+        this.router.navigate(['']);
+      }
+    });
   }
 
   async setStorageData() {
@@ -150,21 +117,27 @@ export class LoginPage implements OnInit {
 
   public async login(data): Promise<void> {
     this.token = data?.token;
-    if (this.token == "admin12345") {
+    if (this.token === "admin12345") {
       this.presentToast('bottom', 'Acceso Correcto');
       this.router.navigate(['/view-huesped']);
-    } else if (this.huespedService.getHuespedByToken(this.token)) {
+      return;
+    }
+
+    // query firestone directly instead of cache
+    const matches = await firstValueFrom(this.huespedService.getHuespedsByTokenToShow(this.token));
+    if (matches && matches.length > 0) {
+      this.huesped = matches[0];
       this.presentToast('bottom', 'Ingreso correcto');
       this.huespedService.setToken(this.token);
       this.goToTab1(this.token);
     } else {
-      // invalid token: clear any stored data and send back to login
       this.presentToast('bottom', 'Acceso Incorrecto');
-      await this.storage.clear();          // clear primary Ionic storage as well
-      await this._storage?.clear();        // clear secondary reference
+      await this.storage.clear();
+      await this._storage?.clear();
       this.token = null;
       this.myForm.reset();
-      this.router.navigate(['login']);     // explicitly go to login route
+      this.router.navigate(['login']);
+      //setTimeout(() => this.myInput?.setFocus(), 250);
     }
   }
 
