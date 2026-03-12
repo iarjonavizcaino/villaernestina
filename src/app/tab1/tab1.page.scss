@@ -1,14 +1,3 @@
-.checkout-ins {
-    font-size: 18px;
-    padding: 0px;
-    font-weight: bold;
-    color: black;
-}
-
-.black {
-    background: black;
-}
-
 .ion-padding {
     font-family: Arial, Helvetica, sans-serif;
     padding: 8px;
@@ -32,22 +21,6 @@ ion-content {
     --background: #e8e8e8 !important;
 }
 
-.date {
-    // font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    // background: #1ed894;
-    // color: white;
-    // margin-right: auto;
-    text-align: center;
-}
-
-.text-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
 .hour {
     // font-family: Arial, Helvetica, sans-serif;
     //font-size: 30px;
@@ -59,52 +32,11 @@ ion-content {
 
 .checkingrid {
     margin: 0px 0px 5px 0px !important;
-    //padding: 0px;
 }
 
 .checkinheader {
     text-align: center;
     padding: 5px
-}
-
-.kayak {
-    background-image: url('../../assets/img/Kayak.jpeg');
-}
-
-.massage {
-    background-image: url('../../assets/img/Masaje.jpeg');
-}
-
-.temazcal {
-    background-image: url('../../assets/img/Temazcal.jpeg');
-}
-
-.ciclism {
-    background-image: url('../../assets/img/Ciclismo.jpeg');
-}
-
-.boat {
-    background-image: url('../../assets/img/Lancha.jpeg');
-}
-
-.swim {
-    background-image: url('../../assets/img/Natacion.jpeg');
-}
-
-.carditem {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    height: 100%;
-}
-
-.card-text {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
-    height: 150px;
-    font-size: x-large;
 }
 
 .bold {
@@ -114,16 +46,6 @@ ion-content {
     padding-top: 5px;
 }
 
-.carditem:hover {
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-}
-
-// ol {
-//     margin-block-start: 0px !important;
-//     margin-block-end: 0px !important;
-//     padding-inline-start: 5px !important;
-// }
 .no-padding {
     padding: 5px;
 }
@@ -141,45 +63,12 @@ ion-content {
     font-family: CerealBold;
 }
 
-.textjustify {
-    text-align: justify;
-    display: flex;
-}
-
 .nopaddingbottom {
     padding-bottom: 0px !important;
 }
 
 .nopaddingtop2 {
     padding-top: 4px !important;
-}
-
-.name {
-    font-family: CerealBold;
-}
-
-.thanks {
-    color: #5b5757;
-    font-size: 16px;
-}
-
-.continue {
-    line-height: normal!important;
-    font-size: 13px;
-}
-
-.txtSubtitle {
-    font-weight: bolder;
-}
-
-.disposition {
-    color: black;
-    font-family: CerealBold;
-    font-size: 15px;
-}
-
-.fontchip {
-    font-size: 11px;
 }
 
 .card-content2 {
@@ -190,16 +79,6 @@ ion-content {
     padding: 5px;
     margin: 0px;
     margin-bottom: 10px;
-}
-
-.card-checkin {
-    padding: 0px;
-    margin: 0px;
-    // margin-bottom: 10px;
-}
-
-.wifi {
-    padding: 0px;
 }
 
 .wifi-content {
@@ -242,14 +121,6 @@ ion-button {
     justify-content: center;
     display: flex;
     text-transform: inherit;
-}
-
-.accordion {
-    font-size: 14px;
-    font-weight: bolder;
-    // text-decoration: underline;
-    border-radius: 10px;
-    --ion-color-shade: #ffffff !important;
 }
 
 .fontbold {
