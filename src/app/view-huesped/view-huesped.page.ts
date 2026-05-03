@@ -248,8 +248,14 @@ export class ViewHuespedPage implements OnInit {
 
   public deleteSpaces(cad: string) {
     // console.log("Cadena "+cad);
+
     // console.log("Cadena sin espacios"+cad.replace(/ /g,""));
-    return cad.replace(/ /g, "");
+    
+    return cad.replace(/\u200E|\u200F|\u202A|\u202B|\u202C/g, '') // elimina caracteres invisibles
+    .replace(/\s+/g, '') // elimina espacios
+    .replace(/[^\d+]/g, ''); // deja solo números y +
+
+
   }
 
   public diffInDays(inicio, fin) {

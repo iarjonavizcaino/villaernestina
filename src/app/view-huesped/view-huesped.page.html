@@ -409,7 +409,7 @@
             <ion-label>Perfil </ion-label>
           </ion-chip>
         </a>
-        <a href="https://wa.me/{{item.phone}}" target="_blank">
+        <a href="https://wa.me/{{deleteSpaces(item.phone)}}?text={{'Hola '+item.name +' '+ message+item.token}}" target="_blank" href="https://wa.me/{{item.phone}}" target="_blank">
           <ion-chip [outline]="true">
             <ion-icon
               name="logo-whatsapp"
