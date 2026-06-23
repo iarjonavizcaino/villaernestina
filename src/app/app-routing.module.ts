@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'elephant',
     loadChildren: () => import('./elephant/elephant.module').then( m => m.ElephantPageModule)
   },
+  {
+    path: 'seguimiento',
+    loadChildren: () => import('./seguimiento/seguimiento.module').then( m => m.SeguimientoPageModule)
+  },
   /*{
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)

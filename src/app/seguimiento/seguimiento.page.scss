@@ -1,0 +1,32 @@
+.seguimiento-container {
+  font-family: 'Inter', sans-serif;
+  
+  .serif-title {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Custom brand colors matching the logo */
+  .bg-brand-primary { background-color: #4f9a94; } /* Soft Turquoise */
+  .text-brand-primary { color: #4f9a94; }
+  .border-brand-primary { border-color: #4f9a94; }
+  .bg-brand-secondary { background-color: #e07a5f; } /* Warm Terracotta */
+  .text-brand-secondary { color: #e07a5f; }
+  .bg-brand-light { background-color: #f4ece8; } /* Warm Sand Gray */
+  .text-brand-dark { color: #2d4542; } /* Dark Teal-Gray */
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+  }
+}

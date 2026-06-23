@@ -48,6 +48,12 @@ body {
     margin: auto;
 }
 
+body:has(.seguimiento-container) {
+    max-width: none !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+
 /***For Guest Page***/
 .domotitle {
     font-family: HighSpirited !important;
